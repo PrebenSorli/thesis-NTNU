@@ -157,6 +157,7 @@
 \RequirePackage{graphicx}                   % including figures
 \RequirePackage{xcolor}                     % selecting text color
 \RequirePackage{emptypage}                  % empty pages should be blank
+\RequirePackage{microtype}
 
 % --- Math --- %
 \RequirePackage{amsmath}                    % advanced math typesetting
