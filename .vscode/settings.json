@@ -1,0 +1,7 @@
+{
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "latex-workshop.latex.bibDirs": [
+        "~/Documents/theish-ntnu/"
+    ]
+}
