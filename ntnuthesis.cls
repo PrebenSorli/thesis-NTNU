@@ -158,6 +158,7 @@
 \RequirePackage{xcolor}                     % selecting text color
 \RequirePackage{emptypage}                  % empty pages should be blank
 % \RequirePackage{microtype}
+\RequirePackage{emoji}
 
 % --- Math --- %
 \RequirePackage{amsmath}                    % advanced math typesetting
@@ -213,10 +214,11 @@
 \usetikzlibrary{arrows}
 
 % Page geometry and spacing (same for even and odd pages)
-\geometry{left=4cm, right=4cm, top=4cm, bottom=4.5cm}
+% Page geometry and spacing (same for even and odd pages)
+\geometry{left=2.5cm, right=2.5cm, top=4cm, bottom=4.5cm}
 \frenchspacing
-\setlength{\parskip}{0pt}
-\setlength{\parsep}{0pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
 
 % Roman page numbers from the beginning of the document
 \pagenumbering{roman}

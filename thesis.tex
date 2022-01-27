@@ -10,6 +10,16 @@
 
 \input{glossary.tex} % add glossary and acronym lists before document
 
+% --- Folder structure --- %
+    \usepackage{subfiles} 
+    % Allows compilation of each subfile, rather to compile everything at once
+    % Subfiles must have this file as option while using the documentclass subfile
+    % Loading a subfile is done with \subfile{"path-to-file"}
+
+% --- Macros --- %
+% User defined macros (functions) can go here, these may be overriden for each subfile by using \renewcommand{}[][]{}
+\newcommand{\set}[1]{\{#1\}} % A macro for making a set
+
 \begin{document}
 
 \tableofcontents
@@ -17,9 +27,9 @@
 \printglossaries
 
 \chapter{Introduction}
+    \subfile{chapters/introduction.tex}
 
-\section{Testing Font}
-
-Is this really atkinson hyperlegible? Testing with number 0
+\chapter{Examples}
+    \subfile{chapters/ex.tex}
 
 \end{document}
