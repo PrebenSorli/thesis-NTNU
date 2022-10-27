@@ -3,7 +3,7 @@ all: thesis.pdf
 
 .PHONY: clean
 
-LATEX_FLAGS=-shell-escape -synctex=1
+LATEX_FLAGS=
 BIBER_FLAGS=
 
 thesis.pdf:

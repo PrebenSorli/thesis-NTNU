@@ -143,11 +143,11 @@
 
 
 % --- Fonts --- %
-% \RequirePackage[utf8]{inputenc}             % for special characters in input
+%\RequirePackage[utf8]{inputenc}             % for special characters in input
 \RequirePackage{fontspec}                % modern font encoding
-% \RequirePackage[charter, cal=cmcal]{mathdesign} % main font with math support
+%\RequirePackage[charter, cal=cmcal]{mathdesign} % main font with math support
 \setmainfont{Atkinson Hyperlegible}       % sans serif font
-% \RequirePackage[scaled=.82]{DejaVuSansMono} % monospace font (for code)
+%\RequirePackage[scaled=.82]{DejaVuSansMono} % monospace font (for code)
 
 % --- Layout & Graphics --- %
 \RequirePackage{geometry}                   % page layout
@@ -162,7 +162,7 @@
 
 % --- Math --- %
 \RequirePackage{amsmath}                    % advanced math typesetting
-\RequirePackage{amssymb}
+%\RequirePackage{amssymb}
 \RequirePackage{amsthm}                     % theorem environments
 \RequirePackage[                            % subfigures with captions within figures
     font=small,                             % and customisation of captions

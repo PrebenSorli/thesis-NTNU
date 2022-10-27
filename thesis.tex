@@ -1,24 +1,22 @@
 \documentclass[british,titlepage]{ntnuthesis}
 
-\title{An NTNU Thesis \LaTeX{} Document Class}
-\shorttitle{An NTNU Thesis Document Class}
-\author{CoPCSE$@$NTNU \& Thomas Wilskow Thorbjørnsen}
-\shortauthor{CoPCSE$@$NTNU \& TWT}
+\title{Mathy stuff}
+\shorttitle{Math}
+\author{Preben Hast Sørli}
+%\shortauthor{CoPCSE$@$NTNU \& TWT}
 \date{\today}
 
 \addbibresource{thesis.bib}
 
 \input{glossary.tex} % add glossary and acronym lists before document
-
+\input{preamble.tex}
 % --- Folder structure --- %
     \usepackage{subfiles} 
     % Allows compilation of each subfile, rather to compile everything at once
     % Subfiles must have this file as option while using the documentclass subfile
     % Loading a subfile is done with \subfile{"path-to-file"}
 
-% --- Macros --- %
-% User defined macros (functions) can go here, these may be overriden for each subfile by using \renewcommand{}[][]{}
-\newcommand{\set}[1]{\{#1\}} % A macro for making a set
+
 
 \begin{document}
 
@@ -28,8 +26,6 @@
 
 \chapter{Introduction}
     \subfile{chapters/introduction.tex}
-
-\chapter{Examples}
-    \subfile{chapters/ex.tex}
-
-\end{document}
+\chapter{Sheaves and K-sheaves}
+    \subfile{chapters/K-sheaves.tex}
+    \end{document}
