@@ -162,7 +162,7 @@
 
 % --- Math --- %
 \RequirePackage{amsmath}                    % advanced math typesetting
-%\RequirePackage{amssymb}
+\RequirePackage{amssymb}
 \RequirePackage{amsthm}                     % theorem environments
 \RequirePackage[                            % subfigures with captions within figures
     font=small,                             % and customisation of captions
@@ -180,14 +180,14 @@
 \RequirePackage{csquotes}                   % recommended for biblatex
 \RequirePackage[
     backend=biber,
-    style=ieee,
+    style=alphabetic,
     maxbibnames=99,
     minbibnames=3,
     maxcitenames=2,
     mincitenames=1,
-    citestyle=numeric-comp,
-    sorting=none,
-    dashed=false
+    %citestyle=numeric-comp,
+    sorting=none
+    %dashed=false
 ]{biblatex}                                 % for bibliography
 \RequirePackage{booktabs}                   % better formatting of tables
 \RequirePackage{hyperref}                   % interactive cross references
@@ -299,20 +299,20 @@
 %Defining theorem environments
 % --- Defining theorem env --- % 
 \theoremstyle{plain}
-\newtheorem{thm}{Theorem}[section]
-\newtheorem{lemma}[thm]{Lemma}
-\newtheorem{proposition}[thm]{Proposition}
-\newtheorem{corollary}{Corollary}[thm]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}{Corollary}[theorem]
 
 % --- Defining definition env --- %
 \theoremstyle{definition}
-\newtheorem{definition}[thm]{Definition}
+\newtheorem{definition}[theorem]{Definition}
 
 % --- Defining remark env --- %
 \theoremstyle{remark}
-\newtheorem{remark}[thm]{Remark}
-\newtheorem{construction}[thm]{Construction}
-\newtheorem{observation}[thm]{Observation}
-\newtheorem{example}[thm]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{example}[theorem]{Example}
 
 % --- Defining proof environment --- %

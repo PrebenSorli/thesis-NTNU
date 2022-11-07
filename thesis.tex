@@ -16,16 +16,15 @@
     % Subfiles must have this file as option while using the documentclass subfile
     % Loading a subfile is done with \subfile{"path-to-file"}
 
-
-
 \begin{document}
 
 \tableofcontents
 
-\printglossaries
+%\printglossaries
 
 \chapter{Introduction}
-    \subfile{chapters/introduction.tex}
+\subfile{chapters/introduction.tex}
 \chapter{Sheaves and K-sheaves}
-    \subfile{chapters/K-sheaves.tex}
-    \end{document}
+\subfile{chapters/K-sheaves.tex}
+\printbibliography
+\end{document}
