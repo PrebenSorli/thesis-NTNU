@@ -1,6 +1,6 @@
 \documentclass[british,titlepage]{ntnuthesis}
 
-\title{Mathy stuff}
+\title{title}
 \shorttitle{Math}
 \author{Preben Hast Sørli}
 %\shortauthor{CoPCSE$@$NTNU \& TWT}
@@ -19,14 +19,18 @@
 \begin{document}
 
 \tableofcontents
-
+\listoftodos
 %\printglossaries
-
+\chapter{Verdier Duality for stable $\infty$-categories}
+\subfile{chapters/introduction.tex}
 \chapter{Cofinality}
 \subfile{chapters/cofinality.tex}
 \chapter{Kan Extensions}
 \subfile{chapters/Kan.tex}
 \chapter{Sheaves and K-sheaves}
 \subfile{chapters/K-sheaves.tex}
-\printbibliography
+\chapter{Verdier Duality}
+\subfile{chapters/verdier.tex}
+\chapter*{bibname}
+\printbibliography[heading=none]
 \end{document}

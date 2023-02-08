@@ -1,0 +1,191 @@
+\documentclass[../thesis.tex]{subfiles}
+\begin{document}
+\section{Classical Verdier Duality}
+I don't know, maybe write some shit about regular Verdier Duality for 1-categories and stuff.
+Blablabla $k$ a field and $A$ the category of chain complexes of $k$-vector spaces.
+Vector space duality gives a limit preserving functor $\Nerve(A^{op}) \to \Nerve(A)$ which induces a functor
+\[
+    \Shv(X;\Nerve(A)^{op}) \to \Shv(X;\Nerve(A))
+\]
+for any locally compact Hausdorff space.
+Composing with the equivalence below yields a functor
+\[
+    \D': \Shv(X;\Nerve(A))^{op} \to \Shv(X;\Nerve(A))
+\]
+and it is this functor that is usually called Verdier Duality. This is not necesarrily an equivalence of $\infty$-categories unless certain finiteness conditions are imposed.
+
+
+\section{Verdier Duality in infinity-categories}
+This chapter is all about proving the following theorem:
+\begin{theorem}[{\cite[][Theorem 5.5.5.1]{HA}}]\label{VerdierDuality}
+    Let $X$ be a locally compact Hausdorff space and $\C$ be a stable $\infty$-category with small limits and colimits.
+    Then we have the following equivalence of $\infty$-categories
+    \[
+        \D : \Shv(X;\C)^{op} \simeq \Shv(X;\C^{op}).
+    \]
+\end{theorem}
+We will be using the theory of $\K$-sheaves set up in the previous chapter to prove the theorem.
+By corollary \ref{7.3.4.10} we can rewrite theorem \ref{VerdierDuality} in terms of $\K$-sheaves instead:
+\begin{theorem}\label{KVerdierDuality}
+    Let $X$ be a locally compact Hausdorff space and $\C$ be a stable $\infty$-category with small limits and colimits.
+    Then we have the following equivalence of $\infty$-categories:
+    \[
+        \D_{\K} : \KShv(X;\C)^{op} \simeq \KShv(X;\C^{op}).
+    \]
+\end{theorem}
+\begin{definition}[{\cite[Notation 5.5.5.5]{HA}}]\label{5.5.5.5}
+    Let $X$ be a locally compact Hausdorff space.
+    We define a partially ordered set $M$ as follows:
+    \begin{enumerate}
+        \item The objects of $M$ are pairs $(i,S)$ where $0 \leq i \leq 2$ and $S \subseteq X$ such that $i=0$ implies $S$ is compact and $i=2$ implies $X-S$ is compact.
+        \item We have $(i,S) \leq (j,T)$ if either $i\leq j$ and $S\subseteq T$, or $i=0$ and $j=2$.
+    \end{enumerate}
+\end{definition}
+\begin{remark}[{\cite[Remark 5.5.5.6]{HA}}]
+    Observe that projecting $(i,S) \to i$ gives a map $\varphi: M \to [2]$ of partially ordered sets.
+    For $0 \leq i \leq 2$ denote the fiber $\varphi^{-1}\{i\}$ by $M_i$.
+    Also, observe that $M_0 \simeq \K(X), M_2\simeq \K(X)^{op}$ and $M_1$ is isomorphic to the powerset poset of $X$.
+\end{remark}
+\begin{definition}
+    Let $M'$ denote the partially ordered sest of pairs $(i,S)$, where $0 \leq i \leq 2$ and $S \subseteq X$ such that $i=0$ implies $S$ is compact and $i=2$ implies $X-S$ is either open or compact.
+    Let $(i, S) \leq (j,T)$ if $i\leq j$ and $S\subseteq T$ or if $i=0$ and $j=2$.
+    For $0 \leq i \leq 2$, let $M_i'$ denote the subset $\{(j,S) \in M' | j=i\} \subseteq M'$.
+\end{definition}
+Let's see if we can connect this new notion of Verdier duality to the classical notion of exchanging cohomology with cohomology with compact support.
+\begin{definition}[{\cite[Definition 5.5.5.9]{HA}}]
+    Let $X$ be a locally compact Hausdorff space and $\C$ a pointed $\infty$-category with small limits and colimits.
+    For a sheaf $\F \in \Shv(X;\C)$ and $K$ compact we denote by $\Gamma_K(X;\F)$ the fiber product $\F(X)\times_{\F(X-K)0}$.
+    For $U$ open, we denote by $\Gamma_c(U;\F)$ the filtered colimit $\colim_{K\subseteq U}\Gamma_K(X;\F)$ where $K$ ranges over all compact subsets of $U$.
+    \prepp{Let's be consistent on wether we write $\colim_{K\subseteq U}$ or $\colim_{\K(X)_{/U}}$.}
+    \prepp{Lurie writes $\colim_{K\subseteq U}\Gamma_K(M;\F)$, but I think that is a mistake.}
+    The construction $U \mapsto \Gamma_c(U;\F)$ determines a functor
+    \[
+        \Gamma_c(\blank ;\F) : \Nerve(\Open(X)) \to \C .
+    \]
+\end{definition}
+\begin{remark}\label{GammaKXisGammaKU}
+    Observe that for $K$ a compact subset of an open subset $U$ we have $\Gamma_K(X;\F) = \Gamma_K(U;\F)$.
+\end{remark}
+\begin{proof}
+    Because $\F$ is a sheaf we have pullbacks
+    \[\begin{tikzcd}
+            {fib(f)} && {\Gamma(X;\F)} && {\Gamma(U;\F)} \\
+            \\
+            0 && {\Gamma(X-K;\F)} && {\Gamma(U-K;\F)}
+            \arrow[from=1-3, to=1-5]
+            \arrow["f", from=1-3, to=3-3]
+            \arrow[from=3-3, to=3-5]
+            \arrow["g", from=1-5, to=3-5]
+            \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-3, to=3-5]
+            \arrow[from=1-1, to=3-1]
+            \arrow[from=3-1, to=3-3]
+            \arrow[from=1-1, to=1-3]
+            \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=3-3]
+        \end{tikzcd}\]
+    and as the composition of pullbacks is again a pullback we get $\Gamma_K(X;\F)=fib(f)=fib(g)=\Gamma_K(U;\F)$.
+\end{proof}
+\begin{lemma}[{\cite[Proposition 5.5.5.7]{HA}}]
+    Let $X$ be a locally compact Hausdorff space, $\C$ be a stable $\infty$-category with small limits and colimits and $M$ be as in \ref{5.5.5.5}.
+    Let $F : \Nerve(M) \to \C$ be a functor.
+    Then the following conditions are equivalent:
+    \begin{enumerate}
+        \item The restriction $(F|\Nerve(M_0))^{op}$ determines a $\K$-sheaf $\Nerve(\K(X))^{op} \to \C^{op}$, the restriction $F|\Nerve(M_1)$ is zero, and $F$ is left Kan extended from $\Nerve(M_0 \cup M_1)$.
+        \item The restriction $F|\Nerve(M_2)$ determines a $\K$-sheaf $\Nerve(\K(X))^{op} \to \C$, the restriction $F|\Nerve(M_1)$ is zero, and $F$ is right Kan extended from $\Nerve(M_1 \cup M_2)$.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    We start by assuming condition (2), so let $F: \Nerve(M) \to \C$ be such a functor.
+    Let $\D$ denote the full subcategory of $\Fun(\Nerve(M'), \C)$ spanned by those functors $F$ satisfying the following conditions:
+    \begin{enumerate}
+        \item $F|\Nerve(M_2)$ is a $\K$-sheaf on $X$.
+        \item $F|\Nerve(M'_2)$ is a right Kan extension of $F|\Nerve(M_2)$.
+        \item $F|\Nerve(M'_1)$ is zero.
+        \item $F|\Nerve(M')$ is a right Kan extension of $F|\Nerve(M'_1 \cup M'_2)$.
+    \end{enumerate}
+    By \cite[Proposition 4.3.2.15]{HTT} we can extend $F$ to a functor $F' \in \D$.
+    \prepp{\sout{I will add this proposition to the chapter on Kan extensions when I understand it. I don't really understand how we apply it here either, but will ask Rune.}
+        Think this also just comes down to fully faithful Kan extensions along fully faithful functors give actual on the nose extensions.}
+    Observe that we have a bijection between $\Open(X)^{op}$ and the partially ordered set of closed subsets of $X$ by sending $\Open(X) \ni U \mapsto (X - U)$ and we have a natural inclusion $\Open(X)^{op} \hookrightarrow M_2'$.
+    By Theorem \ref{7.3.4.9} we can restrict $\Fun(\Open(X)^{op}, \C)$ to $\Shv(X;\C)$, so we can also restrict $M_2'$ and even $\D$ to $\Shv(X;\C)$.
+    Let $\F$ be the sheaf obtained by restricting $F'$. We will first prove that $F|\Nerve(M_0)$ is given informally by the formula $F|\Nerve(M_0)(K)=\Gamma_K(X;\F)$.
+    \prepp{Maybe have this as a separate lemma.}
+    Define $\varphi:\Nerve(M_0) \to \Fun(\Delta^1\times \Delta^1, \Nerve(M'))$ by sending an object $(0,K) \in M_0$ to the diagram
+    \[\begin{tikzcd}
+            {(0,K)} && {(1,K)} \\
+            \\
+            {(2,\emptyset)} && {(2,K)}
+            \arrow[from=1-1, to=1-3]
+            \arrow[from=1-3, to=3-3]
+            \arrow[from=3-1, to=3-3]
+            \arrow[from=1-1, to=3-1].
+        \end{tikzcd}\]
+    \prepp{By evil magic and superlemma \ref{superlemma} observe that for each $(0,K)\in M_0$ the image $\varphi(0,K)$ can be regarded as a left cofinal map $\mathrm{evil}:\Lambda_2^2 \to (M_1'\cup M_2')_{(0,K)/}$.}
+    We can regard $\varphi(0,K)$ as a map $i: \Lambda_2^2 \to (M_1'\cup M_2')_{(0,K)/}$:
+    \[\begin{tikzcd}
+            && a &&&&&& {(0,K)\to(1,K)} \\
+            &&& {} &&& {} \\
+            b && c &&&& {(0,K)\to(2,\emptyset)} && {(0,K)\to(2,K)}
+            \arrow[from=1-9, to=3-9]
+            \arrow[from=3-7, to=3-9]
+            \arrow[from=3-1, to=3-3]
+            \arrow[from=1-3, to=3-3]
+            \arrow[from=2-4, to=2-7]
+        \end{tikzcd}\]
+    Here we have abused notation to write the fiber product $\Nerve(M')_{(0, K) /} \times_{\Nerve(M')}\Nerve\left(M_1^{\prime} \cup M_2^{\prime}\right)$ as $ \Nerve(M_1'\cup M_2')_{(0,K)/}$. By \ref{superlemma} $i$ is cofinal if and only if for every $(m,A) \in \Nerve(M_1'\cup M_2')_{(0,K)/}$ the fiber product
+    \[\begin{tikzcd}
+            {\mathrm{PB}} && {\left(\Nerve(M_1' \cup M_2')_{(0,K)/}\right)_{(m,A)/}} \\
+            \\
+            {\Lambda_2^2} && {\Nerve(M_1'\cup M_2')_{(0,K)/}}
+            \arrow[from=1-1, to=1-3]
+            \arrow["j", hook',from=1-3, to=3-3]
+            \arrow["i", hook,from=3-1, to=3-3]
+            \arrow[from=1-1, to=3-1]
+            \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=3-3]
+        \end{tikzcd}\]
+    is weakly contractible.
+    As these are just simplicial sets\footnote{\prepp{Or is it another reason?}} the pullback is exactly the subset of $\Lambda_2^2 \times \left(\Nerve(M_1' \cup M_2')_{(0,K)/}\right)_{(m,A)/}$ containing those $(t, (r, B))$ such that $i(t)=j(r,B)$.
+    %Objects in $\left(\Nerve(M_1' \cup M_2')_{(0,K)/}\right)_{A/}$ are of the form $(n, B) \leq (m, A)$.
+    As $j$ is just the inclusion $j((0,K) \to (m, A) \to (r,B))=((0,K) \to (r,B))$.
+    Since $i(a)=(2,\emptyset), i(b)=(1,K)$ and $i(c)=(2,K)$ and the pullbacks of monos are mono $\mathrm{PB}$ has to be a subcategory of
+    \[\begin{tikzcd}
+            && {(b,(1,K))} \\
+            \\
+            {(a,(2,\emptyset))} && {(c,(2,K))}
+            \arrow[from=3-1, to=3-3]
+            \arrow[from=1-3, to=3-3].
+        \end{tikzcd}\]
+    Observe that this only fails to be contractible if $(m,A)$ is such that $\mathrm{PB}=$:
+    % https://q.uiver.app/?q=WzAsMixbMiwwLCIoYiwoMSxLKSkiXSxbMCwyLCIoYSwoMixcXGVtcHR5c2V0KSkiXV0=
+    \[\begin{tikzcd}
+            && {(b,(1,K))} \\
+            \\
+            {(a,(2,\emptyset))}
+        \end{tikzcd}\]
+    \TODO{Why can't we have three objects with no arrows?}
+\end{proof}
+\begin{proposition}[{\cite[Proposition 5.5.5.10]{HA}}]
+    Let $X$ be a locally compact Hausdorff space and $\C$ a pointed and stable $\infty$-category with small limits and colimits.
+    Then the equivalence of $\infty$-categories
+    \[
+        \D : \Shv(X;\C)^{op} \simeq \Shv(X;\C^{op}).
+    \]
+    given in Theorem \ref{VerdierDuality} is given by $\D(\F)(U) = \Gamma_c(U;\F)$, and this is the infinity-categorical generalization of the classical fact that conjugation by Verdier Duality exchanges cohomology and cohomology with compact support.
+    \TODO{Maybe worth trying to make the bridge between this statement and the classical fact even more concrete.}
+\end{proposition}
+\begin{proof}
+    It follows from the proof of Theorem \ref{7.3.4.9} that the equivalence
+    \[
+        \theta: \Shv(X;\C^{op})^{op} \simeq \Shv_{\K}(X;\C^{op})^{op}
+    \]
+    is given by the formula $\theta(\F)(U) = \colim_{\K(X)_{/U}}\F(K)$.
+    \prepp{Is $\colim_{\K(X)_{/U}}\F(K)$ or $\colim_{K \subseteq U}\F(K)$ cleaner?}
+    \prepp{Should consider writing out theta more explicitly in the proof of \ref{7.3.4.9}.}
+    Let $\psi: \Shv(X;\C) \to \Shv_{\K}(X;\C)$ be the equivalence of Corollary \ref{7.3.4.10} and $\psi'$ the equivalence $\Shv_{\K}(X;\C) \to \Shv_{\K}(X;\C^{op})^{op}$.
+    Composing, we get a string of equivalences
+    \[
+        \Shv(X;\C) \xrightarrow{\psi} \Shv_{\K}(X;\C) \xrightarrow{\psi'} \Shv_{\K}(X;\C^{op})^{op} \xrightarrow{\theta} \Shv(X;\C^{op})^{op}
+    \]
+    and taking $op$ gives the desired equivalence $\D:\Shv(X;\C)^{op}\to \Shv(X;\C^{op})^{{op}^{op}}=\Shv(X;\C^{op})$.
+
+\end{proof}
+\end{document}

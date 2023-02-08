@@ -147,6 +147,7 @@
 \RequirePackage{fontspec}                % modern font encoding
 %\RequirePackage[charter, cal=cmcal]{mathdesign} % main font with math support
 \setmainfont{Atkinson Hyperlegible}       % sans serif font
+%\setmainfont{Linux Libertine O}
 %\RequirePackage[scaled=.82]{DejaVuSansMono} % monospace font (for code)
 
 % --- Layout & Graphics --- %
@@ -186,7 +187,7 @@
     maxcitenames=2,
     mincitenames=1,
     %citestyle=numeric-comp,
-    sorting=none
+    sorting=none,
     %dashed=false
 ]{biblatex}                                 % for bibliography
 \RequirePackage{booktabs}                   % better formatting of tables

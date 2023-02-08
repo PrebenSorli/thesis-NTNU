@@ -1,0 +1,25 @@
+\contentsline {todo}{\textbf {Preben:} Is this equivalent to the following limit diagram?}{7}{section*.3}%
+\contentsline {todo}{\textbf {Preben:} This is almost exactly definition of left Kan extension! Is it true that a presheaf is a sheaf if (and only if??) it is a left Kan extension of every possible covering sieve on $X$?}{7}{section*.4}%
+\contentsline {todo}{\textbf {TODO:} Expand on this with references.}{8}{section*.5}%
+\contentsline {todo}{\textbf {Preben:} I'm pretty sure we must regard the union $\EuScript {U}(X) \cup \EuScript {K}(X)$ as a poset contained in the powerset of $X$ here for everything to make sense}{9}{section*.6}%
+\contentsline {todo}{\textbf {Preben:} We regard $\EuScript {K}(X)$ as partially ordered by the $\Subset $ relation. (I think)}{9}{section*.7}%
+\contentsline {todo}{\textbf {Preben:} Might be good to write out the details of why this is contractible.}{9}{section*.8}%
+\contentsline {todo}{\textbf {Preben:} I have not found a nice proof of this implication, but I think the Kan extension is a stronger statement.}{10}{section*.9}%
+\contentsline {todo}{\textbf {Preben:} I'm honestly not entirely sure why we suddenly drop the $\cup W$ part.}{10}{section*.10}%
+\contentsline {todo}{\textbf {Preben:} $(\EuScript {W}\cup \EuScript {K}_{\EuScript {W}}(X) \cup \{U\})^{op} = (\EuScript {W}\cup \EuScript {K}_{\EuScript {W}}(X))^{op, \triangleleft }$}{10}{section*.11}%
+\contentsline {todo}{\textbf {TODO:} Notation $i_*$ comes from it being right adjoint to $i^*$. Write about adjoint description of Kan extensions in Kan chapter.}{10}{section*.12}%
+\contentsline {todo}{\textbf {Preben:} This is probably obvious or easier to show than what I am about to do, so please let me know.}{10}{section*.13}%
+\contentsline {todo}{\textbf {Preben:} This calculation could maybe be a lemma in the Kan chapter instead.}{11}{section*.14}%
+\contentsline {todo}{\textbf {Preben:} Is contractible implies final obvious?}{11}{section*.15}%
+\contentsline {todo}{\textbf {TODO:} Reference this result.}{12}{section*.16}%
+\contentsline {todo}{\textbf {Preben:} I should maybe do this for all four vertices, or at least check how different the argument is for another vertex.}{12}{section*.17}%
+\contentsline {todo}{\textbf {Preben:} Let's be consistent on wether we write $\colim _{K\subseteq U}$ or $\colim _{\EuScript {K}(X)_{/U}}$.}{16}{section*.18}%
+\contentsline {todo}{\textbf {Preben:} Lurie writes $\colim _{K\subseteq U}\Gamma _K(M;\EuScript {F})$, but I think that is a mistake.}{16}{section*.19}%
+\contentsline {todo}{\textbf {Preben:} \sout {I will add this proposition to the chapter on Kan extensions when I understand it. I don't really understand how we apply it here either, but will ask Rune.} Think this also just comes down to fully faithful Kan extensions along fully faithful functors give actual on the nose extensions.}{17}{section*.20}%
+\contentsline {todo}{\textbf {Preben:} Maybe have this as a separate lemma.}{17}{section*.21}%
+\contentsline {todo}{\textbf {Preben:} By evil magic and superlemma \ref {superlemma} observe that for each $(0,K)\in M_0$ the image $\varphi (0,K)$ can be regarded as a left cofinal map $\mathrm {evil}:\Lambda _2^2 \to (M_1'\cup M_2')_{(0,K)/}$.}{18}{section*.22}%
+\contentsline {todo}{\textbf {Preben:} Or is it another reason?}{18}{section*.23}%
+\contentsline {todo}{\textbf {TODO:} Why can't we have three objects with no arrows?}{19}{section*.24}%
+\contentsline {todo}{\textbf {TODO:} Maybe worth trying to make the bridge between this statement and the classical fact even more concrete.}{19}{section*.25}%
+\contentsline {todo}{\textbf {Preben:} Is $\colim _{\EuScript {K}(X)_{/U}}\EuScript {F}(K)$ or $\colim _{K \subseteq U}\EuScript {F}(K)$ cleaner?}{19}{section*.26}%
+\contentsline {todo}{\textbf {Preben:} Should consider writing out theta more explicitly in the proof of \ref {7.3.4.9}.}{19}{section*.27}%
