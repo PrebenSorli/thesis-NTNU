@@ -47,7 +47,7 @@ By corollary \ref{7.3.4.10} we can rewrite theorem \ref{VerdierDuality} in terms
     Also, observe that $M_0 \simeq \K(X), M_2\simeq \K(X)^{op}$ and $M_1$ is isomorphic to the powerset poset of $X$.
 \end{remark}
 \begin{definition}
-    Let $M'$ denote the partially ordered sest of pairs $(i,S)$, where $0 \leq i \leq 2$ and $S \subseteq X$ such that $i=0$ implies $S$ is compact and $i=2$ implies $X-S$ is either open or compact.
+    Let $M'$ denote the partially ordered sets of pairs $(i,S)$, where $0 \leq i \leq 2$ and $S \subseteq X$ such that $i=0$ implies $S$ is compact and $i=2$ implies $X-S$ is either open or compact.
     Let $(i, S) \leq (j,T)$ if $i\leq j$ and $S\subseteq T$ or if $i=0$ and $j=2$.
     For $0 \leq i \leq 2$, let $M_i'$ denote the subset $\{(j,S) \in M' | j=i\} \subseteq M'$.
 \end{definition}
@@ -69,7 +69,7 @@ Let's see if we can connect this new notion of Verdier duality to the classical 
 \begin{proof}
     Because $\F$ is a sheaf we have pullbacks
     \[\begin{tikzcd}
-            {fib(f)} && {\Gamma(X;\F)} && {\Gamma(U;\F)} \\
+            {\fib(f)} && {\Gamma(X;\F)} && {\Gamma(U;\F)} \\
             \\
             0 && {\Gamma(X-K;\F)} && {\Gamma(U-K;\F)}
             \arrow[from=1-3, to=1-5]
@@ -82,9 +82,9 @@ Let's see if we can connect this new notion of Verdier duality to the classical 
             \arrow[from=1-1, to=1-3]
             \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=3-3]
         \end{tikzcd}\]
-    and as the composition of pullbacks is again a pullback we get $\Gamma_K(X;\F)=fib(f)=fib(g)=\Gamma_K(U;\F)$.
+    and as the composition of pullbacks is again a pullback we get $\Gamma_K(X;\F)=\fib(f)=\fib(g)=\Gamma_K(U;\F)$.
 \end{proof}
-\begin{lemma}[{\cite[Proposition 5.5.5.7]{HA}}]
+\begin{lemma}[{\cite[Proposition 5.5.5.7]{HA}}]\label{5.5.5.7}
     Let $X$ be a locally compact Hausdorff space, $\C$ be a stable $\infty$-category with small limits and colimits and $M$ be as in \ref{5.5.5.5}.
     Let $F : \Nerve(M) \to \C$ be a functor.
     Then the following conditions are equivalent:
@@ -103,11 +103,10 @@ Let's see if we can connect this new notion of Verdier duality to the classical 
         \item $F|\Nerve(M')$ is a right Kan extension of $F|\Nerve(M'_1 \cup M'_2)$.
     \end{enumerate}
     By \cite[Proposition 4.3.2.15]{HTT} we can extend $F$ to a functor $F' \in \D$.
-    \prepp{\sout{I will add this proposition to the chapter on Kan extensions when I understand it. I don't really understand how we apply it here either, but will ask Rune.}
-        Think this also just comes down to fully faithful Kan extensions along fully faithful functors give actual on the nose extensions.}
+    \prepp{This should just boil down to fully faithful Kan extensions along fully faithful functors give actual on the nose extensions, but might be smart to ref the result.}
     Observe that we have a bijection between $\Open(X)^{op}$ and the partially ordered set of closed subsets of $X$ by sending $\Open(X) \ni U \mapsto (X - U)$ and we have a natural inclusion $\Open(X)^{op} \hookrightarrow M_2'$.
     By Theorem \ref{7.3.4.9} we can restrict $\Fun(\Open(X)^{op}, \C)$ to $\Shv(X;\C)$, so we can also restrict $M_2'$ and even $\D$ to $\Shv(X;\C)$.
-    Let $\F$ be the sheaf obtained by restricting $F'$. We will first prove that $F|\Nerve(M_0)$ is given informally by the formula $F|\Nerve(M_0)(K)=\Gamma_K(X;\F)$.
+    Let $\F$ be the sheaf obtained by restricting $F'$. We will first prove that $F|_{\Nerve(M_0)}$ is given informally by the formula $F|_{\Nerve(M_0)}(K)=\Gamma_K(X;\F)$.
     \prepp{Maybe have this as a separate lemma.}
     Define $\varphi:\Nerve(M_0) \to \Fun(\Delta^1\times \Delta^1, \Nerve(M'))$ by sending an object $(0,K) \in M_0$ to the diagram
     \[\begin{tikzcd}
@@ -119,7 +118,6 @@ Let's see if we can connect this new notion of Verdier duality to the classical 
             \arrow[from=3-1, to=3-3]
             \arrow[from=1-1, to=3-1].
         \end{tikzcd}\]
-    \prepp{By evil magic and superlemma \ref{superlemma} observe that for each $(0,K)\in M_0$ the image $\varphi(0,K)$ can be regarded as a left cofinal map $\mathrm{evil}:\Lambda_2^2 \to (M_1'\cup M_2')_{(0,K)/}$.}
     We can regard $\varphi(0,K)$ as a map $i: \Lambda_2^2 \to (M_1'\cup M_2')_{(0,K)/}$:
     \[\begin{tikzcd}
             && a &&&&&& {(0,K)\to(1,K)} \\
@@ -133,7 +131,7 @@ Let's see if we can connect this new notion of Verdier duality to the classical 
         \end{tikzcd}\]
     Here we have abused notation to write the fiber product $\Nerve(M')_{(0, K) /} \times_{\Nerve(M')}\Nerve\left(M_1^{\prime} \cup M_2^{\prime}\right)$ as $ \Nerve(M_1'\cup M_2')_{(0,K)/}$. By \ref{superlemma} $i$ is cofinal if and only if for every $(m,A) \in \Nerve(M_1'\cup M_2')_{(0,K)/}$ the fiber product
     \[\begin{tikzcd}
-            {\mathrm{PB}} && {\left(\Nerve(M_1' \cup M_2')_{(0,K)/}\right)_{(m,A)/}} \\
+            {\mathrm{PB}} && {\left(\Nerve(M_1' \cup M_2')_{(0,K)/}\right)_{/(m,A)}} \\
             \\
             {\Lambda_2^2} && {\Nerve(M_1'\cup M_2')_{(0,K)/}}
             \arrow[from=1-1, to=1-3]
@@ -143,9 +141,11 @@ Let's see if we can connect this new notion of Verdier duality to the classical 
             \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=3-3]
         \end{tikzcd}\]
     is weakly contractible.
-    As these are just simplicial sets\footnote{\prepp{Or is it another reason?}} the pullback is exactly the subset of $\Lambda_2^2 \times \left(\Nerve(M_1' \cup M_2')_{(0,K)/}\right)_{(m,A)/}$ containing those $(t, (r, B))$ such that $i(t)=j(r,B)$.
+    As we have partially ordered sets\prepp{Partially ordered sets only have arrows at the ``bottom'' level or you could say that since partially ordered sets have no isofibrations there's none to lift so any homotopy pullbacks are trivially also strict pullbacks? Also something about pullback of fully faithful being fully faithful is probably needed.\url{https://ncatlab.org/nlab/show/homotopy+pullback\#HomotopyFiberCharacterization}
+        Corollary 3.4 here might be needed.}
+    \TODO{Make above remark precise.} the pullback is exactly the subset of $\Lambda_2^2 \times \left(\Nerve(M_1' \cup M_2')_{(0,K)/}\right)_{/(m,A)}$ containing those $(t, (r, B))$ such that $i(t)=j(r,B)$.
     %Objects in $\left(\Nerve(M_1' \cup M_2')_{(0,K)/}\right)_{A/}$ are of the form $(n, B) \leq (m, A)$.
-    As $j$ is just the inclusion $j((0,K) \to (m, A) \to (r,B))=((0,K) \to (r,B))$.
+    As $j$ is just the inclusion we have $j((0,K) \to (r, B) \to (m,A))=((0,K) \to (r,B))$.
     Since $i(a)=(2,\emptyset), i(b)=(1,K)$ and $i(c)=(2,K)$ and the pullbacks of monos are mono $\mathrm{PB}$ has to be a subcategory of
     \[\begin{tikzcd}
             && {(b,(1,K))} \\
@@ -154,14 +154,239 @@ Let's see if we can connect this new notion of Verdier duality to the classical 
             \arrow[from=3-1, to=3-3]
             \arrow[from=1-3, to=3-3].
         \end{tikzcd}\]
-    Observe that this only fails to be contractible if $(m,A)$ is such that $\mathrm{PB}=$:
-    % https://q.uiver.app/?q=WzAsMixbMiwwLCIoYiwoMSxLKSkiXSxbMCwyLCIoYSwoMixcXGVtcHR5c2V0KSkiXV0=
+    Observe that such a subcategory only fails to be contractible if $(m,A)$ is such that the pullback is either empty or consist of two disjoint objects.
+    If $r=1$ we know $(1,K) \leq (1,B)$ and have no arrows from $(2,\emptyset)$ or $(2,K)$ to $(1,B)$ and if $r=2$ we must have $(2,\emptyset) \leq (2,K) \leq (2,B)$, so the pullback is always weakly contractible.
+    %Observe that by condition $4.$ we can write $F'(t, T)$ as $\lim_{(s, S) \in (t, Y)}F'|_{\Nerve(M_1'\cup M_2')}(s,S)$.
+    By condition $4.$ $F'|_{\Nerve(M')}$ is right Kan extended from $F'|_{\Nerve(M_1' \cup M_2')}$ which by definition \ref{KanDef} means
+    \[
+        (M_1' \cup M_2')^{\triangleleft}_{(0,K)/} \hookrightarrow M'^{\triangleleft}_{(0,K)/}\rightarrow M' \xrightarrow{F'} \C
+    \]
+    is a limit diagram.
+    In other words we have
+    \[
+        \lim_{\Nerve(M_1' \cup M_2')_{(0,K)/}}F' = F'(0,K)
+    \]
+    and by the left cofinality of $i$ we get
+    \[
+        F'(0,K) = \lim_{\Nerve(M_1' \cup M_2')_{(0,K)/}}F' = \lim_{\Lambda_2^2}(F'\circ i) = \lim F'((2,\emptyset) \rightarrow (2,K) \leftarrow (1,K))
+    \]
+
+    which means condition $4.$ is equivalent to requiring that $F'$ composed with $\varphi(0,K)$ yields another pullback diagram
     \[\begin{tikzcd}
-            && {(b,(1,K))} \\
+            {F'(0,K)} && {F'(1,K)} \\
             \\
-            {(a,(2,\emptyset))}
+            {F'(2,\emptyset)} && {F'(2,K)}
+            \arrow[from=1-1, to=1-3]
+            \arrow[from=1-3, to=3-3]
+            \arrow[from=3-1, to=3-3]
+            \arrow[from=1-1, to=3-1]
+            \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=3-3]
         \end{tikzcd}\]
-    \TODO{Why can't we have three objects with no arrows?}
+    Observe now that by condition $3.$ $F'(1,K)=0$ and hence
+    \[
+        F'(0,K)=F(0,K)\simeq \fib(F(2,\emptyset) \to F(2,K)).
+    \]
+    Recall that we defined $\F$ as the restriction of $F'$ to $\Shv(X;\C)$ by identifying open sets $U$ with their complements.
+    This means that $F'(2,\emptyset) = \F(X)$ and $F'(2,K) = \F(X-K)$ which in turn means that
+    \[
+        F'(0,K)=F(0,K)\simeq \fib(F(2,\emptyset) \to F(2,K)) \simeq \fib(\F(X) \to \F(X-K)) = \Gamma_K(X;\F)
+    \]
+    which completes the proof that $F|_{\Nerve(M_0)}(K)$ is given by $\Gamma_K(X;\F)$.
+
+    Let us now denote $F|_{\Nerve(M_0)}(K)$ by $\G$ and check that $\G^{op} \in \Shv_{\K}(X;C^{op})$.
+    Here $\G^{op}$ does the same on objects as $\G$ but we think of it as a functor $\Nerve(M_0)^{op}\to \C^{op}$.
+    We must show that it satisfies the following three properties:
+    \begin{enumerate}
+        \item $\G(\emptyset)$ is a zero object, because $\G(\emptyset)=\fib(\F(X)\to \F(X-\emptyset))=0$.
+        \item For any compact subsets $K$ and $K'$ of $X$ we must show the following diagram is a pushout:
+              \[\begin{tikzcd}
+                      {\G(K\cap K')} && {\G(K')} \\
+                      \\
+                      {\G(K)} && {\G(K\cup K')}
+                      \arrow[from=1-1, to=3-1]
+                      \arrow[from=3-1, to=3-3]
+                      \arrow[from=1-1, to=1-3]
+                      \arrow[from=1-3, to=3-3]
+                      \arrow["\lrcorner"{anchor=center, pos=0.125, rotate=180}, draw=none, from=3-3, to=1-1]
+                  \end{tikzcd}\]
+              Observe that the diagram can be identified with the fiber of the map
+              \[\begin{tikzcd}
+                      {\F(X)} && {\F(X)} && {\F(X-(K\cap K')} && {\F(X-K')} \\
+                      && {} && {} \\
+                      {\F(X)} && {\F(X)} && {\F(X-K)} && {\F(X-(K\cup K'))}
+                      \arrow[from=1-5, to=3-5]
+                      \arrow[from=3-5, to=3-7]
+                      \arrow[from=1-5, to=1-7]
+                      \arrow[from=1-7, to=3-7]
+                      \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-5, to=3-7]
+                      \arrow[from=2-3, to=2-5]
+                      \arrow[from=1-3, to=3-3]
+                      \arrow[from=1-1, to=1-3]
+                      \arrow[from=1-1, to=3-1]
+                      \arrow[from=3-1, to=3-3]
+                      \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=3-3]
+                  \end{tikzcd}\]
+              and because $\F$ is a sheaf this is a map between pullbacks so our diagram is also a pullback.
+        \item For any compact subset $K$ of $X$ we must show that the map $\theta: \G(K)\to \lim_{K\Subset K'}\G(K')$ is an equivalence in $\C$.
+              Observe now that $\theta$ gives us a map between two fiber sequences
+              \[\begin{tikzcd}
+                      {\G(K)} && {\lim_{K\Subset K'}\G(K')} \\
+                      \\
+                      {\F(X)} && {\lim_{K\Subset K'}\F(X)} \\
+                      \\
+                      {\F(X-K)} && {\lim_{K\Subset K'}\F(X-K')}
+                      \arrow["\theta", from=1-1, to=1-3]
+                      \arrow["{\theta'}", from=3-1, to=3-3]
+                      \arrow["{\theta''}", from=5-1, to=5-3]
+                      \arrow[from=1-1, to=3-1]
+                      \arrow[from=3-1, to=5-1]
+                      \arrow[from=1-3, to=3-3]
+                      \arrow[from=3-3, to=5-3]
+                  \end{tikzcd}\]
+              Since the partially ordered set $\{K'\in \K(X) | K\Subset K'\}$ is filtered it is weakly contractible and hence $\theta'$ is an equivalence.
+              Since $\F$ is a sheaf and the set $\{X-K' | K \Subset K'\}$ is a covering sieve on $X-K'$, $\theta''$ is also an equivalence.
+              As we have shown that $\theta'$ and $\theta''$ are equivalences, $\theta$ must also be an equivalence, and we have shown that $\G^{op}$ determines a $\K$-sheaf $\Nerve(\K(X)^{op} \to \C^{op})$.
+    \end{enumerate}
+    To complete the proof that $2.$ implies $1.$, we must show $F$ is left Kan extended from $F|_{\Nerve(M_0\cup M_1)}$.
+    Let $M''=\{(i,S) \in M_0 \cup M_1 | (i,S)\in \K(X)\}$.
+    We can observe that $F|_{\Nerve(M_0 \cup M_1)}$ is left Kan extended from $F|_{\Nerve(M'')}$ ($F$ is zero on $M_1$).
+    By Proposition \ref{4.3.2.8} it is enough to show that $F$ is a left Kan extension of $F|_{\Nerve(M'')}$ and this is enough to check at every $(2,S) \in M_2$.
+    We will instead show that $F'|_{\Nerve(M'' \cup M_2')}$ is a left Kan extension of $F|_{\Nerve(M'')}$ and for this we define
+    \[B:=\{(2, X- U) \subseteq M_2' | U \in \Open(X) | \overline{U} \in \K(X)\} .\]
+    By Proposition \ref{4.3.2.8} it is enough to show that
+    \begin{enumerate}[label=(\alph*)]
+        \item $F'|_{\Nerve(M'' \cup M_2')}$ is a left Kan extension of $F'|_{\Nerve(M'' \cup B)}$.
+
+
+              First observe that $M''$ and $M_2'$ are disjoint so it is enough to check that for every
+
+              $(2,X-K)\in M_2' - B$, the following
+              \[
+                  \Nerve(M'' \cup B)^{\triangleright}_{/(2,X-K)} \hookrightarrow  \Nerve(M'' \cup M_2')^{\triangleright}_{/(2,X-K)} \to \Nerve(M''\cup M_2') \to \C
+              \]
+              is a colimit diagram.
+              According to Lemma \ref{superlemma} we can restrict the colimit from
+
+              $(M''\cup B)_{/(2,X-K)}$ to $B_{/(2,X-K)}$ if we can show that the pullback
+              \[\begin{tikzcd}
+                      PB && {\left((M''\cup B)_{/(2,X-K)}\right)_{/(2,X-U)}} \\
+                      \\
+                      {\left(B_{/(2,X-K)}\right)_{/(2,X-U)}} && {(M''\cup B)_{/(2,X-K)}}
+                      \arrow[from=1-1, to=1-3]
+                      \arrow[from=1-3, to=3-3]
+                      \arrow[from=3-1, to=3-3]
+                      \arrow[from=1-1, to=3-1]
+                  \end{tikzcd}\]
+              is weakly contractible.
+              As this is just the partially ordered set $\{(2,X-U)\in B | (i,S) \leq (2,X-U) \leq (2,X-K)\}$ it is weakly contractible by the usual argument (it is nonempty and stable under finite unions hence filtered).
+              This means that it is enough to show that $F'|_{\Nerve(M_2')}$ is left Kan extended from $B$.
+              Assumption $2.$ says that $F|_{\Nerve(M_2)}$ determines a $\K$-sheaf, $F|_{\Nerve(M_1)}=0$ and that $F$ is a right Kan extension from $\Nerve(M_1 \cup M_2)$.
+              Identifying $M_2 = \{(2, S) | (X-S) \in \K(X)\}$ with $\K(X)^{op}$ we see that we are in the situation of Theorem \ref{7.3.4.9}.
+              As $M_2' = \{(2,S) | (X-S) | \in \Open(X) \cup \K(X)\}$ we can identify it with $(\Open(X) \cup \K(X))^{op}$ and by Theorem \ref{7.3.4.9} we get that $F'|_{\Nerve(M_2')}$ is a left Kan extension of $F'|_{\Nerve(\Open(X)^{op})}$.
+              By observing that for a $K \in \K(X)$ the collection of open neigbhorhoods of $K$ with compact closure is cofinal in the collection of all open neigbhorhoods of $K$ in $X$ we get that $F'|_{\Nerve(M_2')}$ is furthermore left Kan extended from $B$, which was what we wanted to show.
+              \[\begin{tikzcd}
+                      B && {\Open(X)^{op}} && \C \\
+                      \\
+                      &&& {M_2'}
+                      \arrow[hook, from=1-3, to=3-4]
+                      \arrow[from=1-3, to=1-5]
+                      \arrow[from=3-4, to=1-5]
+                      \arrow["i", hook, from=1-1, to=1-3]
+                  \end{tikzcd}\]
+              \prepp{My thoughts here are that we calculate Kan extensions as colimits, so $i$ being cofinal over some fixed $K$ means restricting the colimit from $\Open(X)^{op}$ back to $B$ is an equivalence.}
+              %\prepp{Here Lurie uses that for a compact $K$ the collection of open neigbhorhoods of $K$ with compact closure is cofinal in the collection of all open neigbhorhoods of $K$ in $X$ to somehow conclude we can use \ref{7.3.4.9}.}
+              \prepp{Lurie never states what he means with $M'''$, but I think he might just mean $B$.}
+
+              %By Theorem \ref{7.3.4.9} we get that $F'|_{\Nerve(M_2')}$ is a left Kan extension of $F'|_{\Nerve(M''')}$
+        \item $F'|_{\Nerve(M'' \cup B)}$ is a left Kan extension of $F|_{\Nerve(M'')}$
+              % When using 4.2.3 we are probably using 4.2.3.9 and 4.2.3.10.
+              Fix $U \in \Open(X)$ such that $\overline{U} \in \K(X)$. By \ref{KanDef} we want to show that $F'(2, X-U)$ is a colimit of the diagram $F'|_{\Nerve(M'')/(2,X-U)}$.
+              For $K \in \K(X)$ denote by $M_K''$ the subset of $M''$ consisting of pairs $(i,S)$ such that $(0,K)\leq (i,S) \leq (2,X-U)$.
+              Now, observe that $\Nerve(M'')_{/(2,X-U)}$ is a filtered colimit of $\{\Nerve(M_K'')\}_{K\in \K(X)_{U/}}$.
+              By \cite{HTT}[4.2.3] we can identify $\colim(F'|_{\Nerve(M'')})_{/(2,X-U)}$ with $\colim\{\colim(F'|_{\Nerve(M_K'')})\}_K$.
+              This means that we are reduced to showing that for every $K \in \K(X)_{U/}$, $F'$ exhibits $F'(2,X-U)$ as a colimit of $F'|_{\Nerve(M_K'')}$.
+              By Lemma \ref{superlemma} the diagram
+              \[\begin{tikzcd}
+                      {(0,K-U)} && {(1,K-U)} \\
+                      \\
+                      {(0,K)}
+                      \arrow[from=1-1, to=1-3]
+                      \arrow[from=1-1, to=3-1]
+                  \end{tikzcd}\]
+              is left cofinal in $\Nerve(M_K'')$ and hence\footnote{\TODO{Explain this step.}} it is enough to show that
+              \[\begin{tikzcd}
+                      {F'(0,K-U)} && {F'(1,K-U)} \\
+                      \\
+                      {F'(0,K)} && {F'(2,X-U)}
+                      \arrow[from=1-1, to=1-3]
+                      \arrow[from=1-1, to=3-1]
+                      \arrow[from=1-3, to=3-3]
+                      \arrow[from=3-1, to=3-3]
+                  \end{tikzcd}\]
+              is a pushout in $\C$.
+              We will show this by considering the larger diagram
+              \[\begin{tikzcd}
+                      {F'(0,K-U)} && {F'(1,K-U) = 0} \\
+                      \\
+                      {F'(0,K)} && Z && {F(1,K) = 0} \\
+                      \\
+                      {F'(2,\emptyset)} && {F(2,K-U)} && {F(2,K)} \\
+                      \\
+                      && {F(2,X-U)} && {F(2,X)}
+                      \arrow[from=1-1, to=1-3]
+                      \arrow[from=1-1, to=3-1]
+                      \arrow[from=1-3, to=3-3]
+                      \arrow[from=3-1, to=3-3]
+                      \arrow[from=3-1, to=5-1]
+                      \arrow[from=5-1, to=5-3]
+                      \arrow[from=3-3, to=5-3]
+                      \arrow[from=3-3, to=3-5]
+                      \arrow[from=5-3, to=5-5]
+                      \arrow[from=3-5, to=5-5]
+                      \arrow[from=5-3, to=7-3]
+                      \arrow[from=7-3, to=7-5]
+                      \arrow[from=5-5, to=7-5]
+                      \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=3-3, to=5-5]
+                  \end{tikzcd}\]
+              where we already know that the middle rectangle is a pullback (we have shown $F'(0,K)$ to be the fiber of the map $F'(2,\emptyset) \to F(2,K)$), so the middle left square is also a pullback.
+              As we have shown $F'(0,K-U) = \fib(F(2,\emptyset) \to F(2,K-U))$ the left vertical rectangle is also a pullback, so the upper left must be as well.
+              Since $\C$ is stable it is also a pushout.
+              As $F(1,K)=0$ and $F(2,X)=\F(\emptyset)=0$ we have an equivalence $F(1,K)\to F(2,K) \to F(2,X)$ which means that if we can show the composite square
+              \[\begin{tikzcd}
+                      Z && {F(1,K)=0} \\
+                      \\
+                      {F(2,X-U)} && {F(2,X)=\F(\emptyset)=0}
+                      \arrow[from=1-1, to=1-3]
+                      \arrow[from=1-3, to=3-3]
+                      \arrow[from=3-1, to=3-3]
+                      \arrow[from=1-1, to=3-1]
+                  \end{tikzcd}\]
+              is a pullback, we have shown the desired equivalence $Z \to F(2,X-U)$.
+              \prepp{I think this follows from something like pullback along equiv is equiv or something. Probably smart to think about htpy pullbacks. Feels really obvious in this case though since we have zero objects.}
+              To complete the proof it is therefore enough to show that the lower right square is a pullback.
+              Replacing $F$ by $\F$ we get
+              \[\begin{tikzcd}
+                      {\F((X-K) \cup U)} && {\F(X-K)} \\
+                      \\
+                      {\F(U)} && {\F(\emptyset)}
+                      \arrow[from=1-1, to=1-3]
+                      \arrow[from=1-3, to=3-3]
+                      \arrow[from=3-1, to=3-3]
+                      \arrow[from=1-1, to=3-1]
+                  \end{tikzcd}\]
+              which is a pullback because $\F$ is a sheaf ($U$ and $X-K$ are disjoint).
+    \end{enumerate}
+\end{proof}
+We can now prove Verdier Duality (Theorem \ref{VerdierDuality}):
+\begin{proof}
+    Let $\mathcal{E}(\C) \subseteq \Fun(\Nerve(M))$ be the full subcategory spanned by those functors satisfying the conditions of Proposition \ref{5.5.5.7} and observe that the inclusions $M_0 \hookrightarrow M \hookleftarrow M_2$ give restrictions
+    \[
+        \Shv_{\K}(X;\C^{op}) \xleftarrow{\theta} \mathcal{E}(\C)^{op} \xrightarrow{\theta'} \Shv_{\K}(X;\C)^{op}.
+    \]
+    \prepp{Now Lurie cites \cite{HTT}[4.3.2.15]to say the restrictions are trivial Kan fibrations, but I want to say the following instead (I think it is almost the same thing):}
+    Because we Kan extend along inclusions of full subcategories which are fully faithful these are equivalences of $\infty$-categories.
+    \prepp{Note that $F\in \mathcal{E}(\C)$ means $F|_{M_0}\in \Shv_{\K}(X;\C^{op})$, $F|_{M_0 \cup M_1} = RKAN(F|_{M_0})$ and $F=LKAN(F|_{M_0 \cup M_1})$ .}
+    This proves Theorem \ref{KVerdierDuality} and by Corollary \ref{7.3.4.10} we have shown Theorem \ref{VerdierDuality}.
 \end{proof}
 \begin{proposition}[{\cite[Proposition 5.5.5.10]{HA}}]
     Let $X$ be a locally compact Hausdorff space and $\C$ a pointed and stable $\infty$-category with small limits and colimits.
@@ -177,15 +402,26 @@ Let's see if we can connect this new notion of Verdier duality to the classical 
     \[
         \theta: \Shv(X;\C^{op})^{op} \simeq \Shv_{\K}(X;\C^{op})^{op}
     \]
-    is given by the formula $\theta(\F)(U) = \colim_{\K(X)_{/U}}\F(K)$.
-    \prepp{Is $\colim_{\K(X)_{/U}}\F(K)$ or $\colim_{K \subseteq U}\F(K)$ cleaner?}
+    is given by the formula $\theta(\F)(U) = \colim_{K\subseteq U}\F(K)$.
+    \prepp{Make sure this colimit is taken in the correct category. It might be that it should be a limit in $\C$.}
     \prepp{Should consider writing out theta more explicitly in the proof of \ref{7.3.4.9}.}
-    Let $\psi: \Shv(X;\C) \to \Shv_{\K}(X;\C)$ be the equivalence of Corollary \ref{7.3.4.10} and $\psi'$ the equivalence $\Shv_{\K}(X;\C) \to \Shv_{\K}(X;\C^{op})^{op}$.
+    Let $\psi: \Shv(X;\C) \to \Shv_{\K}(X;\C)$ be the equivalence of Corollary \ref{7.3.4.10} and $\psi'$ the equivalence $\Shv_{\K}(X;\C) \to \Shv_{\K}(X;\C^{op})^{op}$ of Theorem \ref{KVerdierDuality}.
     Composing, we get a string of equivalences
     \[
-        \Shv(X;\C) \xrightarrow{\psi} \Shv_{\K}(X;\C) \xrightarrow{\psi'} \Shv_{\K}(X;\C^{op})^{op} \xrightarrow{\theta} \Shv(X;\C^{op})^{op}
+        \D^{op} : \Shv(X;\C) \xrightarrow{\psi} \Shv_{\K}(X;\C) \xrightarrow{\psi'} \Shv_{\K}(X;\C^{op})^{op} \xrightarrow{\theta} \Shv(X;\C^{op})^{op}.
     \]
-    and taking $op$ gives the desired equivalence $\D:\Shv(X;\C)^{op}\to \Shv(X;\C^{op})^{{op}^{op}}=\Shv(X;\C^{op})$.
+
+    %% https://q.uiver.app/?q=WzAsNCxbMCwwLCJcXFNodihYO1xcQykiXSxbMiwwLCJcXFNodihYO1xcQ157b3B9KV57b3B9Il0sWzAsMiwiXFxTaHZfe1xcS30oWDtcXEMpIl0sWzIsMiwiXFxTaHZfe1xcS30oWDtcXENee29wfSlee29wfSJdLFswLDEsIlxcRF57b3B9Il0sWzAsMiwiXFxwc2kiLDJdLFsyLDMsIlxccHNpJyIsMl0sWzMsMSwiXFx0aGV0YSIsMl1d
+    % \[\begin{tikzcd}
+    % 	{\Shv(X;\C)} && {\Shv(X;\C^{op})^{op}} \\
+    % 	\\
+    % 	{\Shv_{\K}(X;\C)} && {\Shv_{\K}(X;\C^{op})^{op}}
+    % 	\arrow["{\D^{op}}", from=1-1, to=1-3]
+    % 	\arrow["\psi"', from=1-1, to=3-1]
+    % 	\arrow["{\psi'}"', from=3-1, to=3-3]
+    % 	\arrow["\theta"', from=3-3, to=1-3]
+    % \end{tikzcd}\]
+
 
 \end{proof}
 \end{document}

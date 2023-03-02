@@ -37,7 +37,7 @@ Classically it is known that sheaves of sets on such spaces are determined by co
 \begin{definition}
     A presheaf $\F:\Nerve(\K(X))^{op}\to \C$ is a $\K$-sheaf if it satisfies the following:
     \begin{enumerate}
-        \item $\F(\emptyset)$ is final
+        \item $\F(\emptyset)$ is terminal.
         \item For every pair $K,K'\in \K(X)$, the diagram
               \[\begin{tikzcd}
                       {\F(K \cup K')} && {\F(K)} \\
@@ -135,21 +135,19 @@ Classically it is known that sheaves of sets on such spaces are determined by co
     \[
         \F(U) = \lim_{K\in \K(X)^{op}_{U/}}\F(K) = \lim_{K\in \K_{\W}(X)^{op}_{U/}}\F(K) = K_*^{\prime}\F(U)
     \]
-    we see that $\F|(\W \cup \K_{\W})^{op}$ is a right Kan extension of $\F|(K_{\W}(X))^{op}$.
-    Hence, it suffices to prove that $\F|(\W \cup \K_{\W}(X)\cup \{U\})^{op}$ is right Kan extended from $\K_{\W}(X)^{op}$.
-    Outside of $U$ this is clear from the fact that $F|(\W \cup \K_{\W}^{op})$ is right Kan extended from $\K_{\W}(X)^{op}$.
-    This means we only need to prove $\F|(\K_{\W}(X)\cup \{U\})^{op}$ is a right Kan extension of $\F|\K_{\W}(X)^{op}$.
+    we see that $\F|_{(\W \cup \K_{\W})^{op}}$ is a right Kan extension of $\F|_{(K_{\W}(X))^{op}}$.
+    Hence, it suffices to prove that $\F|_{(\W \cup \K_{\W}(X)\cup \{U\})^{op}}$ is right Kan extended from $\K_{\W}(X)^{op}$.
+    Outside of $U$ this is clear from the fact that $F|_{(\W \cup \K_{\W}^{op})}$ is right Kan extended from $\K_{\W}(X)^{op}$.
+    This means we only need to prove $\F|_{(\K_{\W}(X)\cup \{U\})^{op}}$ is a right Kan extension of $\F|_{\K_{\W}(X)^{op}}$.
     \prepp{I'm honestly not entirely sure why we suddenly drop the $\cup W$ part.}
     \prepp{$(\W \cup \K_{\W}(X) \cup \{U\})^{op} = (\W \cup \K_{\W}(X))^{op, \triangleleft}$}
     Observe that by assumption
     \[
-        \F(U)  = \lim_{K\in \K(X)_{/U}^{op}} \F(K) = \lim_{K\in \K(X)_{/U} \cup \{U\}} \F(K)
+        \F(U)  = \lim_{K\in \K(X)_{/U}^{op}} \F(K) = \lim_{K\in (\K(X)_{/U} \cup \{U\})^{op}} \F(K)
     \]
-    so $\F|(\K(X)_{/U} \cup \{U\})^{op}$ is right Kan extended from $\K(X)_{/U}^{op}$.
-    Lemma \ref{7.3.4.8} tells us that $\F|(\K(X)_{/U})^{op}$ is a right Kan extension of $\F|\K_{\W}(X)^{op}$.
-    We have $\Nerve(\K_{\W}(X))^{op} \subseteq
-        \Nerve(\K(X)_{/U})^{op} \subseteq
-        \Nerve(\K(X)_{/U} \cup \{U\})^{op}$, with Kan extensions as in proposition \ref{4.3.2.8}, so we get that ${\F|\Nerve(\K(X)_{/U} \cup \{U\})^{op}}$ is right Kan extended from ${\Nerve(\K_{\W}(X))^{op}}$.
+    so $\F|_{(\K(X)_{/U} \cup \{U\})^{op}}$ is right Kan extended from $\K(X)_{/U}^{op}$.
+    Lemma \ref{7.3.4.8} tells us that $\F|_{(\K(X)_{/U})^{op}}$ is a right Kan extension of $\F|_{\K_{\W}(X)^{op}}$.
+    We have ${\Nerve(\K_{\W}(X))^{op} \subseteq\Nerve(\K(X)_{/U})^{op} \subseteq\Nerve(\K(X)_{/U} \cup \{U\})^{op}}$, with Kan extensions as in proposition \ref{4.3.2.8}, so we get that ${\F|_{\Nerve(\K(X)_{/U} \cup \{U\})^{op}}}$ is right Kan extended from ${\Nerve(\K_{\W}(X))^{op}}$.
     To summarize, we have the following square of inclusions
     \[\begin{tikzcd}
             {\K_{\W}(X)^{op}} && {(\K_{\W}(X)\cup \{U\})^{op}} \\
@@ -162,26 +160,25 @@ Classically it is known that sheaves of sets on such spaces are determined by co
             \arrow["{i}" ,hook, from=1-1, to=1-3]
         \end{tikzcd}\]
     %where $\F|(\K(X)_{/U} \cup \{U\})^{op} = j_*(\F|\K(X)_{/U})$ and $\F|(\K(X)_{/U})^{op} = j_*(\F|\K_{\W}(X)^{op})$. By applying proposition \ref{4.3.2.8} we see that ${\F|\Nerve(\K(X)_{/U} \cup \{U\})^{op}}= (j \circ a)_*(\F|\K_{\W}(X)^{op})$.
-    where $\F|(\K(X)_{/U} \cup \{ U \})^{op} \simeq b_*(\F|(\K_{\W} \cup \{U\})^{op})$ and $\F|(\K(X)_{/U} \cup \{U\})^{op} \simeq (j\circ a)_*(\F|\K_{\W}(X)^{op})$.
-    We want to show $\F|(\K_{\W}(X) \cup \{U\})^{op} \simeq i_*(\F|\K_{\W}(X)^{op})$.
+    where $\F|_{(\K(X)_{/U} \cup \{ U \})^{op}} \simeq b_*(\F|_{(\K_{\W} \cup \{U\})^{op}})$ and $\F|_{(\K(X)_{/U} \cup \{U\})^{op}} \simeq (j\circ a)_*(\F|_{\K_{\W}(X)^{op}})$.
+    We want to show $\F|_{(\K_{\W}(X) \cup \{U\})^{op}} \simeq i_*(\F|_{\K_{\W}(X)^{op}})$.
     \TODO{Notation
         $i_*$ comes from it being right adjoint to $i^*$. Write about adjoint description of Kan extensions in Kan chapter.}
     \prepp{This is probably obvious or easier to show than what I am about to do, so please let me know.}
     We use the commutativity of the square and the adjoint relationship between Kan extensions and ``pullbacks'' and get:
     \begin{align}
-        \C^{(\K_{\W}(X)\cup \{U\})^{op}}(b^*(\blank),\F|(\K_{\W}(X)\cup \{U\})^{op})\simeq & \C^{(\K(X)_{/U} \cup \{U\})^{op}}(\blank, \F)                          \\       \simeq                                                                             & \C^{(\K(X)_{/U} \cup \{U\})^{op}}(\blank,a_*(\F|\K_{\W}(X)^{op})) \\
-        \simeq                                                                             & \C^{\K_{\W}(X)^{op}}(a^*(\blank), \F|\K_{\W}(X)^{op})                  \\
-        \simeq                                                                             & \C^{\K_{\W}(X)^{op}}((b\circ i)^*(\blank), \F|\K_{\W}(X)^{op})         \\        \simeq                                                                             & \C^{\K_{\W}(X)^{op}}(i^* \circ b^*(\blank), \F|\K_{\W}(X)^{op})            \\
-        \simeq                                                                             & \C^{(\K_{\W}(X)\cup \{U\})^{op}}(b^*(\blank), i_*(\F|\K_{\W}(X)^{op}))
+        \C^{(\K_{\W}(X)\cup \{U\})^{op}}(b^*(\blank),\F|_{(\K_{\W}(X)\cup \{U\})^{op}})\simeq & \C^{(\K(X)_{/U} \cup \{U\})^{op}}(\blank, \F)                             \\       \simeq                                                                             & \C^{(\K(X)_{/U} \cup \{U\})^{op}}(\blank,a_*(\F|_{{\K\W}(X)^{op}})) \\
+        \simeq                                                                                & \C^{\K_{\W}(X)^{op}}(a^*(\blank), \F|_{\K_{\W}(X)^{op}})                  \\
+        \simeq                                                                                & \C^{\K_{\W}(X)^{op}}((b\circ i)^*(\blank), \F|_{\K_{\W}(X)^{op}})         \\        \simeq                                                                             & \C^{\K_{\W}(X)^{op}}(i^* \circ b^*(\blank), \F|_{\K_{\W}(X)^{op}})            \\
+        \simeq                                                                                & \C^{(\K_{\W}(X)\cup \{U\})^{op}}(b^*(\blank), i_*(\F|_{\K_{\W}(X)^{op}}))
     \end{align}
     and Yoneda's lemma tells us that
-    \[\C^{(\K_{\W}(X)\cup \{U\})^{op}}(b^*(\blank),\F|(\K_{\W}(X)\cup \{U\})^{op}) \simeq \C^{(\K_{\W}(X)\cup \{U\})^{op}}(b^*(\blank), i_*(\F|\K_{\W}(X)^{op}))\]
-    \[\Rightarrow \F|(\K_{\W}(X)\cup \{U\})^{op} \simeq i_*(\F|\K_{\W}(X)^{op}).\]
+    \[\C^{(\K_{\W}(X)\cup \{U\})^{op}}(b^*(\blank),\F|_{(\K_{\W}(X)\cup \{U\})^{op}}) \simeq \C^{(\K_{\W}(X)\cup \{U\})^{op}}(b^*(\blank), i_*(\F|_{\K_{\W}(X)^{op}}))\]
+    \[\Rightarrow \F|_{(\K_{\W}(X)\cup \{U\})^{op}} \simeq i_*(\F|_{\K_{\W}(X)^{op}}).\]
     In conclusion we have shown that $\F_{U}$ is a sheaf, so $1.$ implies $2.$.
     \prepp{This calculation could maybe be a lemma in the Kan chapter instead.}
     For the other direction we assume $2.$ and want to show $\F_{\K}$ is a $\K$-sheaf. By definition we need to show three things:
-    Firstly, observe that $\F_{\K}(\emptyset) = \F_{U}(\emptyset)$ and that this is contractible since $\F_{U}$ is a sheaf which shows $\F_{\K}(\emptyset)$ is final.
-    \prepp{Is contractible implies final obvious?}
+    Firstly, observe that $\F_{\K}(\emptyset) = \F_{U}(\emptyset)$ and since $\F_{U}$ is a sheaf $\F_{\K}(\emptyset)$ is terminal.
     Secondly, we need the following diagram to be a pullback in $\C$ for any $K,K' \in \K(X)$.
     \begin{equation}\label{K-sheaf-PB}
         \begin{tikzcd}
@@ -230,14 +227,14 @@ Classically it is known that sheaves of sets on such spaces are determined by co
     Since $\sigma_P$ yields a colimit diagram when evaluated in each of the four vertices of $\Delta^1 \times \Delta^1$, we conclude that $\sigma_P$ is itself a colimit diagram by \cite[Proposition 5.1.2.2]{HTT}.
     Observe now that $\sigma_P$ is a filtered colimit in $\C$ and hence it is left exact.
     This concludes the argument that \ref{K-sheaf-PB} is a pullback.
-    Finally, we need to show that for each $K \in \K(X)$, $\F_{\K}$ is a colimit of $\F_{\K}|\Nerve(\K_{K\Subset}(X))^{op}$.
+    Finally, we need to show that for each $K \in \K(X)$, $\F_{\K}$ is a colimit of $\F_{\K}|_{\Nerve(\K_{K\Subset}(X))^{op}}$.
     We do this by showing
     \[
         \Nerve(\K_{K\Subset}(X)^{op})^{\triangleright} \to \Nerve(\K(X) \cup \Open(X))^{op} \xrightarrow{\F} \C
     \]
     is a colimit diagram.
     We use Proposition \ref{4.3.2.8} to show that
-    $\F|\Nerve(\Open(X) \cup \K_{K\Subset}(X))^{op}$ and $\F|\Nerve(\Open(X) \cup \K_{K\Subset}(X))^{op} \cup \{K\}$ are left Kan extensions of $\F|\Nerve(\Open(X))^{op}$ which again implies $\F|\Nerve(\Open(X) \cup \K_{K\Subset}(X))^{op} \cup \{K\}$ is a left Kan extension of $\F|\Nerve(\Open(X) \cup \K_{K\Subset}(X))^{op}$.
+    $\F|_{\Nerve(\Open(X) \cup \K_{K\Subset}(X))^{op}}$ and ${\F|_{\Nerve(\Open(X) \cup \K_{K\Subset}(X))^{op} \cup \{K\}}}$ are left Kan extensions of $\F|_{\Nerve(\Open(X))^{op}}$ which again implies $\F|_{\Nerve(\Open(X) \cup \K_{K\Subset}(X))^{op} \cup \{K\}}$ is a left Kan extension of $\F|_{\Nerve(\Open(X) \cup \K_{K\Subset}(X))^{op}}$.
     Now observe
     \[
         \Nerve(\K(X) \cup \Open(X))^{op,\triangleright}_{/K} = \Nerve(\K_{K\Subset}(X) \cup \Open(X)_{/K})^{op,\triangleright},
@@ -251,7 +248,7 @@ Classically it is known that sheaves of sets on such spaces are determined by co
     Since $R$ is nonempty and stable under intersections $R^{op}$ is filtered and hence $\Nerve(R)$ is weakly contractible.
     By Lemma \ref{superlemma} the inclusion is cofinal and we have shown that $\F_\K$ is a $\K$-sheaf.
 
-    We will show $\F$ is a right Kan extension of $\F_\K$ in a similar manner to how we showed $\F$ is a left Kan extension of $\F_{\Open}$ in the start of the proof, but we will consider the partial order on $\Open(X)$ given by writing $V\Subset U$ whenever $V\in \Open(X)$ and its complement $\bar{V}$ is compact and contained in $U$.
+    We will show $\F$ is a right Kan extension of $\F_\K$ in a similar manner to how we showed $\F$ is a left Kan extension of $\F_{\Open}$ in the start of the proof, but we will consider the partial order on $\Open(X)$ given by writing $V\Subset U$ whenever $V\in \Open(X)$ and its closure $\overline{V}$ is compact and contained in $U$.
     Writing $\Open(X)_{U/}$ for the set $\{V\in \Open(X) | V\Subset U\}$, we need to show that
     \[
         \Nerve(\K(X)_{U/}^{op})^{\triangleleft} \hookrightarrow \Nerve(\Open(X) \cup \K(X))_{U/}^{op} \xrightarrow{c}\Nerve(\Open(X) \cup \K(X))^{op} \xrightarrow{\F} \C

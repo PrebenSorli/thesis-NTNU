@@ -711,6 +711,7 @@ INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueus.fd
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/euler/eusm10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/euler/eusm10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/euler/eusm7.tfm
+INPUT /Users/prebenhastsorli/Library/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/lmmono10-regular.luc
 OUTPUT thesis.tdo
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
@@ -757,7 +758,6 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr5.tfm
 INPUT ./chapters/verdier.tex
 INPUT ./chapters/verdier.tex
-INPUT /Users/prebenhastsorli/Library/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/lmmono10-regular.luc
 INPUT ./thesis.aux
 INPUT ./thesis.out
 INPUT ./thesis.run.xml
@@ -775,3 +775,4 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pf
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eusm7.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb

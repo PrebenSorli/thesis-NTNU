@@ -10,16 +10,20 @@
 \contentsline {todo}{\textbf {TODO:} Notation $i_*$ comes from it being right adjoint to $i^*$. Write about adjoint description of Kan extensions in Kan chapter.}{10}{section*.12}%
 \contentsline {todo}{\textbf {Preben:} This is probably obvious or easier to show than what I am about to do, so please let me know.}{10}{section*.13}%
 \contentsline {todo}{\textbf {Preben:} This calculation could maybe be a lemma in the Kan chapter instead.}{11}{section*.14}%
-\contentsline {todo}{\textbf {Preben:} Is contractible implies final obvious?}{11}{section*.15}%
-\contentsline {todo}{\textbf {TODO:} Reference this result.}{12}{section*.16}%
-\contentsline {todo}{\textbf {Preben:} I should maybe do this for all four vertices, or at least check how different the argument is for another vertex.}{12}{section*.17}%
-\contentsline {todo}{\textbf {Preben:} Let's be consistent on wether we write $\colim _{K\subseteq U}$ or $\colim _{\EuScript {K}(X)_{/U}}$.}{16}{section*.18}%
-\contentsline {todo}{\textbf {Preben:} Lurie writes $\colim _{K\subseteq U}\Gamma _K(M;\EuScript {F})$, but I think that is a mistake.}{16}{section*.19}%
-\contentsline {todo}{\textbf {Preben:} \sout {I will add this proposition to the chapter on Kan extensions when I understand it. I don't really understand how we apply it here either, but will ask Rune.} Think this also just comes down to fully faithful Kan extensions along fully faithful functors give actual on the nose extensions.}{17}{section*.20}%
-\contentsline {todo}{\textbf {Preben:} Maybe have this as a separate lemma.}{17}{section*.21}%
-\contentsline {todo}{\textbf {Preben:} By evil magic and superlemma \ref {superlemma} observe that for each $(0,K)\in M_0$ the image $\varphi (0,K)$ can be regarded as a left cofinal map $\mathrm {evil}:\Lambda _2^2 \to (M_1'\cup M_2')_{(0,K)/}$.}{18}{section*.22}%
-\contentsline {todo}{\textbf {Preben:} Or is it another reason?}{18}{section*.23}%
-\contentsline {todo}{\textbf {TODO:} Why can't we have three objects with no arrows?}{19}{section*.24}%
-\contentsline {todo}{\textbf {TODO:} Maybe worth trying to make the bridge between this statement and the classical fact even more concrete.}{19}{section*.25}%
-\contentsline {todo}{\textbf {Preben:} Is $\colim _{\EuScript {K}(X)_{/U}}\EuScript {F}(K)$ or $\colim _{K \subseteq U}\EuScript {F}(K)$ cleaner?}{19}{section*.26}%
-\contentsline {todo}{\textbf {Preben:} Should consider writing out theta more explicitly in the proof of \ref {7.3.4.9}.}{19}{section*.27}%
+\contentsline {todo}{\textbf {TODO:} Reference this result.}{12}{section*.15}%
+\contentsline {todo}{\textbf {Preben:} I should maybe do this for all four vertices, or at least check how different the argument is for another vertex.}{12}{section*.16}%
+\contentsline {todo}{\textbf {Preben:} Let's be consistent on wether we write $\colim _{K\subseteq U}$ or $\colim _{\EuScript {K}(X)_{/U}}$.}{16}{section*.17}%
+\contentsline {todo}{\textbf {Preben:} Lurie writes $\colim _{K\subseteq U}\Gamma _K(M;\EuScript {F})$, but I think that is a mistake.}{16}{section*.18}%
+\contentsline {todo}{\textbf {Preben:} This should just boil down to fully faithful Kan extensions along fully faithful functors give actual on the nose extensions, but might be smart to ref the result.}{17}{section*.19}%
+\contentsline {todo}{\textbf {Preben:} Maybe have this as a separate lemma.}{17}{section*.20}%
+\contentsline {todo}{\textbf {Preben:} Partially ordered sets only have arrows at the ``bottom'' level or you could say that since partially ordered sets have no isofibrations there's none to lift so any homotopy pullbacks are trivially also strict pullbacks? Also something about pullback of fully faithful being fully faithful is probably needed.\url {https://ncatlab.org/nlab/show/homotopy+pullback\#HomotopyFiberCharacterization} Corollary 3.4 here might be needed.}{18}{section*.21}%
+\contentsline {todo}{\textbf {TODO:} Make above remark precise.}{18}{section*.22}%
+\contentsline {todo}{\textbf {Preben:} My thoughts here are that we calculate Kan extensions as colimits, so $i$ being cofinal over some fixed $K$ means restricting the colimit from $\EuScript {U}(X)^{op}$ back to $B$ is an equivalence.}{21}{section*.23}%
+\contentsline {todo}{\textbf {Preben:} Lurie never states what he means with $M'''$, but I think he might just mean $B$.}{21}{section*.24}%
+\contentsline {todo}{\textbf {TODO:} Explain this step.}{22}{section*.25}%
+\contentsline {todo}{\textbf {Preben:} I think this follows from something like pullback along equiv is equiv or something. Probably smart to think about htpy pullbacks. Feels really obvious in this case though since we have zero objects.}{23}{section*.26}%
+\contentsline {todo}{\textbf {Preben:} Now Lurie cites \blx@tocontentsinit {0}\cite {HTT}[4.3.2.15]to say the restrictions are trivial Kan fibrations, but I want to say the following instead (I think it is almost the same thing):}{23}{section*.27}%
+\contentsline {todo}{\textbf {Preben:} Note that $F\in \mathcal {E}(\EuScript {C})$ means $F|_{M_0}\in \mathrm {Shv}_{\EuScript {K}}(X;\EuScript {C}^{op})$, $F|_{M_0 \cup M_1} = RKAN(F|_{M_0})$ and $F=LKAN(F|_{M_0 \cup M_1})$ .}{23}{section*.28}%
+\contentsline {todo}{\textbf {TODO:} Maybe worth trying to make the bridge between this statement and the classical fact even more concrete.}{24}{section*.29}%
+\contentsline {todo}{\textbf {Preben:} Make sure this colimit is taken in the correct category. It might be that it should be a limit in $\EuScript {C}$.}{24}{section*.30}%
+\contentsline {todo}{\textbf {Preben:} Should consider writing out theta more explicitly in the proof of \ref {7.3.4.9}.}{24}{section*.31}%
