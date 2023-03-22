@@ -1,5 +1,6 @@
 \documentclass[british,titlepage]{ntnuthesis}
 
+
 \title{title}
 \shorttitle{Math}
 \author{Preben Hast Sørli}
@@ -21,16 +22,19 @@
 \tableofcontents
 \listoftodos
 %\printglossaries
-\chapter{Verdier Duality for stable $\infty$-categories}
+%{Verdier Duality for stable $\infty$-categories}
 \subfile{chapters/introduction.tex}
-\chapter{Cofinality}
-\subfile{chapters/cofinality.tex}
-\chapter{Kan Extensions}
-\subfile{chapters/Kan.tex}
+\chapter{$\infty$-categories}
+\subfile{chapters/infcats/infcats.tex}
+\subfile{chapters/infcats/stable.tex}
+\chapter{Limits and Colimits}
+\subfile{chapters/lims_colims/lims_colims.tex}
+\subfile{chapters/lims_colims/cofinality.tex}
+\subfile{chapters/lims_colims/Kan.tex}
 \chapter{Sheaves and K-sheaves}
-\subfile{chapters/K-sheaves.tex}
+\subfile{chapters/sheaves/K-sheaves.tex}
 \chapter{Verdier Duality}
-\subfile{chapters/verdier.tex}
+\subfile{chapters/verdier/verdier.tex}
 \chapter*{bibname}
 \printbibliography[heading=none]
 \end{document}

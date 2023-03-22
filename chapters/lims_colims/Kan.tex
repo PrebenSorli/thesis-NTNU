@@ -1,0 +1,70 @@
+\documentclass[../../thesis.tex]{subfiles}
+
+\begin{document}
+\section{Kan Extensions}
+We will start with a detour into the world of ordinary $1$-categories.
+In the  classic \cite{MacLane} Saunders MacLane famously says ``The notion of Kan Extensions subsumes all the other fundamental concepts of category theory''.
+In the fantastic introduction to category theory \cite{CatContext} Emily Riehl devotes a whole chapter to the slogan ``All concepts are Kan extensions''.
+Ubiquitous in the toolbox of any category theorist, Kan extensions are central for most everything we do in this thesis.
+As we have seen, a lot of $\infty$-categorical concepts can be thought of as if we are working with ordinary $1$-categories, and we will therefore start by defining Kan extensions in ordinary categories.
+\begin{definition}[{\cite[Definition 6.1.1.]{CatContext}}]
+    Given functors $F$ and $K$ as in the following diagram
+    \[\begin{tikzcd}
+            \C && \E \\
+            \\
+            \D
+            \arrow["F",from=1-1, to=1-3]
+            \arrow[""{name=1, anchor=center, inner sep=0}, "K_{!}F"', dashed, from=3-1, to=1-3]
+            \arrow["K"',from=1-1, to=3-1]
+        \end{tikzcd}\]
+    a left Kan extension of $F$ along $K$ is a functor $K_{!}F : \D \to \E$ together with a natural transformation $\eta: F \Rightarrow K_{!}F \circ K$ such that for any other pair $G : \D \Rightarrow \E, \gamma: F \to G \circ K$, $\gamma$ factors uniquely through $\eta$ as in the following diagram:
+    \[\begin{tikzcd}
+            \C && \E && \C && \E \\
+            &&& {=} \\
+            \D &&&& \D
+            \arrow[""{name=0, anchor=center, inner sep=0}, "F", from=1-1, to=1-3]
+            \arrow[""{name=1, anchor=center, inner sep=0}, "K"', from=1-1, to=3-1]
+            \arrow["G"', from=3-1, to=1-3]
+            \arrow[""{name=2, anchor=center, inner sep=0}, "K"', from=1-5, to=3-5]
+            \arrow[""{name=3, anchor=center, inner sep=0}, "G"{description}, curve={height=12pt}, from=3-5, to=1-7]
+            \arrow[""{name=4, anchor=center, inner sep=0}, "F", from=1-5, to=1-7]
+            \arrow[""{name=5, anchor=center, inner sep=0}, "{K_{!}F}"{description}, curve={height=-12pt}, from=3-5, to=1-7]
+            \arrow["{\exists!}"', shorten <=4pt, shorten >=4pt, Rightarrow, from=5, to=3]
+            \arrow[shorten <=7pt, shorten >=7pt, Rightarrow, from=4, to=2]
+            \arrow["\gamma", shorten <=7pt, shorten >=7pt, Rightarrow, from=0, to=1]
+        \end{tikzcd}\]
+    Dually, a right Kan extensions of $F$ along $K$ is a functor $K_*F : \D \to \E$ with a natural transformation $\epsilon : K_*F \circ K \Rightarrow F$ such that any functor $G : \D \to E$ and any natural transformation $\delta : G \Rightarrow F$, $\delta$ factors uniquely through $\epsilon$.
+    \prepp{Diagram is exactly the same but all $2$-cells go the other way.}
+\end{definition}
+
+\begin{definition}
+    Let $\A$ be an $\infty$-category with a full subcategory $\A^0$ and $p:K\to \A$ a diagram.
+    Following \cite[Notation 4.3.2.1]{HTT} we write $\A^0_{/p}$ for the fiber product $\A_{/A}\times_{/p}\A^0$.
+    If $A\in \A$, $\A^0_{/A}$ is just the full subcategory of $\A_{/A}$ spanned by the morphisms $A'\to A$ where $A'\in \A^0$.
+    \newline
+    Analogously $\A^0_{p/}$ denotes $\A_{p/}\times_{\A}\A^0$ and $\A^0_{A/}$ is the full subcategory spanned by morphisms $A\to A'$.
+\end{definition}
+\begin{definition}[{\cite[\href{https://kerodon.net/tag/02YQ}{Definition 02YQ}]{kerodon}}]\label{KanDef}
+    For a functor $F: \A \to \C$ between $\infty$-categories where $\A$ has a full subcategory $\A^0$, we say $F$ is left Kan extended from $\A^{0}$ if
+    \[
+        (\A^{0}_{/A})^{\triangleright} \hookrightarrow (\A_{/A})^{\triangleright} \xrightarrow{c} \A \xrightarrow{F}\C
+    \]
+    is a colimit diagram in $\C$ for every object $A\in \A$.
+    Here $c$ is the slice contraction morphism of \cite[\href{https://kerodon.net/tag/0188}{Tag 0188}]{kerodon}, i.e.
+    $c|_{\A_{/A}}$ is the projection and $c|_{\Delta^0}=A$.
+    Recalling the adjoint relationship between joins and slices, this is just the counit of the adjunction.
+    \newline
+    Right Kan extensions are opposite to left Kan extensions, i.e. $F$ is right Kan extended from $\A^0$ if the following is a limit diagram
+    \[
+        (\A^{0}_{A/})^{\triangleleft} \hookrightarrow (\A_{A/})^{\triangleleft} \xrightarrow{c'} \A \xrightarrow{F}\C
+    \]
+    where $c'$ is the coslice contraction morphism.
+\end{definition}
+Later on we will need the following result about Kan extensions of full subcategories.
+\begin{proposition}[{\cite[Proposition 4.3.2.8]{HTT}}]\label{4.3.2.8}
+    For a functor $F: \A\to\C$ of $\infty$-categories where $\A^0 \subseteq \A^1$ are full subcategories of $\A$, if $F|_{\A^1}$ is left Kan extended from $\A^0$ then $F$ is left Kan extended from $\A^1$ if and only if it is left Kan extended from $\A^0$.
+\end{proposition}
+\begin{remark}
+    Original result is for a categorical fibration $p:\C\to \C'$ and $p$-left Kan extensions. Okay to just do this??
+\end{remark}
+\end{document}

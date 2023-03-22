@@ -10,7 +10,7 @@ Vector space duality gives a limit preserving functor $\Nerve(A^{op}) \to \Nerve
 for any locally compact Hausdorff space.
 Composing with the equivalence below yields a functor
 \[
-    \D': \Shv(X;\Nerve(A))^{op} \to \Shv(X;\Nerve(A))
+    \mathbb{D}': \Shv(X;\Nerve(A))^{op} \to \Shv(X;\Nerve(A))
 \]
 and it is this functor that is usually called Verdier Duality. This is not necesarrily an equivalence of $\infty$-categories unless certain finiteness conditions are imposed.
 
@@ -21,7 +21,7 @@ This chapter is all about proving the following theorem:
     Let $X$ be a locally compact Hausdorff space and $\C$ be a stable $\infty$-category with small limits and colimits.
     Then we have the following equivalence of $\infty$-categories
     \[
-        \D : \Shv(X;\C)^{op} \simeq \Shv(X;\C^{op}).
+        \mathbb{D} : \Shv(X;\C)^{op} \simeq \Shv(X;\C^{op}).
     \]
 \end{theorem}
 We will be using the theory of $\K$-sheaves set up in the previous chapter to prove the theorem.
@@ -30,7 +30,7 @@ By corollary \ref{7.3.4.10} we can rewrite theorem \ref{VerdierDuality} in terms
     Let $X$ be a locally compact Hausdorff space and $\C$ be a stable $\infty$-category with small limits and colimits.
     Then we have the following equivalence of $\infty$-categories:
     \[
-        \D_{\K} : \KShv(X;\C)^{op} \simeq \KShv(X;\C^{op}).
+        \mathbb{D}_{\K} : \KShv(X;\C)^{op} \simeq \KShv(X;\C^{op}).
     \]
 \end{theorem}
 \begin{definition}[{\cite[Notation 5.5.5.5]{HA}}]\label{5.5.5.5}
@@ -94,7 +94,9 @@ Let's see if we can connect this new notion of Verdier duality to the classical 
     \end{enumerate}
 \end{lemma}
 \begin{proof}
-    We start by assuming condition (2), so let $F: \Nerve(M) \to \C$ be such a functor.
+    First observe that the map $(i,S) \mapsto (2-i, X-S)$ is an order-reversing bijection $M\to M$ which is moreover self-inverse.
+    This means that is it is enough to show that condition $2.$ implies condition $1.$.
+    We start by assuming condition $2.$, so let $F: \Nerve(M) \to \C$ be such a functor.
     Let $\D$ denote the full subcategory of $\Fun(\Nerve(M'), \C)$ spanned by those functors $F$ satisfying the following conditions:
     \begin{enumerate}
         \item $F|\Nerve(M_2)$ is a $\K$-sheaf on $X$.
@@ -141,9 +143,10 @@ Let's see if we can connect this new notion of Verdier duality to the classical 
             \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=3-3]
         \end{tikzcd}\]
     is weakly contractible.
-    As we have partially ordered sets\prepp{Partially ordered sets only have arrows at the ``bottom'' level or you could say that since partially ordered sets have no isofibrations there's none to lift so any homotopy pullbacks are trivially also strict pullbacks? Also something about pullback of fully faithful being fully faithful is probably needed.\url{https://ncatlab.org/nlab/show/homotopy+pullback\#HomotopyFiberCharacterization}
-        Corollary 3.4 here might be needed.}
-    \TODO{Make above remark precise.} the pullback is exactly the subset of $\Lambda_2^2 \times \left(\Nerve(M_1' \cup M_2')_{(0,K)/}\right)_{/(m,A)}$ containing those $(t, (r, B))$ such that $i(t)=j(r,B)$.
+    As we have partially ordered sets
+    %\prepp{Partially ordered sets only have arrows at the ``bottom'' level or you could say that since partially ordered sets have no isofibrations there's none to lift so any homotopy pullbacks are trivially also strict pullbacks? Also something about pullback of fully faithful being fully faithful is probably needed.\url{https://ncatlab.org/nlab/show/homotopy+pullback\#HomotopyFiberCharacterization}
+    %   Corollary 3.4 here might be needed.}
+    %\TODO{Make above remark precise.} the pullback is exactly the subset of $\Lambda_2^2 \times \left(\Nerve(M_1' \cup M_2')_{(0,K)/}\right)_{/(m,A)}$ containing those $(t, (r, B))$ such that $i(t)=j(r,B)$.
     %Objects in $\left(\Nerve(M_1' \cup M_2')_{(0,K)/}\right)_{A/}$ are of the form $(n, B) \leq (m, A)$.
     As $j$ is just the inclusion we have $j((0,K) \to (r, B) \to (m,A))=((0,K) \to (r,B))$.
     Since $i(a)=(2,\emptyset), i(b)=(1,K)$ and $i(c)=(2,K)$ and the pullbacks of monos are mono $\mathrm{PB}$ has to be a subcategory of
@@ -383,7 +386,7 @@ We can now prove Verdier Duality (Theorem \ref{VerdierDuality}):
     \[
         \Shv_{\K}(X;\C^{op}) \xleftarrow{\theta} \mathcal{E}(\C)^{op} \xrightarrow{\theta'} \Shv_{\K}(X;\C)^{op}.
     \]
-    \prepp{Now Lurie cites \cite{HTT}[4.3.2.15]to say the restrictions are trivial Kan fibrations, but I want to say the following instead (I think it is almost the same thing):}
+    %\prepp{Now Lurie cites \cite{HTT}[4.3.2.15]to say the restrictions are trivial Kan fibrations, but I want to say the following instead (I think it is almost the same thing):}
     Because we Kan extend along inclusions of full subcategories which are fully faithful these are equivalences of $\infty$-categories.
     \prepp{Note that $F\in \mathcal{E}(\C)$ means $F|_{M_0}\in \Shv_{\K}(X;\C^{op})$, $F|_{M_0 \cup M_1} = RKAN(F|_{M_0})$ and $F=LKAN(F|_{M_0 \cup M_1})$ .}
     This proves Theorem \ref{KVerdierDuality} and by Corollary \ref{7.3.4.10} we have shown Theorem \ref{VerdierDuality}.
@@ -392,9 +395,9 @@ We can now prove Verdier Duality (Theorem \ref{VerdierDuality}):
     Let $X$ be a locally compact Hausdorff space and $\C$ a pointed and stable $\infty$-category with small limits and colimits.
     Then the equivalence of $\infty$-categories
     \[
-        \D : \Shv(X;\C)^{op} \simeq \Shv(X;\C^{op}).
+        \mathbb{D} : \Shv(X;\C)^{op} \simeq \Shv(X;\C^{op}).
     \]
-    given in Theorem \ref{VerdierDuality} is given by $\D(\F)(U) = \Gamma_c(U;\F)$, and this is the infinity-categorical generalization of the classical fact that conjugation by Verdier Duality exchanges cohomology and cohomology with compact support.
+    given in Theorem \ref{VerdierDuality} is given by $\mathbb{D}(\F)(U) = \Gamma_c(U;\F)$, and this is the infinity-categorical generalization of the classical fact that conjugation by Verdier Duality exchanges cohomology and cohomology with compact support.
     \TODO{Maybe worth trying to make the bridge between this statement and the classical fact even more concrete.}
 \end{proposition}
 \begin{proof}
@@ -403,15 +406,13 @@ We can now prove Verdier Duality (Theorem \ref{VerdierDuality}):
         \theta: \Shv(X;\C^{op})^{op} \simeq \Shv_{\K}(X;\C^{op})^{op}
     \]
     is given by the formula $\theta(\F)(U) = \colim_{K\subseteq U}\F(K)$.
-    \prepp{Make sure this colimit is taken in the correct category. It might be that it should be a limit in $\C$.}
+    \prepp{Make sure this colimit is taken in the correct category. It should probably just be a limit in $\C$.}
     \prepp{Should consider writing out theta more explicitly in the proof of \ref{7.3.4.9}.}
     Let $\psi: \Shv(X;\C) \to \Shv_{\K}(X;\C)$ be the equivalence of Corollary \ref{7.3.4.10} and $\psi'$ the equivalence $\Shv_{\K}(X;\C) \to \Shv_{\K}(X;\C^{op})^{op}$ of Theorem \ref{KVerdierDuality}.
     Composing, we get a string of equivalences
     \[
-        \D^{op} : \Shv(X;\C) \xrightarrow{\psi} \Shv_{\K}(X;\C) \xrightarrow{\psi'} \Shv_{\K}(X;\C^{op})^{op} \xrightarrow{\theta} \Shv(X;\C^{op})^{op}.
+        \mathbb{D}^{op} : \Shv(X;\C) \xrightarrow{\psi} \Shv_{\K}(X;\C) \xrightarrow{\psi'} \Shv_{\K}(X;\C^{op})^{op} \xrightarrow{\theta} \Shv(X;\C^{op})^{op}.
     \]
-
-    %% https://q.uiver.app/?q=WzAsNCxbMCwwLCJcXFNodihYO1xcQykiXSxbMiwwLCJcXFNodihYO1xcQ157b3B9KV57b3B9Il0sWzAsMiwiXFxTaHZfe1xcS30oWDtcXEMpIl0sWzIsMiwiXFxTaHZfe1xcS30oWDtcXENee29wfSlee29wfSJdLFswLDEsIlxcRF57b3B9Il0sWzAsMiwiXFxwc2kiLDJdLFsyLDMsIlxccHNpJyIsMl0sWzMsMSwiXFx0aGV0YSIsMl1d
     % \[\begin{tikzcd}
     % 	{\Shv(X;\C)} && {\Shv(X;\C^{op})^{op}} \\
     % 	\\
@@ -421,7 +422,13 @@ We can now prove Verdier Duality (Theorem \ref{VerdierDuality}):
     % 	\arrow["{\psi'}"', from=3-1, to=3-3]
     % 	\arrow["\theta"', from=3-3, to=1-3]
     % \end{tikzcd}\]
-
-
+    Let $\D$ be as in the proof of Lemma \ref{5.5.5.7}.
+    By Theorem \ref{7.3.4.9} the restriction $\D\to \Fun(\Nerve(\Open(X))^{op}, \C)$ is a trivial Kan fibration onto $\Shv(X;\C)$.
+    \prepp{Here we have used that we Kan extend along the fully faithful inclusion of $\Shv(X;\C)$ (it is a full subcategory of $\Fun(\Nerve(\Open(X))^{op}, \C)$.)}
+    In the other direction we restrict $\D \to \Fun(\Nerve(M_0), \C) \simeq \Fun(\K(X), \C) \simeq \Fun(\K(X)^{op}, \C^{op})^{op}$ and $\psi' \circ \psi$ is given by the composition $\Shv(X;C) \to \D \to \Fun(\K(X)^{op}, \C^{op})^{op}$ and as we saw in the proof of Lemma \ref{5.5.5.7}, restriction from $\D$ to functors from $\Nerve(M_0)$ is given by $\Gamma_K(X;\F)$.
+    This means that $\psi' \circ \psi : \F \mapsto \left( K \mapsto \Gamma_K(X;\F) \right)$ so by Remark \ref{GammaKXisGammaKU} we have
+    \[
+        (\theta \circ \psi' \circ \psi)(\F)(U) = \colim_{K\subseteq U}(\Gamma_K(X;F)) = \colim_{K\subseteq U}(\Gamma_K(U;F)) = \Gamma_c(U;\F).
+    \]
 \end{proof}
 \end{document}

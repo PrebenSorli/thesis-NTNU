@@ -139,8 +139,8 @@ Classically it is known that sheaves of sets on such spaces are determined by co
     Hence, it suffices to prove that $\F|_{(\W \cup \K_{\W}(X)\cup \{U\})^{op}}$ is right Kan extended from $\K_{\W}(X)^{op}$.
     Outside of $U$ this is clear from the fact that $F|_{(\W \cup \K_{\W}^{op})}$ is right Kan extended from $\K_{\W}(X)^{op}$.
     This means we only need to prove $\F|_{(\K_{\W}(X)\cup \{U\})^{op}}$ is a right Kan extension of $\F|_{\K_{\W}(X)^{op}}$.
-    \prepp{I'm honestly not entirely sure why we suddenly drop the $\cup W$ part.}
-    \prepp{$(\W \cup \K_{\W}(X) \cup \{U\})^{op} = (\W \cup \K_{\W}(X))^{op, \triangleleft}$}
+    %\prepp{I'm honestly not entirely sure why we suddenly drop the $\cup W$ part.}
+    %\prepp{$(\W \cup \K_{\W}(X) \cup \{U\})^{op} = (\W \cup \K_{\W}(X))^{op, \triangleleft}$}
     Observe that by assumption
     \[
         \F(U)  = \lim_{K\in \K(X)_{/U}^{op}} \F(K) = \lim_{K\in (\K(X)_{/U} \cup \{U\})^{op}} \F(K)
@@ -223,7 +223,7 @@ Classically it is known that sheaves of sets on such spaces are determined by co
         \Nerve(P^{op})^{\triangleright} \to\Nerve((\Open(X)_{/(K\cap K')})^{op})^{\triangleright} \hookrightarrow \Nerve((\Open(X) \cup \K(X))_{/(K\cap K')}^{op})^{\triangleright} \xrightarrow{c} \Nerve(\Open(X) \cup \K(X))^{op} \xrightarrow{\F}\C.
     \]
     We can show that evaluating the three other vertices also yields colimit diagrams by similar arguments.
-    \prepp{I should maybe do this for all four vertices, or at least check how different the argument is for another vertex.}
+    \prepp{I should maybe do this for all four vertices, or at least check how different the argument is for another vertex, but it looks pretty similar.}
     Since $\sigma_P$ yields a colimit diagram when evaluated in each of the four vertices of $\Delta^1 \times \Delta^1$, we conclude that $\sigma_P$ is itself a colimit diagram by \cite[Proposition 5.1.2.2]{HTT}.
     Observe now that $\sigma_P$ is a filtered colimit in $\C$ and hence it is left exact.
     This concludes the argument that \ref{K-sheaf-PB} is a pullback.

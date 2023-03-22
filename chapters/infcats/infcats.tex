@@ -1,0 +1,230 @@
+\documentclass[../thesis.tex]{subfiles}
+
+\begin{document}
+\TODO{Speak about $(\infty, n)$-categories.}
+\section{Simplicial sets}
+\begin{definition}
+    Usually denoted by $\Delta$, the simplex category or the simplicial category is the category with linearly ordered sets $[n]=\{0,1,2,\cdots ,n\}$ as its objects and order-preserving maps between them as its morphisms.
+    That is, for a map $\varphi:[m] \to [n]$ we have that $0 \leq \varphi(i)\leq \varphi(j)\leq n$ for each $0 \leq i \leq j \leq m$.
+\end{definition}
+We denote by $\delta^i$ the elementary face operator $[n-1] \to [n]$ and by $\sigma^i$ the elementary degeneracy operator $[n+1] \to [n]$ given by
+\[
+    \begin{aligned}
+        \delta^i(j) =
+        \begin{cases}
+            j   & \text{ if } j < i    \\
+            j+1 & \text{ if } j \geq i
+        \end{cases}, \quad
+        \sigma^i(j) =
+        \begin{cases}
+            j   & \text{ if } j \leq i \\
+            j-1 & \text{ if } j > i
+        \end{cases}
+    \end{aligned}
+\]
+\begin{remark}
+    All morphisms in $\Delta$ are compositions of such morphisms.
+\end{remark}
+\begin{definition}
+    We define the category $\sset$ of simplicial sets as $\SET$-valued presheaves on $\Delta$.
+\end{definition}
+Let $X \in \sset : = \Fun(\Delta^{op}, \SET)$. We wil denote by $X_n$ the set $X([n])$ of $n$-simplices in $X$.
+We define the standard $n$-simplex as $\Delta^n:=y([n])$ where $y$ is the Yoneda embedding, meaning $\Delta^n$ is the presheaf $\Hom_{\Delta}(\blank,[n])$.
+By the Yoneda lemma $\Hom_{\Fun(\Delta^{op}, \SET)}(\Delta^n, X) \simeq X_n$, so we can identify each simplex $x\in X_n$ with a map $x:\Delta^n\to X$.
+This application of the Yoneda lemma is a crucial part of the theory of simplicial sets and we will more often than not consider $n$-simplices of a simplicial set $X$ as maps of simplicial sets instead.
+Observe, moreover that composition with the elementary face operator gives us a map $\Delta^{n-1}\to\Delta^n$.
+%by $\delta^i \circ\blank$.
+\begin{definition}
+    For a simplicial set $X$, we define the face and degeneracy maps
+    \[
+        d_i: = X(\delta^i): X_{n} \to X_{n-1}, \quad s_i: = X(\sigma^i): X_{n} \to X_{n+1}
+    \]
+    where both maps are given by composition with $\delta^i$ and $\sigma^i$ respectively.
+\end{definition}
+\begin{example}
+    The standard $0$-simplex $\Delta^0:=\Hom(\blank, [0])$ is a terminal object in $\sset$, meaning it maps any $[m]\in \Delta$ to a singleton.
+\end{example}
+\begin{example}[{\cite[\href{https://kerodon.net/tag/000P}{Remark 000P}]{kerodon}}]
+    Let $X \in \sset$ and suppose we have subsets $T_n\subseteq X_n$ for every $n\geq 0$ such that $d_i(T_n)\subseteq T_{n-1}$ and $s_i(T_n) \subseteq T_{n+1}$.
+    Then the collection $\{T_n\}_{n\geq 0}$ is a simplicial set we will call a simplicial subset $T\subseteq X$.
+\end{example}
+\begin{definition}
+    We define the boundary $\partial\Delta^n$ of $\Delta^n$ as the simplicial set
+    \[
+        (\partial\Delta^n)_m = (\partial\Delta^n)([m]) :=\{\alpha \in \Hom_{\Delta}([m], [n]) | [n] \not\subseteq \mathrm{im}(\alpha)\}.
+    \]
+    Observe that $\partial\Delta^0=\emptyset$ because every map $[m] \to [0]$ is surjective.
+\end{definition}
+\begin{definition}
+    For $0\leq i \leq n$, we define the horn $\Lambda_i^n$ as the simplicial set
+    \[
+        (\Lambda_i^n)_m =(\Lambda_i^n)([m]) :=\{\alpha \in \Hom_{\Delta}([m], [n]) | \delta^i[n] \not\subseteq \mathrm{im}(\alpha)\}.
+    \]
+\end{definition}
+Observe that the horn is inside the boundary.
+We usually refer to $\Lambda_i^n$ as the $i$th horn in $\Delta^n$ and we will call the horns such that $0<i<n$ the inner horns.
+\begin{example}
+    \TODO{Write about $\mathrm{Sing}(X)$ for a topological space $X$.}
+\end{example}
+\begin{example}
+    We define the nerve $\Nerve(\C)$ of a $1$-category $\C$ by
+    \[
+        \Nerve(\C) : = \Hom_{\mathrm{Cat}}([\blank], \C)
+    \]
+    where we view the sets $[n]$ as categories (posets with a map $i$ to $j$ whenever $i\leq j$).
+    Observe that for any order-preserving morphism $\alpha : [m] \to [n]$ we get a map
+    \[
+        \Hom_{\mathrm{Cat}}([n], \C) \xrightarrow{\blank \circ \alpha} \Hom_{\mathrm{Cat}}([m], \C)
+    \]
+    and it is clear that the nerve is a simplicial set with $\Nerve(\C)_n = \Hom_{\mathrm{Cat}}([n], \C)$.
+\end{example}
+\section{$\infty$-categories}
+What Joyal \cite{Joyal} named quasi-categories and Lurie \cite{HTT} calls $\infty$-categories were originally called weak Kan complexes by Boardman and Vogt \cite{BoardmanVogt}.
+As most of this thesis follows Lurie's works very closely, we will follow his convention and use the name $\infty$-categories.
+Before we give a precise definition, we will take a closer look at the nerve construction.
+Clearly, we want the nerve of a $1$-category to give us an $\infty$-category and most of this thesis will revolve around nerves of certain poset-categories of topological spaces.
+Nerves of categories are not just any ordinary simplicial sets, but simplicial sets with some more structure inherited from the underlying $1$-category.
+For instance, $1$-categories have composition of morphisms.
+Take for example
+\[\begin{tikzcd}
+        X && Y \\
+        & Z
+        \arrow["f", from=1-1, to=1-3]
+        \arrow["g", from=1-3, to=2-2]
+        %\arrow["h"', from=1-1, to=2-2]
+    \end{tikzcd}\]
+in some ordinary $1$-category $\C$.
+This diagram gives us a morphism $\Lambda_1^2\to \Nerve(\C)$ of simplicial sets, but in $\C$ $f$ and $g$ can be composed to a morphism $h: X \to Z$ which in turn gives a unique way to extend the simplicial map $\Lambda_1^2\to \Nerve(\C)$ to a map $\Delta^2 \to \Nerve(\C)$.
+If we instead look at the outer horns $\Lambda_0^2$ and $\Lambda_2^2$ we will not necessarily have a way to extend morphisms to $\Delta^2$ in general.
+For example the diagram
+\[\begin{tikzcd}
+        X && Y \\
+        & X
+        \arrow["g", from=1-3, to=2-2]
+        \arrow["\id_X"', from=1-1, to=2-2]
+    \end{tikzcd}\]
+gives a map $\Lambda_2^2\to \Nerve(\C)$, but extending this to a morphism $\Delta^2 \to \Nerve(\C)$ would amount to finding a right-inverse to $g$, which of course is not something we can always do in general, unless $\C$ was a groupoid.
+This property of extending a morphism from a horn to the standard $n$-simplex is sometimes also called filling the horn, and we will see that it is a defininig property for $\infty$-categories.
+In fact, the existence of horn fillings completely classifies the simplicial sets which are nerves of categories:
+\begin{proposition}[{\cite[Proposition 1.1.2.2]{HTT}}]
+    Let $X \in \sset$.
+    Then the following conditions are equivalent:
+    \begin{enumerate}
+        \item There exists a small category $\C$ with an isomorphism $X \simeq \Nerve(\C)$.
+        \item Every inner horn $\Lambda_i^n \to X$ of $X$ can be filled in an unique way.
+              Or, in other words, for any solid diagram as below, there is a unique dotted arrow making it commute:
+              \[\begin{tikzcd}
+                      {\Lambda_i^n} && X \\
+                      \\
+                      {\Delta^n}
+                      \arrow[from=1-1, to=1-3]
+                      \arrow[from=1-1, to=3-1]
+                      \arrow["{\exists!}"', dashed, from=3-1, to=1-3]
+                  \end{tikzcd}\]
+    \end{enumerate}
+\end{proposition}
+Simplicial sets which admits extensions for all horn are called Kan complexes:
+\begin{definition}
+    A simplicial set $X$ is a Kan complex if it satisfies the following condition:
+    For $0 \leq i \leq n$, any map $\sigma_0 : \Lambda_i^n \to X$ can be extended to a map $\sigma: \Delta^n \to X$.
+\end{definition}
+As we saw in the example of a map $\Lambda_2^2\to \Nerve(\C)$ above, whenever there's non-invertible morphisms around some outer horns will be impossible to fill.
+This motivates the definition of an $\infty$-category.
+The following definition is due to Boardman and Vogt \cite{BoardmanVogt} who defined weak Kan complexes as simplicial sets satisfying what they called the restricted Kan condition:
+\footnote{Maybe more commonly known as the weak Kan extension condition. Expand on this with a historical account.}:
+\begin{definition}[Boardman and Vogt \cite{BoardmanVogt}]
+    A simplicial set $X$ is an $\infty$-category if it satisfies the following condition:
+    For $0 < i < n$, any map $\sigma_0 : \Lambda_i^n \to X$ can be extended to a map $\sigma: \Delta^n \to X$.
+\end{definition}
+
+This means that any Kan complex is an $\infty$-category, and in particular so is $\mathrm{Sing}(X)$ for a topological space $X$.
+Additionally, observe that the nerve $\Nerve(\C)$ of an ordinary category $\C$ is an $\infty$-category.
+Because the nerve functor is fully faithful, many authors choose to omit its notation altogether.
+\TODO{Write fully-faithfulness of the nerve as a proposition or something.}
+\prepp{Consider if we should omit it as well. Currently we have been using it, but it is fucking annoying to remember writing $\Nerve$ all the time.}
+In many ways $\infty$-categories behave similarly to ordinary categories and we will often write about them almost as if they were ordinary categories instead.
+For example, we will use the terminology of ordinary category theory and refer to the vertices and edges of our simplicial sets as objects and morphism in our $\infty$-categories.
+There are however some obvious differences between ordinary categories and $\infty$-categories which needs adressing before adopting complete $1$-categorical language.
+For example, and perhaps most crucially, we have higher-level maps given by simplices of dimension $n\geq 2$.
+\TODO{Write about $\MAP$.}
+While we have seen that nerves of categories admit unique horn extensions, this condition is dropped for general $\infty$-categories and hence, composition of morphisms in an $\infty$-category are not necessarily unique, but rather unique up to homotopy.
+Before we can make this precise, we must define what we mean by homotopy.
+\subsection{Homotopy}
+\begin{definition}[{\cite[\href{https://kerodon.net/tag/003V}{Definition 003V}]{kerodon}}]
+    Let $\C$ be an $\infty$-category and $f,g \in \Hom_{\C}(C,D)$.
+    We define a homotopy between $f$ and $g$ as a $2$-simplex $\sigma \in \C$ with boundary specified by $d_0(\sigma) = \id_D, d_1(\sigma) = g$ and $d_2(\sigma)=f$ and we say $f$ and $g$ are homotopic if such a homotopy exists.
+\end{definition}
+\begin{example}
+    For a $1$-category $\C$ two morphisms $f,g \in \Hom_{\C}(C,D)$ are homotopic in $\Nerve(\C)$ if and only if $f=g$.
+\end{example}
+\begin{proposition}[{\cite[\href{https://kerodon.net/tag/003Z}{Proposition 003Z}]{kerodon}}]
+    Let $\C$ be an $\infty$-category and $C,D$ objects of $\C$.
+    Then homotopy is an equivalence relation on $\Hom_{\C}(C,D)$.
+\end{proposition}
+\begin{proof}
+    \TODO{Prove. Both Rune and Lurie have nice proofs.}
+\end{proof}
+\begin{proposition}
+    $f,g \in \Hom_{\C}(C,D)$ are homotopic if and only if they are homotopic as morphisms in $\C^{op}$.
+\end{proposition}
+\begin{proof}
+    \TODO{Lurie.}
+\end{proof}
+\TODO{Consider adding Corollary \cite[\href{https://kerodon.net/tag/00V0}{Corollary 00V0}]{kerodon}}
+Now that we know what it means for morphisms of $\infty$-categories to be homotopic, we can define a composition of morphisms.
+\begin{definition}[{\cite[\href{https://kerodon.net/tag/0042}{Definition 0042}]{kerodon}}]
+    Let $\C$ be an $\infty$-category with morphisms
+    \[\begin{tikzcd}
+            X && Y \\
+            & Z
+            \arrow["f", from=1-1, to=1-3]
+            \arrow["g", from=1-3, to=2-2]
+            \arrow["h"', from=1-1, to=2-2]
+        \end{tikzcd}\]
+    We define $h$ to be a composition of $f$ and $g$ if there exists some $2$-simplex $\sigma \in \C$ such that $d_0(\sigma) = g, d_1(\sigma)=h$ and $d_2(\sigma)=f$.
+    We say $\sigma$ witnesses $h$ as a composition of $f$ and $g$ and we will use the usual notation $h = g \circ f$.
+\end{definition}
+Observe that we have only defined composition up to homotopy.
+We make this precise in the following proposition:
+\begin{proposition}[{\cite[\href{https://kerodon.net/tag/0043}{Proposition 0043}]{kerodon}}]
+    Let $\C$ be an $\infty$-category with morphisms $f$ and $g$ as follows:
+    \[\begin{tikzcd}
+            X && Y \\
+            & Z
+            \arrow["f", from=1-1, to=1-3]
+            \arrow["g", from=1-3, to=2-2]
+            \arrow["h"', dashed, from=1-1, to=2-2]
+        \end{tikzcd}\]
+    Then there exists a composition $h$ of $f$ and $g$ and any other morphism $X\to Z$ is a composition of $f$ and $g$ if and only if it is homotopic to $h$.
+\end{proposition}
+\prepp{The proof seems kind of technical, so might not be worth doing. Might do it if there's time or Rune thinks I should.
+    Should consider adding \cite[\href{https://kerodon.net/tag/000Z}{Exercise 000Z}]{kerodon} as this exercise is used in a lot of the proofs in this subsection.}
+Furthermore, compositions respect homotopy in the following sense:
+\begin{proposition}[{\cite[\href{https://kerodon.net/tag/0048}{Proposition 0048}]{kerodon}}]
+    Let $\C$ be an $\infty$-category with homotopic morphisms $f \sim f':X \to Y$ and $g \sim g': Y \to Z$.
+    Let $h=f\circ g$ and $h' = f' \circ g'$.
+    Then $h$ is homotopic to $h'$.
+\end{proposition}
+\begin{remark}
+    The nerve construction preserves compositions in the sense that for a $1$-category $\C$ with morphisms $f,g$ as above, there is a unique morphism $h:\Nerve(X)\to \Nerve(Z)$ in $\Nerve(\C)$ which is given by $f\circ g$ in $\C$.
+\end{remark}
+In a later chapter on Kan extensions we will see that the nerve construction $\Delta \xrightarrow{\Nerve} \C$ admits a left adjoint $\h$ and moreover that the counit of this adjunction is an isomorphism which in turn means that the nerve is fully faithful.
+We now construct this left adjoint directly, but delay the proof of the adjunction.
+Analogously to the construction of the fundamental groupoid $\pi_{\leq 1}(X)$ of a topological space $X$, we can construct the homotopy category $\h\C$ of an $\infty$-category $\C$.
+\prepp{Writing about the fundamental gruopoid could be smart.}
+\begin{definition}
+    Let $\C$ be an $\infty$-category.
+    We denote by $\Hom_{\h\C}(X,Y)$ homotopy classes of morphisms $X\to Y \in \C$ and for a morphism $f \in \Hom_{\C}(X,Y)$, we denote by $[f]$ its equivalence class in $\Hom_{\h\C}(X,Y)$.
+\end{definition}
+\begin{proposition}
+    We have a unique composition of morphisms
+    \[
+        \circ : \Hom_{\h\C}(Y, Z) \times \Hom_{\h\C}(X, Y) \rightarrow \Hom_{\h\C}(X, Z)
+    \]
+    such that $[h] = [f] \circ [g]$ for any $h = f\circ g \in \C$.
+\end{proposition}
+\begin{proof}
+    This follows directly from the previous two propositions.
+\end{proof}
+
+\end{document}
