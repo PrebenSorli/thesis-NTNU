@@ -66,7 +66,7 @@ The following theorem gives a formula for calculating certain left and right Kan
 \begin{proof}
     Proofs can be found in \cite[Theorem 6.2.1.]{CatContext} and \cite[Theorem X.3.1.]{MacLane}
 \end{proof}
-When $\D$ and $\E$ are locally small we call Kan extensions that can be caluclated by colimit and limit formulae above for pointwise Kan extensions.
+When $\D$ and $\E$ are locally small we call Kan extensions that can be caluclated by the colimit and limit formulae above for pointwise Kan extensions.
 In \cite{CatContext}, Riehl says the consensus among category theorists is that the important Kan extensions are the pointwise Kan extensions and quotes \cite[§4]{Kelly}:
 ``Our present choice of nomenclature is based on our failure to find a single instance where a weak Kan extension plays any mathematical role whatsoever.''
 This thesis is no different, and we will only care about pointwise Kan extensions from here on out.
@@ -105,7 +105,7 @@ Before we extend the theory Kan extensions from ordinary categories to the world
 \end{example}
 \begin{example}[Yoneda extension]
     Let $\C$ be small, $\E$ locally small and cocomplete.
-    By the corollary above, any functor $F: \C \to \E$ admits a left Kan extension $y_!F$ along the Yoneda embedding $y$ and by fully faithfulness of $y$ the unit $F \cong y_!F\circ K$ is an identity natural transformation.
+    By the corollary above, any functor $F: \C \to \E$ admits a left Kan extension $y_!F$ along the Yoneda embedding $y$ and by fully faithfulness of $y$ the unit $F \cong y_!F\circ y$ is an identity natural transformation.
     In fact, $y_!F$ has a right adjoint $R$, defined on objects by
     \[
         R(e) : = \Hom_{\E}(F(\blank), e) : \C^{op} \to \SET.
@@ -114,11 +114,28 @@ Before we extend the theory Kan extensions from ordinary categories to the world
 \end{example}
 The process of left Kan extending along the Yoneda embedding is called Yoneda extension in \cite[pp.62-64]{CatsSheaves} and it provides lots of interesting examples of Kan extensions.
 We will look at a couple examples in the special case $\C = \Delta$.
+\prepp{These are exercises in \cite{CatContext}. Should I cite?}
 \begin{example}
-    Sing
+    Let $\Delta_{\mathrm{Top}} : \Delta \to \mathrm{Top}$ be the functor known as the standard topological $n$-simplex:
+    \[
+        [n] \mapsto \Delta^n_{\mathrm{Top}} : = \{(x_0, \dots , x_n) \in \mathbb{R}^{n+1} | \sum_{i}x_i = 1, x_i \geq 0\}  .
+    \]
+    By the discussion of Yoneda extension above we have an adjoint pair $(y_!\Delta_{\mathrm{Top}}, R)$ where the right adjoint is given by
+    \[
+        R(e) = \Hom_{\mathrm{Top}}(\Delta_{\mathrm{Top}}(\blank), e)
+    \]
+    and this is what is known as the total singular complex functor, also written $\mathrm{Sing}$.
+    \TODO{Check if $\mathrm{Sing}$ is mentioned in chapter 1 and reference it back.}
 \end{example}
-\begin{example}[The Nerve construction]
-    This is awesome.
+\begin{example}[The Nerve construction]\label{NerveKan}
+    Let $F$ be the embedding $\Delta \hookrightarrow \mathrm{Cat}$.
+    Yoneda extension yields an adjoint pair $(y_!F, R)$ where the right adjoint $R$ is given by
+    \[
+        R(\C) = \Hom_{\mathrm{Cat}}(F(\blank), \C).
+    \]
+    Recall from Example \ref{NerveDef} that this is the definition of the nerve of $\C$.
+    The left adjoint $y_!F$ is the homotopy category $\h$ of a simplicial set.
+    Observe furthermore that the counit $\h(\Nerve(X)) \to X$ is an isomorphism which implies that the nerve construction is a fully faithful functor.
 \end{example}
 \subsection{Kan extensions for $\infty$-categories}
 \prepp{THIS IS CURRENTLY JUST ALONG INCLUSIONS}

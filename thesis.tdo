@@ -1,41 +1,42 @@
-\contentsline {todo}{\textbf {TODO:} Speak about $(\infty , n)$-categories.}{1}{section*.3}%
+\contentsline {todo}{\textbf {Preben:} Is this even relevant?}{1}{section*.3}%
 \contentsline {todo}{\textbf {TODO:} Write about $\mathrm {Sing}(X)$ for a topological space $X$.}{2}{section*.4}%
-\contentsline {todo}{\textbf {TODO:} Write fully-faithfulness of the nerve as a proposition or something.}{4}{section*.5}%
-\contentsline {todo}{\textbf {Preben:} Consider if we should omit it as well. Currently we have been using it, but it is fucking annoying to remember writing $\mathrm {N}$ all the time.}{4}{section*.6}%
-\contentsline {todo}{\textbf {TODO:} Write about $\mathrm {Map}$.}{4}{section*.7}%
-\contentsline {todo}{\textbf {TODO:} Prove. Both Rune and Lurie have nice proofs.}{5}{section*.8}%
-\contentsline {todo}{\textbf {TODO:} Lurie.}{5}{section*.9}%
-\contentsline {todo}{\textbf {TODO:} Consider adding Corollary \blx@tocontentsinit {0}\cite [\href {https://kerodon.net/tag/00V0}{Corollary 00V0}]{kerodon}}{5}{section*.10}%
-\contentsline {todo}{\textbf {Preben:} The proof seems kind of technical, so might not be worth doing. Might do it if there's time or Rune thinks I should. Should consider adding \blx@tocontentsinit {0}\cite [\href {https://kerodon.net/tag/000Z}{Exercise 000Z}]{kerodon} as this exercise is used in a lot of the proofs in this subsection.}{6}{section*.11}%
-\contentsline {todo}{\textbf {Preben:} Writing about the fundamental gruopoid could be smart.}{6}{section*.12}%
-\contentsline {todo}{\textbf {TODO:} Define $\mathrm {Map}$ and contractibility.}{6}{section*.13}%
-\contentsline {todo}{\textbf {Preben:} This intro made me cringe.}{8}{section*.14}%
-\contentsline {todo}{\textbf {Preben:} Diagram is exactly the same but all $2$-cells go the other way.}{8}{section*.15}%
-\contentsline {todo}{\textbf {Preben:} Is it clear what it means to extract the 2-cells from the cones?}{9}{section*.16}%
-\contentsline {todo}{\textbf {Preben:} THIS IS CURRENTLY JUST ALONG INCLUSIONS}{11}{section*.17}%
-\contentsline {todo}{\textbf {TODO:} This is chaos. Fix all slice notations in separate subsection of infcat chapter.}{11}{section*.18}%
-\contentsline {todo}{\textbf {Preben:} Is this equivalent to the following limit diagram?}{13}{section*.19}%
-\contentsline {todo}{\textbf {Preben:} This is almost exactly definition of left Kan extension! Is it true that a presheaf is a sheaf if (and only if??) it is a left Kan extension of every possible covering sieve on $X$?}{13}{section*.20}%
-\contentsline {todo}{\textbf {TODO:} Expand on this with references.}{14}{section*.21}%
-\contentsline {todo}{\textbf {Preben:} I'm pretty sure we must regard the union $\EuScript {U}(X) \cup \EuScript {K}(X)$ as a poset contained in the powerset of $X$ here for everything to make sense}{15}{section*.22}%
-\contentsline {todo}{\textbf {Preben:} We regard $\EuScript {K}(X)$ as partially ordered by the $\Subset $ relation. (I think)}{15}{section*.23}%
-\contentsline {todo}{\textbf {Preben:} Might be good to write out the details of why this is contractible.}{15}{section*.24}%
-\contentsline {todo}{\textbf {Preben:} I have not found a nice proof of this implication, but I think the Kan extension is a stronger statement.}{16}{section*.25}%
-\contentsline {todo}{\textbf {TODO:} Notation $i_*$ comes from it being right adjoint to $i^*$. Write about adjoint description of Kan extensions in Kan chapter.}{16}{section*.26}%
-\contentsline {todo}{\textbf {Preben:} This is probably obvious or easier to show than what I am about to do, so please let me know.}{16}{section*.27}%
-\contentsline {todo}{\textbf {Preben:} This calculation could maybe be a lemma in the Kan chapter instead.}{17}{section*.28}%
-\contentsline {todo}{\textbf {TODO:} Reference this result.}{18}{section*.29}%
-\contentsline {todo}{\textbf {Preben:} I should maybe do this for all four vertices, or at least check how different the argument is for another vertex, but it looks pretty similar.}{18}{section*.30}%
-\contentsline {todo}{\textbf {Preben:} Let's be consistent on wether we write $\colim _{K\subseteq U}$ or $\colim _{\EuScript {K}(X)_{/U}}$.}{22}{section*.31}%
-\contentsline {todo}{\textbf {Preben:} Lurie writes $\colim _{K\subseteq U}\Gamma _K(M;\EuScript {F})$, but I think that is a mistake.}{22}{section*.32}%
-\contentsline {todo}{\textbf {Preben:} This should just boil down to fully faithful Kan extensions along fully faithful functors give actual on the nose extensions, but might be smart to ref the result.}{23}{section*.33}%
-\contentsline {todo}{\textbf {Preben:} Maybe have this as a separate lemma.}{23}{section*.34}%
-\contentsline {todo}{\textbf {Preben:} My thoughts here are that we calculate Kan extensions as colimits, so $i$ being cofinal over some fixed $K$ means restricting the colimit from $\EuScript {U}(X)^{op}$ back to $B$ is an equivalence.}{27}{section*.35}%
-\contentsline {todo}{\textbf {Preben:} Lurie never states what he means with $M'''$, but I think he might just mean $B$.}{27}{section*.36}%
-\contentsline {todo}{\textbf {Preben:} I think this follows from something like pullback along equiv is equiv or something. Probably smart to think about htpy pullbacks. Feels really obvious in this case though since we have zero objects.}{28}{section*.38}%
-\contentsline {todo}{\textbf {TODO:} Explain this step.}{28}{section*.37}%
-\contentsline {todo}{\textbf {Preben:} Note that $F\in \mathcal {E}(\EuScript {C})$ means $F|_{M_0}\in \mathrm {Shv}_{\EuScript {K}}(X;\EuScript {C}^{op})$, $F|_{M_0 \cup M_1} = RKAN(F|_{M_0})$ and $F=LKAN(F|_{M_0 \cup M_1})$ .}{29}{section*.39}%
-\contentsline {todo}{\textbf {TODO:} Maybe worth trying to make the bridge between this statement and the classical fact even more concrete.}{29}{section*.40}%
-\contentsline {todo}{\textbf {Preben:} Make sure this colimit is taken in the correct category. It should probably just be a limit in $\EuScript {C}$.}{30}{section*.41}%
-\contentsline {todo}{\textbf {Preben:} Should consider writing out theta more explicitly in the proof of \ref {7.3.4.9}.}{30}{section*.42}%
-\contentsline {todo}{\textbf {Preben:} Here we have used that we Kan extend along the fully faithful inclusion of $\mathrm {Shv}(X;\EuScript {C})$ (it is a full subcategory of $\mathrm {Fun}(\mathrm {N}(\EuScript {U}(X))^{op}, \EuScript {C})$.)}{30}{section*.43}%
+\contentsline {todo}{\textbf {Preben:} Consider if we should omit it as well. Currently we have been using it, but it is fucking annoying to remember writing $\mathrm {N}$ all the time.}{4}{section*.5}%
+\contentsline {todo}{\textbf {TODO:} Write about $\mathrm {Map}$.}{4}{section*.6}%
+\contentsline {todo}{\textbf {TODO:} Prove. Both Rune and Lurie have nice proofs.}{5}{section*.7}%
+\contentsline {todo}{\textbf {TODO:} Lurie.}{5}{section*.8}%
+\contentsline {todo}{\textbf {TODO:} Consider adding Corollary \blx@tocontentsinit {0}\cite [\href {https://kerodon.net/tag/00V0}{Corollary 00V0}]{kerodon}}{5}{section*.9}%
+\contentsline {todo}{\textbf {Preben:} The proof seems kind of technical, so might not be worth doing. Might do it if there's time or Rune thinks I should. Should consider adding \blx@tocontentsinit {0}\cite [\href {https://kerodon.net/tag/000Z}{Exercise 000Z}]{kerodon} as this exercise is used in a lot of the proofs in this subsection.}{6}{section*.10}%
+\contentsline {todo}{\textbf {Preben:} Writing about the fundamental gruopoid could be smart.}{6}{section*.11}%
+\contentsline {todo}{\textbf {TODO:} Define $\mathrm {Map}$ and contractibility.}{7}{section*.12}%
+\contentsline {todo}{\textbf {Preben:} This intro made me cringe.}{10}{section*.13}%
+\contentsline {todo}{\textbf {Preben:} Diagram is exactly the same but all $2$-cells go the other way.}{10}{section*.14}%
+\contentsline {todo}{\textbf {Preben:} Is it clear what it means to extract the 2-cells from the cones?}{11}{section*.15}%
+\contentsline {todo}{\textbf {Preben:} These are exercises in \blx@tocontentsinit {0}\cite {CatContext}. Should I cite?}{12}{section*.16}%
+\contentsline {todo}{\textbf {TODO:} Check if $\mathrm {Sing}$ is mentioned in chapter 1 and reference it back.}{13}{section*.17}%
+\contentsline {todo}{\textbf {Preben:} THIS IS CURRENTLY JUST ALONG INCLUSIONS}{13}{section*.18}%
+\contentsline {todo}{\textbf {TODO:} This is chaos. Fix all slice notations in separate subsection of infcat chapter.}{13}{section*.19}%
+\contentsline {todo}{\textbf {Preben:} Is this equivalent to the following limit diagram?}{15}{section*.20}%
+\contentsline {todo}{\textbf {Preben:} This is almost exactly definition of left Kan extension! Is it true that a presheaf is a sheaf if (and only if??) it is a left Kan extension of every possible covering sieve on $X$?}{15}{section*.21}%
+\contentsline {todo}{\textbf {TODO:} Expand on this with references.}{16}{section*.22}%
+\contentsline {todo}{\textbf {Preben:} I'm pretty sure we must regard the union $\EuScript {U}(X) \cup \EuScript {K}(X)$ as a poset contained in the powerset of $X$ here for everything to make sense}{17}{section*.23}%
+\contentsline {todo}{\textbf {Preben:} We regard $\EuScript {K}(X)$ as partially ordered by the $\Subset $ relation. (I think)}{17}{section*.24}%
+\contentsline {todo}{\textbf {Preben:} Might be good to write out the details of why this is contractible.}{17}{section*.25}%
+\contentsline {todo}{\textbf {Preben:} I have not found a nice proof of this implication, but I think the Kan extension is a stronger statement.}{18}{section*.26}%
+\contentsline {todo}{\textbf {TODO:} Notation $i_*$ comes from it being right adjoint to $i^*$. Write about adjoint description of Kan extensions in Kan chapter.}{18}{section*.27}%
+\contentsline {todo}{\textbf {Preben:} This is probably obvious or easier to show than what I am about to do, so please let me know.}{18}{section*.28}%
+\contentsline {todo}{\textbf {Preben:} This calculation could maybe be a lemma in the Kan chapter instead.}{19}{section*.29}%
+\contentsline {todo}{\textbf {TODO:} Reference this result.}{20}{section*.30}%
+\contentsline {todo}{\textbf {Preben:} I should maybe do this for all four vertices, or at least check how different the argument is for another vertex, but it looks pretty similar.}{20}{section*.31}%
+\contentsline {todo}{\textbf {Preben:} Let's be consistent on wether we write $\colim _{K\subseteq U}$ or $\colim _{\EuScript {K}(X)_{/U}}$.}{24}{section*.32}%
+\contentsline {todo}{\textbf {Preben:} Lurie writes $\colim _{K\subseteq U}\Gamma _K(M;\EuScript {F})$, but I think that is a mistake.}{24}{section*.33}%
+\contentsline {todo}{\textbf {Preben:} This should just boil down to fully faithful Kan extensions along fully faithful functors give actual on the nose extensions, but might be smart to ref the result.}{25}{section*.34}%
+\contentsline {todo}{\textbf {Preben:} Maybe have this as a separate lemma.}{25}{section*.35}%
+\contentsline {todo}{\textbf {Preben:} My thoughts here are that we calculate Kan extensions as colimits, so $i$ being cofinal over some fixed $K$ means restricting the colimit from $\EuScript {U}(X)^{op}$ back to $B$ is an equivalence.}{29}{section*.36}%
+\contentsline {todo}{\textbf {Preben:} Lurie never states what he means with $M'''$, but I think he might just mean $B$.}{29}{section*.37}%
+\contentsline {todo}{\textbf {Preben:} I think this follows from something like pullback along equiv is equiv or something. Probably smart to think about htpy pullbacks. Feels really obvious in this case though since we have zero objects.}{30}{section*.39}%
+\contentsline {todo}{\textbf {TODO:} Explain this step.}{30}{section*.38}%
+\contentsline {todo}{\textbf {Preben:} Note that $F\in \mathcal {E}(\EuScript {C})$ means $F|_{M_0}\in \mathrm {Shv}_{\EuScript {K}}(X;\EuScript {C}^{op})$, $F|_{M_0 \cup M_1} = RKAN(F|_{M_0})$ and $F=LKAN(F|_{M_0 \cup M_1})$ .}{31}{section*.40}%
+\contentsline {todo}{\textbf {TODO:} Maybe worth trying to make the bridge between this statement and the classical fact even more concrete.}{31}{section*.41}%
+\contentsline {todo}{\textbf {Preben:} Make sure this colimit is taken in the correct category. It should probably just be a limit in $\EuScript {C}$.}{32}{section*.42}%
+\contentsline {todo}{\textbf {Preben:} Should consider writing out theta more explicitly in the proof of \ref {7.3.4.9}.}{32}{section*.43}%
+\contentsline {todo}{\textbf {Preben:} Here we have used that we Kan extend along the fully faithful inclusion of $\mathrm {Shv}(X;\EuScript {C})$ (it is a full subcategory of $\mathrm {Fun}(\mathrm {N}(\EuScript {U}(X))^{op}, \EuScript {C})$.)}{32}{section*.44}%

@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber thesis"] 1679601033 "thesis.bcf" "thesis.bbl" "thesis" 1679601048
-  "thesis.bcf" 1679601047 108778 6bc1eed14205927c8008f711db4ff66b "lualatex"
-  "thesis.bib" 1679600853 3757 2e3288effb90d1d20bc1e8b5eabff4aa ""
+["biber thesis"] 1679940580 "thesis.bcf" "thesis.bbl" "thesis" 1679942666
+  "thesis.bcf" 1679942666 109150 3ed649cd7c8742080dd4829fda017edb "lualatex"
+  "thesis.bib" 1679940416 4401 d1f0b93b0c5f1ac333fb9699e4c31195 ""
   (generated)
   "thesis.bbl"
   "thesis.blg"
-["lualatex"] 1679601043 "/Users/prebenhastsorli/master_thesis/thesis-NTNU/thesis.tex" "thesis.pdf" "thesis" 1679601048
+["lualatex"] 1679942661 "/Users/prebenhastsorli/master_thesis/thesis-NTNU/thesis.tex" "thesis.pdf" "thesis" 1679942666
   "/Users/prebenhastsorli/Library/texlive/2022/texmf-var/luatex-cache/generic/fonts/hb/:System:Library:Fonts:Apple Color Emoji.ttc:1:nil" 1662558751 158099 4a3d0eeb6d93873c90a671aa0ef4d615 ""
   "/Users/prebenhastsorli/Library/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/atkinson-hyperlegible-bold-102.luc" 1662558569 67449 a35339151464a3f174070e2f59a757fd ""
   "/Users/prebenhastsorli/Library/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/atkinson-hyperlegible-bolditalic-102.luc" 1662558569 66809 a5bf8d5444eee983777aae2eab17e9e2 ""
@@ -67,6 +67,7 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1248133631 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb" 1248133631 32442 c975af247b6702f7ca0c299af3616b80 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb" 1336858727 10538 4c913b4f5af64465058317e624ed5562 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eusm7.pfb" 1336858727 10655 59563f7c7a496636875d5539c16c0d92 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1248133631 31764 459c573c03a4949a528c2cc7f557e217 ""
@@ -397,10 +398,10 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/tex/generic/config/language.dat" 1647878956 6627 cbdbf72b83b12733508e4ca40fb3403d ""
   "/usr/local/texlive/2022/texmf-var/web2c/luahbtex/lualatex.fmt" 1655462806 4558588 84830eb1394b4057c2e92910ad8f78f9 ""
-  "chapters/infcats/infcats.tex" 1679509815 14719 06a18cad6c894da3e1e4b29456d22d43 ""
+  "chapters/infcats/infcats.tex" 1679942661 16006 2d4a1912f6691da15256eaecd265f644 ""
   "chapters/infcats/stable.tex" 1679402847 590 0e5785001438ffb04bc79fcf4cbf486e ""
   "chapters/introduction.tex" 1679497964 1127 8a77a01e78bbc87d9e50206e379da1f6 ""
-  "chapters/lims_colims/Kan.tex" 1679601027 11923 aea3e09a8251c780ea8ac0db4a8ca83f ""
+  "chapters/lims_colims/Kan.tex" 1679941400 13193 45a0be1ae577a1697447daeda5487c75 ""
   "chapters/lims_colims/cofinality.tex" 1679402714 1188 6d2896cd5023f2271cd4d4dd501f8228 ""
   "chapters/lims_colims/lims_colims.tex" 1679402748 101 240e16d91116b2825747845b8d560346 ""
   "chapters/sheaves/K-sheaves.tex" 1678207090 21077 0e584405f82d48981a4a598e02ad5e3d ""
@@ -409,13 +410,13 @@
   "ntnuthesis.cls" 1671025453 10334 36fcc12644490cf1014a4aa73611b542 ""
   "preamble.tex" 1679512344 1289 3a0d3484e57937aaf1ca136f59be6b41 ""
   "quiver.sty" 1679512070 1605 32d92a72ff15e3fab71eedcda667f37c ""
-  "thesis.aux" 1679601047 18437 a47424459b8a46fcbae777f16c69f6af "lualatex"
-  "thesis.bbl" 1679601035 11861 eb6eb63e315a82d6a78ada13592abac1 "biber thesis"
-  "thesis.out" 1679601047 2551 1b3514bfecb71d5d39d321baf48f70ae "lualatex"
-  "thesis.run.xml" 1679601047 2387 08b9c140126baa4d385433434f64ac3f "lualatex"
-  "thesis.tdo" 1679601047 6252 37ff558896ec2c599a53f42b5990005d "lualatex"
+  "thesis.aux" 1679942665 19357 e83993a3316498f1d5e9cf010b931d73 "lualatex"
+  "thesis.bbl" 1679940582 14150 bd4cb13c48a3c93e01791ca77429c79e "biber thesis"
+  "thesis.out" 1679942666 2551 008f8fc74e5f1e27b029e9f09dfc825a "lualatex"
+  "thesis.run.xml" 1679942666 2387 08b9c140126baa4d385433434f64ac3f "lualatex"
+  "thesis.tdo" 1679942666 6387 2c3a778bb0366367066e8efd6162edeb "lualatex"
   "thesis.tex" 1679514012 1186 9ae9523d57ccf4566849914e9b030b69 ""
-  "thesis.toc" 1679601047 1427 c828e91e216597f0919442c71691329d "lualatex"
+  "thesis.toc" 1679942666 1428 020b643c7bfaa917ffce204df8f8c400 "lualatex"
   (generated)
   "thesis.acn"
   "thesis.aux"

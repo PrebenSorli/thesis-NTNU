@@ -1,8 +1,15 @@
-\documentclass[../thesis.tex]{subfiles}
+\documentclass[../../thesis.tex]{subfiles}
 
 \begin{document}
-\TODO{Speak about $(\infty, n)$-categories.}
+%\TODO{Speak about $(\infty, n)$-categories.}
+What Lurie \cite{HTT} calls $\infty$-categories were originally called restricted Kan complexes by Boardman and Vogt \cite{BoardmanVogt}, but without intent of using them for $\infty$-categories.
+The first development of such a theory was done by Joyal in \cite{Joyal} who called them quasicategories.
+As most of this thesis follows Lurie's works very closely, we will follow his convention and use the name $\infty$-categories.
+While \cite{HTT} gives a good introduction to $\infty$-categories extending on the work of Joyal, his web-project \cite{kerodon}\footnote{This is kind of his solo-version of the Stacks project for $\infty$-categories.} reworks a lot of the foundations and we take a lot of inspiration from this presentation.
 \section{Simplicial sets}
+Originally, simplicial sets was used to rephrase the homotopy theory of spaces in combinatorial terms.
+There are many good introductions to simplicial sets, depending on what you want to use them for, but Friedman's \cite{friedman2021elementary} was enlightening for the author of this thesis.
+For algebraic topologists, Peter May's \cite{MAY} is a good introduction to semi-simplicial topology.\footnote{\prepp{Is this even relevant?}}
 \begin{definition}
     Usually denoted by $\Delta$, the simplex category or the simplicial category is the category with linearly ordered sets $[n]=\{0,1,2,\cdots ,n\}$ as its objects and order-preserving maps between them as its morphisms.
     That is, for a map $\varphi:[m] \to [n]$ we have that $0 \leq \varphi(i)\leq \varphi(j)\leq n$ for each $0 \leq i \leq j \leq m$.
@@ -26,9 +33,9 @@ We denote by $\delta^i$ the elementary face operator $[n-1] \to [n]$ and by $\si
     All morphisms in $\Delta$ are compositions of such morphisms.
 \end{remark}
 \begin{definition}
-    We define the category $\sset$ of simplicial sets as $\SET$-valued presheaves on $\Delta$.
+    We define the category $\sset$, also denoted $\SET_{\Delta}$ by Lurie, of simplicial sets as $\SET$-valued presheaves on $\Delta$, i.e. functors $\Delta^{op}\to\SET$.
 \end{definition}
-Let $X \in \sset : = \Fun(\Delta^{op}, \SET)$. We wil denote by $X_n$ the set $X([n])$ of $n$-simplices in $X$.
+Let $X \in \sset : = \Fun(\Delta^{op}, \SET)$. We wil denote by $X_n$ the set $X([n])$ of $n$-simplices or also called $n$-cells of $X$.
 We define the standard $n$-simplex as $\Delta^n:=y([n])$ where $y$ is the Yoneda embedding, meaning $\Delta^n$ is the presheaf $\Hom_{\Delta}(\blank,[n])$.
 By the Yoneda lemma $\Hom_{\Fun(\Delta^{op}, \SET)}(\Delta^n, X) \simeq X_n$, so we can identify each simplex $x\in X_n$ with a map $x:\Delta^n\to X$.
 This application of the Yoneda lemma is a crucial part of the theory of simplicial sets and we will more often than not consider $n$-simplices of a simplicial set $X$ as maps of simplicial sets instead.
@@ -43,6 +50,7 @@ Observe, moreover that composition with the elementary face operator gives us a 
 \end{definition}
 \begin{example}
     The standard $0$-simplex $\Delta^0:=\Hom(\blank, [0])$ is a terminal object in $\sset$, meaning it maps any $[m]\in \Delta$ to a singleton.
+    This is usually just referred to as the point and denoted $*$.
 \end{example}
 \begin{example}[{\cite[\href{https://kerodon.net/tag/000P}{Remark 000P}]{kerodon}}]
     Let $X \in \sset$ and suppose we have subsets $T_n\subseteq X_n$ for every $n\geq 0$ such that $d_i(T_n)\subseteq T_{n-1}$ and $s_i(T_n) \subseteq T_{n+1}$.
@@ -66,7 +74,7 @@ We usually refer to $\Lambda_i^n$ as the $i$th horn in $\Delta^n$ and we will ca
 \begin{example}
     \TODO{Write about $\mathrm{Sing}(X)$ for a topological space $X$.}
 \end{example}
-\begin{example}
+\begin{example}\label{NerveDef}
     We define the nerve $\Nerve(\C)$ of a $1$-category $\C$ by
     \[
         \Nerve(\C) : = \Hom_{\mathrm{Cat}}([\blank], \C)
@@ -79,8 +87,6 @@ We usually refer to $\Lambda_i^n$ as the $i$th horn in $\Delta^n$ and we will ca
     and it is clear that the nerve is a simplicial set with $\Nerve(\C)_n = \Hom_{\mathrm{Cat}}([n], \C)$.
 \end{example}
 \section{$\infty$-categories}
-What Joyal \cite{Joyal} named quasi-categories and Lurie \cite{HTT} calls $\infty$-categories were originally called weak Kan complexes by Boardman and Vogt \cite{BoardmanVogt}.
-As most of this thesis follows Lurie's works very closely, we will follow his convention and use the name $\infty$-categories.
 Before we give a precise definition, we will take a closer look at the nerve construction.
 Clearly, we want the nerve of a $1$-category to give us an $\infty$-category and most of this thesis will revolve around nerves of certain poset-categories of topological spaces.
 Nerves of categories are not just any ordinary simplicial sets, but simplicial sets with some more structure inherited from the underlying $1$-category.
@@ -123,7 +129,7 @@ In fact, the existence of horn fillings completely classifies the simplicial set
                   \end{tikzcd}\]
     \end{enumerate}
 \end{proposition}
-Simplicial sets which admits extensions for all horn are called Kan complexes:
+Simplicial sets which admits extensions for all horn inclusions are called Kan complexes:
 \begin{definition}
     A simplicial set $X$ is a Kan complex if it satisfies the following condition:
     For $0 \leq i \leq n$, any map $\sigma_0 : \Lambda_i^n \to X$ can be extended to a map $\sigma: \Delta^n \to X$.
@@ -139,11 +145,10 @@ The following definition is due to Boardman and Vogt \cite{BoardmanVogt} who def
 
 This means that any Kan complex is an $\infty$-category, and in particular so is $\mathrm{Sing}(X)$ for a topological space $X$.
 Additionally, observe that the nerve $\Nerve(\C)$ of an ordinary category $\C$ is an $\infty$-category.
-Because the nerve functor is fully faithful, many authors choose to omit its notation altogether.
-\TODO{Write fully-faithfulness of the nerve as a proposition or something.}
+Because the nerve functor is fully faithful (see example \ref{NerveKan}), many authors choose to omit its notation altogether.
 \prepp{Consider if we should omit it as well. Currently we have been using it, but it is fucking annoying to remember writing $\Nerve$ all the time.}
 In many ways $\infty$-categories behave similarly to ordinary categories and we will often write about them almost as if they were ordinary categories instead.
-For example, we will use the terminology of ordinary category theory and refer to the vertices and edges of our simplicial sets as objects and morphism in our $\infty$-categories.
+For example, we will use the terminology of ordinary category theory and refer to the vertices and edges of our simplicial sets as objects and morphisms in our $\infty$-categories.
 There are however some obvious differences between ordinary categories and $\infty$-categories which needs adressing before adopting complete $1$-categorical language.
 For example, and perhaps most crucially, we have higher-level maps given by simplices of dimension $n\geq 2$.
 \TODO{Write about $\MAP$.}
@@ -151,21 +156,29 @@ While we have seen that nerves of categories admit unique horn extensions, this 
 Before we can make this precise, we must define what we mean by homotopy.
 \subsection{Homotopy}
 \begin{definition}[{\cite[\href{https://kerodon.net/tag/003V}{Definition 003V}]{kerodon}}]
-    Let $\C$ be an $\infty$-category and $f,g \in \Hom_{\C}(C,D)$.
-    We define a homotopy between $f$ and $g$ as a $2$-simplex $\sigma \in \C$ with boundary specified by $d_0(\sigma) = \id_D, d_1(\sigma) = g$ and $d_2(\sigma)=f$ and we say $f$ and $g$ are homotopic if such a homotopy exists.
+    Let $\C$ be an $\infty$-category and $f,g \in \Hom_{\C}(X,Y)$.
+    We define a homotopy between $f$ and $g$ as a $2$-simplex $\sigma \in \C$ with boundary specified by $d_0(\sigma) = \id_Y, d_1(\sigma) = g$ and $d_2(\sigma)=f$ as illustrated in the diagram
+    \[\begin{tikzcd}
+            X && Y \\
+            & Y
+            \arrow["f", from=1-1, to=1-3]
+            \arrow["g"', from=1-1, to=2-2]
+            \arrow["{\id_Y}", from=1-3, to=2-2].
+        \end{tikzcd}\]
+    We say $f$ and $g$ are homotopic if such a homotopy $\sigma$ exists.
 \end{definition}
 \begin{example}
-    For a $1$-category $\C$ two morphisms $f,g \in \Hom_{\C}(C,D)$ are homotopic in $\Nerve(\C)$ if and only if $f=g$.
+    For a $1$-category $\C$ two morphisms $f,g \in \Hom_{\C}(X,Y)$ are homotopic in $\Nerve(\C)$ if and only if $f=g$.
 \end{example}
 \begin{proposition}[{\cite[\href{https://kerodon.net/tag/003Z}{Proposition 003Z}]{kerodon}}]
-    Let $\C$ be an $\infty$-category and $C,D$ objects of $\C$.
-    Then homotopy is an equivalence relation on $\Hom_{\C}(C,D)$.
+    Let $\C$ be an $\infty$-category and $X,Y$ objects of $\C$.
+    Then homotopy is an equivalence relation on $\Hom_{\C}(X,Y)$.
 \end{proposition}
 \begin{proof}
     \TODO{Prove. Both Rune and Lurie have nice proofs.}
 \end{proof}
 \begin{proposition}
-    $f,g \in \Hom_{\C}(C,D)$ are homotopic if and only if they are homotopic as morphisms in $\C^{op}$.
+    $f,g \in \Hom_{\C}(X,Y)$ are homotopic if and only if they are homotopic as morphisms in $\C^{op}$.
 \end{proposition}
 \begin{proof}
     \TODO{Lurie.}
@@ -208,7 +221,7 @@ Furthermore, compositions respect homotopy in the following sense:
 \begin{remark}
     The nerve construction preserves compositions in the sense that for a $1$-category $\C$ with morphisms $f,g$ as above, there is a unique morphism $h:\Nerve(X)\to \Nerve(Z)$ in $\Nerve(\C)$ which is given by $f\circ g$ in $\C$.
 \end{remark}
-In a later chapter on Kan extensions we will see that the nerve construction $\Delta \xrightarrow{\Nerve} \C$ admits a left adjoint $\h$ and moreover that the counit of this adjunction is an isomorphism which in turn means that the nerve is fully faithful.
+In a later chapter on Kan extensions we will see that the nerve construction $\mathrm{Cat} \xrightarrow{\Nerve} \sset$ admits a left adjoint $\h$ and moreover that the counit of this adjunction is an isomorphism which in turn means that the nerve is fully faithful.
 We now construct this left adjoint directly, but delay the proof of the adjunction.
 Analogously to the construction of the fundamental groupoid $\pi_{\leq 1}(X)$ of a topological space $X$, we can construct the homotopy category $\h\C$ of an $\infty$-category $\C$.
 \prepp{Writing about the fundamental gruopoid could be smart.}
