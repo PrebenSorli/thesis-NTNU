@@ -85,6 +85,12 @@ We usually refer to $\Lambda_i^n$ as the $i$th horn in $\Delta^n$ and we will ca
         \Hom_{\mathrm{Cat}}([n], \C) \xrightarrow{\blank \circ \alpha} \Hom_{\mathrm{Cat}}([m], \C)
     \]
     and it is clear that the nerve is a simplicial set with $\Nerve(\C)_n = \Hom_{\mathrm{Cat}}([n], \C)$.
+    \newline
+    Observe furthermore that for a functor $F: \C \to \D$ we get a simplicial map $\Nerve(F):\Nerve(\C) \to \Nerve(\D)$ by sending $n$-cells $\varphi : [n] \to \C$ in $\Nerve(\C)_n$ to $n$-cells $F(\varphi) : [n] \to \D$ in $\Nerve(\D)_n$, so the construction is functorial.
+    It should also be clear that the set of objects of $\C$ is identified with the $0$-cells $\Nerve(\C)_0$ and the morphisms with the $1$-cells $\Nerve(\C)_1$.
+    Additionally, the $2$-cells $\Nerve(\C)_2$ is in bijective with the set of composable pairs of morphisms in $\C$.
+    We will talk more about composition of morphisms in the next section.
+    It is possible to give a general description of the nerve's $n$-cells, see for example \cite[Proposition 4.4.]{Rezk}, but the interesting stuff is really in the dimensions $\{0,1,2\}$.
 \end{example}
 \section{$\infty$-categories}
 Before we give a precise definition, we will take a closer look at the nerve construction.
@@ -134,6 +140,12 @@ Simplicial sets which admits extensions for all horn inclusions are called Kan c
     A simplicial set $X$ is a Kan complex if it satisfies the following condition:
     For $0 \leq i \leq n$, any map $\sigma_0 : \Lambda_i^n \to X$ can be extended to a map $\sigma: \Delta^n \to X$.
 \end{definition}
+\begin{proposition}
+    Groupoids are Kan complexes.
+\end{proposition}
+\begin{proof}
+    All morphisms are invertible, so all horns can be filled.
+\end{proof}
 As we saw in the example of a map $\Lambda_2^2\to \Nerve(\C)$ above, whenever there's non-invertible morphisms around some outer horns will be impossible to fill.
 This motivates the definition of an $\infty$-category.
 The following definition is due to Boardman and Vogt \cite{BoardmanVogt} who defined weak Kan complexes as simplicial sets satisfying what they called the restricted Kan condition:
@@ -221,23 +233,70 @@ Furthermore, compositions respect homotopy in the following sense:
 \begin{remark}
     The nerve construction preserves compositions in the sense that for a $1$-category $\C$ with morphisms $f,g$ as above, there is a unique morphism $h:\Nerve(X)\to \Nerve(Z)$ in $\Nerve(\C)$ which is given by $f\circ g$ in $\C$.
 \end{remark}
-In a later chapter on Kan extensions we will see that the nerve construction $\mathrm{Cat} \xrightarrow{\Nerve} \sset$ admits a left adjoint $\h$ and moreover that the counit of this adjunction is an isomorphism which in turn means that the nerve is fully faithful.
+One can show that the nerve construction $\mathrm{Cat} \xrightarrow{\Nerve} \sset$ admits a left adjoint $\h$ and moreover that the counit of this adjunction is an isomorphism which in turn means that the nerve is fully faithful.
+This can be shown directly and the interested reader can see for example \cite[Proposition 4.10.]{Rezk} or \cite[\href{https://kerodon.net/tag/002Y}{Subsection 002Y}]{kerodon} for proofs, but we will instead delay the proof to section \ref{KanSection} to illustrate the usefulness of Kan extensions.
 We now construct this left adjoint directly, but delay the proof of the adjunction.
 Analogously to the construction of the fundamental groupoid $\pi_{\leq 1}(X)$ of a topological space $X$, we can construct the homotopy category $\h\C$ of an $\infty$-category $\C$.
 \prepp{Writing about the fundamental gruopoid could be smart.}
-\begin{definition}
+\begin{definition}\label{homhtpycat}
     Let $\C$ be an $\infty$-category.
     We denote by $\Hom_{\h\C}(X,Y)$ homotopy classes of morphisms $X\to Y \in \C$ and for a morphism $f \in \Hom_{\C}(X,Y)$, we denote by $[f]$ its equivalence class in $\Hom_{\h\C}(X,Y)$.
 \end{definition}
-\begin{proposition}
+\begin{proposition}[{\cite[\href{https://kerodon.net/tag/004B}{Proposition 004B}]{kerodon}}]
     We have a unique composition of morphisms
     \[
         \circ : \Hom_{\h\C}(Y, Z) \times \Hom_{\h\C}(X, Y) \rightarrow \Hom_{\h\C}(X, Z)
     \]
     such that $[h] = [f] \circ [g]$ for any $h = f\circ g \in \C$.
+    This composition law is both
+    \begin{enumerate}
+        \item associative in the sense that any triple $W\xrightarrow{f}X\xrightarrow{g}Y\xrightarrow{h}Z$ in $\C$ yields an equivalence
+              \[
+                  ([h] \circ [g])\circ [f] = [h] \circ (g \circ f) \in \Hom_{\h\C}(W,Z).
+              \]
+        \item unital in the sense that for any $X\in \C$ the homotopy class $[\id_X]$ of the identity on $X$ is a two-sided identity with respect to the composition law.
+              In other words, for every $W\xrightarrow{f}X$ and every $X\xrightarrow{g}Y$ in $\C$, we have $[id_X] \circ [f] = [f]$ and $g\circ [id_X] = [g]$.
+              This means that $([h]\circ [g])\circ [f] = [w]$ and $[h] \circ ([g]\circ [f]) = [h]\circ [u]$, so it remains to show that $[w] = [h] \circ [u]$.
+    \end{enumerate}
 \end{proposition}
 \begin{proof}
-    This follows directly from the previous two propositions.
+    The existence of the composition law follows directly from the previous two propositions.
+    To prove $1.$ we pick compositions $u = g\circ f$, $v = h\circ g$ and $w = v\circ f$.
+    Choosing $2$-cells $\sigma_0, \sigma_2, \sigma_3$ witnessing the compositions $v = g\circ h, u = g\circ f$ and $w = v \circ f$, respectively yields a map $\Lambda_1^3 \to \C$ as depicted in the following diagram:
+    \[\begin{tikzcd}
+            && X \\
+            &&&& Z \\
+            W &&& Y
+            \arrow["w", dotted, from=3-1, to=2-5]
+            \arrow["f", from=3-1, to=1-3]
+            \arrow["v",from=1-3, to=2-5]
+            \arrow["h"', dotted, from=3-4, to=2-5]
+            \arrow["g", from=1-3, to=3-4]
+            \arrow["u"', dotted, from=3-1, to=3-4]
+        \end{tikzcd}\]
+    where the dotted lines represent the ``missing'' $2$-cell.
+    Since $\C$ is an $\infty$-category we can extend this map to a $3$-cell $\Delta^3 \to \C$ essentially ``filling'' in the missing $2$-cell witnessing the desired composition $w = h \circ u$.
+    \newline
+    To prove $2.$ pick $X\in \C$ and maps $g \in \Hom_{\C}(X,Y)$ and $f \in \Hom_{\C}(W,X)$ and observe that the degenerate $2$-cells with boundaries as in the following diagrams:
+    \[\begin{tikzcd}
+            & X &&&& X \\
+            \\
+            X && Y && W && X
+            \arrow["g"', from=3-1, to=3-3]
+            \arrow["g", from=1-2, to=3-3]
+            \arrow[no head, from=3-1, to=1-2]
+            \arrow["{\id_X}"', shift right=1, no head, from=1-2, to=3-1]
+            \arrow["f", from=3-5, to=1-6]
+            \arrow["f"', from=3-5, to=3-7]
+            \arrow[shift right=1, no head, from=1-6, to=3-7]
+            \arrow["{\id_X}"', no head, from=3-7, to=1-6]
+        \end{tikzcd}\]
+    witnesses the compositions $g \circ \id_X = g$ and $\id_X \circ f = f$.
 \end{proof}
-
+We can now define the homotopy category $\h\C$ of an $\infty$-category $\C$.
+\begin{definition}
+    Let $\C$ be an $\infty$-category.
+    Then $\h\C$ is the $1$-category with objects of $\C$ as its objects and homotopy classes of morphisms as defined in \ref{homhtpycat} as its morphisms.
+    The previous proposition provides identity morphisms $[\id_X]$ for any object $X\in \C$ and composition law satisfying the axioms for being a $1$-category.
+\end{definition}
 \end{document}

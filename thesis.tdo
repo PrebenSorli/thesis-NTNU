@@ -1,13 +1,13 @@
 \contentsline {todo}{\textbf {Preben:} Is this even relevant?}{1}{section*.3}%
 \contentsline {todo}{\textbf {TODO:} Write about $\mathrm {Sing}(X)$ for a topological space $X$.}{2}{section*.4}%
 \contentsline {todo}{\textbf {Preben:} Consider if we should omit it as well. Currently we have been using it, but it is fucking annoying to remember writing $\mathrm {N}$ all the time.}{4}{section*.5}%
-\contentsline {todo}{\textbf {TODO:} Write about $\mathrm {Map}$.}{4}{section*.6}%
+\contentsline {todo}{\textbf {TODO:} Write about $\mathrm {Map}$.}{5}{section*.6}%
 \contentsline {todo}{\textbf {TODO:} Prove. Both Rune and Lurie have nice proofs.}{5}{section*.7}%
-\contentsline {todo}{\textbf {TODO:} Lurie.}{5}{section*.8}%
-\contentsline {todo}{\textbf {TODO:} Consider adding Corollary \blx@tocontentsinit {0}\cite [\href {https://kerodon.net/tag/00V0}{Corollary 00V0}]{kerodon}}{5}{section*.9}%
+\contentsline {todo}{\textbf {TODO:} Lurie.}{6}{section*.8}%
+\contentsline {todo}{\textbf {TODO:} Consider adding Corollary \blx@tocontentsinit {0}\cite [\href {https://kerodon.net/tag/00V0}{Corollary 00V0}]{kerodon}}{6}{section*.9}%
 \contentsline {todo}{\textbf {Preben:} The proof seems kind of technical, so might not be worth doing. Might do it if there's time or Rune thinks I should. Should consider adding \blx@tocontentsinit {0}\cite [\href {https://kerodon.net/tag/000Z}{Exercise 000Z}]{kerodon} as this exercise is used in a lot of the proofs in this subsection.}{6}{section*.10}%
-\contentsline {todo}{\textbf {Preben:} Writing about the fundamental gruopoid could be smart.}{6}{section*.11}%
-\contentsline {todo}{\textbf {TODO:} Define $\mathrm {Map}$ and contractibility.}{7}{section*.12}%
+\contentsline {todo}{\textbf {Preben:} Writing about the fundamental gruopoid could be smart.}{7}{section*.11}%
+\contentsline {todo}{\textbf {TODO:} Define $\mathrm {Map}$ and contractibility.}{8}{section*.12}%
 \contentsline {todo}{\textbf {Preben:} This intro made me cringe.}{10}{section*.13}%
 \contentsline {todo}{\textbf {Preben:} Diagram is exactly the same but all $2$-cells go the other way.}{10}{section*.14}%
 \contentsline {todo}{\textbf {Preben:} Is it clear what it means to extract the 2-cells from the cones?}{11}{section*.15}%
