@@ -4,7 +4,7 @@
 %\TODO{Speak about $(\infty, n)$-categories.}
 What Lurie \cite{HTT} calls $\infty$-categories were originally called restricted Kan complexes by Boardman and Vogt \cite{BoardmanVogt}, but without intent of using them for $\infty$-categories.
 The first development of such a theory was done by Joyal in \cite{Joyal} who called them quasicategories.
-As most of this thesis follows Lurie's works very closely, we will follow his convention and use the name $\infty$-categories.
+As most of this thesis follows Lurie's works very closely, we will follow his convention and use the name $\infty$-categories.\footnote{It should be noted that in other sources ``$\infty$-categories'' might refer to other models than the one we use.}
 While \cite{HTT} gives a good introduction to $\infty$-categories extending on the work of Joyal, his web-project \cite{kerodon}\footnote{This is kind of his solo-version of the Stacks project for $\infty$-categories.} reworks a lot of the foundations and we take a lot of inspiration from this presentation.
 \section{Simplicial sets}
 Originally, simplicial sets was used to rephrase the homotopy theory of spaces in combinatorial terms.
@@ -72,7 +72,7 @@ Observe, moreover that composition with the elementary face operator gives us a 
 Observe that the horn is inside the boundary.
 We usually refer to $\Lambda_i^n$ as the $i$th horn in $\Delta^n$ and we will call the horns such that $0<i<n$ the inner horns.
 \begin{example}
-    \TODO{Write about $\mathrm{Sing}(X)$ for a topological space $X$.}
+    \TODO{Write about $\mathrm{Sing}(X)$ for a topological space $X$. Rezk page 28 is useful.}
 \end{example}
 \begin{example}\label{NerveDef}
     We define the nerve $\Nerve(\C)$ of a $1$-category $\C$ by
@@ -296,7 +296,30 @@ Analogously to the construction of the fundamental groupoid $\pi_{\leq 1}(X)$ of
 We can now define the homotopy category $\h\C$ of an $\infty$-category $\C$.
 \begin{definition}
     Let $\C$ be an $\infty$-category.
-    Then $\h\C$ is the $1$-category with objects of $\C$ as its objects and homotopy classes of morphisms as defined in \ref{homhtpycat} as its morphisms.
+    Then we define $\h\C$ to be the $1$-category with objects of $\C$ as its objects and homotopy classes of morphisms as defined in \ref{homhtpycat} as its morphisms.
     The previous proposition provides identity morphisms $[\id_X]$ for any object $X\in \C$ and composition law satisfying the axioms for being a $1$-category.
+\end{definition}
+\begin{example}\phantom{a}
+    \begin{enumerate}
+        \item $\h\Delta^n = [n] \simeq \{0 < 1 < \cdots < n\}$.
+        \item For a topological space $X$ one can identify $\h\mathrm{Sing}(X)$ with $\pi_{\leq 1}(X)$.
+    \end{enumerate}
+\end{example}
+\subsection{Isomorphims}
+\begin{definition}
+    Let $\C$ be an $\infty$-category and let $X\xrightarrow{f}Y$ in $\C$.
+    We say $f$ is an isomorphism if $[f]$ is an isomorphism in $\h\C$.
+\end{definition}
+\begin{example}
+    Let $\C$ be a $1$-category.
+    A morphism in $\C$ is an isomorphism if and only if it is an isomorphism in $\Nerve(\C)$.
+\end{example}
+\prepp{Is this example too trivial?}
+\TODO{Write about $\infty$-groupoids?}
+\begin{definition}
+    An $\infty$-groupoid is an $\infty$-category such that $\h\C$ is a groupoid, or in other words an $\infty$-category where every morphism is an isomorphism.
+\end{definition}
+\begin{definition}
+    The core of an $\infty$-category $\C$ is the $\infty$-groupoid $\C^{\simeq}$ (also written $\C^{\text{core}}$ by some authors) consisting of the same objects as $\C$ but only the isomorphisms.
 \end{definition}
 \end{document}

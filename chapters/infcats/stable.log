@@ -1,8 +1,8 @@
-This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)  (format=lualatex 2022.6.17)  27 MAR 2023 19:02
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)  (format=lualatex 2022.6.17)  13 APR 2023 16:01
  restricted system commands enabled.
  file:line:error style messages enabled.
-**/Users/prebenhastsorli/master_thesis/thesis-NTNU/chapters/infcats/infcats.tex
-(/Users/prebenhastsorli/master_thesis/thesis-NTNU/chapters/infcats/infcats.tex
+**/Users/prebenhastsorli/master_thesis/thesis-NTNU/chapters/infcats/stable.tex
+(/Users/prebenhastsorli/master_thesis/thesis-NTNU/chapters/infcats/stable.tex
 LaTeX2e <2021-11-15> patch level 1
 Lua module: luaotfload 2022-03-18 3.21 Lua based OpenType font support
 Lua module: lualibs 2021-05-20 2.74 ConTeXt Lua standard libraries.
@@ -36,32 +36,32 @@ Inserting `luaotfload.aux.set_xheight' at position 5 in `luaotfload.patch_font'.
 Inserting `luaotfload.rewrite_fontname' at position 6 in `luaotfload.patch_font'. L3 programming layer <2022-02-24>
 Inserting `tracingstacklevels' at position 1 in `input_level_string'. (/usr/local/texlive/2022/texmf-dist/tex/latex/subfiles/subfiles.cls
 Document Class: subfiles 2020/11/14 v2.2 Multi-file projects (class)
-Preamble taken from file `../chapters/thesis.tex'
+Preamble taken from file `../thesis.tex'
 (/usr/local/texlive/2022/texmf-dist/tex/latex/import/import.sty
 Package: import 2020/04/01  v 6.2
-)
+) (..//../thesis.tex
 
-! LaTeX Error: File `../chapters/thesis.tex' not found.
+! LaTeX Error: File `ntnuthesis.cls' not found.
 
 Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: tex)
+or enter new name. (Default extension: cls)
 
 Enter file name: 
-/usr/local/texlive/2022/texmf-dist/tex/latex/subfiles/subfiles.cls:45: Emergency stop.
+..//../thesis.tex:2: Emergency stop.
 <read *> 
    
-l.45 \input{\preamble@file}
-                         
+l.2 
+   
 *** (cannot \read from terminal in nonstop modes)
 
 
 
 Here is how much of LuaTeX's memory you used:
- 98 strings out of 477785
+ 111 strings out of 477785
  100000,383344 words of node,token memory allocated 303 words of node memory still in use:
    1 hlist, 1 dir, 3 kern, 1 glyph, 1 attribute, 39 glue_spec, 1 attribute_list, 1 if_stack nodes
    avail lists: 2:9,3:3,4:1
- 20902 multiletter control sequences out of 65536+600000
+ 20907 multiletter control sequences out of 65536+600000
  14 fonts using 591679 bytes
- 40i,0n,47p,213b,18s stack positions out of 10000i,1000n,20000p,200000b,200000s
-/usr/local/texlive/2022/texmf-dist/tex/latex/subfiles/subfiles.cls:45:  ==> Fatal error occurred, no output PDF file produced!
+ 41i,0n,53p,212b,19s stack positions out of 10000i,1000n,20000p,200000b,200000s
+..//../thesis.tex:2:  ==> Fatal error occurred, no output PDF file produced!
