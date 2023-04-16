@@ -1,6 +1,7 @@
 \documentclass[../../thesis.tex]{subfiles}
 
 \begin{document}
+\TODO{I have used same notation for $1$-cats and $\infty$-cats. Consider changing.}
 %\TODO{Speak about $(\infty, n)$-categories.}
 What Lurie \cite{HTT} calls $\infty$-categories were originally called restricted Kan complexes by Boardman and Vogt \cite{BoardmanVogt}, but without intent of using them for $\infty$-categories.
 The first development of such a theory was done by Joyal in \cite{Joyal} who called them quasicategories.
@@ -319,7 +320,38 @@ We can now define the homotopy category $\h\C$ of an $\infty$-category $\C$.
 \begin{definition}
     An $\infty$-groupoid is an $\infty$-category such that $\h\C$ is a groupoid, or in other words an $\infty$-category where every morphism is an isomorphism.
 \end{definition}
+\begin{example}
+    Every Kan complex $K$ is an $\infty$-groupoid because every horn can be filled and filling the horns $\Lambda_0^2 \to K$ and $\Lambda_1^2 \to K$ yields inverses for any morphisms in $K$.
+    \newline
+    In particular, this means the singular complex $\mathrm{Sing}X$ of a topological space $X$ is an $\infty$-groupoid and one can show that $\h\mathrm{Sing}X$ is the fundamental groupoid of $X$.
+\end{example}
+
+As one should maybe expect, this works the other way around as well; $\infty$-groupoids are Kan complexes.
+Thankfully, this is true, but it is a non-trivial and technical theorem which is the main focus of \cite{Joyal}.
+For a proof, see \cite{Joyal}[Corollary 1.4] or \cite{Rezk}[Section 34].
+Inspired by \cite{Groth}[Corollary 14.2.18.] we can write the following commutative diagram of fully faithful functors:
+\[\begin{tikzcd}
+        {\mathrm{Grpd}} && {\mathrm{Cat}} \\
+        \\
+        {\mathrm{Kan}=\mathrm{Grpd_{\infty}}} && {\mathrm{Cat}_{\infty}} && \sset
+        \arrow[from=1-1, to=1-3]
+        \arrow["\Nerve"', from=1-1, to=3-1]
+        \arrow[from=3-1, to=3-3]
+        \arrow["\Nerve", from=1-3, to=3-3]
+        \arrow[from=3-3, to=3-5]
+        \arrow["\Nerve", from=1-3, to=3-5]
+    \end{tikzcd}\]
 \begin{definition}
     The core of an $\infty$-category $\C$ is the $\infty$-groupoid $\C^{\simeq}$ (also written $\C^{\text{core}}$ by some authors) consisting of the same objects as $\C$ but only the isomorphisms.
+\end{definition}
+We will say two objects in an $\infty$-category is isomorphic whenever there exists an isomorphism between them.
+Furthermore being isomorphic is an equivalence relation on the objects of an $\infty$-category which means we can sensibly speak of isomorphism classes.
+\prepp{Rezk mentions $\pi_0(\C^{\mathrm{core}})$. Do we care?}
+\subsection{The mapping space}
+For ordinary $1$-categories $\C$ and $\D$ we can create the category $\Fun(\C, \D)$ with fuctors its objects and natural transformations its morphisms.
+We want to create an $\infty$-categorical analogue:
+\begin{definition}
+    Let $X, Y \in \sset$.
+    We define
 \end{definition}
 \end{document}

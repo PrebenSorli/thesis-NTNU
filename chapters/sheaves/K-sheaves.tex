@@ -1,24 +1,22 @@
-\documentclass[../thesis.tex]{subfiles}
+\documentclass[../../thesis.tex]{subfiles}
 
 \begin{document}
-We follow Lurie \cite{HTT} closely.
-We write $\Open(X)$ for the partial order of open subsets of a topological space $X$.
-Let's define sheaves and K-sheaves.
+We will closely follow Lurie \cite{HTT}.
+Let $\Open(X)$ denote the partial order of open subsets of a topological space $X$.
 \begin{definition}[{\cite[Definition 7.3.3.1]{HTT}}]\label{sheaf_on_top}
     Let $X \in \cat{Top}$ and $\C$ an $\infty$-category.
-    We define a $\C$-valued sheaf on $X$ to be a presheaf $\F: \Open(X)^{op} \to \C$ such that, for every $U\subseteq X$ and every covering sieve $\mathscr{W} \subseteq \Open(X)_{/U}$,
+    We define a $\C$-valued sheaf on $X$ to be a presheaf $\F: \Open(X)^{op} \to \C$ such that for every $U\subseteq X$ and every covering sieve $\mathscr{W} \subseteq \Open(X)_{/U}$, the diagram
     \[
         \Nerve(\mathscr{W})^{\triangleright} \hookrightarrow \Nerve(\Open(X)_{/U})^{\triangleright} \rightarrow \Nerve(\Open(X))\xrightarrow{\F}\C^{op}
     \]
-    is a colimit diagram.
+    is a colimit.
 \end{definition}
 \prepp{Is this equivalent to the following limit diagram?}
 \[
     \Nerve((\mathscr{W})^{op})^{\triangleleft} \hookrightarrow \Nerve((\Open(X)_{/U})^{op})^{\triangleleft} \rightarrow \Nerve(\Open(X))^{op}\xrightarrow{\F}\C
 \]
 \prepp{This is almost exactly definition of left Kan extension! Is it true that a presheaf is a sheaf if (and only if??) it is a left Kan extension of every possible covering sieve on $X$?}
-We will write $\Presh(X, \C)$ for the $\infty$-category $\mathrm{Fun}(\Open(X)^{op}, \C)$ of $\C$-valued presheaves on $X$.
-Moreover, we will write $\Shv(X;\C)$ for the full subcategory of $\Presh(X;\C)$ spanned by the $\C$-valued sheaves on $X$.
+We write $\Presh(X, \C)$ for the $\infty$-category $\mathrm{Fun}(\Open(X)^{op}, \C)$ of $\C$-valued presheaves on $X$ and $\Shv(X;\C)$ for the full subcategory of $\Presh(X;\C)$ spanned by the $\C$-valued sheaves on $X$.
 Whenever we write $\Shv(X)$ without specifying the target category $\C$, we will always mean sheaves valued in spaces, i.e. $\Shv(X;\Spaces)$.
 \subsection{Sheaves on locally compact spaces}
 In this section we will show that for locally compact Hausdorff spaces there is an equivalence of $\infty$-categories between $\Shv(X;\C)$ and $\KShv(X;\C)$ where the latter denote so-called $\K$-sheaves and $\C$ is a presentable $\infty$-category with left exact filtered colimits.
@@ -57,7 +55,7 @@ Classically it is known that sheaves of sets on such spaces are determined by co
     We denote the full subcategory of $\Presh(\Nerve(\K(X)); \C)$ by $\KShv(X;\C)$.
 \end{definition}
 \begin{lemma}[{\cite[][Lemma 7.3.4.8]{HTT}}]\label{7.3.4.8}
-    Let $X$ be locally compact and Hausdorff and $\C$ be a presentable $\infty$-category with left exact filtered colimits.
+    Let $X$ be locally compact and Hausdorff, and let $\C$ be a presentable $\infty$-category with left exact filtered colimits.
     Let $\W$ be an open cover of $X$ and denote by $\K_{\W}(X)$ the compact subsets of $X$ that are contained in some element of $\W$.
     Any $\K$-sheaf $\F\in \KShv(X;\C)$ is a right Kan extension of $\F|\Nerve(\K_{\W}(X))^{op}$.
 \end{lemma}
@@ -71,6 +69,7 @@ Classically it is known that sheaves of sets on such spaces are determined by co
 \end{theorem}
 \prepp{I'm pretty sure we must regard the union $\Open(X) \cup \K(X)$ as a poset contained in the powerset of $X$ here for everything to make sense}
 \begin{proof}
+    \prepp{Proof is a bit long. Consider splitting it up.}
     \prepp{We regard $\K(X)$ as partially ordered by the $\Subset$ relation. (I think)}
     We start by assuming the first condition and want to show that $F$ is left Kan extended from $\Nerve({\Open}(X))^{op}$.
     By definition we want to show that
@@ -85,9 +84,9 @@ Classically it is known that sheaves of sets on such spaces are determined by co
     \]
     Recall that by \ref{superlemma} checking cofinality reduces to checking weak contractibility of certain simplicial sets.
     For $p$ we must check $\Nerve((\Open(X))^{op}_{/K}) \times_{\Nerve((\Open(X)\cup \K(X))_{/K}^{op})} \Nerve((\Open(X)\cup \K(X))_{/K}^{op})_{K'/}$ is weakly contractible for every $K' \in \Nerve((\Open(X)\cup \K(X))_{/K}^{op})$.
-    This is the simplicial set obtained by taking the nerve of the partially ordered set$\{U \in \Open(X) | K\subseteq U \subseteq K'\}$.
-    By \cite[Lemma 5.3.1.20]{HTT} filtered $\infty$-categories are weakly contractible, and our partially ordered set is filtered as it is nonempty and stable under finite union and taking nerves preserve the property of being filtered.
-    The simplicial set $\Nerve(\{K'' \in \K(X) | K \Subset K'' \subseteq K'\})$ is weakly contractible by the exact same argument, and hence $p$ and $p'$ are cofinal maps.
+    This is the simplicial set obtained by taking the nerve of the partially ordered set $\{U \in \Open(X) | K\subseteq U \subseteq K'\}$.
+    By \cite[Lemma 5.3.1.20]{HTT} filtered $\infty$-categories are weakly contractible, and our partially ordered set is filtered as it is nonempty, stable under finite union, and taking nerves preserve the property of being filtered.
+    The simplicial set $\Nerve(\{K'' \in \K(X) | K \Subset K'' \subseteq K'\})$ is weakly contractible by exactly the same argument, and hence $p$ and $p'$ are cofinal maps.
     By cofinality of $p$ and $p'$, the diagram
     \[
         \Nerve((\Open(X))^{op}_{/K})^{\triangleright} \hookrightarrow \Nerve((\Open(X)\cup \K(X))_{/K}^{op})^{\triangleright} \xrightarrow{c}\Nerve(\Open(X) \cup \K(X))^{op}\xrightarrow{\F}\C
@@ -117,6 +116,8 @@ Classically it is known that sheaves of sets on such spaces are determined by co
     %         \arrow["\psi", from=3-1, to=7-3]
     %         \arrow[from=1-5, to=3-5]
     %     \end{tikzcd}\]
+
+
     We now show $\F_{\Open}$ is a sheaf.
     By definition \ref{sheaf_on_top} we must show that for every $U\in \Open(X)$ and every covering sieve $\mathscr{W}$ covering $U$,
     \[
@@ -133,7 +134,7 @@ Classically it is known that sheaves of sets on such spaces are determined by co
     \prepp{I have not found a nice proof of this implication, but I think the Kan extension is a stronger statement.}
     By the assumption that $\F$ is a right Kan extension of $\F_{\K}$ and the observation that
     \[
-        \F(U) = \lim_{K\in \K(X)^{op}_{U/}}\F(K) = \lim_{K\in \K_{\W}(X)^{op}_{U/}}\F(K) = K_*^{\prime}\F(U)
+        \F(U) = \lim_{K\in \K(X)^{op}_{U/}}\F(K) = \lim_{K\in \K_{\W}(X)^{op}_{U/}}\F(K) %Do we need the following?= K_*^{\prime}\F(U)
     \]
     we see that $\F|_{(\W \cup \K_{\W})^{op}}$ is a right Kan extension of $\F|_{(K_{\W}(X))^{op}}$.
     Hence, it suffices to prove that $\F|_{(\W \cup \K_{\W}(X)\cup \{U\})^{op}}$ is right Kan extended from $\K_{\W}(X)^{op}$.
@@ -193,7 +194,7 @@ Classically it is known that sheaves of sets on such spaces are determined by co
         \end{tikzcd}
     \end{equation}
     We will do this by using that $\F_{U}$ is a sheaf.
-    Let $P = \{(U,U') | K \subseteq U, K' \subseteq U'\}$ and $\sigma: \Delta^1\times\Delta^1$ denote diagram \ref{K-sheaf-PB}.
+    Let $P = \{(U,U') | K \subseteq U, K' \subseteq U'\}$ and $\sigma: \Delta^1\times\Delta^1 \to \C$ denote diagram \ref{K-sheaf-PB}.
     Now $\F$ induces a map $\sigma_P: \Nerve(P^{op})^{\triangleright} \to \C^{\Delta^1\times\Delta^1}$ taking each $(U, U')$ to
     \[
         \begin{tikzcd}
@@ -208,7 +209,7 @@ Classically it is known that sheaves of sets on such spaces are determined by co
         \end{tikzcd}
     \]
     and the cone point is sent to $\sigma$. This is a pullback by the fact that $\F_{U}$ is a sheaf.
-    By evaluating $\sigma_P$ in each of the four vertices of $\Delta^1 \times \Delta^1$ we get four maps $\Nerve(P^{op})^{\triangleright} \to \C$.
+    Evaluating $\sigma_P$ in each of the four vertices of $\Delta^1 \times \Delta^1$ we get four maps $\Nerve(P^{op})^{\triangleright} \to \C$.
     We now check that evaluating in the final vertex yields a colimit diagram.
     %Let $Q = \{ U\in \Open(X) | K\cap K' \subseteq U \}$, and observe that this is the fiber product $\Open(X)_{/(K\cap K')}$.
     By assumption $\F$ is a left Kan extension of $\F_{U}$ which by definition means that the following is a colimit diagram:
@@ -235,17 +236,17 @@ Classically it is known that sheaves of sets on such spaces are determined by co
     is a colimit diagram.
     We use Proposition \ref{4.3.2.8} to show that
     $\F|_{\Nerve(\Open(X) \cup \K_{K\Subset}(X))^{op}}$ and ${\F|_{\Nerve(\Open(X) \cup \K_{K\Subset}(X))^{op} \cup \{K\}}}$ are left Kan extensions of $\F|_{\Nerve(\Open(X))^{op}}$ which again implies $\F|_{\Nerve(\Open(X) \cup \K_{K\Subset}(X))^{op} \cup \{K\}}$ is a left Kan extension of $\F|_{\Nerve(\Open(X) \cup \K_{K\Subset}(X))^{op}}$.
-    Now observe
+    Now observe that
     \[
         \Nerve(\K(X) \cup \Open(X))^{op,\triangleright}_{/K} = \Nerve(\K_{K\Subset}(X) \cup \Open(X)_{/K})^{op,\triangleright},
     \]
-    so
+    so in particular
     \[
         \Nerve(\K(X) \cup \Open(X))^{op,\triangleright}_{/K} \to \Nerve(\K(X) \cup \Open(X))^{op} \xrightarrow{\F} \C
     \]
-    is a colimit diagram and the statement reduces to showing $\Nerve(\K_{K\Subset}(X)) \subseteq \Nerve(\K(X) \cup \Open(X))_{/K}^{op}$ is cofinal.
+    is a colimit diagram, and the statement is reduced to showing that $\Nerve(\K_{K\Subset}(X)) \subseteq \Nerve(\K(X) \cup \Open(X))_{/K}^{op}$ is cofinal.
     Let $Y\in \Nerve(\K(X) \cup \Open(X))_{/K}$ and let $R$ be the partially ordered set $\{K' \in \K(X) | K \Subset K ' \subseteq Y\}$.
-    Since $R$ is nonempty and stable under intersections $R^{op}$ is filtered and hence $\Nerve(R)$ is weakly contractible.
+    Since $R$ is nonempty and stable under intersections, $R^{op}$ is filtered and hence $\Nerve(R)$ is weakly contractible.
     By Lemma \ref{superlemma} the inclusion is cofinal and we have shown that $\F_\K$ is a $\K$-sheaf.
 
     We will show $\F$ is a right Kan extension of $\F_\K$ in a similar manner to how we showed $\F$ is a left Kan extension of $\F_{\Open}$ in the start of the proof, but we will consider the partial order on $\Open(X)$ given by writing $V\Subset U$ whenever $V\in \Open(X)$ and its closure $\overline{V}$ is compact and contained in $U$.
@@ -267,6 +268,7 @@ Classically it is known that sheaves of sets on such spaces are determined by co
         \{ K \in \K(X) |Y \subseteq K \subseteq U \}
     \]
     have weakly contractible nerves, which they have by the usual argument; they are nonempty and stable under unions, hence filtered.
+    \TODO{Give this argument a name and discuss it in an earlier section.}
     Since $\Open(X)_{U/}$ is a sieve covering $U$ and $\F_U$ is a sheaf,
     \[
         \Nerve(\Open(X)_{U/})^{op} \to \Nerve(\Open(X)_{U/})^{op, \triangleleft} \to \C
