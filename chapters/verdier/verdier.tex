@@ -1,7 +1,7 @@
-\documentclass[../thesis.tex]{subfiles}
+\documentclass[../../thesis.tex]{subfiles}
 \begin{document}
 \section{Classical Verdier Duality}
-I don't know, maybe write some shit about regular Verdier Duality for 1-categories and stuff.
+\TODO{I don't know, maybe write some shit about regular Verdier Duality for 1-categories and stuff.}
 Blablabla $k$ a field and $A$ the category of chain complexes of $k$-vector spaces.
 Vector space duality gives a limit preserving functor $\Nerve(A^{op}) \to \Nerve(A)$ which induces a functor
 \[
@@ -51,11 +51,11 @@ By corollary \ref{7.3.4.10} we can rewrite theorem \ref{VerdierDuality} in terms
     Let $(i, S) \leq (j,T)$ if $i\leq j$ and $S\subseteq T$ or if $i=0$ and $j=2$.
     For $0 \leq i \leq 2$, let $M_i'$ denote the subset $\{(j,S) \in M' | j=i\} \subseteq M'$.
 \end{definition}
-Let's see if we can connect this new notion of Verdier duality to the classical notion of exchanging cohomology with cohomology with compact support.
+\TODO{Something about connecting this new notion of Verdier duality to the classical notion of exchanging cohomology with cohomology with compact support.}
 \begin{definition}[{\cite[Definition 5.5.5.9]{HA}}]
     Let $X$ be a locally compact Hausdorff space and $\C$ a pointed $\infty$-category with small limits and colimits.
-    For a sheaf $\F \in \Shv(X;\C)$ and $K$ compact we denote by $\Gamma_K(X;\F)$ the fiber product $\F(X)\times_{\F(X-K)0}$.
-    For $U$ open, we denote by $\Gamma_c(U;\F)$ the filtered colimit $\colim_{K\subseteq U}\Gamma_K(X;\F)$ where $K$ ranges over all compact subsets of $U$.
+    For a sheaf $\F \in \Shv(X;\C)$ and $K$ compact we denote by $\Gamma_K(X;\F)$ the fiber product $\F(X)\times_{\F(X-K)}0$.
+    For $U$ open, we denote by $\Gamma_c(U;\F)$ the filtered colimit $\colim_{\K(X)_{/U}}\Gamma_K(X;\F)$ where $K$ ranges over all compact subsets of $U$.
     \prepp{Let's be consistent on wether we write $\colim_{K\subseteq U}$ or $\colim_{\K(X)_{/U}}$.}
     \prepp{Lurie writes $\colim_{K\subseteq U}\Gamma_K(M;\F)$, but I think that is a mistake.}
     The construction $U \mapsto \Gamma_c(U;\F)$ determines a functor
@@ -67,7 +67,7 @@ Let's see if we can connect this new notion of Verdier duality to the classical 
     Observe that for $K$ a compact subset of an open subset $U$ we have $\Gamma_K(X;\F) = \Gamma_K(U;\F)$.
 \end{remark}
 \begin{proof}
-    Because $\F$ is a sheaf we have pullbacks
+    We have pullbacks, since $\F$ is a sheaf.
     \[\begin{tikzcd}
             {\fib(f)} && {\Gamma(X;\F)} && {\Gamma(U;\F)} \\
             \\
@@ -82,7 +82,7 @@ Let's see if we can connect this new notion of Verdier duality to the classical 
             \arrow[from=1-1, to=1-3]
             \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=3-3]
         \end{tikzcd}\]
-    and as the composition of pullbacks is again a pullback we get $\Gamma_K(X;\F)=\fib(f)=\fib(g)=\Gamma_K(U;\F)$.
+    As the composition of pullbacks is again a pullback we get $\Gamma_K(X;\F)=\fib(f)=\fib(g)=\Gamma_K(U;\F)$.
 \end{proof}
 \begin{lemma}[{\cite[Proposition 5.5.5.7]{HA}}]\label{5.5.5.7}
     Let $X$ be a locally compact Hausdorff space, $\C$ be a stable $\infty$-category with small limits and colimits and $M$ be as in \ref{5.5.5.5}.
@@ -96,7 +96,9 @@ Let's see if we can connect this new notion of Verdier duality to the classical 
 \begin{proof}
     First observe that the map $(i,S) \mapsto (2-i, X-S)$ is an order-reversing bijection $M\to M$ which is moreover self-inverse.
     This means that is it is enough to show that condition $2.$ implies condition $1.$.
-    We start by assuming condition $2.$, so let $F: \Nerve(M) \to \C$ be such a functor.
+
+
+    We start by assuming condition $2.$, and let $F: \Nerve(M) \to \C$ be such a functor.
     Let $\D$ denote the full subcategory of $\Fun(\Nerve(M'), \C)$ spanned by those functors $F$ satisfying the following conditions:
     \begin{enumerate}
         \item $F|\Nerve(M_2)$ is a $\K$-sheaf on $X$.
@@ -109,7 +111,7 @@ Let's see if we can connect this new notion of Verdier duality to the classical 
     Observe that we have a bijection between $\Open(X)^{op}$ and the partially ordered set of closed subsets of $X$ by sending $\Open(X) \ni U \mapsto (X - U)$ and we have a natural inclusion $\Open(X)^{op} \hookrightarrow M_2'$.
     By Theorem \ref{7.3.4.9} we can restrict $\Fun(\Open(X)^{op}, \C)$ to $\Shv(X;\C)$, so we can also restrict $M_2'$ and even $\D$ to $\Shv(X;\C)$.
     Let $\F$ be the sheaf obtained by restricting $F'$. We will first prove that $F|_{\Nerve(M_0)}$ is given informally by the formula $F|_{\Nerve(M_0)}(K)=\Gamma_K(X;\F)$.
-    \prepp{Maybe have this as a separate lemma.}
+    \prepp{This should be made a separate lemma for readability.}
     Define $\varphi:\Nerve(M_0) \to \Fun(\Delta^1\times \Delta^1, \Nerve(M'))$ by sending an object $(0,K) \in M_0$ to the diagram
     \[\begin{tikzcd}
             {(0,K)} && {(1,K)} \\
@@ -148,8 +150,8 @@ Let's see if we can connect this new notion of Verdier duality to the classical 
     %   Corollary 3.4 here might be needed.}
     %\TODO{Make above remark precise.} the pullback is exactly the subset of $\Lambda_2^2 \times \left(\Nerve(M_1' \cup M_2')_{(0,K)/}\right)_{/(m,A)}$ containing those $(t, (r, B))$ such that $i(t)=j(r,B)$.
     %Objects in $\left(\Nerve(M_1' \cup M_2')_{(0,K)/}\right)_{A/}$ are of the form $(n, B) \leq (m, A)$.
-    As $j$ is just the inclusion we have $j((0,K) \to (r, B) \to (m,A))=((0,K) \to (r,B))$.
-    Since $i(a)=(2,\emptyset), i(b)=(1,K)$ and $i(c)=(2,K)$ and the pullbacks of monos are mono $\mathrm{PB}$ has to be a subcategory of
+    $j$ is just the inclusion, and we have $j((0,K) \to (r, B) \to (m,A))=((0,K) \to (r,B))$.
+    Since $i(a)=(2,\emptyset), i(b)=(1,K)$ and $i(c)=(2,K)$ and the pullback of a mono is mono, $\mathrm{PB}$ has to be a subcategory of
     \[\begin{tikzcd}
             && {(b,(1,K))} \\
             \\
@@ -157,15 +159,16 @@ Let's see if we can connect this new notion of Verdier duality to the classical 
             \arrow[from=3-1, to=3-3]
             \arrow[from=1-3, to=3-3].
         \end{tikzcd}\]
-    Observe that such a subcategory only fails to be contractible if $(m,A)$ is such that the pullback is either empty or consist of two disjoint objects.
-    If $r=1$ we know $(1,K) \leq (1,B)$ and have no arrows from $(2,\emptyset)$ or $(2,K)$ to $(1,B)$ and if $r=2$ we must have $(2,\emptyset) \leq (2,K) \leq (2,B)$, so the pullback is always weakly contractible.
+    Observe that such a subcategory fails to be contractible only if $(m,A)$ is chosen such that the pullback is either empty or consists of two disjoint objects.
+    If $r=1$ we know $(1,K) \leq (1,B)$ and have no arrows from $(2,\emptyset)$ or $(2,K)$ to $(1,B)$.
+    If $r=2$ we must have $(2,\emptyset) \leq (2,K) \leq (2,B)$, so the pullback is always weakly contractible.
     %Observe that by condition $4.$ we can write $F'(t, T)$ as $\lim_{(s, S) \in (t, Y)}F'|_{\Nerve(M_1'\cup M_2')}(s,S)$.
-    By condition $4.$ $F'|_{\Nerve(M')}$ is right Kan extended from $F'|_{\Nerve(M_1' \cup M_2')}$ which by definition \ref{KanDef} means
+    By condition $4.$, $F'|_{\Nerve(M')}$ is right Kan extended from $F'|_{\Nerve(M_1' \cup M_2')}$, which by definition \ref{KanDef} means
     \[
         (M_1' \cup M_2')^{\triangleleft}_{(0,K)/} \hookrightarrow M'^{\triangleleft}_{(0,K)/}\rightarrow M' \xrightarrow{F'} \C
     \]
     is a limit diagram.
-    In other words we have
+    In other words, we have
     \[
         \lim_{\Nerve(M_1' \cup M_2')_{(0,K)/}}F' = F'(0,K)
     \]
@@ -229,7 +232,7 @@ Let's see if we can connect this new notion of Verdier duality to the classical 
                       \arrow[from=3-1, to=3-3]
                       \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=3-3]
                   \end{tikzcd}\]
-              and because $\F$ is a sheaf this is a map between pullbacks so our diagram is also a pullback.
+              As $\F$ is a sheaf, this is a map between pullbacks, so our diagram is also a pullback.
         \item For any compact subset $K$ of $X$ we must show that the map $\theta: \G(K)\to \lim_{K\Subset K'}\G(K')$ is an equivalence in $\C$.
               Observe now that $\theta$ gives us a map between two fiber sequences
               \[\begin{tikzcd}
@@ -253,7 +256,7 @@ Let's see if we can connect this new notion of Verdier duality to the classical 
     To complete the proof that $2.$ implies $1.$, we must show $F$ is left Kan extended from $F|_{\Nerve(M_0\cup M_1)}$.
     Let $M''=\{(i,S) \in M_0 \cup M_1 | (i,S)\in \K(X)\}$.
     We can observe that $F|_{\Nerve(M_0 \cup M_1)}$ is left Kan extended from $F|_{\Nerve(M'')}$ ($F$ is zero on $M_1$).
-    By Proposition \ref{4.3.2.8} it is enough to show that $F$ is a left Kan extension of $F|_{\Nerve(M'')}$ and this is enough to check at every $(2,S) \in M_2$.
+    By Proposition \ref{4.3.2.8} it is enough to show that $F$ is a left Kan extension of $F|_{\Nerve(M'')}$, and this is enough to check at every $(2,S) \in M_2$.
     We will instead show that $F'|_{\Nerve(M'' \cup M_2')}$ is a left Kan extension of $F|_{\Nerve(M'')}$ and for this we define
     \[B:=\{(2, X- U) \subseteq M_2' | U \in \Open(X) | \overline{U} \in \K(X)\} .\]
     By Proposition \ref{4.3.2.8} it is enough to show that
@@ -306,7 +309,7 @@ Let's see if we can connect this new notion of Verdier duality to the classical 
               Fix $U \in \Open(X)$ such that $\overline{U} \in \K(X)$. By \ref{KanDef} we want to show that $F'(2, X-U)$ is a colimit of the diagram $F'|_{\Nerve(M'')/(2,X-U)}$.
               For $K \in \K(X)$ denote by $M_K''$ the subset of $M''$ consisting of pairs $(i,S)$ such that $(0,K)\leq (i,S) \leq (2,X-U)$.
               Now, observe that $\Nerve(M'')_{/(2,X-U)}$ is a filtered colimit of $\{\Nerve(M_K'')\}_{K\in \K(X)_{U/}}$.
-              By \cite{HTT}[4.2.3] we can identify $\colim(F'|_{\Nerve(M'')})_{/(2,X-U)}$ with $\colim\{\colim(F'|_{\Nerve(M_K'')})\}_K$.
+              By \cite{HTT}[4.2.3] we can identify $\colim(F'|_{\Nerve(M'')})_{/(2,X-U)}$ with the filtered colimit of the diagram $\{\colim(F'|_{\Nerve(M_K'')})\}_K$.
               This means that we are reduced to showing that for every $K \in \K(X)_{U/}$, $F'$ exhibits $F'(2,X-U)$ as a colimit of $F'|_{\Nerve(M_K'')}$.
               By Lemma \ref{superlemma} the diagram
               \[\begin{tikzcd}

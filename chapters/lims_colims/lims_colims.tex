@@ -1,4 +1,93 @@
-\documentclass[../thesis.tex]{subfiles}
+\documentclass[../../thesis.tex]{subfiles}
 \begin{document}
-\section{Limits and Colimits}
+\TODO{Write some general stuff.}
+\TODO{Where should I write about adjunctions?}
+\TODO{Write about joins and slices before defining limits and colimits.}
+\section{Joins and slices}
+In this section we will introduce the join and slice constructions.
+We will start with a recollection of what these constructions are in the case of ordinary $1$-categories before defining the appropriate $\infty$-categorical notions.
+For most people, at least for me, the slice construction is very familiar while the join maybe not so much.
+These two constructions will ultimately give us a way to talk about the right notions of limits and colimits in the world of $\infty$-categories.
+\begin{definition}\label{sliceobj}
+    Let $\C$ be a $1$-category and $C\in \C$.
+    The slice category, or over category, $\C_{/C}$ is the category with arrows $C'\to C$ in $\C$ as objects and commutative triangles in $\C$ as its morphisms.
+    The coslice category, or under category, $\C_{C/}$ is the category with arrows $C\to C'$ in $\C$ as objects and commutative triangles in $\C$ as its morphisms.
+\end{definition}
+\begin{remark}
+    We have pullbacks
+    \[\begin{tikzcd}
+            {\C_{C/}} && {\Fun([1],\C)} && {\C_{/C}} \\
+            \\
+            {\{C\}} && \C && {\{C\}}
+            \arrow[from=3-1, to=3-3]
+            \arrow[from=1-1, to=3-1]
+            \arrow[from=1-1, to=1-3]
+            \arrow["{\mathrm{ev}_0}"', from=1-3, to=3-3]
+            \arrow[from=1-5, to=1-3]
+            \arrow[from=1-5, to=3-5]
+            \arrow[from=3-5, to=3-3]
+            \arrow["{\mathrm{ev}_1}", from=1-3, to=3-3]
+            \arrow["\lrcorner"{anchor=center, pos=0.125, rotate=-90}, draw=none, from=1-5, to=3-3]
+            \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=3-3]
+        \end{tikzcd}\]
+    where $\mathrm{ev}_0:\Fun([1],\C) \to \Fun(\{0\}, \C) \simeq \C$ and $\mathrm{ev}_1:\Fun([1],\C) \to \Fun(\{1\}, \C) \simeq \C$.
+\end{remark}
+The above remark says that we can identify the slice and coslice categories with fibers of the evaluation functors $\mathrm{ev}_0$ and $\mathrm{ev}_1$ and we will use this idea to define the notion of slicing over (and under) diagrams.
+\begin{definition}\label{slicefun}
+    Let $\C$ and $\D$ be $1$-categories.
+    For each $C\in \C$, we let $\underline{C} : \D \to \C$ denote the constant functor sending each $D\in \D$ to $C$ and each morphism to $\id_C$.
+    For each functor $F:\D\to\C$ we denote by $\C_{/F}$ the fiber product
+    \[\begin{tikzcd}
+            {\C_{/F}} && {\Fun(\D,\C)_{/F}} \\
+            \\
+            \C && {\Fun(\D,\C)}
+            \arrow[from=1-1, to=1-3]
+            \arrow[from=1-1, to=3-1]
+            \arrow[from=3-1, to=3-3]
+            \arrow[from=1-3, to=3-3]
+            \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=3-3]
+        \end{tikzcd}\]
+    where the bottom arrow is given by $C \mapsto \underline{C}$.
+    Dually, we denote by $\C_{F/}$ the fiber product ${\C \times_{\Fun(\D,\C)}\Fun(\D,\C)_{F/}}$.
+    Here $\Fun(\D,\C)_{/F}$ and $\Fun(\D,\C)_{F/}$ are simply the slice and coslice categories of definition \ref{sliceobj}.
+\end{definition}
+\begin{definition}
+    Let $\C$ and $\D$ be $1$-categories.
+    We define the join $\C \star \D$ of $\C$ and $\D$ as the category with $\C \coprod \D$ as its object and for objects $X, Y$ morphisms given by:
+    \[
+        \Hom_{\C \star \D}(X,Y) : =
+        \begin{cases}
+            \Hom_{\C}(X,Y) & \text{ if } X,Y \in \C,         \\
+            \Hom_{\D}(X,Y) & \text{ if } X,Y \in \D,         \\
+            \{*\}          & \text{ if } X \in \C, Y \in \D, \\
+            \emptyset      & \text{ if } X \in \D, Y\in \C,
+        \end{cases}
+    \]
+    with composition defined such that $\C \hookrightarrow \C \star \D \hookleftarrow \D$ are functors.
+\end{definition}
+\begin{remark}
+    These inclusions are isomorphisms to full subcategories of the join.
+    It is usual to abuse notation a bit and identify $\C$ and $\D$ with these subcategories.
+\end{remark}
+\begin{example}
+    Maybe the most important examples of joins, at least in this text, are the left and right cone of a category.
+    Letting $[0]$ denote the category with one object and one morphism, we denote by $\C^{\triangleleft}: = [0] \star \C$ the right cone of a $1$-category $\C$ and $\C^{\triangleright}:=\C \star [0]$ the left cone of $\C$.
+    In practice, the right cone of $\C$ is the category obtained by adjoining an additional object $X_0$ to $\C$ and for every $C \in \C^{\triangleright}$ a unique morphism $X_0 \to C$ so that $X_0$ becomes terminal in $\C^{\triangleright}$.
+    Dually, the left cone is obtained by adjoining an additional object which becomes initial in $\C^{\triangleleft}$.
+    \newline
+    The usefulness of cones materializes when considering limits and colimits.
+    %For a functor $F: \C \to \D$, a colimit of $F$ is a functor $\hat{F}$ initial among functors extending $F$ to $\C^{\triangleright}$ and a limit of $F$ is a functor terminal among functors 
+    Lurie denotes the category of functors extending $F$ to the cones by $\Fun_F(\C^{\triangleright}, \D) : = \{G \in \Fun(\C^{\triangleright}, \D) | G|_{\C} = F\}$ and $\Fun_F(\C^{\triangleleft}, \D): = \{G \in \Fun(\C^{\triangleleft}, \D) | G|_{\C} = F\}$ and colimits and limits of $F$ can be identified with initial and terminal objects in $\Fun_F(\C^{\triangleright}, \D)$ and $\Fun_F(\C^{\triangleleft}, \D)$ respectively.
+\end{example}
+We now define the join of two simplicial sets.
+\begin{definition}
+    Let $X, Y \in \sset$.
+    We define the join $X\star Y$ on $n$-cells:
+    \[
+        (X\star Y)_n : = \coprod_{[n] = [n_1] \sqcup [n_2]} X_{n_1} \times X_{n_2},
+    \]
+    where $[n_1], [n_2] \in \Delta \cup \emptyset : = \Delta_+$ and $\sqcup: \Delta_+ \times \Delta_+ \to \Delta_+$ is the ordered disjoint union.
+    That is, $[p] \sqcup [q] = [p+1+q]$.
+    We consider $X_{-1} = * = Y_{-1}$.
+\end{definition}
 \end{document}

@@ -144,7 +144,9 @@
 
 % --- Fonts --- %
 %\RequirePackage[utf8]{inputenc}             % for special characters in input
-\RequirePackage{fontspec}                % modern font encoding
+\RequirePackage{fontspec}
+%\usepackage{kpfonts}
+%\setmainfont{kpfonts}             % modern font encoding
 %\RequirePackage[charter, cal=cmcal]{mathdesign} % main font with math support
 \setmainfont{Atkinson Hyperlegible}       % sans serif font
 %\setmainfont{Linux Libertine O}

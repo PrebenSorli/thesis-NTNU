@@ -1,7 +1,7 @@
 PWD /Users/prebenhastsorli/master_thesis/thesis-NTNU/chapters/lims_colims
 INPUT /usr/local/texlive/2022/texmf-var/web2c/luahbtex/lualatex.fmt
-INPUT /Users/prebenhastsorli/master_thesis/thesis-NTNU/chapters/lims_colims/cofinality.tex
-OUTPUT cofinality.log
+INPUT /Users/prebenhastsorli/master_thesis/thesis-NTNU/chapters/lims_colims/lims_colims.tex
+OUTPUT lims_colims.log
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/latexconfig/lualatexquotejobname.lua
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/base/ltluatex.lua
 INPUT /usr/local/texlive/2022/texmf-dist/tex/luatex/luaotfload/luaotfload-main.lua
