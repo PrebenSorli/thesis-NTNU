@@ -80,14 +80,34 @@ The above remark says that we can identify the slice and coslice categories with
     Lurie denotes the category of functors extending $F$ to the cones by $\Fun_F(\C^{\triangleright}, \D) : = \{G \in \Fun(\C^{\triangleright}, \D) | G|_{\C} = F\}$ and $\Fun_F(\C^{\triangleleft}, \D): = \{G \in \Fun(\C^{\triangleleft}, \D) | G|_{\C} = F\}$ and colimits and limits of $F$ can be identified with initial and terminal objects in $\Fun_F(\C^{\triangleright}, \D)$ and $\Fun_F(\C^{\triangleleft}, \D)$ respectively.
 \end{example}
 We now define the join of two simplicial sets.
-\begin{definition}
+\begin{definition}\label{joinsimpsets}
     Let $X, Y \in \sset$.
     We define the join $X\star Y$ on $n$-cells:
     \[
         (X\star Y)_n : = \coprod_{[n] = [n_1] \sqcup [n_2]} X_{n_1} \times X_{n_2},
     \]
-    where $[n_1], [n_2] \in \Delta \cup \emptyset : = \Delta_+$ and $\sqcup: \Delta_+ \times \Delta_+ \to \Delta_+$ is the ordered disjoint union.
+    where $[n_1], [n_2] \in \Delta \cup [-1] = \emptyset : = \Delta_+$ and $\sqcup: \Delta_+ \times \Delta_+ \to \Delta_+$ is the ordered disjoint union.
     That is, $[p] \sqcup [q] = [p+1+q]$.
-    We consider $X_{-1} = * = Y_{-1}$.
+    We allow $[n_1]$ and $[n_2]$ to be $-1$ with $[-1]=\emptyset$ and $X_{-1} = * = Y_{-1}$.
 \end{definition}
+\begin{example}
+    We denote by $X^{\triangleleft}$ the left cone $\Delta^0 \star X$ and by $X^{\triangleright}$ the right cone $X\star \Delta^0$.
+\end{example}
+One can show that the nerve of a $1$-category commute with joins in the sense that $\Nerve(\C \star \D) = \Nerve(\C) \star \Nerve(\D)$ which in particular means that the nerve commutes with the cone constructions:
+\[
+    \Nerve(\C^{\triangleright}) \simeq \Nerve(\C)^{\triangleright}, \quad     \Nerve(\C^{\triangleleft}) \simeq \Nerve(\C)^{\triangleleft}.
+\]
+Furthermore, it can be shown that the join of $\infty$-categories is again an $\infty$-category.
+See for example \cite[\href{https://kerodon.net/tag/02QV}{Corollary 02QV}]{kerodon} or \cite{Rezk}[Proposition 28.17.].
+To define limits and colimits for $\infty$-categories we will need $\infty$-categorical versions of the slice functors introduced above and we do this by finding right adjoints to the functors $X\star \blank : \sset \to \sset_{X/}$ and $\blank \star X: \sset \to \sset_{X/}$.
+\begin{proposition}
+    For $X\in \sset$, the functors $X\star \blank$ and $\blank \star X$ preserve colimits.
+\end{proposition}
+\begin{proof}
+    Writing out definition \ref{joinsimpsets}, we get
+    \[
+        (X\star Y)_n = X_n \coprod (X_{n-1} \times Y_0) \coprod \cdots \coprod (X_0 \times Y_{n-1}) \coprod Y_n,
+    \]
+    which
+\end{proof}
 \end{document}

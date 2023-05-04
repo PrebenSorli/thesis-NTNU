@@ -3,6 +3,8 @@
 \begin{document}
 We will closely follow Lurie \cite{HTT}.
 Let $\Open(X)$ denote the partial order of open subsets of a topological space $X$.
+\section{Sheaves on topological spaces}
+\TODO{Define covering sieves.}
 \begin{definition}[{\cite[Definition 7.3.3.1]{HTT}}]\label{sheaf_on_top}
     Let $X \in \cat{Top}$ and $\C$ an $\infty$-category.
     We define a $\C$-valued sheaf on $X$ to be a presheaf $\F: \Open(X)^{op} \to \C$ such that for every $U\subseteq X$ and every covering sieve $\mathscr{W} \subseteq \Open(X)_{/U}$, the diagram
@@ -11,14 +13,15 @@ Let $\Open(X)$ denote the partial order of open subsets of a topological space $
     \]
     is a colimit.
 \end{definition}
-\prepp{Is this equivalent to the following limit diagram?}
+\prepp{This is equivalent to the following limit diagram:}
 \[
     \Nerve((\mathscr{W})^{op})^{\triangleleft} \hookrightarrow \Nerve((\Open(X)_{/U})^{op})^{\triangleleft} \rightarrow \Nerve(\Open(X))^{op}\xrightarrow{\F}\C
 \]
-\prepp{This is almost exactly definition of left Kan extension! Is it true that a presheaf is a sheaf if (and only if??) it is a left Kan extension of every possible covering sieve on $X$?}
+\TODO{Mention the ``normal definitions using covers and Cech nerves and briefly discuss relation to classical definition of sheaves in a $1$-category.}
 We write $\Presh(X, \C)$ for the $\infty$-category $\mathrm{Fun}(\Open(X)^{op}, \C)$ of $\C$-valued presheaves on $X$ and $\Shv(X;\C)$ for the full subcategory of $\Presh(X;\C)$ spanned by the $\C$-valued sheaves on $X$.
 Whenever we write $\Shv(X)$ without specifying the target category $\C$, we will always mean sheaves valued in spaces, i.e. $\Shv(X;\Spaces)$.
-\subsection{Sheaves on locally compact spaces}
+\TODO{Make sure $\Spaces$ is introduced in chapter on stable infcats.}
+\section{Sheaves on locally compact spaces}
 In this section we will show that for locally compact Hausdorff spaces there is an equivalence of $\infty$-categories between $\Shv(X;\C)$ and $\KShv(X;\C)$ where the latter denote so-called $\K$-sheaves and $\C$ is a presentable $\infty$-category with left exact filtered colimits.
 These are sheaves defined on the collection of compact subsets instead of the opens.
 Classically it is known that sheaves of sets on such spaces are determined by compact subsets as well as the opens.
@@ -30,7 +33,7 @@ Classically it is known that sheaves of sets on such spaces are determined by co
     If $K, K' \subseteq X$, we write $K \Subset K'$ if there exists an open subset $U\subseteq X$ between $K$ and $K'$, i.e. $K \subseteq U \subseteq K'$.
 \end{definition}
 \begin{definition}
-    If $K\subseteq X$ is compact, we write $\K_{K\Subset}(X)$ for the set $\{ K'\in \K(X) | K \Subset K' \}$.
+    If $K\subseteq X$ is compact, we write $\K_{K\Subset}(X)$ for the set $\{ K'\in \K(X) | K \Subset K' \}$ which gives a poset category $\K(X)$.
 \end{definition}
 \begin{definition}
     A presheaf $\F:\Nerve(\K(X))^{op}\to \C$ is a $\K$-sheaf if it satisfies the following:
@@ -52,16 +55,20 @@ Classically it is known that sheaves of sets on such spaces are determined by co
     \end{enumerate}
 \end{definition}
 \begin{definition}
-    We denote the full subcategory of $\Presh(\Nerve(\K(X)); \C)$ by $\KShv(X;\C)$.
+    We denote the full subcategory of $\Presh(\Nerve(\K(X)); \C)$ spanned by the $\K$-sheaves by $\KShv(X;\C)$.
 \end{definition}
 \begin{lemma}[{\cite[][Lemma 7.3.4.8]{HTT}}]\label{7.3.4.8}
     Let $X$ be locally compact and Hausdorff, and let $\C$ be a presentable $\infty$-category with left exact filtered colimits.
     Let $\W$ be an open cover of $X$ and denote by $\K_{\W}(X)$ the compact subsets of $X$ that are contained in some element of $\W$.
     Any $\K$-sheaf $\F\in \KShv(X;\C)$ is a right Kan extension of $\F|\Nerve(\K_{\W}(X))^{op}$.
 \end{lemma}
+\begin{proof}
+    \TODO{Proof is in HTT.}
+\end{proof}
 \begin{theorem}[{\cite[][Theorem 7.3.4.9]{HTT}}]\label{7.3.4.9}
-    Let $X$ be locally compact and Hausdorff and $\C$ a presentable\footnote{Don't really need presentable here, but need existence of small limits and colimits.} $\infty$-category with left exact filtered colimits.
-    Let $\F : \Nerve(\Open(X) \cup \K(X))^{op} \to \C$. TFAE:
+    Let $X$ be locally compact and Hausdorff and $\C$ an $\infty$-category with left exact filtered colimits\footnote{Do I need to assumes existence of all small limits and colimits?}.
+    Let $\F : \Nerve(\Open(X) \cup \K(X))^{op} \to \C$.
+    The following conditions are equivalent:
     \begin{enumerate}[]
         \item The presheaf $\F_\K:= \F|\Nerve(\K(X))^{op}$ is a $\K$-sheaf, and $\F$ is a right Kan extension of $\F_\K$.
         \item The presheaf $\F_{\Open}:=\F|\Nerve(\Open(X))^{op}$ is a sheaf, and $\F$ is a left Kan extension of $\F_{\Open}$.
@@ -77,7 +84,7 @@ Classically it is known that sheaves of sets on such spaces are determined by co
         \Nerve(\Open(X)_{/K}^{op})^{\triangleright} \hookrightarrow \Nerve((\Open(X)\cup \K(X))_{/K}^{op})^{\triangleright} \xrightarrow{c}\Nerve(\Open(X) \cup \K(X))^{op}\xrightarrow{\F}\C
     \]
     is a colimit diagram in $\C$.
-    The assumption that $\F_{\K}$ is a $\K$-sheaf means that For each $K\in \K(X)$, $\F_{\K}(K)$ is a colimit of $\F|\Nerve(\K_{K\Subset}(X))^{op}$.
+    The assumption that $\F_{\K}$ is a $\K$-sheaf means that for each $K\in \K(X)$, $\F_{\K}(K)$ is a colimit of $\F|\Nerve(\K_{K\Subset}(X))^{op}$.
     We will "transfer" this colimit to the colimit we want by cofinal maps
     \[
         \Nerve((\Open(X)^{op})_{/K}) \xrightarrow{p} \Nerve((\Open(X)\cup \K(X))_{/K}^{op}) \xleftarrow{p'}\Nerve(\K_{K\Subset}(X))^{op}.
@@ -86,7 +93,7 @@ Classically it is known that sheaves of sets on such spaces are determined by co
     For $p$ we must check $\Nerve((\Open(X))^{op}_{/K}) \times_{\Nerve((\Open(X)\cup \K(X))_{/K}^{op})} \Nerve((\Open(X)\cup \K(X))_{/K}^{op})_{K'/}$ is weakly contractible for every $K' \in \Nerve((\Open(X)\cup \K(X))_{/K}^{op})$.
     This is the simplicial set obtained by taking the nerve of the partially ordered set $\{U \in \Open(X) | K\subseteq U \subseteq K'\}$.
     By \cite[Lemma 5.3.1.20]{HTT} filtered $\infty$-categories are weakly contractible, and our partially ordered set is filtered as it is nonempty, stable under finite union, and taking nerves preserve the property of being filtered.
-    The simplicial set $\Nerve(\{K'' \in \K(X) | K \Subset K'' \subseteq K'\})$ is weakly contractible by exactly the same argument, and hence $p$ and $p'$ are cofinal maps.
+    The simplicial set $\Nerve(\{K'' \in \K(X) | K \Subset K'' \subseteq K'\})$\footnote{\TODO{This should probably be strict inclusion. Double check that.}} is weakly contractible by exactly the same argument, and hence $p$ and $p'$ are cofinal maps.
     By cofinality of $p$ and $p'$, the diagram
     \[
         \Nerve((\Open(X))^{op}_{/K})^{\triangleright} \hookrightarrow \Nerve((\Open(X)\cup \K(X))_{/K}^{op})^{\triangleright} \xrightarrow{c}\Nerve(\Open(X) \cup \K(X))^{op}\xrightarrow{\F}\C
@@ -123,19 +130,28 @@ Classically it is known that sheaves of sets on such spaces are determined by co
     \[
         \Nerve(\W)^{\triangleright} \hookrightarrow \Nerve(\Open(X)_{/U})^{\triangleright} \rightarrow \Nerve(\Open(X))\xrightarrow{\F}\C^{op}
     \]
-    is a colimit diagram.
+    is a colimit diagram, or equivalently that
+    \[
+        \Nerve(\W)^{op,\triangleleft} \hookrightarrow \Nerve(\Open(X)_{/U})^{op,\triangleleft} \rightarrow \Nerve(\Open(X))^{op}\xrightarrow{\F}\C
+    \]
+    is a limit diagram.
     We will once again use cofinality by observing that \ref{superlemma} implies cofinality of the inclusion
     \[
         \Nerve(\W) \subseteq \Nerve(\W \cup \K_{\W}(X))
     \]
-    where $\K_{\W}(X)$ is the set $\{K\in \K(X) | (\exists W \in \K_{\W}(X))[K \subseteq W] \}$.
-    \prepp{Might be good to write out the details of why this is contractible.}
-    Observe that $\mathrm{RKan}(\F|(\W \cup \K_{\W}(X))^{op}) = \F|(\W \cup \K_{\W}(X) \cup \{U\})^{op}$ together with the cofinal inclusion above implies the limit.
-    \prepp{I have not found a nice proof of this implication, but I think the Kan extension is a stronger statement.}
+    where $\K_{\W}(X)$ is the set $\{K\in \K(X) | (\exists W \in \W)[K \subseteq W] \}$.
+    \TODO{Write out the details of why this is contractible and the inclusion is cofinal.}
+    Observe that this cofinality implies that showing $(\F|(\W \cup \K_{\W}(X))^{op})$ is a right Kan extension of $\F|(\W \cup \K_{\W}(X) \cup \{U\})^{op}$ also shows
+    \[
+        \Nerve(\W)^{op} \hookrightarrow \Nerve(\W \cup \K_{\W}(X))^{op, \triangleleft}_{A/} \hookrightarrow \Nerve(\W \cup \K_{\W}(X) \cup \{U\})^{op, \triangleleft}_{A/} \to  \Nerve(\W \cup \K_{\W}(X) \cup \{U\})^{op} \xrightarrow{\F} \C
+    \]
+    is a limit diagram for every $A \in \W \cup \K_{\W}(X)$.
+
     By the assumption that $\F$ is a right Kan extension of $\F_{\K}$ and the observation that
     \[
         \F(U) = \lim_{K\in \K(X)^{op}_{U/}}\F(K) = \lim_{K\in \K_{\W}(X)^{op}_{U/}}\F(K) %Do we need the following?= K_*^{\prime}\F(U)
     \]
+    \TODO{Rune has long comment about following argument.}
     we see that $\F|_{(\W \cup \K_{\W})^{op}}$ is a right Kan extension of $\F|_{(K_{\W}(X))^{op}}$.
     Hence, it suffices to prove that $\F|_{(\W \cup \K_{\W}(X)\cup \{U\})^{op}}$ is right Kan extended from $\K_{\W}(X)^{op}$.
     Outside of $U$ this is clear from the fact that $F|_{(\W \cup \K_{\W}^{op})}$ is right Kan extended from $\K_{\W}(X)^{op}$.

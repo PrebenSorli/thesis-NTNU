@@ -148,8 +148,8 @@
 %\usepackage{kpfonts}
 %\setmainfont{kpfonts}             % modern font encoding
 %\RequirePackage[charter, cal=cmcal]{mathdesign} % main font with math support
-\setmainfont{Atkinson Hyperlegible}       % sans serif font
-%\setmainfont{Linux Libertine O}
+%\setmainfont{Atkinson Hyperlegible}       % sans serif font
+\setmainfont{Linux Libertine O}
 %\RequirePackage[scaled=.82]{DejaVuSansMono} % monospace font (for code)
 
 % --- Layout & Graphics --- %

@@ -34,7 +34,7 @@ As we have seen, a lot of $\infty$-categorical concepts can be thought of as if 
             \arrow["\eta"',shorten <=7pt, shorten >=7pt, Rightarrow, from=4, to=2]
             \arrow["\gamma", shorten <=7pt, shorten >=7pt, Rightarrow, from=0, to=1]
         \end{tikzcd}\]
-    Dually, a right Kan extensions of $F$ along $K$ is a functor $K_*F : \D \to \E$ with a natural transformation $\epsilon : K_*F \circ K \Rightarrow F$ such that any functor $G : \D \to E$ and any natural transformation $\delta : G \Rightarrow F$, $\delta$ factors uniquely through $\epsilon$.
+    Dually, a right Kan extension of $F$ along $K$ is a functor $K_*F : \D \to \E$ with a natural transformation $\epsilon : K_*F \circ K \Rightarrow F$ such that any functor $G : \D \to E$ and any natural transformation $\delta : G \Rightarrow F$, $\delta$ factors uniquely through $\epsilon$.
     \prepp{Diagram is exactly the same but all $2$-cells go the other way.}
 \end{definition}
 The following result justifies the choice to denote left and right Kan extensions by lower shriek and star:
@@ -43,7 +43,7 @@ The following result justifies the choice to denote left and right Kan extension
     If the left and right Kan extensions of any functor $F$ along $K$ exists, these define left and right adjoints to the pre-composition functor $K^* : \Fun(\D, \E) \to \Fun(\C, \E)$ and by uniqueness of adjoints, any left or right adjoint to the pre-composition functor yields left or right Kan extensions.
 \end{proposition}
 While the description of Kan extensions as certain adjoints are useful, there's usually another description available to us that turns out to be even more useful.
-Whenever $\C$ and $\D$ are respectively small and locally small potential Kan extensions along $K: \C \to \D$ are what we call pointwise Kan extensions.
+Whenever $\C$ and $\D$ are respectively small and locally small, potential Kan extensions along $K: \C \to \D$ are what we call pointwise Kan extensions.
 More precisely, the existence of left or right Kan extensions along such functors coincides with the existence of certain colimits or limits, respectively.
 For a functor $K:\C \to \D$, \cite{MacLane} denotes by $d \downarrow K$ the category $\C \times_{\C}\D_{d/}$ and we will choose to denote it by $K_{d/}$.
 Likewise the category $K \downarrow d = \C \times_{\D}\D_{/d}$ will be denoted $K_{/d}$.
@@ -51,12 +51,12 @@ These categories come with projection functors $\Pi_d$ and $\Pi^d$, respectively
 The following theorem gives a formula for calculating certain left and right Kan extensions as colimits and limits.
 \begin{theorem}[{\cite[Theorem 6.2.1.]{CatContext}}]\label{ptwiseKan}
     Let $\D \xleftarrow{K} \C \xrightarrow{F} \E$ be functors.
-    If it exists for every object $d\in D$, the following colimits defines the left Kan extension $K_!F$:
+    If it exists for every object $d\in D$, the following colimit defines the left Kan extension $K_!F$:
     \[
         K_!F(d) : = \colim(K_{/d} \xrightarrow{\Pi^d}\C\xrightarrow{F}\E)
     \]
     and the unit transformation $\eta: F \to K_!F\circ K$ can be extracted from the colimit cone.
-    Dually, if the following limits exists for every object $d\in D$, they define the right Kan extension $K_*F$:
+    Dually, if the following limit exists for every object $d\in D$, they define the right Kan extension $K_*F$:
     \[
         K_*F(d) : = \lim(K_{d/} \xrightarrow{\Pi_d}\C \xrightarrow{F} \E)
     \]
@@ -66,7 +66,7 @@ The following theorem gives a formula for calculating certain left and right Kan
 \begin{proof}
     Proofs can be found in \cite[Theorem 6.2.1.]{CatContext} and \cite[Theorem X.3.1.]{MacLane}
 \end{proof}
-When $\D$ and $\E$ are locally small we call Kan extensions that can be caluclated by the colimit and limit formulae above for pointwise Kan extensions.
+When $\D$ and $\E$ are locally small we call Kan extensions that can be caluclated by the colimit and limit formulae above pointwise Kan extensions.
 In \cite{CatContext}, Riehl says the consensus among category theorists is that the important Kan extensions are the pointwise Kan extensions and quotes \cite[§4]{Kelly}:
 ``Our present choice of nomenclature is based on our failure to find a single instance where a weak Kan extension plays any mathematical role whatsoever.''
 This thesis is no different, and we will only care about pointwise Kan extensions from here on out.
@@ -75,8 +75,8 @@ Before we extend the theory Kan extensions from ordinary categories to the world
 \begin{corollary}
     If $\C$ is small and $\D$ is locally small, then for a functor $K:\C \to \D$ we have:
     \begin{enumerate}
-        \item If $\E$ is cocomplete, left Kan extensions exists and are given by the colimit formula of Theorem \ref{ptwiseKan}.
-        \item If $\E$ is complete, right Kan extensions exists and are given by the limit formula of Theorem \ref{ptwiseKan}.
+        \item If $\E$ is cocomplete, left Kan extensions of functors $\C \to \E$ along $K$ exists and are given by the colimit formula of Theorem \ref{ptwiseKan}.
+        \item If $\E$ is complete, right Kan extensions of functors $\C \to \E$ along $K$ exists and are given by the limit formula of Theorem \ref{ptwiseKan}.
     \end{enumerate}
 \end{corollary}
 \begin{example}
@@ -91,21 +91,21 @@ Before we extend the theory Kan extensions from ordinary categories to the world
         \end{tikzcd}\]
     where $\sset_{\leq n}:=\Fun(\Delta^{op}_{\leq n},\SET)$.
 \end{example}
-\begin{example}[Kan extension along fully faithful functors]
+\begin{lemma}[Kan extension along fully faithful functors]
     Let $K : \C \to \D$ be a fully faithful functor.
-    Then, up to natural isomorphism, any pointwise Kan extension along $K$ define actual on the nose extensions.
-    \begin{proof}
-        Observe that $\C_{/c} \simeq K_{/K(c)}$ is an equivalence of categories because $K$ is fully faithful, so we can calculate the left Kan extension $K_!F$ on objects by the colimit formula:
-        \[
-            K_!F(K(c)) = \colim(K_{/K(c)} \simeq \C_{/c} \xrightarrow{\Pi}\C\xrightarrow{F}\E).
-        \]
-        Since the identity on $c$ is terminal in $\C_{/c}$ the colimit reduces to evaluation at the terminal object $K(c)\xrightarrow{id}K(c)$ in $K_{/Kc}$, so $\eta_c : F(c) \cong K_!F(K(c))$ is an isomorphism.
-        The proof for pointwise right Kan extensions is completely dual.
-    \end{proof}
-\end{example}
+    Then, up to natural isomorphism, any pointwise Kan extension along $K$ defines an actual on the nose extension.
+\end{lemma}
+\begin{proof}
+    Observe that $\C_{/c} \simeq K_{/K(c)}$ is an equivalence of categories because $K$ is fully faithful, so we can calculate the left Kan extension $K_!F$ on objects by the colimit formula:
+    \[
+        K_!F(K(c)) = \colim(K_{/K(c)} \simeq \C_{/c} \xrightarrow{\Pi}\C\xrightarrow{F}\E).
+    \]
+    Since the identity on $c$ is terminal in $\C_{/c}$ the colimit reduces to evaluation at the terminal object $K(c)\xrightarrow{id}K(c)$ in $K_{/Kc}$, so $\eta_c : F(c) \cong K_!F(K(c))$ is an isomorphism.
+    The proof for pointwise right Kan extensions is completely dual.
+\end{proof}
 \begin{example}[Yoneda extension]
     Let $\C$ be small, $\E$ locally small and cocomplete.
-    By the corollary above, any functor $F: \C \to \E$ admits a left Kan extension $y_!F$ along the Yoneda embedding $y$ and by fully faithfulness of $y$ the unit $F \cong y_!F\circ y$ is an identity natural transformation.
+    By the corollary above, any functor $F: \C \to \E$ admits a left Kan extension $y_!F$ along the Yoneda embedding $y$ and since $y$ is fully faithful the unit $F \cong y_!F\circ y$ is an identity natural transformation.
     In fact, $y_!F$ has a right adjoint $R$, defined on objects by
     \[
         R(e) : = \Hom_{\E}(F(\blank), e) : \C^{op} \to \SET.
@@ -146,14 +146,15 @@ Yoneda extension now yields an adjunction
         \arrow[""{name=1, anchor=center, inner sep=0}, shift right=2, from=1-3, to=1-1]
         \arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=1, to=0]
     \end{tikzcd}\]
-and as Riehl writes, all adjunctions restricts to an equivalence of categories which in this case yields the equivalence between the category $\Shv(X)$ of sheaves on $X$ and the category $\mathrm{Et}(X)$ of étale spaces on $X$.\footnote{I wish I knew Yoneda extension when writing my bachelor thesis because this equivalence was so useful.}
+and as Riehl writes, all adjunctions restrict to an equivalence of subcategories which in this case yields the equivalence between the category $\Shv(X)$ of sheaves on $X$ and the category $\mathrm{Et}(X)$ of étale spaces on $X$.
+%\footnote{I wish I knew Yoneda extension when writing my bachelor thesis because this equivalence was so useful.}
 \subsection{Kan extensions for $\infty$-categories}
 \prepp{THIS IS CURRENTLY JUST ALONG INCLUSIONS}
 \begin{definition}
     \TODO{This is chaos. Fix all slice notations in separate subsection of infcat chapter.}
     Let $\A$ be an $\infty$-category with a full subcategory $\A^0$ and $p:K\to \A$ a diagram.
     Following \cite[Notation 4.3.2.1]{HTT} we write $\A^0_{/p}$ for the fiber product $\A_{/p}\times_{/A}\A^0$.
-    If $A\in \A$, $\A^0_{/A}$ is the full subcategory of $\A_{/A}$ spanned by the morphisms $A'\to A$ where $A'\in \A^0$.
+    If $A\in \A$, then $\A^0_{/A}$ is the full subcategory of $\A_{/A}$ spanned by the morphisms $A'\to A$ where $A'\in \A^0$.
     \newline
     Analogously $\A^0_{p/}$ denotes $\A_{p/}\times_{\A}\A^0$ and $\A^0_{A/}$ is the full subcategory spanned by morphisms $A\to A'$.
 \end{definition}
@@ -177,7 +178,4 @@ Later on we will need the following result about Kan extensions of full subcateg
 \begin{proposition}[{\cite[Proposition 4.3.2.8]{HTT}}]\label{4.3.2.8}
     For a functor $F: \A\to\C$ of $\infty$-categories where $\A^0 \subseteq \A^1$ are full subcategories of $\A$, if $F|_{\A^1}$ is left Kan extended from $\A^0$, then $F$ is left Kan extended from $\A^1$ if and only if it is left Kan extended from $\A^0$.
 \end{proposition}
-\begin{remark}
-    Original result is for a categorical fibration $p:\C\to \C'$ and $p$-left Kan extensions. Okay to just do this??
-\end{remark}
 \end{document}
