@@ -169,7 +169,7 @@ Before we can make this precise, we must define what we mean by homotopy.
 \subsection{Homotopy}
 \TODO{Here $\Hom_{\C}(X,Y)$ means $\C_1$. Make this clear or change notation or something.}
 \begin{definition}[{\cite[\href{https://kerodon.net/tag/003V}{Definition 003V}]{kerodon}}]
-    Let $\C$ be an $\infty$-category and $f,g \in \Hom_{\C}(X,Y)$.
+    Let $\C$ be an $\infty$-category and $f,g : X\to Y$ morphisms in $\C$.
     We define a homotopy between $f$ and $g$ as a $2$-simplex $\sigma \in \C$ with boundary specified by $d_0(\sigma) = \id_Y, d_1(\sigma) = g$ and $d_2(\sigma)=f$ as illustrated in the diagram
     \[\begin{tikzcd}
             X && Y \\
@@ -185,13 +185,13 @@ Before we can make this precise, we must define what we mean by homotopy.
 \end{example}
 \begin{proposition}[{\cite[\href{https://kerodon.net/tag/003Z}{Proposition 003Z}]{kerodon}}]
     Let $\C$ be an $\infty$-category and $X,Y$ objects of $\C$.
-    Then homotopy is an equivalence relation on $\Hom_{\C}(X,Y)$.
+    Then homotopy is an equivalence relation on the collection of morphisms from $X$ to $Y$ in $\C$.
 \end{proposition}
 \begin{proof}
     \TODO{Prove. Both Rune and Lurie have nice proofs. It is just drawing the correct horns and filling in.}
 \end{proof}
 \begin{proposition}
-    $f,g \in \Hom_{\C}(X,Y)$ are homotopic if and only if they are homotopic as morphisms in $\C^{op}$.
+    $f,g \in \C_1$ are homotopic if and only if they are homotopic as morphisms in $\C^{op}$.
 \end{proposition}
 \TODO{See Run's comment.}
 \begin{proof}
@@ -242,7 +242,7 @@ Analogously to the construction of the fundamental groupoid $\pi_{\leq 1}(X)$ of
 \prepp{Writing about the fundamental gruopoid could be smart.}
 \begin{definition}\label{homhtpycat}
     Let $\C$ be an $\infty$-category.
-    We denote by $\Hom_{\h\C}(X,Y)$ homotopy classes of morphisms $X\to Y \in \C$ and for a morphism $f \in \Hom_{\C}(X,Y)$, we denote by $[f]$ its equivalence class in $\Hom_{\h\C}(X,Y)$.
+    We denote by $\Hom_{\h\C}(X,Y)$ homotopy classes of morphisms $X\to Y \in \C$ and for a morphism $f : X \to Y$ in $\C$, we denote by $[f]$ its equivalence class in $\Hom_{\h\C}(X,Y)$.
 \end{definition}
 \begin{proposition}[{\cite[\href{https://kerodon.net/tag/004B}{Proposition 004B}]{kerodon}}]
     We have a unique composition of morphisms
@@ -350,6 +350,7 @@ Inspired by \cite{Groth}[Corollary 14.2.18.] we can write the following commutat
 We will say two objects in an $\infty$-category are isomorphic whenever there exists an isomorphism between them.
 Furthermore being isomorphic is an equivalence relation on the objects of an $\infty$-category which means we can sensibly speak of isomorphism classes.
 \prepp{Rezk mentions $\pi_0(\C^{\mathrm{core}})$. Do we care?}
+In addition to having a notion of isomorphism or equivalence of objects in an $\infty$-category we would like a notion of natural isomorphism or equivalence of $\infty$-categories, but first we define the $\infty$-category $\MAP(\C, \D)$ of functors between $\infty$-categories.
 \subsection{Mapping spaces}
 For ordinary $1$-categories $\C$ and $\D$ we can create the category $\Fun(\C, \D)$ with functors its objects and natural transformations as its morphisms.
 We want to create an $\infty$-categorical analogue:
@@ -380,8 +381,17 @@ This proposition yields a natural isomorphism of simplicial sets $\MAP(X\times Y
 
 
 It can be shown that applying the same construction to $\infty$-categories $\C$ and $\D$ yields a new $\infty$-category $\MAP(\C, \D)$ with functors as objects ($0$-cells) and natural transformations as morphisms ($1$-cells).
-Proving this uses maschinery that I will not introduce in this text, but there are lots of good texts on Joyal's lifting theorem.
+Proving this uses machinery that I will not introduce in this text, but there are lots of good texts on Joyal's lifting theorem.
 See for example \TODO{reference Joyal2008 and mention ``certain stability properties of the class of categorical equivalences and the so-called inner anodyne maps'' or the proof of \cite{HTT}[1.2.7.3] on p.$94$.}
+This allows us to define an equivalence between $\infty$-categories:
+\begin{definition}
+    Let $\C$ and $\D$ be $\infty$-categories and $f,g \in \MAP(\C,\D)$ functors between them.
+    We will say that a natural transformation $\varphi$ between $f$ and $g$ is natural isomorphism  or natural equivalence if it is an equivalence in $ \MAP(\C,\D)$.
+\end{definition}
+\begin{definition}
+    Let $f \in \MAP(\C,\D)$ be a functor of $\infty$-categories.
+    Then $f$ is a categorical equivalence if there exists a functor $g\in\MAP(\D,\C)$ and natural equivalences between $gf$ and $\id_{\C}$ and between $\id_{\D}$ and $fg$.
+\end{definition}
 \TODO{Maybe mention Rezk and weak saturated classes etc.}
 \begin{proposition}[{\cite{Rezk}[Exercise 15.8.]}]
     Let $\C$ and $\D$ be ordinary $1$-categories.
@@ -405,5 +415,30 @@ See for example \TODO{reference Joyal2008 and mention ``certain stability proper
                                 & = \Fun([n]\times \C, \D)
     \end{align}
 \end{proof}
-%\TODO{Write about $\mathrm{map}(x,y)$!}
+\begin{definition}
+    Let $\C$ be an $\infty$-category with objects $X$ and $Y$.
+    Then we define the mapping space $\map_{\C}(X,Y)$ as the pullback
+    \[\begin{tikzcd}
+            {\map_{\C}(X,Y)} && {\Fun(\Delta^1,\C)} \\
+            \\
+            {\{(X,Y)\}} && \C\times\C
+            \arrow[from=1-1, to=1-3]
+            \arrow[from=1-3, to=3-3]
+            \arrow[from=3-1, to=3-3]
+            \arrow[from=1-1, to=3-1]
+            \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=3-3]
+        \end{tikzcd}\]
+    which we will see is an actual space.
+\end{definition}
+For a proof that this is always a space/quasigroupoid/Kan complex, see \cite{Rezk}[Proposition 45.2].
+\begin{definition}
+    We say a functor $f \in \MAP(\C,\D)$ of $\infty$-categories is essentially surjective if the functor ${\h f \in \Fun(\h\C, \h\D)}$ is essentially surjective.
+\end{definition}
+\begin{definition}
+    We say a functor $f \in \MAP(\C,\D)$ of $\infty$-categories is fully faithful if the functor ${\map_{\C}(X,Y) \to \map_{\C}(f(X),f(Y))}$ is an equivalence.
+\end{definition}
+Charles Rezk names the following the ``fundamental theorem'' of $\infty$-categories (and he names the corresponding result for $1$-categories the ``fundamental theorem of category theory'' though he mentions Yoneda's lemma might be more deserving of that name).
+\begin{theorem}[{\cite{Rezk}[Theorem 48.2.]}]
+    A functor $f : \C \to \D$ of $\infty$-categories is a categorical equivalence if and only if it is fully faithful and essentially surjective.
+\end{theorem}
 \end{document}

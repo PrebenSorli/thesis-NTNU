@@ -772,8 +772,6 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/euler/eusm7.t
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr7.tfm
-INPUT ./chapters/infcats/stable.tex
-INPUT ./chapters/infcats/stable.tex
 INPUT ./chapters/lims_colims/lims_colims.tex
 INPUT ./chapters/lims_colims/lims_colims.tex
 INPUT ./chapters/lims_colims/cofinality.tex
@@ -781,6 +779,8 @@ INPUT ./chapters/lims_colims/cofinality.tex
 INPUT ./chapters/lims_colims/Kan.tex
 INPUT ./chapters/lims_colims/Kan.tex
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/euler/eusm10.tfm
+INPUT ./chapters/lims_colims/stable.tex
+INPUT ./chapters/lims_colims/stable.tex
 INPUT ./chapters/sheaves/K-sheaves.tex
 INPUT ./chapters/sheaves/K-sheaves.tex
 INPUT ./chapters/verdier/verdier.tex
