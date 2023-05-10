@@ -2,66 +2,59 @@
 \contentsline {todo}{\textbf {Preben:} Is this even relevant?}{1}{section*.4}%
 \contentsline {todo}{\textbf {TODO:} Write about $\mathrm {Sing}(X)$ for a topological space $X$. Rezk page 28 is useful.}{2}{section*.5}%
 \contentsline {todo}{\textbf {Preben:} Consider if we should omit it as well. Currently we have been using it, but it is fucking annoying to remember writing $\mathrm {N}$ all the time.}{4}{section*.6}%
-\contentsline {todo}{\textbf {TODO:} Write about $\mathrm {Fun}$.}{5}{section*.7}%
-\contentsline {todo}{\textbf {TODO:} Here $\mathrm {Hom}_{\EuScript {C}}(X,Y)$ means $\EuScript {C}_1$. Make this clear or change notation or something.}{5}{section*.8}%
-\contentsline {todo}{\textbf {TODO:} Prove. Both Rune and Lurie have nice proofs. It is just drawing the correct horns and filling in.}{5}{section*.9}%
-\contentsline {todo}{\textbf {TODO:} See Run's comment.}{5}{section*.10}%
-\contentsline {todo}{\textbf {TODO:} Draw horn.}{6}{section*.11}%
-\contentsline {todo}{\textbf {TODO:} Consider adding Corollary \blx@tocontentsinit {0}\cite [\href {https://kerodon.net/tag/00V0}{Corollary 00V0}]{kerodon}}{6}{section*.12}%
-\contentsline {todo}{\textbf {Preben:} The proof seems kind of technical, so might not be worth doing. Might do it if there's time or Rune thinks I should. Considered adding \blx@tocontentsinit {0}\cite [\href {https://kerodon.net/tag/000Z}{Exercise 000Z}]{kerodon} as this exercise is used in a lot of the proofs in this subsection, but seems too technical for this text.}{6}{section*.13}%
-\contentsline {todo}{\textbf {Preben:} Writing about the fundamental gruopoid could be smart.}{7}{section*.14}%
-\contentsline {todo}{\textbf {Preben:} Is this example too trivial?}{8}{section*.15}%
-\contentsline {todo}{\textbf {TODO:} Write about $\infty $-groupoids?}{8}{section*.16}%
-\contentsline {todo}{\textbf {TODO:} Be a bit more precise: you need a pullback over $\EuScript {C}\to \mathrm {h}\EuScript {C}$ (or say ``all simplices s.t. ...'')}{9}{section*.17}%
-\contentsline {todo}{\textbf {Preben:} Rezk mentions $\pi _0(\EuScript {C}^{\mathrm {core}})$. Do we care?}{9}{section*.18}%
-\contentsline {todo}{\textbf {TODO:} reference Joyal2008 and mention ``certain stability properties of the class of categorical equivalences and the so-called inner anodyne maps'' or the proof of \blx@tocontentsinit {0}\cite {HTT}[1.2.7.3] on p.$94$.}{10}{section*.19}%
-\contentsline {todo}{\textbf {TODO:} Maybe mention Rezk and weak saturated classes etc.}{10}{section*.20}%
-\contentsline {todo}{\textbf {TODO:} Write some general stuff.}{13}{section*.21}%
-\contentsline {todo}{\textbf {TODO:} Where should I write about adjunctions?}{13}{section*.22}%
-\contentsline {todo}{\textbf {TODO:} Write about joins and slices before defining limits and colimits.}{13}{section*.23}%
-\contentsline {todo}{\textbf {TODO:} Joins and slices define an adjoint relationship.}{14}{section*.24}%
-\contentsline {todo}{\textbf {TODO:} Define slice of object by considering morphism $\Delta ^0 \to X$.}{15}{section*.25}%
-\contentsline {todo}{\textbf {TODO:} Define weakly contractible.}{17}{section*.26}%
-\contentsline {todo}{\textbf {TODO:} Write something intuitive about why we care about cofinality and some historical perspectives.}{17}{section*.27}%
-\contentsline {todo}{\textbf {TODO:} State how this relates to colimits.}{17}{section*.28}%
-\contentsline {todo}{\textbf {Preben:} This intro made me cringe.}{18}{section*.29}%
-\contentsline {todo}{\textbf {Preben:} Diagram is exactly the same but all $2$-cells go the other way.}{18}{section*.30}%
-\contentsline {todo}{\textbf {Preben:} Is it clear what it means to extract the 2-cells from the cones?}{19}{section*.31}%
-\contentsline {todo}{\textbf {Preben:} These are exercises in \blx@tocontentsinit {0}\cite {CatContext}. Should I cite?}{20}{section*.32}%
-\contentsline {todo}{\textbf {TODO:} Check if $\mathrm {Sing}$ is mentioned in chapter 1 and reference it back.}{21}{section*.33}%
-\contentsline {todo}{\textbf {Preben:} THIS IS CURRENTLY JUST ALONG INCLUSIONS}{21}{section*.34}%
-\contentsline {todo}{\textbf {TODO:} This is chaos. Fix all slice notations in separate subsection of infcat chapter.}{21}{section*.35}%
-\contentsline {todo}{\textbf {TODO:} Should probably write more about what coslice contraction is. Plan is full chapter on slice $\infty $-cats.}{22}{section*.36}%
-\contentsline {todo}{\textbf {TODO:} Consider moving this to after the chapter on limits and colimits.}{22}{section*.37}%
-\contentsline {todo}{\textbf {TODO:} Define initial and terminal objects.}{22}{section*.38}%
-\contentsline {todo}{\textbf {TODO:} Define contractibility earlier.}{22}{section*.39}%
-\contentsline {todo}{\textbf {TODO:} Sign Cartan's 1950 seminar?}{23}{section*.40}%
-\contentsline {todo}{\textbf {TODO:} Define covering sieves.}{23}{section*.41}%
-\contentsline {todo}{\textbf {Preben:} This is equivalent to the following limit diagram:}{24}{section*.42}%
-\contentsline {todo}{\textbf {TODO:} Mention the ``normal definitions using covers and Cech nerves and briefly discuss relation to classical definition of sheaves in a $1$-category.}{24}{section*.43}%
-\contentsline {todo}{\textbf {TODO:} Make sure $\EuScript {S}$ is introduced in chapter on stable infcats.}{24}{section*.44}%
-\contentsline {todo}{\textbf {TODO:} Expand on this with references.}{24}{section*.45}%
-\contentsline {todo}{\textbf {TODO:} Proof is in HTT.}{25}{section*.46}%
-\contentsline {todo}{\textbf {Preben:} I'm pretty sure we must regard the union $\EuScript {U}(X) \cup \EuScript {K}(X)$ as a poset contained in the powerset of $X$ here for everything to make sense}{25}{section*.47}%
-\contentsline {todo}{\textbf {Preben:} Proof is a bit long. Consider splitting it up.}{25}{section*.48}%
-\contentsline {todo}{\textbf {Preben:} We regard $\EuScript {K}(X)$ as partially ordered by the $\Subset $ relation. (I think)}{25}{section*.49}%
-\contentsline {todo}{\textbf {TODO:} Write out the details of why this is contractible and the inclusion is cofinal.}{26}{section*.51}%
-\contentsline {todo}{\textbf {TODO:} This should probably be strict inclusion. Double check that.}{26}{section*.50}%
-\contentsline {todo}{\textbf {TODO:} Write out the result in the Kan chapter.}{27}{section*.52}%
-\contentsline {todo}{\textbf {TODO:} Reference this result.}{28}{section*.53}%
-\contentsline {todo}{\textbf {Preben:} I should maybe do this for all four vertices, or at least check how different the argument is for another vertex, but it looks pretty similar.}{28}{section*.54}%
-\contentsline {todo}{\textbf {TODO:} Give this argument a name and discuss it in an earlier section.}{29}{section*.55}%
-\contentsline {todo}{\textbf {TODO:} I don't know, maybe write some shit about regular Verdier Duality for 1-categories and stuff.}{31}{section*.56}%
-\contentsline {todo}{\textbf {TODO:} Something about connecting this new notion of Verdier duality to the classical notion of exchanging cohomology with cohomology with compact support.}{32}{section*.57}%
-\contentsline {todo}{\textbf {Preben:} Let's be consistent on wether we write $\colim _{K\subseteq U}$ or $\colim _{\EuScript {K}(X)_{/U}}$.}{32}{section*.58}%
-\contentsline {todo}{\textbf {Preben:} Lurie writes $\colim _{K\subseteq U}\Gamma _K(M;\EuScript {F})$, but I think that is a mistake.}{32}{section*.59}%
-\contentsline {todo}{\textbf {Preben:} This should just boil down to fully faithful Kan extensions along fully faithful functors give actual on the nose extensions, but might be smart to ref the result.}{33}{section*.60}%
-\contentsline {todo}{\textbf {Preben:} This should be made a separate lemma for readability.}{33}{section*.61}%
-\contentsline {todo}{\textbf {Preben:} My thoughts here are that we calculate Kan extensions as colimits, so $i$ being cofinal over some fixed $K$ means restricting the colimit from $\EuScript {U}(X)^{op}$ back to $B$ is an equivalence.}{37}{section*.62}%
-\contentsline {todo}{\textbf {Preben:} Lurie never states what he means with $M'''$, but I think he might just mean $B$.}{37}{section*.63}%
-\contentsline {todo}{\textbf {TODO:} Explain this step.}{37}{section*.64}%
-\contentsline {todo}{\textbf {Preben:} Note that $F\in \mathcal {E}(\EuScript {C})$ means $F|_{M_0}\in \mathrm {Shv}_{\EuScript {K}}(X;\EuScript {C}^{op})$, $F|_{M_0 \cup M_1} = RKAN(F|_{M_0})$ and $F=LKAN(F|_{M_0 \cup M_1})$ .}{39}{section*.65}%
-\contentsline {todo}{\textbf {TODO:} Maybe worth trying to make the bridge between this statement and the classical fact even more concrete.}{39}{section*.66}%
-\contentsline {todo}{\textbf {Preben:} Make sure this colimit is taken in the correct category. It should probably just be a limit in $\EuScript {C}$.}{39}{section*.67}%
-\contentsline {todo}{\textbf {Preben:} Should consider writing out theta more explicitly in the proof of \ref {7.3.4.9}.}{39}{section*.68}%
-\contentsline {todo}{\textbf {Preben:} Here we have used that we Kan extend along the fully faithful inclusion of $\mathrm {Shv}(X;\EuScript {C})$ (it is a full subcategory of $\mathrm {Fun}(\mathrm {N}(\EuScript {U}(X))^{op}, \EuScript {C})$.)}{39}{section*.69}%
+\contentsline {todo}{\textbf {TODO:} Here $\mathrm {Hom}_{\EuScript {C}}(X,Y)$ means $\EuScript {C}_1$. Make this clear or change notation or something.}{5}{section*.7}%
+\contentsline {todo}{\textbf {TODO:} Prove. Both Rune and Lurie have nice proofs. It is just drawing the correct horns and filling in.}{5}{section*.8}%
+\contentsline {todo}{\textbf {TODO:} See Run's comment.}{5}{section*.9}%
+\contentsline {todo}{\textbf {TODO:} Draw horn.}{6}{section*.10}%
+\contentsline {todo}{\textbf {TODO:} Consider adding Corollary \blx@tocontentsinit {0}\cite [\href {https://kerodon.net/tag/00V0}{Corollary 00V0}]{kerodon}}{6}{section*.11}%
+\contentsline {todo}{\textbf {Preben:} The proof seems kind of technical, so might not be worth doing. Might do it if there's time or Rune thinks I should. Considered adding \blx@tocontentsinit {0}\cite [\href {https://kerodon.net/tag/000Z}{Exercise 000Z}]{kerodon} as this exercise is used in a lot of the proofs in this subsection, but seems too technical for this text.}{6}{section*.12}%
+\contentsline {todo}{\textbf {Preben:} Writing about the fundamental gruopoid could be smart.}{7}{section*.13}%
+\contentsline {todo}{\textbf {Preben:} Is this example too trivial?}{8}{section*.14}%
+\contentsline {todo}{\textbf {TODO:} Write about $\infty $-groupoids?}{8}{section*.15}%
+\contentsline {todo}{\textbf {TODO:} Be a bit more precise: you need a pullback over $\EuScript {C}\to \mathrm {h}\EuScript {C}$ (or say ``all simplices s.t. ...'')}{9}{section*.16}%
+\contentsline {todo}{\textbf {Preben:} Rezk mentions $\pi _0(\EuScript {C}^{\mathrm {core}})$. Do we care?}{9}{section*.17}%
+\contentsline {todo}{\textbf {TODO:} reference Joyal2008 and mention ``certain stability properties of the class of categorical equivalences and the so-called inner anodyne maps'' or the proof of \blx@tocontentsinit {0}\cite {HTT}[1.2.7.3] on p.$94$.}{10}{section*.18}%
+\contentsline {todo}{\textbf {TODO:} Maybe mention Rezk and weak saturated classes etc.}{10}{section*.19}%
+\contentsline {todo}{\textbf {TODO:} Write some general stuff.}{13}{section*.20}%
+\contentsline {todo}{\textbf {TODO:} Where should I write about adjunctions?}{13}{section*.21}%
+\contentsline {todo}{\textbf {TODO:} Write about joins and slices before defining limits and colimits.}{13}{section*.22}%
+\contentsline {todo}{\textbf {TODO:} Joins and slices define an adjoint relationship.}{14}{section*.23}%
+\contentsline {todo}{\textbf {TODO:} Define slice of object by considering morphism $\Delta ^0 \to X$.}{15}{section*.24}%
+\contentsline {todo}{\textbf {TODO:} Be sure to mention in the intro somewhere that ``space'' refers to $\infty $-groupoids or equivalently Kan complexes.}{17}{section*.25}%
+\contentsline {todo}{\textbf {Preben:} This intro made me cringe.}{19}{section*.26}%
+\contentsline {todo}{\textbf {Preben:} Diagram is exactly the same but all $2$-cells go the other way.}{20}{section*.27}%
+\contentsline {todo}{\textbf {Preben:} Is it clear what it means to extract the 2-cells from the cones?}{21}{section*.28}%
+\contentsline {todo}{\textbf {Preben:} These are exercises in \blx@tocontentsinit {0}\cite {CatContext}. Should I cite?}{22}{section*.29}%
+\contentsline {todo}{\textbf {TODO:} Check if $\mathrm {Sing}$ is mentioned in chapter 1 and reference it back.}{22}{section*.30}%
+\contentsline {todo}{\textbf {Preben:} THIS IS CURRENTLY JUST ALONG INCLUSIONS}{23}{section*.31}%
+\contentsline {todo}{\textbf {TODO:} This is chaos. Fix all slice notations in separate subsection of infcat chapter.}{23}{section*.32}%
+\contentsline {todo}{\textbf {TODO:} Should probably write more about what coslice contraction is. Plan is full chapter on slice $\infty $-cats.}{23}{section*.33}%
+\contentsline {todo}{\textbf {TODO:} Consider moving this to after the chapter on limits and colimits.}{23}{section*.34}%
+\contentsline {todo}{\textbf {TODO:} Define initial and terminal objects.}{23}{section*.35}%
+\contentsline {todo}{\textbf {TODO:} Define contractibility earlier.}{24}{section*.36}%
+\contentsline {todo}{\textbf {TODO:} Cite Cartan's 1950 seminar?}{25}{section*.37}%
+\contentsline {todo}{\textbf {TODO:} Define covering sieves.}{25}{section*.38}%
+\contentsline {todo}{\textbf {TODO:} Mention the ``normal definitions using covers and Cech nerves and briefly discuss relation to classical definition of sheaves in a $1$-category.}{26}{section*.39}%
+\contentsline {todo}{\textbf {TODO:} Make sure $\EuScript {S}$ is introduced in chapter on stable infcats.}{26}{section*.40}%
+\contentsline {todo}{\textbf {TODO:} Expand on this with references.}{26}{section*.41}%
+\contentsline {todo}{\textbf {TODO:} Proof is in HTT.}{27}{section*.42}%
+\contentsline {todo}{\textbf {TODO:} Make this a result in cofinality chapter instead.}{27}{section*.43}%
+\contentsline {todo}{\textbf {TODO:} Write out the details of why this is contractible and the inclusion is cofinal.}{28}{section*.45}%
+\contentsline {todo}{\textbf {TODO:} Write out the result in the Kan chapter.}{28}{section*.46}%
+\contentsline {todo}{\textbf {TODO:} This should probably be strict inclusion. Double check that.}{28}{section*.44}%
+\contentsline {todo}{\textbf {TODO:} Reference this result.}{30}{section*.47}%
+\contentsline {todo}{\textbf {TODO:} Give this argument a name and discuss it in an earlier section.}{31}{section*.48}%
+\contentsline {todo}{\textbf {TODO:} I don't know, maybe write some shit about regular Verdier Duality for 1-categories and stuff.}{33}{section*.49}%
+\contentsline {todo}{\textbf {TODO:} Something about connecting this new notion of Verdier duality to the classical notion of exchanging cohomology with cohomology with compact support.}{34}{section*.50}%
+\contentsline {todo}{\textbf {Preben:} Let's be consistent on wether we write $\colim _{K\subseteq U}$ or $\colim _{\EuScript {K}(X)_{/U}}$.}{34}{section*.51}%
+\contentsline {todo}{\textbf {Preben:} Lurie writes $\colim _{K\subseteq U}\Gamma _K(M;\EuScript {F})$, but I think that is a mistake.}{34}{section*.52}%
+\contentsline {todo}{\textbf {Preben:} This should just boil down to fully faithful Kan extensions along fully faithful functors give actual on the nose extensions, but might be smart to ref the result.}{35}{section*.53}%
+\contentsline {todo}{\textbf {Preben:} This should be made a separate lemma for readability.}{35}{section*.54}%
+\contentsline {todo}{\textbf {Preben:} My thoughts here are that we calculate Kan extensions as colimits, so $i$ being cofinal over some fixed $K$ means restricting the colimit from $\EuScript {U}(X)^{op}$ back to $B$ is an equivalence.}{39}{section*.55}%
+\contentsline {todo}{\textbf {Preben:} Lurie never states what he means with $M'''$, but I think he might just mean $B$.}{39}{section*.56}%
+\contentsline {todo}{\textbf {TODO:} Explain this step.}{39}{section*.57}%
+\contentsline {todo}{\textbf {Preben:} Note that $F\in \mathcal {E}(\EuScript {C})$ means $F|_{M_0}\in \mathrm {Shv}_{\EuScript {K}}(X;\EuScript {C}^{op})$, $F|_{M_0 \cup M_1} = RKAN(F|_{M_0})$ and $F=LKAN(F|_{M_0 \cup M_1})$ .}{41}{section*.58}%
+\contentsline {todo}{\textbf {TODO:} Maybe worth trying to make the bridge between this statement and the classical fact even more concrete.}{41}{section*.59}%
+\contentsline {todo}{\textbf {Preben:} Make sure this colimit is taken in the correct category. It should probably just be a limit in $\EuScript {C}$.}{41}{section*.60}%
+\contentsline {todo}{\textbf {Preben:} Should consider writing out theta more explicitly in the proof of \ref {7.3.4.9}.}{41}{section*.61}%
+\contentsline {todo}{\textbf {Preben:} Here we have used that we Kan extend along the fully faithful inclusion of $\mathrm {Shv}(X;\EuScript {C})$ (it is a full subcategory of $\mathrm {Fun}(\mathrm {N}(\EuScript {U}(X))^{op}, \EuScript {C})$.)}{41}{section*.62}%

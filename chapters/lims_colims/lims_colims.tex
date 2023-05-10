@@ -147,12 +147,12 @@ We now have what we need to define initial and terminal objects of $\infty$-cate
     \[\begin{tikzcd}
             {\{0\}} & {\partial\Delta^n} & \C & {\{n\}} & {\partial\Delta^n} & \C \\
             & {\Delta^n} &&& {\Delta^n}
-            \arrow[tail, from=1-1, to=1-2]
+            \arrow[hook, from=1-1, to=1-2]
             \arrow[from=1-2, to=1-3]
             \arrow["c", curve={height=-12pt}, from=1-1, to=1-3]
             \arrow[from=1-1, to=2-2]
             \arrow["\exists"', dashed, from=2-2, to=1-3]
-            \arrow[tail, from=1-4, to=1-5]
+            \arrow[hook, from=1-4, to=1-5]
             \arrow[from=1-5, to=1-6]
             \arrow["{c'}", curve={height=-12pt}, from=1-4, to=1-6]
             \arrow[from=1-4, to=2-5]
@@ -187,6 +187,49 @@ Furthermore, any object isomorphic to an initial (terminal) object is itself ini
 \section{Limits and colimits}
 Now we can finally define limits and colimits.
 \begin{definition}
-    Let $\C$ be an $\infty$-category.
+    Let $\C$ be an $\infty$-category and $f: K \to \C$ a map of simplicial sets.
+    A colimit of $f$ is an initial object in $\C_{f/}$, and a limit of $f$ is a terminal object in $\C_{/f}$.
 \end{definition}
+This means that a colimit of $f : K \to \C$ is a map $\bar{f}$ such that we can always solve the following extension problem
+\[\begin{tikzcd}
+        {{\{0\}}} & {\partial\Delta^n} & {\C_{f/}} \\
+        & {\Delta^n}
+        \arrow[hook, from=1-1, to=1-2]
+        \arrow[from=1-2, to=1-3]
+        \arrow["{\bar{f}}", curve={height=-12pt}, from=1-1, to=1-3]
+        \arrow[from=1-2, to=2-2]
+        \arrow[from=1-1, to=2-2]
+        \arrow["\exists"', dashed, from=2-2, to=1-3]
+    \end{tikzcd}\]
+Recalling that we defined the slice of a simplicial set as right adjoint to the join, we know that maps ${\{0\}}\to \C_{f/}$ is in bijection with maps $K\star {\Delta^0} = K^{\triangleright} \to \C$.
+In summary the adjunction tells us that a colimit of $f$ is a map $\bar{f}: K^{\triangleright} \to \C$ extending $f$ such that we can always solve the following extension problem
+\[\begin{tikzcd}
+        {K\star \{0\}} & {K\star\partial\Delta^n} & \C \\
+        & {K\star\Delta^n}
+        \arrow[hook, from=1-1, to=1-2]
+        \arrow[from=1-2, to=1-3]
+        \arrow["{\bar{f}}", curve={height=-12pt}, from=1-1, to=1-3]
+        \arrow[from=1-2, to=2-2]
+        \arrow[from=1-1, to=2-2]
+        \arrow["\exists"', dashed, from=2-2, to=1-3]
+    \end{tikzcd}\]
+Dually, a limit of $f$ is a map $\bar{f} : K^{\triangleleft} \to \C$ such that we can always solve the following extension problem
+\[\begin{tikzcd}
+        {\{n\} \star K} & {\partial\Delta^n \star K} & \C \\
+        & {\Delta^n \star K}
+        \arrow[hook, from=1-1, to=1-2]
+        \arrow[from=1-2, to=1-3]
+        \arrow["{\bar{f}}", curve={height=-12pt}, from=1-1, to=1-3]
+        \arrow[from=1-2, to=2-2]
+        \arrow[from=1-1, to=2-2]
+        \arrow["\exists"', dashed, from=2-2, to=1-3]
+    \end{tikzcd}\]
+Lurie \cite{HTT} refers to the object $\colim f \in \C_{f/}$ as a colimit of $f$ and the map $\bar{f}: K^{\triangleright} \to \C$ as a colimit diagram.
+We will probably be lazy and not care about this distinction.
+It follows immediately that limits and colimits are unique in the same sense that initial and terminal objects are: the full subcategory spanned by the (co)limits is either empty or contractible.
+When saying something is unique in $\infty$-category theory it is usually this notion we mean; it is unique up to a contractible space.
+\TODO{Be sure to mention in the intro somewhere that ``space'' refers to $\infty$-groupoids or equivalently Kan complexes.}
+\begin{remark}
+    As the slice and join constructions commute with the nerve construction so does initial and terminal objects and hence also limits and colimits.
+\end{remark}
 \end{document}

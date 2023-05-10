@@ -783,6 +783,8 @@ INPUT ./chapters/lims_colims/stable.tex
 INPUT ./chapters/lims_colims/stable.tex
 INPUT ./chapters/sheaves/K-sheaves.tex
 INPUT ./chapters/sheaves/K-sheaves.tex
+INPUT ./chapters/sheaves/alternative.tex
+INPUT ./chapters/sheaves/alternative.tex
 INPUT ./chapters/verdier/verdier.tex
 INPUT ./chapters/verdier/verdier.tex
 INPUT /Users/prebenhastsorli/Library/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/lmmono10-regular.luc

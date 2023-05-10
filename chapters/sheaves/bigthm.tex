@@ -1,0 +1,241 @@
+\documentclass[../../thesis.tex]{subfiles}
+\begin{document}
+\begin{theorem}[{\cite[][Theorem 7.3.4.9]{HTT}}]\label{7.3.4.9}
+    Let $X$ be locally compact and Hausdorff and $\C$ an $\infty$-category with left exact filtered colimits\footnote{Do I need to assumes existence of all small limits and colimits?}.
+    Let $\F : \Nerve(\Open(X) \cup \K(X))^{op} \to \C$.
+    The following conditions are equivalent:
+    \begin{enumerate}[]
+        \item The presheaf $\F_\K:= \F|\Nerve(\K(X))^{op}$ is a $\K$-sheaf, and $\F$ is a right Kan extension of $\F_\K$.
+        \item The presheaf $\F_{\Open}:=\F|\Nerve(\Open(X))^{op}$ is a sheaf, and $\F$ is a left Kan extension of $\F_{\Open}$.
+    \end{enumerate}
+\end{theorem}
+%\prepp{I'm pretty sure we must regard the union $\Open(X) \cup \K(X)$ as a poset contained in the powerset of $X$ here for everything to make sense}
+\begin{proof}
+    \prepp{Proof is a bit long. Consider splitting it up.}
+    We start by assuming the first condition and want to show that $F$ is left Kan extended from $\Nerve({\Open}(X))^{op}$.
+    By definition we want to show that
+    \[
+        \Nerve(\Open(X)_{/K}^{op})^{\triangleright} \hookrightarrow \Nerve((\Open(X)\cup \K(X))_{/K}^{op})^{\triangleright} \xrightarrow{c}\Nerve(\Open(X) \cup \K(X))^{op}\xrightarrow{\F}\C
+    \]
+    is a colimit diagram in $\C$.
+    The assumption that $\F_{\K}$ is a $\K$-sheaf means that for each $K\in \K(X)$, $\F_{\K}(K)$ is a colimit of $\F|\Nerve(\K_{K\Subset}(X))^{op}$.
+    We will "transfer" this colimit to the colimit we want by cofinal maps
+    \[
+        \Nerve((\Open(X)^{op})_{/K}) \xrightarrow{p} \Nerve((\Open(X)\cup \K(X))_{/K}^{op}) \xleftarrow{p'}\Nerve(\K_{K\Subset}(X))^{op}.
+    \]
+    Recall that by \ref{superlemma} checking cofinality reduces to checking weak contractibility of certain simplicial sets.
+    For $p$ we must check $\Nerve((\Open(X))^{op}_{/K}) \times_{\Nerve((\Open(X)\cup \K(X))_{/K}^{op})} \Nerve((\Open(X)\cup \K(X))_{/K}^{op})_{K'/}$ is weakly contractible for every $K' \in \Nerve((\Open(X)\cup \K(X))_{/K}^{op})$.
+    This is the simplicial set obtained by taking the nerve of the partially ordered set $\{U \in \Open(X) | K\subseteq U \subseteq K'\}$.
+    By \cite[Lemma 5.3.1.20]{HTT} filtered $\infty$-categories are weakly contractible, and our partially ordered set is filtered as it is nonempty, stable under finite union, and taking nerves preserve the property of being filtered.\TODO{Make this a result in cofinality chapter instead.}
+    The simplicial set $\Nerve(\{K'' \in \K(X) | K \Subset K'' \subseteq K'\})$\footnote{\TODO{This should probably be strict inclusion. Double check that.}} is weakly contractible by exactly the same argument, and hence $p$ and $p'$ are cofinal maps.
+    By cofinality of $p$ and $p'$, the diagram
+    \[
+        \Nerve((\Open(X))^{op}_{/K})^{\triangleright} \hookrightarrow \Nerve((\Open(X)\cup \K(X))_{/K}^{op})^{\triangleright} \xrightarrow{c}\Nerve(\Open(X) \cup \K(X))^{op}\xrightarrow{\F}\C
+    \]
+    is a colimit diagram if and only if
+    \[
+        \Nerve((\K(X)_{\Subset K})^{op})^{\triangleright} \hookrightarrow \Nerve((\Open(X)\cup \K(X))_{/K}^{op})^{\triangleright} \xrightarrow{c}\Nerve(\Open(X) \cup \K(X))^{op}\xrightarrow{\F}\C
+    \]
+    is a colimit diagram, which it is by the assumption that $F_{\K}$ is a $\K$-sheaf.
+    % \[\begin{tikzcd}
+    %         {\Nerve(\Open(X)_{K\subseteq})^{op}} && {\Nerve(\Open(X)_{K\subseteq}\cup \K(X)_{K\Subset})^{op}} && {\Nerve(\K(X)_{K\Subset})^{op}} \\
+    %         \\
+    %         {\Nerve(\Open(X)_{K\subseteq}^{op})^{\triangleright}} && {\Nerve(\Open_{K\subseteq}(X)^{op}\cup \K(X)_{K\Subset}^{op})^{\triangleright}} && {\Nerve(\K(X)_{K\Subset}^{op})^{\triangleright}} \\
+    %         \\
+    %         && {\Nerve(\Open(X)\cup \K(X))^{op}} \\
+    %         \\
+    %         && \C
+    %         \arrow["p", from=1-1, to=1-3]
+    %         \arrow["{p'}"', from=1-5, to=1-3]
+    %         \arrow[from=1-1, to=3-1]
+    %         \arrow[from=3-1, to=3-3]
+    %         \arrow[from=3-5, to=3-3]
+    %         \arrow[from=1-3, to=3-3]
+    %         \arrow[from=3-3, to=5-3]
+    %         \arrow["\F", from=5-3, to=7-3]
+    %         \arrow["{\psi'}"', from=3-5, to=7-3]
+    %         \arrow["\psi", from=3-1, to=7-3]
+    %         \arrow[from=1-5, to=3-5]
+    %     \end{tikzcd}\]
+
+
+    We now show $\F_{\Open}$ is a sheaf.
+    By definition \ref{sheaf_on_top} we must show that for every $U\in \Open(X)$ and every covering sieve $\mathscr{W}$ covering $U$,
+    \[
+        \Nerve(\W)^{\triangleright} \hookrightarrow \Nerve(\Open(X)_{/U})^{\triangleright} \rightarrow \Nerve(\Open(X))\xrightarrow{\F}\C^{op}
+    \]
+    is a colimit diagram, or equivalently that
+    \[
+        \Nerve(\W)^{op,\triangleleft} \hookrightarrow \Nerve(\Open(X)_{/U})^{op,\triangleleft} \rightarrow \Nerve(\Open(X))^{op}\xrightarrow{\F}\C
+    \]
+    is a limit diagram.
+    We will once again use cofinality by observing that \ref{superlemma} implies cofinality of the inclusion
+    \[
+        \Nerve(\W) \subseteq \Nerve(\W \cup \K_{\W}(X))
+    \]
+    where $\K_{\W}(X)$ is the set $\{K\in \K(X) | (\exists W \in \W)[K \subseteq W] \}$, so it is enough to show the limit starting from $ \Nerve(\W \cup \K_{\W}(X))^{op}$.
+    \TODO{Write out the details of why this is contractible and the inclusion is cofinal.}
+    Recall that this is equivalent to showing that $\F|_{\Nerve(\W \cup \K_{\W}(X))^{op,\triangleleft}}$ is right Kan extended from $\F|_{\Nerve(\W \cup \K_{\W}(X))^{op}}$.
+    \TODO{Write out the result in the Kan chapter.}
+    By the assumption that $\F$ is a right Kan extension of $\F_{\K}$ and the observation that
+    \[
+        \F(U) = \lim_{K\in \K(X)^{op}_{U/}}\F(K) = \lim_{K\in \K_{\W}(X)^{op}_{U/}}\F(K) %Do we need the following?= K_*^{\prime}\F(U)
+    \]
+    we see that $\F|_{(\W \cup \K_{\W})^{op}}$ is a right Kan extension of $\F|_{(K_{\W}(X))^{op}}$.
+    Hence, it suffices to prove that $\F|_{(\W \cup \K_{\W}(X)\cup \{U\})^{op}}$ is right Kan extended from $\K_{\W}(X)^{op}$.
+    Outside of $U$ this is clear from the fact that $F|_{(\W \cup \K_{\W}^{op})}$ is right Kan extended from $\K_{\W}(X)^{op}$.
+    This means we only need to prove $\F|_{(\K_{\W}(X)\cup \{U\})^{op}}$ is a right Kan extension of $\F|_{\K_{\W}(X)^{op}}$.
+    %\prepp{I'm honestly not entirely sure why we suddenly drop the $\cup W$ part.}
+    %\prepp{$(\W \cup \K_{\W}(X) \cup \{U\})^{op} = (\W \cup \K_{\W}(X))^{op, \triangleleft}$}
+    Observe that by assumption
+    \[
+        \F(U)  = \lim_{K\in \K(X)_{/U}^{op}} \F(K) = \lim_{K\in (\K(X)_{/U} \cup \{U\})^{op}} \F(K)
+    \]
+    so $\F|_{(\K(X)_{/U} \cup \{U\})^{op}}$ is right Kan extended from $\K(X)_{/U}^{op}$.
+    Lemma \ref{7.3.4.8} tells us that $\F|_{(\K(X)_{/U})^{op}}$ is a right Kan extension of $\F|_{\K_{\W}(X)^{op}}$.
+    We have ${\Nerve(\K_{\W}(X))^{op} \subseteq\Nerve(\K(X)_{/U})^{op} \subseteq\Nerve(\K(X)_{/U} \cup \{U\})^{op}}$, with Kan extensions as in proposition \ref{4.3.2.8}, so we get that ${\F|_{\Nerve(\K(X)_{/U} \cup \{U\})^{op}}}$ is right Kan extended from ${\Nerve(\K_{\W}(X))^{op}}$.
+    To summarize, we have the following square of inclusions
+    \[\begin{tikzcd}
+            {\K_{\W}(X)^{op}} && {(\K_{\W}(X)\cup \{U\})^{op}} \\
+            \\
+            {\K(X)_{/U}^{op}} && {(\K(X)_{/U} \cup \{U\})^{op}}
+            \arrow["{b}", hook, from=1-3, to=3-3]
+            \arrow["{j}", hook, from=3-1, to=3-3]
+            \arrow["{a}", hook, from=1-1, to=3-1]
+            %\arrow[from=1-1, to=3-3]
+            \arrow["{i}" ,hook, from=1-1, to=1-3]
+        \end{tikzcd}\]
+    %where $\F|(\K(X)_{/U} \cup \{U\})^{op} = j_*(\F|\K(X)_{/U})$ and $\F|(\K(X)_{/U})^{op} = j_*(\F|\K_{\W}(X)^{op})$. By applying proposition \ref{4.3.2.8} we see that ${\F|\Nerve(\K(X)_{/U} \cup \{U\})^{op}}= (j \circ a)_*(\F|\K_{\W}(X)^{op})$.
+    where $\F|_{(\K(X)_{/U} \cup \{ U \})^{op}} \simeq b_*(\F|_{(\K_{\W} \cup \{U\})^{op}})$ and $\F|_{(\K(X)_{/U} \cup \{U\})^{op}} \simeq (j\circ a)_*(\F|_{\K_{\W}(X)^{op}})$.
+    We want to show $\F|_{(\K_{\W}(X) \cup \{U\})^{op}} \simeq i_*(\F|_{\K_{\W}(X)^{op}})$.
+    Since $b$ is fully faithful (it is the inclusion of a full subcategory), we know $b^*b_* \simeq \id$, so we get
+    \begin{align}
+        \F|_{(\K_\W(X)\cup \{U\})^{op}} & \simeq b^*b_*(\F|_{(\K_\W(X)\cup \{U\})^{op}}) \\
+                                        & \simeq b^*(j\circ a)_* (\F|_{\K_\W(X)^{op}})   \\
+                                        & \simeq b^*(b \circ i)_*(\F|_{\K_\W(X)^{op}})   \\
+                                        & \simeq b^*b_*i_*(\F|_{\K_\W(X)^{op}})          \\
+                                        & \simeq i_*(\F|_{\K_\W(X)^{op}})
+    \end{align}
+    %\prepp{This is probably obvious or easier to show than what I am about to do, so please let me know.}
+    % We use the commutativity of the square and the adjoint relationship between Kan extensions and ``pullbacks'' and get:
+    % \begin{align}
+    %     \C^{(\K_{\W}(X)\cup \{U\})^{op}}(b^*(\blank),\F|_{(\K_{\W}(X)\cup \{U\})^{op}})\simeq & \C^{(\K(X)_{/U} \cup \{U\})^{op}}(\blank, \F)                             \\       \simeq                                                                             & \C^{(\K(X)_{/U} \cup \{U\})^{op}}(\blank,a_*(\F|_{{\K\W}(X)^{op}})) \\
+    %     \simeq                                                                                & \C^{\K_{\W}(X)^{op}}(a^*(\blank), \F|_{\K_{\W}(X)^{op}})                  \\
+    %     \simeq                                                                                & \C^{\K_{\W}(X)^{op}}((b\circ i)^*(\blank), \F|_{\K_{\W}(X)^{op}})         \\        \simeq                                                                             & \C^{\K_{\W}(X)^{op}}(i^* \circ b^*(\blank), \F|_{\K_{\W}(X)^{op}})            \\
+    %     \simeq                                                                                & \C^{(\K_{\W}(X)\cup \{U\})^{op}}(b^*(\blank), i_*(\F|_{\K_{\W}(X)^{op}}))
+    % \end{align}
+    % and Yoneda's lemma tells us that
+    % \[\C^{(\K_{\W}(X)\cup \{U\})^{op}}(b^*(\blank),\F|_{(\K_{\W}(X)\cup \{U\})^{op}}) \simeq \C^{(\K_{\W}(X)\cup \{U\})^{op}}(b^*(\blank), i_*(\F|_{\K_{\W}(X)^{op}}))\]
+    % \[\Rightarrow \F|_{(\K_{\W}(X)\cup \{U\})^{op}} \simeq i_*(\F|_{\K_{\W}(X)^{op}}).\]
+    In conclusion we have shown that $\F_{U}$ is a sheaf, so $1.$ implies $2.$.
+
+
+    For the other direction we assume $2.$ and want to show $\F_{\K}$ is a $\K$-sheaf. By definition we need to show three things:
+    Firstly, observe that $\F_{\K}(\emptyset) = \F_{U}(\emptyset)$ and since $\F_{U}$ is a sheaf $\F_{\K}(\emptyset)$ is terminal.
+    Secondly, we need the following diagram to be a pullback in $\C$ for any $K,K' \in \K(X)$.
+    \begin{equation}\label{K-sheaf-PB}
+        \begin{tikzcd}
+            {\F(K \cup K')} && {\F(K)} \\
+            \\
+            {\F(K')} && {\F(K\cap K')}
+            \arrow[from=1-3, to=3-3]
+            \arrow[from=3-1, to=3-3]
+            \arrow[from=1-1, to=3-1]
+            %\arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=3-3]
+            \arrow[from=1-1, to=1-3]
+        \end{tikzcd}
+    \end{equation}
+    We will do this by using that $\F_{U}$ is a sheaf.
+    Let $P = \{(U,U') | K \subseteq U, K' \subseteq U'\}$ and $\sigma: \Delta^1\times\Delta^1 \to \C$ denote diagram \ref{K-sheaf-PB}.
+    Now $\F$ induces a map $\sigma_P: \Nerve(P^{op})^{\triangleright} \to \C^{\Delta^1\times\Delta^1}$ taking each $(U, U')$ to
+    \[
+        \begin{tikzcd}
+            {\F(U \cup U')} && {\F(U)} \\
+            \\
+            {\F(U')} && {\F(U\cap U')}
+            \arrow[from=1-3, to=3-3]
+            \arrow[from=3-1, to=3-3]
+            \arrow[from=1-1, to=3-1]
+            \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=3-3]
+            \arrow[from=1-1, to=1-3]
+        \end{tikzcd}
+    \]
+    and the cone point is sent to $\sigma$. This is a pullback by the fact that $\F_{U}$ is a sheaf.
+    Evaluating $\sigma_P$ in each of the four vertices of $\Delta^1 \times \Delta^1$ we get four maps $\Nerve(P^{op})^{\triangleright} \to \C$.
+    We now check that evaluating in the final vertex yields a colimit diagram.
+    %Let $Q = \{ U\in \Open(X) | K\cap K' \subseteq U \}$, and observe that this is the fiber product $\Open(X)_{/(K\cap K')}$.
+    By assumption $\F$ is a left Kan extension of $\F_{U}$ which by definition means that the following is a colimit diagram:
+    \[
+        \Nerve((\Open(X)_{/(K\cap K')})^{op})^{\triangleright} \hookrightarrow \Nerve((\Open(X) \cup \K(X))^{op}_{/(K\cap K')})^{\triangleright} \xrightarrow{c} \Nerve(\Open(X) \cup \K(X))^{op} \xrightarrow{\F}\C
+    \]
+    Observe that for every $U'' \in \Open(X)_{/(K\cap K')}$, the set
+    $P_{U''} = \{(U,U') \in P | U\cap U' \subseteq U''\}$ is nonempty and stable under finite intersections, which implies it is filtered and hence its nerve is contractible.
+    \TODO{Reference this result.}
+    By \ref{superlemma} this implies $\Nerve(P^{op}) \to \Nerve((\Open(X)_{/(K\cap K')})^{op})$ is cofinal and we get a colimit diagram
+    \[
+        \Nerve(P^{op})^{\triangleright} \to\Nerve((\Open(X)_{/(K\cap K')})^{op})^{\triangleright} \hookrightarrow \Nerve((\Open(X) \cup \K(X))_{/(K\cap K')}^{op})^{\triangleright} \xrightarrow{c} \Nerve(\Open(X) \cup \K(X))^{op} \xrightarrow{\F}\C.
+    \]
+    We can show that evaluating the three other vertices also yields colimit diagrams by similar arguments.
+    Since $\sigma_P$ yields a colimit diagram when evaluated in each of the four vertices of $\Delta^1 \times \Delta^1$, we conclude that $\sigma_P$ is itself a colimit diagram by \cite[Proposition 5.1.2.2]{HTT}.
+    Observe now that $\sigma_P$ is a filtered colimit in $\C$ and hence it is left exact.
+    This concludes the argument that \ref{K-sheaf-PB} is a pullback.
+    Finally, we need to show that for each $K \in \K(X)$, $\F_{\K}$ is a colimit of $\F_{\K}|_{\Nerve(\K_{K\Subset}(X))^{op}}$.
+    We do this by showing
+    \[
+        \Nerve(\K_{K\Subset}(X)^{op})^{\triangleright} \to \Nerve(\K(X) \cup \Open(X))^{op} \xrightarrow{\F} \C
+    \]
+    is a colimit diagram.
+    We use Proposition \ref{4.3.2.8} to show that
+    $\F|_{\Nerve(\Open(X) \cup \K_{K\Subset}(X))^{op}}$ and ${\F|_{\Nerve(\Open(X) \cup \K_{K\Subset}(X))^{op} \cup \{K\}}}$ are left Kan extensions of $\F|_{\Nerve(\Open(X))^{op}}$ which again implies $\F|_{\Nerve(\Open(X) \cup \K_{K\Subset}(X))^{op} \cup \{K\}}$ is a left Kan extension of $\F|_{\Nerve(\Open(X) \cup \K_{K\Subset}(X))^{op}}$.
+    Now observe that
+    \[
+        \Nerve(\K(X) \cup \Open(X))^{op,\triangleright}_{/K} = \Nerve(\K_{K\Subset}(X) \cup \Open(X)_{/K})^{op,\triangleright},
+    \]
+    so in particular
+    \[
+        \Nerve(\K(X) \cup \Open(X))^{op,\triangleright}_{/K} \to \Nerve(\K(X) \cup \Open(X))^{op} \xrightarrow{\F} \C
+    \]
+    is a colimit diagram, and the statement is reduced to showing that $\Nerve(\K_{K\Subset}(X)) \subseteq \Nerve(\K(X) \cup \Open(X))_{/K}^{op}$ is cofinal.
+    Let $Y\in \Nerve(\K(X) \cup \Open(X))_{/K}$ and let $R$ be the partially ordered set $\{K' \in \K(X) | K \Subset K ' \subseteq Y\}$.
+    Since $R$ is nonempty and stable under intersections, $R^{op}$ is filtered and hence $\Nerve(R)$ is weakly contractible.
+    By Lemma \ref{superlemma} the inclusion is cofinal and we have shown that $\F_\K$ is a $\K$-sheaf.
+
+    We will show $\F$ is a right Kan extension of $\F_\K$ in a similar manner to how we showed $\F$ is a left Kan extension of $\F_{\Open}$ in the start of the proof, but we will consider the partial order on $\Open(X)$ given by writing $V\Subset U$ whenever $V\in \Open(X)$ and its closure $\overline{V}$ is compact and contained in $U$.
+    Writing $\Open(X)_{U/}$ for the set $\{V\in \Open(X) | V\Subset U\}$, we need to show that
+    \[
+        \Nerve(\K(X)_{U/}^{op})^{\triangleleft} \hookrightarrow \Nerve(\Open(X) \cup \K(X))_{U/}^{op} \xrightarrow{c}\Nerve(\Open(X) \cup \K(X))^{op} \xrightarrow{\F} \C
+    \]
+    is a colimit diagram.
+    As earlier we do this by finding cofinal inclusions
+    \[
+        \Nerve(\K(X)_{U/}^{op}) \xrightarrow{f}\Nerve(\Open(X) \cup \K(X))_{U/}^{op} \xleftarrow{f'} \Nerve(\K(X)_{/U})^{op}.
+    \]
+    By Lemma \ref{superlemma} $f$ and $f'$ are cofinal inclusions if for any $Y\in (\Open(X) \cup \K(X))_{U/}$ the partially ordered sets
+    \[
+        \{ V \in \Open(X) |Y \subseteq V \Subset U \}
+    \]
+    and
+    \[
+        \{ K \in \K(X) |Y \subseteq K \subseteq U \}
+    \]
+    have weakly contractible nerves, which they have by the usual argument; they are nonempty and stable under unions, hence filtered.
+    \TODO{Give this argument a name and discuss it in an earlier section.}
+    Since $\Open(X)_{U/}$ is a sieve covering $U$ and $\F_U$ is a sheaf,
+    \[
+        \Nerve(\Open(X)_{U/})^{op} \to \Nerve(\Open(X)_{U/})^{op, \triangleleft} \to \C
+    \]
+    is a colimit diagram and this completes the proof that $\F$ is a right Kan extension of $\F_\K$.
+\end{proof}
+\begin{corollary}\label{7.3.4.10}
+    Let $X$ be a locally compact Hausdorff space and $\C$ an $\infty$-category with left exact filtered colimits, then $\Shv(X;\C) \simeq \KShv(X;\C)$ is an equivalence of $\infty$-categories.
+\end{corollary}
+\begin{proof}
+    Let $\Shv_{\K\Open}(X;C)$ be the full subcategory of $\Fun(\Nerve(\K(X)\cup \Open(X))^{op},\C)$ spanned by those presheaves satisfying the equivalent conditions of theorem \ref{7.3.4.9}. We get restrictions
+    \[
+        \Shv(X;\C) \leftarrow \Shv_{\K\Open}(X;C) \to \KShv(X;C),
+    \]
+    and these are equivalences of $\infty$-categories because inclusions of full subcategories are fully faithful and Kan extensions along fully faithful functors give isomorphisms.
+
+    ($K$ fully faithful means $G \cong Lan_K(G)K$.)
+\end{proof}
+\end{document}
