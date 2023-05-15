@@ -1,18 +1,37 @@
 \documentclass[../../thesis.tex]{subfiles}
 
 \begin{document}
-Captured and made a prisoner of war by the Germans in 1940, the french professor and officer Jean Leray spent his five years in captivity inventing the theory of sheaves and spectral sequences.
-Prior to being captured algebraic topology was merely a small interest and his real interests lied in using topological methods to prove the existence of solutions of certain differential equations, Leray feared that if the Germans learned of his competence as a ``mechanic'' (``mécanicien'' in his own words) they would force him to ``work for the German war machine, so he converted his minor interest to his major one, in fact to his essentially unique one, presented himself as a pure mathematician, and devoted himself mainly to algebraic topology.\cite{Borel}[p. 1-21].''
+The origins of sheaf theory is quite a remarkable story, and we quote Armand Borel \cite{Borel}:
+\begin{quotation}
+    ``The Second World War broke out in 1939 and J. Leray [then Professor at the Sorbonne and an officer in the French army] was made prisoner by the Germans in 1940.
+    He spent the next five years in captivity in an officers’ camp, Oflag XVIIA in Austria [not far from Salzburg].
+    With the help of some colleagues, he founded a university there, of which he became the Director (“recteur”).
+    His major mathematical interests had been so far in analysis, on a variety of problems which, though theoretical, had their origins in, and potential applications to, technical problems in mechanics or fluid dynamics.
+    Algebraic topology had been only a minor interest, geared to applications to analysis. Leray feared that if his competence as a “mechanic” (“mécanicien,” his word) were known to the German authorities in the camp, he might be compelled to work for the German war machine, so he converted his minor interest to his major one, in fact to his essentially unique one, presented himself as a pure mathematician, and devoted himself mainly to algebraic topology.''
+\end{quotation}
 Originally, Leray defined sheaves as a functor from closed subspaces, and it was Cartan that reformulated the theory using open subspaces.\cite{H.Miller}
-His first example was the sheaf assigning a space its $p$th cohomology group.
+His first example was the sheaf assigning a topological space its $p$th cohomology group.
 \TODO{Cite Cartan's 1950 seminar?}
-
+\section{Sheaves on topological spaces}
 We will closely follow Lurie \cite{HTT}.
 Let $\Open(X)$ denote the partial order of open subsets of a topological space $X$.
-\section{Sheaves on topological spaces}
 \TODO{Define covering sieves.}
+\begin{definition}[{\cite[Definition 6.2.2.1.]{HTT}}]
+    Let $\C$ be an $\infty$-category.
+    We define a sieve on $\C$ to be a full subcategory $\C^{(0)} \subseteq \C$ such that for any morphism $f \in \Hom_{\C}(X,Y)$ where $Y\in C^{(0)}$, $X$ must also belong to $C^{(0)}$.
+    Furthermore, for an object $X \in \C$, we define a sieve on $X$ to be a sieve on $\C_{/X}$ in the above sense.
+\end{definition}
+\begin{definition}[{\cite[Definition 6.2.2.1.]{HTT}}]
+    We define a Grothendieck topology on an $\infty$-category $\C$ as a collection of sieves called covering sieves on every object $X\in \C$.
+    These collections are required to satisfy the following conditions:
+    \begin{enumerate}
+        \item For an object $X\in \C$, the sieve $\C_{/X} \subseteq \C_{/X}$ is a covering sieve.
+        \item For a morphism $f \in \Hom_{\C}(X,Y)$ and covering sieve $\C^{(0)}_{/X}$ on $Y$, $f^*\C^{(0)}_{/X}$ is a covering sieve on $X$.
+        \item For an object $X \in \C$, a covering sieve $\C^{(0)}_{/X}$ on $X$, and an arbitrary  $\C^{(1)}_{/X}$ sieve on $X$, if the pullback $f^*\C^{(1)}_{/X}$ is a covering sieve on $Y$ for any $f: X \to Y$, then $\C^{(1)}_{/X}$ is a covering sieve on $X$.
+    \end{enumerate}
+\end{definition}
 \begin{definition}[{\cite[Definition 7.3.3.1]{HTT}}]\label{sheaf_on_top}
-    Let $X \in \cat{Top}$ and $\C$ an $\infty$-category.
+    Let $X \in \mathrm{Top}$ and $\C$ an $\infty$-category.
     We define a $\C$-valued sheaf on $X$ to be a presheaf $\F: \Open(X)^{op} \to \C$ such that for every $U\subseteq X$ and every covering sieve $\mathscr{W} \subseteq \Open(X)_{/U}$, the diagram
     \[
         \Nerve(\mathscr{W})^{\triangleright} \hookrightarrow \Nerve(\Open(X)_{/U})^{\triangleright} \rightarrow \Nerve(\Open(X))\xrightarrow{\F}\C^{op}

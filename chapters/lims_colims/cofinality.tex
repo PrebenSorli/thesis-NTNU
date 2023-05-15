@@ -64,4 +64,24 @@ The following theorem remedies this by giving a very convenient way of checking 
         \item for every $D\in \D$, the simplicial set $\C\times_\D \D_{/D}$ is weakly contractible.
     \end{enumerate}
 \end{theorem}
+This means that checking cofinality of functors reduces to checking cofinality of certain simplicial sets.
+In the next part of this thesis we will mostly consider functors from certain poset categories and this means that we can use the theory of filtered $\infty$-categories to simplifiy the process of checking contractibility.
+While much can be said about filtered $\infty$-categories we only state the definition and the results we need and refer the reader to \cite[\href{https://kerodon.net/tag/02P8}{Subsection 02P8}]{kerodon} and \cite{HTT}[Section 5.3.1] for more details and proofs.
+\begin{definition}[{\cite[\href{https://kerodon.net/tag/02P9}{Definition 02P9}]{kerodon}}]
+    We say that a non-empty $1$-category $\C$ is filtered if it satisfies the following conditions:
+    \begin{enumerate}
+        \item For any pair of objects $X$ and $Y$ in $\C$, there exists an object $Z \in \C$ and a pair of morphisms $f : X\to Z$ and $g : Y\to Z$.
+        \item For any pair of objects $X$ and $Y$ in $\C$ and parallel pair of morphisms $X \xbigtoto[f_0]{f_1} Y$, there exists a morphism $g : Y \to Z$ such that $g \circ f_0 = g \circ f_1$.
+    \end{enumerate}
+\end{definition}
+\begin{definition}
+    We say that an $\infty$-category $\C$ is filtered if, for any finite $K\in \sset$ any $f:K\to \C$ can be extended to $K^{\triangleright} \to \C$.
+    Dually, we say it is cofiltered if $\C^{op}$ is filtered (we can extend to $K^{\triangleleft} \to \C$).
+\end{definition}
+\begin{proposition}[{\cite[\href{https://kerodon.net/tag/02PH}{Proposition 02PH}]{kerodon}}]\label{5.3.1.20}
+    Filtered $\infty$-categories are weakly contractible.
+\end{proposition}
+\begin{proposition}[{\cite[\href{https://kerodon.net/tag/02PV}{Corollary 02PV}]{kerodon}}]\label{NerveFilter}
+    A $1$-category $\C$ is filtered if and only if its nerve $\Nerve(\C)$ is filtered.
+\end{proposition}
 \end{document}

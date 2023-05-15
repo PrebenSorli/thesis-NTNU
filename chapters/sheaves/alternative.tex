@@ -9,7 +9,7 @@
         \item The presheaf $\F_{\Open}:=\F|\Nerve(\Open(X))^{op}$ is a sheaf, and $\F$ is a left Kan extension of $\F_{\Open}$.
     \end{enumerate}
 \end{theorem}
-We will split the theorem into a few lemmas for readability.
+We will split the theorem into a few lemmas for readability and keep the notation in the theorem statement through the rest of the section.
 \begin{lemma}
     If $\F_\K$ is a $\K$-sheaf, then $F$ is a left Kan extension of $\F_{\Open}$.
 \end{lemma}
@@ -24,10 +24,10 @@ We will split the theorem into a few lemmas for readability.
     \[
         \Nerve((\Open(X)^{op})_{/K}) \xrightarrow{p} \Nerve((\Open(X)\cup \K(X))_{/K}^{op}) \xleftarrow{p'}\Nerve(\K_{K\Subset}(X))^{op}.
     \]
-    Recall that by \ref{superlemma} checking cofinality reduces to checking weak contractibility of certain simplicial sets.
+    Recall that by Theorem \ref{superlemma} checking cofinality reduces to checking weak contractibility of certain simplicial sets.
     For $p$ we must check $\Nerve((\Open(X))^{op}_{/K}) \times_{\Nerve((\Open(X)\cup \K(X))_{/K}^{op})} \Nerve((\Open(X)\cup \K(X))_{/K}^{op})_{K'/}$ is weakly contractible for every $K' \in \Nerve((\Open(X)\cup \K(X))_{/K}^{op})$.
     This is the simplicial set obtained by taking the nerve of the partially ordered set $\{U \in \Open(X) | K\subseteq U \subseteq K'\}$.
-    By \cite[Lemma 5.3.1.20]{HTT} filtered $\infty$-categories are weakly contractible, and our partially ordered set is filtered as it is nonempty, stable under finite union, and taking nerves preserve the property of being filtered.\TODO{Make this a result in cofinality chapter instead.}
+    By \ref{5.3.1.20} filtered $\infty$-categories are weakly contractible, and our partially ordered set is filtered as it is nonempty and stable under finite unions, and taking nerves preserve the property of being filtered by \ref{NerveFilter}.
     The simplicial set $\Nerve(\{K'' \in \K(X) | K \Subset K'' \subseteq K'\})$\footnote{\TODO{This should probably be strict inclusion. Double check that.}} is weakly contractible by exactly the same argument, and hence $p$ and $p'$ are cofinal maps.
     By cofinality of $p$ and $p'$, the diagram
     \[
@@ -40,7 +40,7 @@ We will split the theorem into a few lemmas for readability.
     is a colimit diagram, which it is by the assumption that $F_{\K}$ is a $\K$-sheaf.
 \end{proof}
 \begin{lemma}
-    If $\F_\K:= \F|\Nerve(\K(X))^{op}$ is a $\K$-sheaf, and $\F$ is a right Kan extension of $\F_\K$, then $\F_{\Open}$ is a sheaf.
+    If $\F_\K$ is a $\K$-sheaf, and $\F$ is a right Kan extension of $\F_\K$, then $\F_{\Open}$ is a sheaf.
 \end{lemma}
 \begin{proof}
     By definition \ref{sheaf_on_top} we must show that for every $U\in \Open(X)$ and every covering sieve $\mathscr{W}$ covering $U$,
@@ -101,7 +101,7 @@ We will split the theorem into a few lemmas for readability.
     \end{align}
 \end{proof}
 \begin{lemma}
-    If $\F_{\Open}:=\F|\Nerve(\Open(X))^{op}$ is a sheaf, and $\F$ is a left Kan extension of $\F_{\Open}$, then $\F_{\K}$ is a $\K$-sheaf.
+    If $\F_{\Open}$ is a sheaf, and $\F$ is a left Kan extension of $\F_{\Open}$, then $\F_{\K}$ is a $\K$-sheaf.
 \end{lemma}
 \begin{proof}
     By definition we need to show three things:
@@ -144,7 +144,6 @@ We will split the theorem into a few lemmas for readability.
     \]
     Observe that for every $U'' \in \Open(X)_{/(K\cap K')}$, the set
     $P_{U''} = \{(U,U') \in P | U\cap U' \subseteq U''\}$ is nonempty and stable under finite intersections, which implies it is filtered and hence its nerve is contractible.
-    \TODO{Reference this result.}
     By \ref{superlemma} this implies $\Nerve(P^{op}) \to \Nerve((\Open(X)_{/(K\cap K')})^{op})$ is cofinal and we get a colimit diagram
     \[
         \Nerve(P^{op})^{\triangleright} \to\Nerve((\Open(X)_{/(K\cap K')})^{op})^{\triangleright} \hookrightarrow \Nerve((\Open(X) \cup \K(X))_{/(K\cap K')}^{op})^{\triangleright} \xrightarrow{c} \Nerve(\Open(X) \cup \K(X))^{op} \xrightarrow{\F}\C.
@@ -172,7 +171,7 @@ We will split the theorem into a few lemmas for readability.
     is a colimit diagram, and the statement is reduced to showing that $\Nerve(\K_{K\Subset}(X)) \subseteq \Nerve(\K(X) \cup \Open(X))_{/K}^{op}$ is cofinal.
     Let $Y\in \Nerve(\K(X) \cup \Open(X))_{/K}$ and let $R$ be the partially ordered set $\{K' \in \K(X) | K \Subset K ' \subseteq Y\}$.
     Since $R$ is nonempty and stable under intersections, $R^{op}$ is filtered and hence $\Nerve(R)$ is weakly contractible.
-    By Lemma \ref{superlemma} the inclusion is cofinal and we have shown that $\F_\K$ is a $\K$-sheaf.
+    By \ref{superlemma} the inclusion is cofinal and we have shown that $\F_\K$ is a $\K$-sheaf.
 \end{proof}
 \begin{lemma}
     If $\F_{\Open}$ is a sheaf, then $\F$ is a right Kan extension of $\F_{\K}$.
@@ -188,7 +187,7 @@ We will split the theorem into a few lemmas for readability.
     \[
         \Nerve(\K(X)_{U/}^{op}) \xrightarrow{f}\Nerve(\Open(X) \cup \K(X))_{U/}^{op} \xleftarrow{f'} \Nerve(\K(X)_{/U})^{op}.
     \]
-    By Lemma \ref{superlemma} $f$ and $f'$ are cofinal inclusions if for any $Y\in (\Open(X) \cup \K(X))_{U/}$ the partially ordered sets
+    By Theorem \ref{superlemma} $f$ and $f'$ are cofinal inclusions if for any $Y\in (\Open(X) \cup \K(X))_{U/}$ the partially ordered sets
     \[
         \{ V \in \Open(X) |Y \subseteq V \Subset U \}
     \]
@@ -197,11 +196,20 @@ We will split the theorem into a few lemmas for readability.
         \{ K \in \K(X) |Y \subseteq K \subseteq U \}
     \]
     have weakly contractible nerves, which they have by the usual argument; they are nonempty and stable under unions, hence filtered.
-    \TODO{Give this argument a name and discuss it in an earlier section.}
     Since $\Open(X)_{U/}$ is a sieve covering $U$ and $\F_{\Open}$ is a sheaf,
     \[
         \Nerve(\Open(X)_{U/})^{op} \to \Nerve(\Open(X)_{U/})^{op, \triangleleft} \to \C
     \]
     is a colimit diagram and this completes the proof that $\F$ is a right Kan extension of $\F_\K$.
+\end{proof}
+\begin{corollary}\label{7.3.4.10}
+    Let $X$ be a locally compact Hausdorff space and $\C$ an $\infty$-category with left exact filtered colimits and small limits, then $\Shv(X;\C) \simeq \KShv(X;\C)$ is an equivalence of $\infty$-categories.
+\end{corollary}
+\begin{proof}
+    Let $\Shv_{\K\Open}(X;C)$ be the full subcategory of $\Fun(\Nerve(\K(X)\cup \Open(X))^{op},\C)$ spanned by those presheaves satisfying the equivalent conditions of theorem \ref{7.3.4.9}. We get restrictions
+    \[
+        \Shv(X;\C) \leftarrow \Shv_{\K\Open}(X;C) \to \KShv(X;C),
+    \]
+    and these are equivalences of $\infty$-categories because inclusions of full subcategories are fully faithful and Kan extensions along fully faithful functors give isomorphisms by Lemma \ref{KanFullyFaith}.
 \end{proof}
 \end{document}
