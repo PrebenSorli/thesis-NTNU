@@ -2,7 +2,7 @@
 
 \begin{document}
 \section{Stable $\infty$-categories}
-Quoting Lurie \cite{HA}, ``The theory of stable $\infty$-categories an be regarded as an axiomatization of the essential features of stable homotopy theory: most notably, that fiber sequences and cofiber sequences are the same.''
+Quoting Lurie \cite{HA}, ``The theory of stable $\infty$-categories can be regarded as an axiomatization of the essential features of stable homotopy theory: most notably, that fiber sequences and cofiber sequences are the same.''
 For the purpose of this thesis (proving Verider Duality), we really don't need much more of the theory than the fact that pullbacks squares are always also pushout squares, but nevertheless we think it useful to state the basic theory and examples of the categories we care about.
 \begin{definition}[{\cite[Definition 1.1.1.1.]{HA}}]
     A zero-object, usually denoted $0$, in an $\infty$-category is an object that is both initial and terminal.
@@ -53,4 +53,52 @@ We now define stable $\infty$-categories:
         \item A triangle in $\C$ is a fiber sequence if and only if it is a cofiber sequence.
     \end{enumerate}
 \end{definition}
+\begin{proposition}
+    Stable $\infty$-categories has finite limits and colimits.
+\end{proposition}
+\begin{proof}
+    Let $\C$ be a stable $\infty$-category.
+    By \cite{HTT}[Corollary 4.4.2.4.] it is enough to show that $\C$ has pushouts and pullbacks.
+    Consider the following diagram in $\C$:
+    \[\begin{tikzcd}
+            {\fib(g)} & X & Z \\
+            0 & Y & {\cofib(hf)}
+            \arrow["f", from=1-1, to=1-2]
+            \arrow[from=2-1, to=2-2]
+            \arrow["g", from=1-2, to=2-2]
+            \arrow[from=1-1, to=2-1]
+            \arrow[from=2-2, to=2-3]
+            \arrow["h", from=1-2, to=1-3]
+            \arrow[from=1-3, to=2-3]
+        \end{tikzcd}\]
+    By stability of $\C$, both the left and outer squares are both pushouts and pullbacks.
+    Lemma \cite{HTT}[4.4.2.1.] says that if the left square is a pushout, then the right square is also a pushout if and only the outer square is a pushout, so we are done.
+\end{proof}
+In fact, an even stronger statement can be made:
+\begin{proposition}[{\cite{HTT}[Proposition 1.1.3.4.]}]
+    Let $\C$ be a pointed $\infty$-category.
+    Then $\C$ is stable if and only if the following conditions are satisfied:
+    \begin{enumerate}
+        \item $\C$ admits finite limits and colimits.
+        \item A square is a pushout if and only if it is a pullback.
+    \end{enumerate}
+\end{proposition}
+The fact that pushouts are also pullbacks in stable $\infty$-categories will be helpful later when proving Verdier Duality.
+
+
+We see that, like for additive $1$-categories, stability is a property of $\infty$-categories rather than additional data \cite{HA}[Remark 1.1.1.14.].
+While, additive categories are often presented as categories equipped with an abelian group structure on $\Hom$-sets, this structure is determined by the underlying category.
+A similar structure can be found in stable $\infty$-categories, they are weakly enriched over what is known as the $\infty$-category $\Spec$ of spectra.
+We will not go into the details of this comment, but we will at least define $\Spec$ as it is maybe the most important example of a stable $\infty$-category.
+\begin{example}[{\cite{HA}[Example 1.1.1.11.]}]
+    We say that a spectrum consists of an infinite sequence $\{X_i\}_{i \geq 0}$ of pointed topological spaces, together with homeomorphisms $X_i \simeq \Omega X_{i+1}$, where $\Omega$ is the loop space functor.
+    The collection of such spectra can be organized into a stable $\infty$-category $\mathrm{Sp}$ and this category is in some sense the universal example of a stable $\infty$-category.
+\end{example}
+\begin{example}[{\cite{HA}[Example 1.1.1.12.]}]
+    For an abelian category $\A$ one can construct a stable $\infty$-category $\D(\A)$ such that its homotopy category $\h\D(\A)$ can be identified with the classical notion of the derived category of $\A$ from homological algebra.
+\end{example}
+\begin{theorem}[{\cite{HA}[Theorem 1.1.2.14.]}]
+    Let $\C$ be a stable $\infty$-category.
+    Then $\h\C$ is a triangulated category.
+\end{theorem}
 \end{document}

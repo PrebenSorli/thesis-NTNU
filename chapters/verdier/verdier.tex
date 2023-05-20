@@ -2,20 +2,27 @@
 \begin{document}
 \section{Classical Verdier Duality}
 \TODO{I don't know, maybe write some shit about regular Verdier Duality for 1-categories and stuff.}
-Blablabla $k$ a field and $\mathrm{Ch}_k$ the category of chain complexes of $k$-vector spaces.
-Vector space duality gives a limit preserving functor $\Nerve(A^{op}) \to \Nerve(A)$ which induces a functor
+Let $k$ be a field and $\mathrm{Ch}_k$ the category of chain complexes of $k$-vector spaces.
+The nerve construction $\Nerve(\mathrm{Ch}_k)$ is now euqivalent to the derived $\infty$-category of the category of $k$-vector spaces.
+Vector space duality gives a limit preserving functor $\Nerve(\mathrm{Ch}_k^{op}) \to \Nerve(\mathrm{Ch}_k)$ which induces a functor
 \[
-    \Shv(X;\Nerve(A)^{op}) \to \Shv(X;\Nerve(A))
+    \Shv(X;\Nerve(\mathrm{Ch}_k)^{op}) \to \Shv(X;\Nerve(\mathrm{Ch}_k))
 \]
 for any locally compact Hausdorff space.
 Composing with the equivalence below yields a functor
 \[
-    \mathbb{D}': \Shv(X;\Nerve(A))^{op} \to \Shv(X;\Nerve(A))
+    \mathbb{D}': \Shv(X;\Nerve(\mathrm{Ch}_k))^{op} \to \Shv(X;\Nerve(\mathrm{Ch}_k))
 \]
 and it is this functor that is usually called Verdier Duality. This is not necessarily an equivalence of $\infty$-categories unless certain finiteness conditions are imposed.
 
 
-\section{Verdier Duality in infinity-categories}
+Classical Verdier Duality can be seen as a generalization of Poincaré duality, replacing the pairing on cohomology with a pairing in the derived category.
+\begin{theorem}
+    Let $f : X \to Y$ be a proper map between manifolds.
+    Then the derived functor $\mathbf{R}f_* : \mathbf{D}^+(X,k) \to \mathbf{D}^+(Y,k)$ admits a right adjoint $f^!:\mathbf{D}^+(Y,k) \to \mathbf{D}^+(X,k)$.
+\end{theorem}
+
+\section{Verdier Duality in stable $\infty$-categories}
 This chapter is all about proving the following theorem:
 \begin{theorem}[{\cite[][Theorem 5.5.5.1]{HA}}]\label{VerdierDuality}
     Let $X$ be a locally compact Hausdorff space and $\C$ be a stable $\infty$-category with small limits and colimits.
@@ -334,7 +341,7 @@ To complete the proof of Proposition \ref{5.5.5.7}, we must show the following l
                       \arrow[from=1-1, to=1-3]
                       \arrow[from=1-1, to=3-1]
                   \end{tikzcd}\]
-              is left cofinal in $\Nerve(M_K'')$ and hence\footnote{\TODO{Explain this step.}} it is enough to show that
+              is left cofinal in $\Nerve(M_K'')$ and hence it is enough to show that
               \[\begin{tikzcd}
                       {F'(0,K-U)} && {F'(1,K-U)} \\
                       \\

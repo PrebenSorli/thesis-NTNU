@@ -9,13 +9,28 @@ The origins of sheaf theory is quite a remarkable story, and we quote Armand Bor
     His major mathematical interests had been so far in analysis, on a variety of problems which, though theoretical, had their origins in, and potential applications to, technical problems in mechanics or fluid dynamics.
     Algebraic topology had been only a minor interest, geared to applications to analysis. Leray feared that if his competence as a “mechanic” (“mécanicien,” his word) were known to the German authorities in the camp, he might be compelled to work for the German war machine, so he converted his minor interest to his major one, in fact to his essentially unique one, presented himself as a pure mathematician, and devoted himself mainly to algebraic topology.''
 \end{quotation}
-Originally, Leray defined sheaves as a functor from closed subspaces, and it was Cartan that reformulated the theory using open subspaces.\cite{H.Miller}
-His first example was the sheaf assigning a topological space its $p$th cohomology group.
+The result of this short and involuntary detour into the field of algebraic topology was as Haynes Miller \cite{H.Miller} puts it ``a spectacular flowering of highly original ideas, ideas which have, through the usual metamorphism of history, shaped the course of mathematics in the sixty years since then.''
+While used to using topological invariants to prove existence of solutions of certain partial differential equations he motivated his study of algebraic topology in captivity by seeking methods that were applicable to a wide class of topological spaces all in the hope of proving more directly the same kind of theorems he had proved before the war in an indirect manner.
+In 1942 he announced the first part of his work and it was approved by Heinz Hopf and published in 1945 with subtitle ``Un cours de topologie algébrique professé en captivité'' -- ``A course in algebraic topology taught in captivity''.
+As with many new discoveries, it took some time before his work was fully appreciated.
+Part of the reason was that his 1945 paper \cite{Leray45} according to Armand Borel \cite{BorelAMS} ``did not seem to go drastically beyond those of mainstream algebraic topology (even though a closer examination would have revealed a novel approach and more general assumptions for a number of familiar results),so \cite{Leray45} did not create such a big impression.''
+But, Leray was not done.
+Borel writes further: ``For him, algebraic topology should not only study the \emph{topology of a space}, [...] but also the \emph{topology of a representation} (continuous map)''
+While well-known that a continuous map induces a homomorphism in (co)homology, Leray's insight was going to break entirely new ground: in a conversation with A. Weil \cite{WeilCollectedPapers}[p. 526] he spoke of a homology with ``variable coefficients''\footnote{We know from a footnote in \cite{Leray45} that he already thought of this idea while in captivity.}.
+It was thus the two subsequent papers by Leray \cite{Leray46a} and \cite{Leray46b} that first introduced the notions of sheaves, sheaf cohomology and spectral sequences.
+The impact of these three notions on algebraic topology and homological algebra are hard to understate.
+
+Originally, Leray defined a sheaf on a topological space $X$ by associating a module $\F(K)$ over a ring $R$ to each closed subset $K$ of $X$ and a morphism $\F(K) \to \F(K')$ of modules to each inclusion $K' \subseteq K$.
+A first basic example is the $p$-th cohomology sheaf assigning $H^p(K ; R)$ to $K$.
+
+It was Cartan that reformulated the theory using open subspaces \cite{H.Miller}, and the switch to open subsets allowed people like Cartan and Serre to introduce sheaves in several complex variables, in algebraic geometry over $\mathbb{C}$ and over any algebraically closed field \cite{BorelAMS}.
+Leray's work was always concerned with sheaf cohomology and spectral sequences for compactly supported cohomology of locally compact topological spaces, and it is fitting that we in this chapter also only concern ourselves with sheaves on locally compact topological spaces.
+If one appreciates that $1$-categories such as $\SET$ are also $\infty$-categories with the properties required in Theorem \ref{7.3.4.9}, the main theorem in this chapter says that the modern notion of a sheaf on a locally compact space using the open subsets is equivalent to a slight modification of Leray's definition using the compact subsets.
+
 \TODO{Cite Cartan's 1950 seminar?}
 \section{Sheaves on topological spaces}
 We will closely follow Lurie \cite{HTT}.
 Let $\Open(X)$ denote the partial order of open subsets of a topological space $X$.
-\TODO{Define covering sieves.}
 \begin{definition}[{\cite[Definition 6.2.2.1.]{HTT}}]
     Let $\C$ be an $\infty$-category.
     We define a sieve on $\C$ to be a full subcategory $\C^{(0)} \subseteq \C$ such that for any morphism $f \in \Hom_{\C}(X,Y)$ where $Y\in C^{(0)}$, $X$ must also belong to $C^{(0)}$.
@@ -30,9 +45,10 @@ Let $\Open(X)$ denote the partial order of open subsets of a topological space $
         \item For an object $X \in \C$, a covering sieve $\C^{(0)}_{/X}$ on $X$, and an arbitrary  $\C^{(1)}_{/X}$ sieve on $X$, if the pullback $f^*\C^{(1)}_{/X}$ is a covering sieve on $Y$ for any $f: X \to Y$, then $\C^{(1)}_{/X}$ is a covering sieve on $X$.
     \end{enumerate}
 \end{definition}
+For a topological space $X$ we can equip the poset $\Open(X)$ of opens with a Grothendieck topology in which the covering sieves on $U$ are those sieves $U_{\alpha} \subseteq U$ such that $U = \bigcup_{\alpha}U_{\alpha}$.
 \begin{definition}[{\cite[Definition 7.3.3.1]{HTT}}]\label{sheaf_on_top}
     Let $X \in \mathrm{Top}$ and $\C$ an $\infty$-category.
-    We define a $\C$-valued sheaf on $X$ to be a presheaf $\F: \Open(X)^{op} \to \C$ such that for every $U\subseteq X$ and every covering sieve $\mathscr{W} \subseteq \Open(X)_{/U}$, the diagram
+    We define a $\C$-valued sheaf on $X$ to be a presheaf $\F: \Open(X)^{op} \to \C$ such that for every $U\in \Open(X)$ and every covering sieve $\mathscr{W} \subseteq \Open(X)_{/U}$, the diagram
     \[
         \Nerve(\mathscr{W})^{\triangleright} \hookrightarrow \Nerve(\Open(X)_{/U})^{\triangleright} \rightarrow \Nerve(\Open(X))\xrightarrow{\F}\C^{op}
     \]
@@ -44,7 +60,11 @@ Let $\Open(X)$ denote the partial order of open subsets of a topological space $
         \Nerve((\mathscr{W})^{op})^{\triangleleft} \hookrightarrow \Nerve((\Open(X)_{/U})^{op})^{\triangleleft} \rightarrow \Nerve(\Open(X))^{op}\xrightarrow{\F}\C
     \]
 \end{remark}
-
+Equivalently one can define sheaves as the presheaves $\F : \Open(X)^{op} \to \C$ such that for any open cover $\{U_{\alpha}\}$ of an open set $U \in \Open(X)$, the map
+\[
+    \F(U) \to \lim_V \F(V)
+\]
+is an equivalence in $\C$, where the limit is taken over all open subsets $V\subseteq U$ contained in some $U_{\alpha}$.
 \TODO{Mention the ``normal definitions using covers and Cech nerves and briefly discuss relation to classical definition of sheaves in a $1$-category.}
 We write $\Presh(X, \C)$ for the $\infty$-category $\mathrm{Fun}(\Open(X)^{op}, \C)$ of $\C$-valued presheaves on $X$ and $\Shv(X;\C)$ for the full subcategory of $\Presh(X;\C)$ spanned by the $\C$-valued sheaves on $X$.
 Whenever we write $\Shv(X)$ without specifying the target category $\C$, we will always mean sheaves valued in spaces, i.e. $\Shv(X;\Spaces)$.
@@ -52,8 +72,6 @@ Whenever we write $\Shv(X)$ without specifying the target category $\C$, we will
 \section{Sheaves on locally compact spaces}
 In this section we will show that for locally compact Hausdorff spaces there is an equivalence of $\infty$-categories between $\Shv(X;\C)$ and $\KShv(X;\C)$ where the latter denote so-called $\K$-sheaves and $\C$ is a presentable $\infty$-category with left exact filtered colimits.
 These are sheaves defined on the collection of compact subsets instead of the opens.
-Classically it is known that sheaves of sets on such spaces are determined by compact subsets as well as the opens.
-\TODO{Expand on this with references.}
 \begin{definition}
     For a locally compact Hausdorff space $X$, we write $\K(X)$ for its collection of compact subsets.
 \end{definition}
@@ -85,12 +103,36 @@ Classically it is known that sheaves of sets on such spaces are determined by co
 \begin{definition}
     We denote the full subcategory of $\Presh(\Nerve(\K(X)); \C)$ spanned by the $\K$-sheaves by $\KShv(X;\C)$.
 \end{definition}
+\begin{remark}
+    We can using finite coverings to define a Grothendieck topology on $\K(X)$ such that condition 1. and 2. are equivalent to the sheaf condition, so in particular a $\K$-sheaf is also a member of $\Shv(\K(X); \C)$.
+\end{remark}
 \begin{lemma}[{\cite[][Lemma 7.3.4.8]{HTT}}]\label{7.3.4.8}
-    Let $X$ be locally compact and Hausdorff, and let $\C$ be a presentable $\infty$-category with left exact filtered colimits.
+    Let $X$ be locally compact and Hausdorff, and let $\C$ be an $\infty$-category with small limits and colimits and left exact filtered colimits.
     Let $\W$ be an open cover of $X$ and denote by $\K_{\W}(X)$ the compact subsets of $X$ that are contained in some element of $\W$.
     Any $\K$-sheaf $\F\in \KShv(X;\C)$ is a right Kan extension of $\F|\Nerve(\K_{\W}(X))^{op}$.
 \end{lemma}
 \begin{proof}
-    \TODO{Proof is in HTT.}
+    We begin by saying that an open covering $\W$ of $X$ is good if a $\K$-sheaf $\F$ is right Kan extended from the restriction to $\K_{\W}(X)^{op}$.
+    Furthermore, we observe that a covering $\W$ is good if the open sets $\{K \cap W | W \in \W\}$ form a good covering for every $K\in \K(X)$.
+    This means that proving any covering of $X$ is good, reduces to showing any covering of a compact topological space $X$ is good, and hence we can assume the covering has a finite subcovering.
+    \newline
+    We will use induction on $n \geq 0$.
+    We want to show that if $\W$ is a collection of open subsets of $X$ such that there exists $W_1, \cdots ,W_n \in \W$ with $\bigcup_{1 \leq i \leq n}W_i = X$, then $\W$ is a good covering of $X$.
+    For $n=0$, we must only show $\F(\emptyset)$ is terminal, but this is given by definition of $\F$ being a $\K$-sheaf.
+    \newline
+    By transitivity of Kan extensions (Proposition \ref{4.3.2.8}), if $\W \subseteq \W'$ are two coverings of $X$ such that for every $W' \in \W'$ the covering $\{ W \cap W' | W \in \W\}$ is a good covering of $\W'$, then $\W'$ is a good covering of $X$ if and only if $\W$ also is.
+    \newline
+    This means that for $n>0$ it suffices to show that $\W' = \W \cup V$ is a good covering of $X$, where $V = \bigcup_{2 \leq i \leq n}W_i$.
+    Observe now that $\W'$ contains $W_1$ and $V$ which together cover $X$ and using transitivity of Kan extensions once more further reduces the proof to $n = 2$ and showing that $\W = \{W_1, W_2\}$ is a good covering.
+    \newline
+    By definition of right Kan extensions along inclusions we must show that $\F(K)$ is the limit of $\F|_{\Nerve(\K_{\W}(X))^{op}}$ for any compact set $K \in \K(X)$.
+    For a compact set $K\in \K(X)$ we define
+    \[
+        P = \{(K_1, K_2) \in \K(X)\times \K(X) | K_1 \subseteq W_1, K_2 \subseteq W_2 \text{ and } K_1 \cup K_2 = K\}
+    \]
+    and observe that this set is filtered as a poset ordered by inclusion in the sense of \ref{filteredposet} so it is furthermore weakly contractible by Proposition \ref{5.3.1.20}.
+    Denoting an element $\alpha = (K_1, K_2)$ in $P$, we define $\K_{\alpha}$ as the set of compacts belonging to either $K_1$ or $K_2$ and note that a set $K' \subseteq K$ belongs to $\K_{\W}(X)$ if and only if it belongs to some $\K_{\alpha}$.
+    Observe also that the inclusion $(K_1 \hookleftarrow K_1 \cap K_2 \hookrightarrow K_2 ) \hookrightarrow \K_{\alpha}$ is cofinal by Theorem \ref{superlemma} and hence, by $\F_{\K}$ being a $\K$-sheaf, condition 2. implies $\F(K)$ is a limit of the diagram $\F|_{\Nerve(\K_{\alpha})^{op}}$ for every $\alpha \in P$.
+
 \end{proof}
 \end{document}

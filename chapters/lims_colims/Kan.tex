@@ -4,10 +4,16 @@
 \section{Kan Extensions}\label{KanSection}
 We will start with a detour into the world of ordinary $1$-categories.
 In the  classic \cite{MacLane} Saunders MacLane writes ``The notion of Kan Extensions subsumes all the other fundamental concepts of category theory''.
-In the fantastic introduction to category theory \cite{CatContext} Emily Riehl devotes a whole chapter to the slogan ``All concepts are Kan extensions''.
-\prepp{This intro made me cringe.}
+In her introduction to category theory \cite{CatContext} Emily Riehl devotes a whole chapter to the slogan ``All concepts are Kan extensions''.
 Ubiquitous in the toolbox of any category theorist, Kan extensions are central for most everything we do in this thesis.
 As we have seen, a lot of $\infty$-categorical concepts can be thought of as if we are working with ordinary $1$-categories, and we will therefore start by defining Kan extensions in ordinary categories.
+
+\subsection{Kan extensions in $1$-categories}
+Let $\C$ be an ordinary $1$-category and $i : I \to J$ a functor of $1$-categories.
+Composing with $i$ now yields a ``pullback'' functor $ i^* : \Fun(J, \C) \to \Fun(I, \C)$ and whenever $\C$ is a category with nice properties, like having small limits and colimits, we can find left and right adjoints to $i^*$ which will become what we call left and right Kan extensions along $i$.
+A nice special case of this construction, which hints at the slogan ``all concepts are Kan extensions'', arises when considering $J = *$, the category with one object.
+Now, the pullback $i^*$ is just the diagonal functor, and it is well known that colimits and limits can be described as left and right adjoints to the diagonal functor, so Kan extensions are in some sense generalizations of the notions of limits and colimits.
+In the final part of this thesis we will mostly consider the opposite special case in which $i$ is not the projection to a point, but rather the inclusion of a full subcategory.
 \begin{definition}[{\cite[Definition 6.1.1.]{CatContext}}]
     Given functors $F$ and $K$ as in the following diagram
     \[\begin{tikzcd}
@@ -35,7 +41,6 @@ As we have seen, a lot of $\infty$-categorical concepts can be thought of as if 
             \arrow["\gamma", shorten <=7pt, shorten >=7pt, Rightarrow, from=0, to=1]
         \end{tikzcd}\]
     Dually, a right Kan extension of $F$ along $K$ is a functor $K_*F : \D \to \E$ with a natural transformation $\epsilon : K_*F \circ K \Rightarrow F$ such that any functor $G : \D \to E$ and any natural transformation $\delta : G \Rightarrow F$, $\delta$ factors uniquely through $\epsilon$.
-    \prepp{Diagram is exactly the same but all $2$-cells go the other way.}
 \end{definition}
 The following result justifies the choice to denote left and right Kan extensions by lower shriek and star:
 \begin{proposition}[{\cite[Proposition 6.1.5.]{CatContext}}]
@@ -62,7 +67,6 @@ The following theorem gives a formula for calculating certain left and right Kan
     \]
     and the counit transformation $\epsilon: K_*F\circ K \to F$ can be extracted from the limit cone.
 \end{theorem}
-\prepp{Is it clear what it means to extract the 2-cells from the cones?}
 \begin{proof}
     Proofs can be found in \cite[Theorem 6.2.1.]{CatContext} and \cite[Theorem X.3.1.]{MacLane}
 \end{proof}
@@ -114,7 +118,6 @@ Before we extend the theory Kan extensions from ordinary categories to the world
 \end{example}
 The process of left Kan extending along the Yoneda embedding is called Yoneda extension in \cite[pp.62-64]{CatsSheaves} and it provides lots of interesting examples of Kan extensions.
 We will look at a couple examples in the special case $\C = \Delta$.
-\prepp{These are exercises in \cite{CatContext}. Should I cite?}
 \begin{example}
     Let $\Delta_{\mathrm{Top}} : \Delta \to \mathrm{Top}$ be the functor known as the standard topological $n$-simplex:
     \[
@@ -124,8 +127,7 @@ We will look at a couple examples in the special case $\C = \Delta$.
     \[
         R(e) = \Hom_{\mathrm{Top}}(\Delta_{\mathrm{Top}}(\blank), e)
     \]
-    and this is what is known as the total singular complex functor, also written $\mathrm{Sing}$.
-    \TODO{Check if $\mathrm{Sing}$ is mentioned in chapter 1 and reference it back.}
+    and this is what is known as the total singular complex functor of example \ref{SingExample}, also written $\mathrm{Sing}$.
 \end{example}
 \begin{example}[The Nerve construction]\label{NerveKan}
     Let $F$ be the embedding $\Delta \hookrightarrow \mathrm{Cat}$.
@@ -149,11 +151,12 @@ Yoneda extension now yields an adjunction
 and as Riehl writes, all adjunctions restrict to an equivalence of subcategories which in this case yields the equivalence between the category $\Shv(X)$ of sheaves on $X$ and the category $\mathrm{Et}(X)$ of étale spaces on $X$.
 %\footnote{I wish I knew Yoneda extension when writing my bachelor thesis because this equivalence was so useful.}
 \subsection{Kan extensions for $\infty$-categories}
-\prepp{THIS IS CURRENTLY JUST ALONG INCLUSIONS}
+We now want to generalize the concept of Kan extensions to the $\infty$-categorical setting.
+As the theory of Kan extending along inclusions is simpler, we start there, and give a more general definition later.
+We will however see that the proof of Verdier duality mostly concern the simpler notion of extending along the inclusion of full subcategories.
 \begin{definition}
-    \TODO{This is chaos. Fix all slice notations in separate subsection of infcat chapter.}
     Let $\A$ be an $\infty$-category with a full subcategory $\A^0$ and $p:K\to \A$ a diagram.
-    Following \cite[Notation 4.3.2.1]{HTT} we write $\A^0_{/p}$ for the fiber product $\A_{/p}\times_{/A}\A^0$.
+    Following \cite[Notation 4.3.2.1]{HTT} we write $\A^0_{/p}$ for the fiber product $\A_{/p}\times_{\A}\A^0$.
     If $A\in \A$, then $\A^0_{/A}$ is the full subcategory of $\A_{/A}$ spanned by the morphisms $A'\to A$ where $A'\in \A^0$.
     \newline
     Analogously $\A^0_{p/}$ denotes $\A_{p/}\times_{\A}\A^0$ and $\A^0_{A/}$ is the full subcategory spanned by morphisms $A\to A'$.
@@ -172,10 +175,63 @@ and as Riehl writes, all adjunctions restrict to an equivalence of subcategories
     \[
         (\A^{0}_{A/})^{\triangleleft} \hookrightarrow (\A_{A/})^{\triangleleft} \xrightarrow{c'} \A \xrightarrow{F}\C
     \]
-    is a limit diagram, where $c'$ is the coslice contraction morphism\TODO{Should probably write more about what coslice contraction is. Plan is full chapter on slice $\infty$-cats.}.
+    is a limit diagram, where $c'$ is the coslice contraction morphism.
 \end{definition}
-Later on we will need the following result about Kan extensions of full subcategories.
-\begin{proposition}[{\cite[Proposition 4.3.2.8]{HTT}}]\label{4.3.2.8}
+\begin{example}
+    The notion of Kan extensions in $\infty$-categories is compatible with the notion of Kan extensions in $1$-categories in the sense that it respects the nerve construction.
+    In other words; a functor of $1$-categories $F : \C \to \D$ is left Kan extended from a full subcategory $\C^{0}$ if and only if $\Nerve(F) : \Nerve(\C) \to \Nerve(\D)$ is left Kan extended from $\Nerve(\C^{0})$.
+\end{example}
+A very useful result about Kan extensions of full subcategories is their transitive property:
+\begin{proposition}[Transitivity of Kan extensions {\cite[Proposition 4.3.2.8]{HTT}}]\label{4.3.2.8}
     For a functor $F: \A\to\C$ of $\infty$-categories where $\A^0 \subseteq \A^1$ are full subcategories of $\A$, if $F|_{\A^1}$ is left Kan extended from $\A^0$, then $F$ is left Kan extended from $\A^1$ if and only if it is left Kan extended from $\A^0$.
 \end{proposition}
+In the previous subsection we defined Kan extensions as functors together with natural transformations satisfying certain universal properties.
+While there is a similar notion of a universal property for the $\infty$-categorical Kan extensions, there are some details we have suppressed.
+Let $F : \C \to \D$ be a functor of $\infty$-categories, let $F_0$ be the restriction to some full subcategory $C^{0}$ of $\C$ and $i$ be the inclusion $\C^{0} \hookrightarrow \C$.
+Then, if $F$ is left Kan extended from $F_0$ there certainly is a natural transformation $F_0 \to F \circ i$ ``belonging'' to this Kan extension like we defined for $1$-categories, but we have chosen to omit it because it is an isomorphism in this case where we Kan extend along the inclusion of a full subcategory.
+For Kan extensions along general functors, this natural transformation is no longer necessarily an isomorphism so it has to be part of the specified data.
+Following Lurie's Kerodon, we define the left Kan extension along a general functor of $\infty$-categories:
+\begin{definition}[{\cite[\href{https://kerodon.net/tag/02YC}{Variant 02YC}]{kerodon}}]
+    Let $F : \C \to \D$ be a functor of $\infty$-categories.
+    Suppose we are given a simplicial set $K$ together with functors $\delta : K \to \C$ and $F_0 : K \to \D$ and a natural transformation $\beta : F_0 \to F \circ \delta$ like illustrated in the following diagram:
+    \[\begin{tikzcd}
+            K && \D \\
+            \\
+            \C
+            \arrow[""{name=0, anchor=center, inner sep=0}, "\delta"', from=1-1, to=3-1]
+            \arrow["F"', from=3-1, to=1-3]
+            \arrow[""{name=1, anchor=center, inner sep=0}, "{F_0}", from=1-1, to=1-3]
+            \arrow["\beta", shorten <=7pt, shorten >=7pt, Rightarrow, from=1, to=0]
+        \end{tikzcd}\]
+    We say that $\beta$ exhibits $F$ as a left Kan extension of $F_0$ along $\delta$ if, for any $X \in \C$, we can calculate $F(X)$ as a colimit of the diagram
+    \[
+        K_{/X} = K\times_{\C}\C_{/X} \to K \xrightarrow{F_0} \D  .
+    \]
+\end{definition}
+\prepp{Lurie calls this an informal way of stating definition \cite[\href{https://kerodon.net/tag/02YC}{Variant 02YC}]{kerodon}, but his actual definition seems too technical so ok to just do this?}
+\begin{remark}[{\cite[\href{https://kerodon.net/tag/030E}{Remark 030E}]{kerodon}}]
+    This characterizes $F(X)$ up to isomorphism and, in fact; for functors $\delta$ and $F_0$ as in the definition, a left Kan extension is uniquely determined up to isomorphism as an object of $\Fun(\C, \D)$.
+\end{remark}
+\begin{remark}
+    This definition is compatible with the definition for Kan extensions along inclusions; just use the identity natural transformation as $\beta$.
+\end{remark}
+As promised, we have universal properties also for $\infty$-categorical Kan extensions:
+\begin{proposition}[{\cite[\href{https://kerodon.net/tag/0309}{Proposition 0309}]{kerodon}}]
+    Let $F : \C \to \D$ be a functor of $\infty$-categories, let $\delta : K\to \C$ and $F_0: K \to D$ be functors of simplicial sets and let $\beta : F_0 \to F \circ \delta$ be natural transformation exhibiting $F$ as a left Kan extension of $F_0$ along $\delta$.
+    Then for any $G \in \Fun(\C, \D)$ the following composition is an equivalence of Kan complexes:
+    \[
+        \map_{\Fun(\C,\D)}(F,G) \to \map_{\Fun(K,\D)}(F \circ \delta , G \circ \delta) \xrightarrow{\circ [\beta]} \map_{\Fun(K,\D)}(F_0, G\circ \delta).
+    \]
+\end{proposition}
+The description of Kan extensions as adjoints to the restriction functor is now a direct consequence of Proposition \ref{adjUnivProp}:
+\begin{corollary}[{\cite[\href{https://kerodon.net/tag/030B}{Corollary 030B}]{kerodon}}]
+    Let $F : \C \to \D$ be a functor of $\infty$-categories and let $\delta : K\to \C$ be a functor of simplicial sets.
+    Suppose that any functor $F_0 : K \to \D$ has a left Kan extension along $\delta$.
+    Then the restriction functor
+    \[
+        \Fun(\C, \D) \xrightarrow{\circ \delta} \Fun(K, \D)
+    \]
+    has a left adjoint carrying any functor $F_0 : K \to \D$ to a left Kan extension of $F_0$ along $\delta$.
+\end{corollary}
+The theory of right Kan extensions is dual, so we can of course realize right Kan extensions as right adjoints to restriction.
 \end{document}

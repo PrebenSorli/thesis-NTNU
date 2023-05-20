@@ -1,8 +1,6 @@
 \documentclass[../../thesis.tex]{subfiles}
 
 \begin{document}
-\TODO{I have used same notation for $1$-cats and $\infty$-cats. Consider changing.}
-%\TODO{Speak about $(\infty, n)$-categories.}
 What Lurie \cite{HTT} calls $\infty$-categories were originally called restricted Kan complexes by Boardman and Vogt \cite{BoardmanVogt}, but without the intent of using them for $\infty$-categories.
 The first development of such a theory was done by Joyal in \cite{Joyal} who called them quasicategories.
 As most of this thesis follows Lurie's works very closely, we will follow his convention and use the name $\infty$-categories.\footnote{It should be noted that in other sources ``$\infty$-categories'' might refer to other models than the one we use.}
@@ -10,7 +8,7 @@ While \cite{HTT} gives a good introduction to $\infty$-categories extending on t
 \section{Simplicial sets}
 Originally, simplicial sets was used to rephrase the homotopy theory of spaces in combinatorial terms.
 There are many good introductions to simplicial sets, depending on what you want to use them for, but Friedman's \cite{friedman2021elementary} was enlightening for the author of this thesis.
-For algebraic topologists, Peter May's \cite{MAY} is a good introduction to semi-simplicial topology.\footnote{\prepp{Is this even relevant?}}
+For algebraic topologists, Peter May's \cite{MAY} is a good introduction to semi-simplicial topology.
 \begin{definition}
     Usually denoted by $\Delta$, the simplex category or the simplicial category is the category with linearly ordered sets $[n]=\{0,1,2,\cdots ,n\}$ as its objects and order-preserving maps between them as its morphisms.
     That is, for a map $\varphi:[m] \to [n]$ we have that $0 \leq \varphi(i)\leq \varphi(j)\leq n$ for each $0 \leq i \leq j \leq m$.
@@ -72,8 +70,15 @@ Observe, moreover, that composition with the elementary face operator gives us a
 \end{definition}
 Observe that the horn is inside the boundary.
 We usually refer to $\Lambda_i^n$ as the $i$th horn in $\Delta^n$ and we will call the horns such that $0<i<n$ the inner horns.
-\begin{example}
-    \TODO{Write about $\mathrm{Sing}(X)$ for a topological space $X$. Rezk page 28 is useful.}
+\begin{example}\label{SingExample}
+    We define the topological $n$-simplex:
+    \[
+        \Delta^n_{\mathrm{Top}} : = \{(x_0 , \dots , x_n) \in \mathbb{R}^{n+1} | \sum_{i} x_i = 1, x_i \geq 0\},
+    \]
+    and for a topological space $X$  we define its singular complex $\mathrm{Sing}(X)$ as the simplicial set with cells
+    \[
+        [n] \mapsto \Hom_{\mathrm{Top}}(\Delta^n_{\mathrm{Top}}, X).
+    \]
 \end{example}
 \begin{example}\label{NerveDef}
     We define the nerve $\Nerve(\C)$ of a $1$-category $\C$ by
@@ -144,6 +149,9 @@ Simplicial sets which admits extensions for all horn inclusions are called Kan c
     A simplicial set $X$ is a Kan complex if it satisfies the following condition:
     For $0 \leq i \leq n$, any map $\sigma_0 : \Lambda_i^n \to X$ can be extended to a map $\sigma: \Delta^n \to X$.
 \end{definition}
+\begin{example}
+    The singular complex $\mathrm{Sing}(X)$ of a topological space is a Kan complex.
+\end{example}
 \begin{proposition}
     Groupoids are Kan complexes.
 \end{proposition}
@@ -158,11 +166,9 @@ The following definition is due to Boardman and Vogt \cite{BoardmanVogt} who def
     A simplicial set $X$ is an $\infty$-category if it satisfies the following condition:
     For $0 < i < n$, any map $\sigma_0 : \Lambda_i^n \to X$ can be extended to a map $\sigma: \Delta^n \to X$.
 \end{definition}
-
 This means that any Kan complex is an $\infty$-category, and in particular so is $\mathrm{Sing}(X)$ for a topological space $X$.
 Additionally, observe that the nerve $\Nerve(\C)$ of an ordinary category $\C$ is an $\infty$-category.
 Because the nerve functor is fully faithful (see example \ref{NerveKan}), many authors choose to omit its notation altogether.
-\prepp{Consider if we should omit it as well. Currently we have been using it, but it is fucking annoying to remember writing $\Nerve$ all the time.}
 In many ways $\infty$-categories behave similarly to ordinary categories and we will often write about them almost as if they were ordinary categories instead.
 For example, we will use the terminology of ordinary category theory and refer to the vertices and edges of our simplicial sets as objects and morphisms in our $\infty$-categories.
 There are however some obvious differences between ordinary categories and $\infty$-categories which needs adressing before adopting complete $1$-categorical language.
@@ -170,7 +176,6 @@ For example, and perhaps most crucially, we have higher-level maps given by simp
 While we have seen that nerves of categories admit unique horn extensions, this condition is dropped for general $\infty$-categories, and hence composition of morphisms in an $\infty$-category are not necessarily unique, but rather unique up to homotopy.
 Before we can make this precise, we must define what we mean by homotopy.
 \subsection{Homotopy}
-\TODO{Here $\Hom_{\C}(X,Y)$ means $\C_1$. Make this clear or change notation or something.}
 \begin{definition}[{\cite[\href{https://kerodon.net/tag/003V}{Definition 003V}]{kerodon}}]
     Let $\C$ be an $\infty$-category and $f,g : X\to Y$ morphisms in $\C$.
     We define a homotopy between $f$ and $g$ as a $2$-simplex $\sigma \in \C$ with boundary specified by $d_0(\sigma) = \id_Y, d_1(\sigma) = g$ and $d_2(\sigma)=f$ as illustrated in the diagram
@@ -184,23 +189,70 @@ Before we can make this precise, we must define what we mean by homotopy.
     We say $f$ and $g$ are homotopic if such a homotopy $\sigma$ exists.
 \end{definition}
 \begin{example}
-    For a $1$-category $\C$ two morphisms $f,g \in \Hom_{\C}(X,Y)$ are homotopic in $\Nerve(\C)$ if and only if $f=g$.
+    For a $1$-category $\C$ two morphisms $f,g : X \to Y$ in $\C$ are homotopic in $\Nerve(\C)$ if and only if $f=g$.
 \end{example}
 \begin{proposition}[{\cite[\href{https://kerodon.net/tag/003Z}{Proposition 003Z}]{kerodon}}]
     Let $\C$ be an $\infty$-category and $X,Y$ objects of $\C$.
     Then homotopy is an equivalence relation on the collection of morphisms from $X$ to $Y$ in $\C$.
 \end{proposition}
 \begin{proof}
-    \TODO{Prove. Both Rune and Lurie have nice proofs. It is just drawing the correct horns and filling in.}
+    Let $f : X \to Y$ be a map in $\C$.
+    \newline
+    First observe that reflexivity follows from considering the degenerate $2$-simplex $s_1(f)$:
+    \[\begin{tikzcd}
+            & Y \\
+            X && Y
+            \arrow["f", from=2-1, to=1-2]
+            \arrow["f"', from=2-1, to=2-3]
+            \arrow[shift right=1, no head, from=1-2, to=2-3]
+            \arrow[no head, from=2-3, to=1-2]
+        \end{tikzcd}\]
+    which is a homotopy from $f$ to $f$.
+    Let us now consider three maps $f,g,h: X \to Y$ and let $\sigma_2$ be a homotopy between $f$ and $h$, $\sigma_3$ a homotopy between $f$ and $g$ and $\sigma_0$ witnesses the degenerate $0$-face.
+    Then we can picture the map $\tau_0 : \Lambda_1^3 \to \C$ induced by the tuple $(\sigma_0, \blank, \sigma_2,\sigma_3)$ with the following diagram:
+    % https://q.uiver.app/?q=WzAsNCxbMCwyLCJYIl0sWzIsMiwiWSJdLFszLDEsIlkiXSxbMSwwLCJZIl0sWzEsMiwiIiwxLHsibGV2ZWwiOjIsInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzAsMiwiXFxxdWFkIiwxLHsibGFiZWxfcG9zaXRpb24iOjYwLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMCwzLCJmIl0sWzMsMiwiIiwxLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMywxLCJnIiwyLHsibGFiZWxfcG9zaXRpb24iOjYwLCJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFswLDEsImgiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+    \[\begin{tikzcd}
+            & Y \\
+            &&& Y \\
+            X && Y
+            \arrow[Rightarrow, dashed, no head, from=3-3, to=2-4]
+            \arrow["\hspace{0.5em}"{description, pos=0.6}, dashed, from=3-1, to=2-4]
+            \arrow["f", from=3-1, to=1-2]
+            \arrow[Rightarrow, no head, from=1-2, to=2-4]
+            \arrow["g"'{pos=0.6}, Rightarrow, no head, from=1-2, to=3-3]
+            \arrow["h"', dashed, from=3-1, to=3-3]
+        \end{tikzcd}\]
+    where the dashed lines represent the boundary of the ``missing'' face.
+    Now, since $\C$ is an $\infty$-category we can fill in this face and extend $\tau_0$ to a $3$-cell $\tau : \Delta^3 \to \C$.
+    Observe now that the face $d_1(\tau)$ gives a homotopy between $g$ and $h$, so we have shown transitivity.
+    \newline
+    Finally setting $f = h$ in the above diagram shows homotopy is symmetric since $f$ is always homotopic to itself.
 \end{proof}
-\begin{proposition}
-    $f,g \in \C_1$ are homotopic if and only if they are homotopic as morphisms in $\C^{op}$.
+\begin{proposition}[{\cite[\href{https://kerodon.net/tag/0040}{Proposition 0040}]{kerodon}}]
+    Two maps $f,g : X \to Y$ in an $\infty$-category $\C$ are homotopic if and only if they are homotopic as morphisms in $\C^{op}$.
 \end{proposition}
-\TODO{See Run's comment.}
 \begin{proof}
-    \TODO{Draw horn.}
+    One must show that demanding the existence of a $2$-cell $\sigma \in \C_2$ such that $d_0(\sigma) = \id_Y, d_1(\sigma)=g$ and $d_2(f)$ is equivalent to demanding the existence of a $2$-cell $\tau \in \C_2$ such that $d_0(\tau) = f, d_1(\tau) = g$ and $d_2(\tau) = \id_X$.
+    \newline
+    Let $f$ be homotopic to $g$.
+    By the symmetry of the homotopy relation there exists a homotopy $\sigma$ from $g$ to $f$.
+    Then the tuple $(\sigma, s_1(g), \blank, s_0(g))$ yields a map $\rho_0 : \Lambda_2^3 \to \C$ as follows:
+    \[\begin{tikzcd}
+            && X \\
+            &&&& Y \\
+            X &&& Y
+            \arrow["g", dashed, from=3-1, to=2-5]
+            \arrow["\id_X", dashed, from=3-1, to=1-3]
+            \arrow["f", dashed,from=1-3, to=2-5]
+            \arrow["\id_Y"', from=3-4, to=2-5]
+            \arrow["f", from=1-3, to=3-4]
+            \arrow["g"', from=3-1, to=3-4]
+        \end{tikzcd}\]
+    where once again the dashed lines represent the boundary of the ``missing'' face from $\Lambda_2^3$.
+    We fill in to get a $3$-cell $\rho : \Delta^3 \to \C$ with $d_2(\rho)=\tau$ as ``demanded'' above.
+    The other direction is very similar and like most of these proofs it comes down to drawing the correct horn.
 \end{proof}
-\TODO{Consider adding Corollary \cite[\href{https://kerodon.net/tag/00V0}{Corollary 00V0}]{kerodon}}
+%\TODO{Consider adding Corollary \cite[\href{https://kerodon.net/tag/00V0}{Corollary 00V0}]{kerodon}}
 Now that we know what it means for morphisms of $\infty$-categories to be homotopic, we can define a composition of morphisms.
 \begin{definition}[{\cite[\href{https://kerodon.net/tag/0042}{Definition 0042}]{kerodon}}]
     Let $\C$ be an $\infty$-category with morphisms
@@ -227,8 +279,6 @@ We make this precise in the following proposition:
         \end{tikzcd}\]
     Then there exists a composition $h$ of $f$ and $g$ and any other morphism $X\to Z$ is a composition of $f$ and $g$ if and only if it is homotopic to $h$.
 \end{proposition}
-\prepp{The proof seems kind of technical, so might not be worth doing. Might do it if there's time or Rune thinks I should.
-    Considered adding \cite[\href{https://kerodon.net/tag/000Z}{Exercise 000Z}]{kerodon} as this exercise is used in a lot of the proofs in this subsection, but seems too technical for this text.}
 Furthermore, compositions respect homotopy in the following sense:
 \begin{proposition}[{\cite[\href{https://kerodon.net/tag/0048}{Proposition 0048}]{kerodon}}]
     Let $\C$ be an $\infty$-category with homotopic morphisms $f \sim f':X \to Y$ and $g \sim g': Y \to Z$.
@@ -272,14 +322,14 @@ Analogously to the construction of the fundamental groupoid $\pi_{\leq 1}(X)$ of
             && X \\
             &&&& Z \\
             W &&& Y
-            \arrow["w", dotted, from=3-1, to=2-5]
+            \arrow["w", dashed, from=3-1, to=2-5]
             \arrow["f", from=3-1, to=1-3]
             \arrow["v",from=1-3, to=2-5]
-            \arrow["h"', dotted, from=3-4, to=2-5]
+            \arrow["h"', dashed, from=3-4, to=2-5]
             \arrow["g", from=1-3, to=3-4]
-            \arrow["u"', dotted, from=3-1, to=3-4]
+            \arrow["u"', dashed, from=3-1, to=3-4]
         \end{tikzcd}\]
-    where the dotted lines represent the ``missing'' $2$-cell.
+    where the dashed lines represent the ``missing'' $2$-cell.
     Since $\C$ is an $\infty$-category we can extend this map to a $3$-cell $\Delta^3 \to \C$ essentially ``filling'' in the missing $2$-cell witnessing the desired composition $w = h \circ u$.
     \newline
     To prove $2.$ pick $X\in \C$ and maps $g \in \Hom_{\C}(X,Y)$ and $f \in \Hom_{\C}(W,X)$ and observe that the degenerate $2$-cells with boundaries as in the following diagrams:
@@ -320,8 +370,6 @@ We can now define the homotopy category $\h\C$ of an $\infty$-category $\C$.
     Let $\C$ be a $1$-category.
     A morphism in $\C$ is an isomorphism if and only if it is an isomorphism in $\Nerve(\C)$.
 \end{example}
-\prepp{Is this example too trivial?}
-\TODO{Write about $\infty$-groupoids?}
 \begin{definition}
     An $\infty$-groupoid is an $\infty$-category such that $\h\C$ is a groupoid, or in other words an $\infty$-category where every morphism is an isomorphism.
 \end{definition}
@@ -384,8 +432,8 @@ This proposition yields a natural isomorphism of simplicial sets $\MAP(X\times Y
 
 
 It can be shown that applying the same construction to $\infty$-categories $\C$ and $\D$ yields a new $\infty$-category $\MAP(\C, \D)$ with functors as objects ($0$-cells) and natural transformations as morphisms ($1$-cells).
-Proving this uses machinery that I will not introduce in this text, but there are lots of good texts on Joyal's lifting theorem.
-See for example \TODO{reference Joyal2008 and mention ``certain stability properties of the class of categorical equivalences and the so-called inner anodyne maps'' or the proof of \cite{HTT}[1.2.7.3] on p.$94$.}
+Proving this is indeed an $\infty$-category uses machinery due to Joyal that I will not introduce in this text.
+See for example \cite{Rezk}[Theorem 22.4.] or the proof of \cite{HTT}[1.2.7.3] on p.$94$.
 This allows us to define an equivalence between $\infty$-categories:
 \begin{definition}
     Let $\C$ and $\D$ be $\infty$-categories and $f,g \in \MAP(\C,\D)$ functors between them.
@@ -395,7 +443,6 @@ This allows us to define an equivalence between $\infty$-categories:
     Let $f \in \MAP(\C,\D)$ be a functor of $\infty$-categories.
     Then $f$ is a categorical equivalence if there exists a functor $g\in\MAP(\D,\C)$ and natural equivalences between $gf$ and $\id_{\C}$ and between $\id_{\D}$ and $fg$.
 \end{definition}
-\TODO{Maybe mention Rezk and weak saturated classes etc.}
 \begin{proposition}[{\cite{Rezk}[Exercise 15.8.]}]
     Let $\C$ and $\D$ be ordinary $1$-categories.
     Then $\Nerve(\Fun(\C, \D)) \simeq \MAP(\Nerve(\C), \Nerve(\D))$.
@@ -456,4 +503,45 @@ An immmediate observation is that any categorical equivalence is also a weak hom
 \begin{example}
     $\Delta^0 \hookrightarrow \Delta^1$ is a weak homotopy equivalence but not a categorical equivalence.
 \end{example}
+\subsection{Adjunctions}
+We give an $\infty$-categorical definition of adjoint functors.
+\begin{definition}[{\cite[\href{https://kerodon.net/tag/02EK}{Definition 02EK}]{kerodon}}]
+    Let $F : \C \to \D$ and $G : \D \to \C$ be functors of $\infty$-categories.
+    We say that a pair of natural transformations $\eta : \id_{\C} \to G\circ F$ and $\varepsilon : F\circ G \to \id_{\D}$ are compatible up to homotopy if the following conditions are satisfied:
+    \begin{enumerate}
+        \item The identity isomorphism $\id_F : F \to F$ is a composition of natural transformations:
+              \[
+                  F = F \circ \id_{\C} \xrightarrow{\id_F \circ \eta} F \circ G \circ F \xrightarrow{\varepsilon \circ \id_F} \id_{\D} \circ F = F.
+              \]
+        \item The identity isomorphism $\id_G : G \to G$ is a composition of natural transformations:
+              \[
+                  G = \id_{\D} \circ G \xrightarrow{\eta \circ \id_G} G \circ F \circ G \xrightarrow{\id_G \circ \varepsilon} G \circ \id_{\D}G.
+              \]
+    \end{enumerate}
+\end{definition}
+\begin{definition}
+    We say that a natural transformation $\eta : \id_{\C} \to G\circ F$ is the unit of an adjunction if there exists a natural transformation $\varepsilon : F\circ G \to \id_{\D}$ which is compatible with $\eta$ up to homotopy.
+    \newline
+    We say that a natural transformation $\varepsilon : F\circ G \to \id_{\D}$ is the counit of an adjunction if there exists a natural transformation $\eta : \id_{\C} \to G\circ F$ which is compatible with $\varepsilon$ up to homotopy.
+\end{definition}
+\begin{definition}
+    Let $F : \C \to \D$ and $G: \D \to \C$ be functors of $\infty$-categories.
+    We say that $F$ is a left adjoint to $G$, and $G$ a right adjoint to $F$, if there exists a natural transformation $\eta : \id_{\C} \to G\circ F$ which is the unit of an adjunction between $F$ and $G$.
+\end{definition}
+\begin{example}
+    An equivalence between $\infty$-categories is both a left and a right adjoint.
+\end{example}
+\begin{example}
+    A composition of two left/right adjoints is again a left/right adjoint.
+\end{example}
+It can be shown that this notion of adjunctions is compatible with the $1$-categorical notion of adjunctions in the sense that a natural transformation $\eta : \id_{\C} \to G\circ F$ is the unit of a $1$-categorical adjunction if and only if its nerve is the unit of an $\infty$-categorical adjunction.
+For $\C$ and $\D$ $1$-categories one can equivalently define an adjunction as a pair of functors $L : \C \to \D$ and $R: \D \to \C$ such that there is a bijection $\Hom_{\D}(L(\blank), \blank) \simeq \Hom_{\C}(\blank, R(\blank))$.
+Similarly, it can be shown that a pair of functors between $\infty$-categories is an adjunction if and only if we have a bijection of mapping spaces:
+\begin{proposition}[{\cite[\href{https://kerodon.net/tag/02FX}{Corollary 02FX}]{kerodon}}]\label{adjUnivProp}
+    Let $F : \C \to \D$ and $G: \D \to \C$ be functors of $\infty$-categories and let $\eta : \id_{\C} \to G\circ F$ be a natural transformation.
+    Then $\eta$ is the unit of an adjunction between $F$ and $G$ if and only if, for any pair of objects $X \in \C, Y \in \D$, the following composition is an isomorphism of $\infty$-groupoids:
+    \[
+        \map_{\D}(F(X), Y) \xrightarrow{G} \map_{\C}((G\circ F)(X), G(Y)) \xrightarrow{\circ [\eta_X]} \map_{\C}(X, G(Y)).
+    \]
+\end{proposition}
 \end{document}

@@ -70,7 +70,7 @@ The above remark says that we can identify the slice and coslice categories with
     It is usual to abuse notation a bit and identify $\C$ and $\D$ with these subcategories.
 \end{remark}
 \begin{remark}
-    \TODO{Joins and slices define an adjoint relationship.}
+    Joins and slices are adjoints to eachother.
 \end{remark}
 \begin{example}
     Maybe the most important examples of joins, at least in this text, are the left and right cone of a category.
@@ -130,11 +130,15 @@ These universal properties will serve as our definitions, but we can define slic
 \[
     (Y_{f/})_n \cong \Hom_{\sset_{X/}}(X\star \Delta^n, X) \quad \text{and} \quad    (Y_{/f})_n \cong \Hom_{\sset_{X/}}(\Delta^n\star X, Y).
 \]
+Important examples arise when considering the map $y: \Delta^0\to Y$ giving descriptions of the slices $Y_{y/}$ and $Y_{/y}$:
+\begin{align*}
+    (Y_{y/})_n & = \{ \sigma : \Delta^{n+1} \to Y | \sigma(0) = y\},   \\
+    (Y_{/y})_n & = \{ \sigma : \Delta^{n+1} \to Y | \sigma(n+1) = y\}.
+\end{align*}
 As one might expect, the nerve of a $1$-category commute with taking slices as it does for joins, i.e. for a functor $F: \C \to \D$ between $1$-categories, we have
 \[
     \Nerve(\D_{F/}) \cong \Nerve(\D)_{\Nerve(F)/}\quad \text{and} \quad \Nerve(\D_{/F}) \cong \Nerve(\D)_{/\Nerve(F)}.
 \]
-\TODO{Define slice of object by considering morphism $\Delta^0 \to X$.}
 Furthermore, as one might expect -- or at least desire -- the slice of an $\infty$-category is again an $\infty$-category; see for example \cite{Rezk}[Proposition 30.2.] for a proof.
 \section{Initial and terminal objects}
 We now have what we need to define initial and terminal objects of $\infty$-categories.
