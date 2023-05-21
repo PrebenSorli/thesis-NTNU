@@ -1,7 +1,6 @@
 \documentclass[../../thesis.tex]{subfiles}
 \begin{document}
 \section{Classical Verdier Duality}
-\TODO{I don't know, maybe write some shit about regular Verdier Duality for 1-categories and stuff.}
 Let $k$ be a field and $\mathrm{Ch}_k$ the category of chain complexes of $k$-vector spaces.
 The nerve construction $\Nerve(\mathrm{Ch}_k)$ is now euqivalent to the derived $\infty$-category of the category of $k$-vector spaces.
 Vector space duality gives a limit preserving functor $\Nerve(\mathrm{Ch}_k^{op}) \to \Nerve(\mathrm{Ch}_k)$ which induces a functor
@@ -17,6 +16,7 @@ and it is this functor that is usually called Verdier Duality. This is not neces
 
 
 Classical Verdier Duality can be seen as a generalization of Poincaré duality, replacing the pairing on cohomology with a pairing in the derived category.
+
 \begin{theorem}
     Let $f : X \to Y$ be a proper map between manifolds.
     Then the derived functor $\mathbf{R}f_* : \mathbf{D}^+(X,k) \to \mathbf{D}^+(Y,k)$ admits a right adjoint $f^!:\mathbf{D}^+(Y,k) \to \mathbf{D}^+(X,k)$.
@@ -140,7 +140,7 @@ The proof of this is a bit long, so we will split the theorem into a few lemmas 
             \arrow[from=1-3, to=3-3]
             \arrow[from=2-4, to=2-7]
         \end{tikzcd}\]
-    Here we have abused notation to write the fiber product $\Nerve(M')_{(0, K) /} \times_{\Nerve(M')}\Nerve\left(M_1^{\prime} \cup M_2^{\prime}\right)$ as $ \Nerve(M_1'\cup M_2')_{(0,K)/}$. By \ref{superlemma} $i$ is cofinal if and only if for every $(m,A) \in \Nerve(M_1'\cup M_2')_{(0,K)/}$ the fiber product
+    Here we have abused notation to write the fiber product $\Nerve(M')_{(0, K) /} \times_{\Nerve(M')}\Nerve\left(M_1^{\prime} \cup M_2^{\prime}\right)$ as $ \Nerve(M_1'\cup M_2')_{(0,K)/}$. By \ref{superlemma} $i$ is left cofinal if and only if for every $(m,A) \in \Nerve(M_1'\cup M_2')_{(0,K)/}$ the fiber product
     \[\begin{tikzcd}
             {\mathrm{PB}} && {\left(\Nerve(M_1' \cup M_2')_{(0,K)/}\right)_{/(m,A)}} \\
             \\
@@ -157,7 +157,7 @@ The proof of this is a bit long, so we will split the theorem into a few lemmas 
     %   Corollary 3.4 here might be needed.}
     %\TODO{Make above remark precise.} the pullback is exactly the subset of $\Lambda_2^2 \times \left(\Nerve(M_1' \cup M_2')_{(0,K)/}\right)_{/(m,A)}$ containing those $(t, (r, B))$ such that $i(t)=j(r,B)$.
     %Objects in $\left(\Nerve(M_1' \cup M_2')_{(0,K)/}\right)_{A/}$ are of the form $(n, B) \leq (m, A)$.
-    $j$ is just the inclusion, and we have $j((0,K) \to (r, B) \to (m,A))=((0,K) \to (r,B))$.
+    $j$ is just the inclusion given by sending objects $((0,K) \leq (r, B) \leq (m,A))$ in $\left(\Nerve(M_1' \cup M_2')_{(0,K)/}\right)_{/(m,A)}$ to objects $((0,K) \leq (r,B))$ in ${\Nerve(M_1'\cup M_2')_{(0,K)/}}$.
     Since $i(a)=(2,\emptyset), i(b)=(1,K)$ and $i(c)=(2,K)$ and the pullback of a mono is mono, $\mathrm{PB}$ has to be a subcategory of
     \[\begin{tikzcd}
             && {(b,(1,K))} \\
@@ -211,7 +211,7 @@ The proof of this is a bit long, so we will split the theorem into a few lemmas 
 \end{corollary}
 \begin{proof}
     Observe first that $M$ is a full subcategory of $M'$ and then that $\MAP(\Nerve(M) \to \C)$ is a full subcategory of $\D$.
-    By the fact that the inclusion of full subcategories is fully faithful and Kan extending along fully faithful functors give actual on the nose extensions by Lemma \ref{KanFullyFaith}, we can extend $F$ to $\D$.
+    By the fact that the inclusion of full subcategories is fully faithful and Kan extending along fully faithful functors give actual on the nose extensions by Proposition \ref{KanFullyFaithInfty}, we can extend $F$ to $\D$.
 \end{proof}
 \begin{lemma}
     Let $F|_{\Nerve(M_0)} = \G$.
@@ -313,7 +313,7 @@ To complete the proof of Proposition \ref{5.5.5.7}, we must show the following l
               Assumption $2.$ says that $F|_{\Nerve(M_2)}$ determines a $\K$-sheaf, $F|_{\Nerve(M_1)}=0$ and that $F$ is a right Kan extension from $\Nerve(M_1 \cup M_2)$.
               Identifying $M_2 = \{(2, S) | (X-S) \in \K(X)\}$ with $\K(X)^{op}$ we see that we are in the situation of Theorem \ref{7.3.4.9}.
               As $M_2' = \{(2,S) | (X-S) | \in \Open(X) \cup \K(X)\}$ we can identify it with $(\Open(X) \cup \K(X))^{op}$ and by Theorem \ref{7.3.4.9} we get that $F'|_{\Nerve(M_2')}$ is a left Kan extension of $F'|_{\Nerve(\Open(X)^{op})}$.
-              By observing that for a $K \in \K(X)$ the collection of open neigbhorhoods of $K$ with compact closure is cofinal in the collection of all open neigbhorhoods of $K$ in $X$ we get that $F'|_{\Nerve(M_2')}$ is furthermore left Kan extended from $B$, which was what we wanted to show.
+              By observing that for a $K \in \K(X)$ the collection of open neighborhoods of $K$ with compact closure is right cofinal in the collection of all open neighborhoods of $K$ in $X$ we get that $F'|_{\Nerve(M_2')}$ is furthermore left Kan extended from $B$, which was what we wanted to show.
               \[\begin{tikzcd}
                       B && {\Open(X)^{op}} && \C \\
                       \\
@@ -323,9 +323,7 @@ To complete the proof of Proposition \ref{5.5.5.7}, we must show the following l
                       \arrow[from=3-4, to=1-5]
                       \arrow["i", hook, from=1-1, to=1-3]
                   \end{tikzcd}\]
-              \prepp{My thoughts here are that we calculate Kan extensions as colimits, so $i$ being cofinal over some fixed $K$ means restricting the colimit from $\Open(X)^{op}$ back to $B$ is an equivalence.}
-              %\prepp{Here Lurie uses that for a compact $K$ the collection of open neigbhorhoods of $K$ with compact closure is cofinal in the collection of all open neigbhorhoods of $K$ in $X$ to somehow conclude we can use \ref{7.3.4.9}.}
-              %By Theorem \ref{7.3.4.9} we get that $F'|_{\Nerve(M_2')}$ is a left Kan extension of $F'|_{\Nerve(M''')}$
+              Here we have used that we calculate Kan extensions as colimits, so $i$ being right cofinal over some fixed $K$ means restricting the colimit from $\Open(X)^{op}$ back to $B$ is an equivalence.
         \item $F'|_{\Nerve(M'' \cup B)}$ is a left Kan extension of $F|_{\Nerve(M'')}$
               % When using 4.2.3 we are probably using 4.2.3.9 and 4.2.3.10.
               Fix $U \in \Open(X)$ such that $\overline{U} \in \K(X)$. By \ref{KanDef} we want to show that $F'(2, X-U)$ is a colimit of the diagram $F'|_{\Nerve(M'')/(2,X-U)}$.
@@ -412,8 +410,8 @@ We can now prove Verdier Duality (Theorem \ref{VerdierDuality}):
         \Shv_{\K}(X;\C^{op}) \xleftarrow{\theta} \mathcal{E}(\C)^{op} \xrightarrow{\theta'} \Shv_{\K}(X;\C)^{op}.
     \]
     %\prepp{Now Lurie cites \cite{HTT}[4.3.2.15]to say the restrictions are trivial Kan fibrations, but I want to say the following instead (I think it is almost the same thing):}
-    Because we Kan extend along inclusions of full subcategories which are fully faithful these are equivalences of $\infty$-categories by Lemma \ref{KanFullyFaith}.
-    \prepp{Note that $F\in \mathcal{E}(\C)$ means $F|_{M_0}\in \Shv_{\K}(X;\C^{op})$, $F|_{M_0 \cup M_1} = RKAN(F|_{M_0})$ and $F=LKAN(F|_{M_0 \cup M_1})$ .}
+    Because we Kan extend along inclusions of full subcategories which are fully faithful these are equivalences of $\infty$-categories by Proposition \ref{KanFullyFaithInfty}.
+    %\prepp{Note that $F\in \mathcal{E}(\C)$ means $F|_{M_0}\in \Shv_{\K}(X;\C^{op})$, $F|_{M_0 \cup M_1} = RKAN(F|_{M_0})$ and $F=LKAN(F|_{M_0 \cup M_1})$ .}
     This proves Theorem \ref{KVerdierDuality} and by Corollary \ref{7.3.4.10} we have shown Theorem \ref{VerdierDuality}.
 \end{proof}
 \begin{proposition}[{\cite[Proposition 5.5.5.10]{HA}}]

@@ -2,21 +2,13 @@
 \contentsline {todo}{\textbf {TODO:} Be a bit more precise: you need a pullback over $\EuScript {C}\to \mathrm {h}\EuScript {C}$ (or say ``all simplices s.t. ...'')}{9}{section*.4}%
 \contentsline {todo}{\textbf {Preben:} Rezk mentions $\pi _0(\EuScript {C}^{\mathrm {core}})$. Do we care?}{9}{section*.5}%
 \contentsline {todo}{\textbf {TODO:} Write some general stuff.}{13}{section*.6}%
-\contentsline {todo}{\textbf {TODO:} Where should I write about adjunctions?}{13}{section*.7}%
-\contentsline {todo}{\textbf {TODO:} Write about joins and slices before defining limits and colimits.}{13}{section*.8}%
-\contentsline {todo}{\textbf {TODO:} Be sure to mention in the intro somewhere that ``space'' refers to $\infty $-groupoids or equivalently Kan complexes.}{18}{section*.9}%
-\contentsline {todo}{\textbf {Preben:} Lurie calls this an informal way of stating definition \blx@tocontentsinit {0}\cite [\href {https://kerodon.net/tag/02YC}{Variant 02YC}]{kerodon}, but his actual definition seems too technical so ok to just do this?}{25}{section*.10}%
-\contentsline {todo}{\textbf {TODO:} Cite Cartan's 1950 seminar?}{30}{section*.11}%
-\contentsline {todo}{\textbf {TODO:} Mention the ``normal definitions using covers and Cech nerves and briefly discuss relation to classical definition of sheaves in a $1$-category.}{31}{section*.12}%
-\contentsline {todo}{\textbf {TODO:} Make sure $\EuScript {S}$ is introduced in chapter on stable infcats.}{31}{section*.13}%
-\contentsline {todo}{\textbf {TODO:} Write out the details of why this is contractible and the inclusion is cofinal.}{34}{section*.15}%
-\contentsline {todo}{\textbf {TODO:} Write out the result in the Kan chapter.}{34}{section*.16}%
-\contentsline {todo}{\textbf {TODO:} This should probably be strict inclusion. Double check that.}{34}{section*.14}%
-\contentsline {todo}{\textbf {TODO:} I don't know, maybe write some shit about regular Verdier Duality for 1-categories and stuff.}{39}{section*.17}%
-\contentsline {todo}{\textbf {TODO:} Something about connecting this new notion of Verdier duality to the classical notion of exchanging cohomology with cohomology with compact support.}{40}{section*.18}%
-\contentsline {todo}{\textbf {Preben:} Is this good enough? Should probably say why we can safely swap.}{41}{section*.19}%
-\contentsline {todo}{\textbf {Preben:} My thoughts here are that we calculate Kan extensions as colimits, so $i$ being cofinal over some fixed $K$ means restricting the colimit from $\EuScript {U}(X)^{op}$ back to $B$ is an equivalence.}{45}{section*.20}%
-\contentsline {todo}{\textbf {Preben:} Note that $F\in \mathcal {E}(\EuScript {C})$ means $F|_{M_0}\in \mathrm {Shv}_{\EuScript {K}}(X;\EuScript {C}^{op})$, $F|_{M_0 \cup M_1} = RKAN(F|_{M_0})$ and $F=LKAN(F|_{M_0 \cup M_1})$ .}{47}{section*.21}%
-\contentsline {todo}{\textbf {TODO:} Maybe worth trying to make the bridge between this statement and the classical fact even more concrete.}{48}{section*.22}%
-\contentsline {todo}{\textbf {Preben:} Make sure this colimit is taken in the correct category. It should probably just be a limit in $\EuScript {C}$.}{48}{section*.23}%
-\contentsline {todo}{\textbf {Preben:} Should consider writing out theta more explicitly in the proof of \ref {7.3.4.9}.}{48}{section*.24}%
+\contentsline {todo}{\textbf {TODO:} Be sure to mention in the intro somewhere that ``space'' refers to $\infty $-groupoids or equivalently Kan complexes.}{17}{section*.7}%
+\contentsline {todo}{\textbf {Preben:} Lurie calls this an informal way of stating definition \blx@tocontentsinit {0}\cite [\href {https://kerodon.net/tag/02YC}{Variant 02YC}]{kerodon}, but his actual definition seems too technical so ok to just do this?}{25}{section*.8}%
+\contentsline {todo}{\textbf {TODO:} Mention the ``normal definitions using covers and Cech nerves and briefly discuss relation to classical definition of sheaves in a $1$-category.}{32}{section*.9}%
+\contentsline {todo}{\textbf {TODO:} Finish this.}{33}{section*.10}%
+\contentsline {todo}{\textbf {TODO:} Check this calculation is correct with Tallak or Rune.}{35}{section*.11}%
+\contentsline {todo}{\textbf {TODO:} Something about connecting this new notion of Verdier duality to the classical notion of exchanging cohomology with cohomology with compact support.}{40}{section*.12}%
+\contentsline {todo}{\textbf {Preben:} Is this good enough? Should probably say why we can safely swap.}{41}{section*.13}%
+\contentsline {todo}{\textbf {TODO:} Maybe worth trying to make the bridge between this statement and the classical fact even more concrete.}{47}{section*.14}%
+\contentsline {todo}{\textbf {Preben:} Make sure this colimit is taken in the correct category. It should probably just be a limit in $\EuScript {C}$.}{48}{section*.15}%
+\contentsline {todo}{\textbf {Preben:} Should consider writing out theta more explicitly in the proof of \ref {7.3.4.9}.}{48}{section*.16}%

@@ -1,6 +1,7 @@
 \documentclass[../../thesis.tex]{subfiles}
 
 \begin{document}
+\section{A little history}
 The origins of sheaf theory is quite a remarkable story, and we quote Armand Borel \cite{Borel}:
 \begin{quotation}
     ``The Second World War broke out in 1939 and J. Leray [then Professor at the Sorbonne and an officer in the French army] was made prisoner by the Germans in 1940.
@@ -13,24 +14,49 @@ The result of this short and involuntary detour into the field of algebraic topo
 While used to using topological invariants to prove existence of solutions of certain partial differential equations he motivated his study of algebraic topology in captivity by seeking methods that were applicable to a wide class of topological spaces all in the hope of proving more directly the same kind of theorems he had proved before the war in an indirect manner.
 In 1942 he announced the first part of his work and it was approved by Heinz Hopf and published in 1945 with subtitle ``Un cours de topologie algébrique professé en captivité'' -- ``A course in algebraic topology taught in captivity''.
 As with many new discoveries, it took some time before his work was fully appreciated.
-Part of the reason was that his 1945 paper \cite{Leray45} according to Armand Borel \cite{BorelAMS} ``did not seem to go drastically beyond those of mainstream algebraic topology (even though a closer examination would have revealed a novel approach and more general assumptions for a number of familiar results),so \cite{Leray45} did not create such a big impression.''
+Part of the reason was that his 1945 papers \cite{Leray45a2},\cite{Leray45b2} and \cite{Leray45c2} according to Armand Borel \cite{BorelAMS} ``did not seem to go drastically beyond those of mainstream algebraic topology (even though a closer examination would have revealed a novel approach and more general assumptions for a number of familiar results), so \cite{Leray45a2},\cite{Leray45b2} and \cite{Leray45c2} did not create such a big impression.''
+
+
 But, Leray was not done.
-Borel writes further: ``For him, algebraic topology should not only study the \emph{topology of a space}, [...] but also the \emph{topology of a representation} (continuous map)''
-While well-known that a continuous map induces a homomorphism in (co)homology, Leray's insight was going to break entirely new ground: in a conversation with A. Weil \cite{WeilCollectedPapers}[p. 526] he spoke of a homology with ``variable coefficients''\footnote{We know from a footnote in \cite{Leray45} that he already thought of this idea while in captivity.}.
+As Gray writes in \cite{Gray} ``Leray 1946 must be one of the first instances of the French saying that they are going to take what they have done for spaces and generalize it to mappings.''
+While well-known that a continuous map induces a homomorphism in (co)homology, Leray's insight was going to break entirely new ground: in a conversation with A. Weil \cite{BorelAMS} he spoke of a homology with ``variable coefficients''\footnote{We know from a footnote in \cite{Leray45c2} that he already thought of this idea while in captivity.}.
 It was thus the two subsequent papers by Leray \cite{Leray46a} and \cite{Leray46b} that first introduced the notions of sheaves, sheaf cohomology and spectral sequences.
 The impact of these three notions on algebraic topology and homological algebra are hard to understate.
 
-Originally, Leray defined a sheaf on a topological space $X$ by associating a module $\F(K)$ over a ring $R$ to each closed subset $K$ of $X$ and a morphism $\F(K) \to \F(K')$ of modules to each inclusion $K' \subseteq K$.
-A first basic example is the $p$-th cohomology sheaf assigning $H^p(K ; R)$ to $K$.
 
-It was Cartan that reformulated the theory using open subspaces \cite{H.Miller}, and the switch to open subsets allowed people like Cartan and Serre to introduce sheaves in several complex variables, in algebraic geometry over $\mathbb{C}$ and over any algebraically closed field \cite{BorelAMS}.
+Inspired by \cite{Alexander}, the fundamental idea was to equip a module with a support function taking its values in the closed subsets of a topological space subject to some kind of properties.
+In \cite{Leray46a}, Leray defined a sheaf on a topological space $X$ by associating a module $\F(K)$ over a ring $R$ to each closed subset $K$ of $X$ and a morphism $\F(K) \to \F(K')$ of modules to each inclusion $K' \subseteq K$.
+A first basic example is the $p$-th cohomology sheaf assigning $H^p(K ; R)$ to $K$.
+His definition was not quite what we use today, but this was nevertheless the first time the word ``faisceau'' was used for anything resembling today's notion.
+For a more detailed exposition of the original definition and how it evolved in the following years, \cite{Gray} gives a very detailed rendition of the origins of sheaf theory.
+
+
+According to \cite{Gray}, in the winter of 1947 to 1948 Leray gave a course in algebraic topology which he wrote up for the proceedings of a 1947 colloqium in Paris and published as \cite{Leray49}.
+The presentation was now much clearer than in the earlier papers, and notions such as subsheaves, quotient sheaves and direct image sheaves are first described.
+Perhaps more importantly he describes the notion of a so-called complex and how to construct a sheaf from one.
+He then defines certain special complexes and calls them ``couvertures'', and then he use certain ``fine couvertures'' to define a notion of a relative cohomology ring on a topological space $X$.
+Fine couvertures inspired many related, and perhaps more familiar, notions such as Cartan's ``homotopically fine'' in \cite{Cartan_50_4}, Godement's ``flasque'' (flabby) and ``soft'' sheaves in \cite{Godement58} and Grothendieck's ``injective'' in \cite{Grothendieck57}.
+These notions were then used to construct special resolutions of sheaves consisting of sheaves that have trivial (co)homology.
+Isomorphism theorems and duality theorems (such as Verdier and Poincaré duality) were then proved by reducing to show a certain resolution were for instance flasque or injective.
+
+It was Cartan that in \cite{Cartan_50_4} completely reformulated the theory using open subspaces \cite{H.Miller}, and the switch to open subsets allowed people like Cartan and Serre to introduce sheaves in several complex variables, in algebraic geometry over $\mathbb{C}$ and over any algebraically closed field \cite{BorelAMS}.
+Here a ``faisceau'' was now defined to be what we today would call an espace étalé.
+It was the book \cite{Godement58} by funcional analyst Godement that ``standardized the terminology once and for all'' \cite{Gray}.
+The ``faisceau'' in \cite{Cartan_50_4} became espace étalé, a presheaf was defined simply as a contravariant functor on the category of open subsets of a topological space, and a sheaf or ``faisceau'' became a special kind of presheaf.
+
+
 Leray's work was always concerned with sheaf cohomology and spectral sequences for compactly supported cohomology of locally compact topological spaces, and it is fitting that we in this chapter also only concern ourselves with sheaves on locally compact topological spaces.
 If one appreciates that $1$-categories such as $\SET$ are also $\infty$-categories with the properties required in Theorem \ref{7.3.4.9}, the main theorem in this chapter says that the modern notion of a sheaf on a locally compact space using the open subsets is equivalent to a slight modification of Leray's definition using the compact subsets.
 
-\TODO{Cite Cartan's 1950 seminar?}
 \section{Sheaves on topological spaces}
-We will closely follow Lurie \cite{HTT}.
+For the theory of sheaves valued in $\infty$-categories we will closely follow Lurie \cite{HTT}.
 Let $\Open(X)$ denote the partial order of open subsets of a topological space $X$.
+A presheaf on $X$ is just a contravariant functor from $\Open(X)$.
+For a $1$-category $\C$ admitting all limits we say that a presheaf $\F$ is a sheaf if
+\[
+    \F(U) \rightarrow \prod_{i} \F\left(U_{i}\right) \rightrightarrows \prod_{i, j} \F\left(U_{i} \cap U_{j}\right)
+\]
+is an equalizer for any open cover $\{U_i\}$ $X$.
 \begin{definition}[{\cite[Definition 6.2.2.1.]{HTT}}]
     Let $\C$ be an $\infty$-category.
     We define a sieve on $\C$ to be a full subcategory $\C^{(0)} \subseteq \C$ such that for any morphism $f \in \Hom_{\C}(X,Y)$ where $Y\in C^{(0)}$, $X$ must also belong to $C^{(0)}$.
@@ -67,8 +93,6 @@ Equivalently one can define sheaves as the presheaves $\F : \Open(X)^{op} \to \C
 is an equivalence in $\C$, where the limit is taken over all open subsets $V\subseteq U$ contained in some $U_{\alpha}$.
 \TODO{Mention the ``normal definitions using covers and Cech nerves and briefly discuss relation to classical definition of sheaves in a $1$-category.}
 We write $\Presh(X, \C)$ for the $\infty$-category $\mathrm{Fun}(\Open(X)^{op}, \C)$ of $\C$-valued presheaves on $X$ and $\Shv(X;\C)$ for the full subcategory of $\Presh(X;\C)$ spanned by the $\C$-valued sheaves on $X$.
-Whenever we write $\Shv(X)$ without specifying the target category $\C$, we will always mean sheaves valued in spaces, i.e. $\Shv(X;\Spaces)$.
-\TODO{Make sure $\Spaces$ is introduced in chapter on stable infcats.}
 \section{Sheaves on locally compact spaces}
 In this section we will show that for locally compact Hausdorff spaces there is an equivalence of $\infty$-categories between $\Shv(X;\C)$ and $\KShv(X;\C)$ where the latter denote so-called $\K$-sheaves and $\C$ is a presentable $\infty$-category with left exact filtered colimits.
 These are sheaves defined on the collection of compact subsets instead of the opens.
@@ -104,7 +128,7 @@ These are sheaves defined on the collection of compact subsets instead of the op
     We denote the full subcategory of $\Presh(\Nerve(\K(X)); \C)$ spanned by the $\K$-sheaves by $\KShv(X;\C)$.
 \end{definition}
 \begin{remark}
-    We can using finite coverings to define a Grothendieck topology on $\K(X)$ such that condition 1. and 2. are equivalent to the sheaf condition, so in particular a $\K$-sheaf is also a member of $\Shv(\K(X); \C)$.
+    We can use finite coverings to define a Grothendieck topology on $\K(X)$ such that condition 1. and 2. are equivalent to the sheaf condition, so in particular a $\K$-sheaf is also a member of $\Shv(\K(X); \C)$.
 \end{remark}
 \begin{lemma}[{\cite[][Lemma 7.3.4.8]{HTT}}]\label{7.3.4.8}
     Let $X$ be locally compact and Hausdorff, and let $\C$ be an $\infty$-category with small limits and colimits and left exact filtered colimits.
@@ -132,7 +156,7 @@ These are sheaves defined on the collection of compact subsets instead of the op
     \]
     and observe that this set is filtered as a poset ordered by inclusion in the sense of \ref{filteredposet} so it is furthermore weakly contractible by Proposition \ref{5.3.1.20}.
     Denoting an element $\alpha = (K_1, K_2)$ in $P$, we define $\K_{\alpha}$ as the set of compacts belonging to either $K_1$ or $K_2$ and note that a set $K' \subseteq K$ belongs to $\K_{\W}(X)$ if and only if it belongs to some $\K_{\alpha}$.
-    Observe also that the inclusion $(K_1 \hookleftarrow K_1 \cap K_2 \hookrightarrow K_2 ) \hookrightarrow \K_{\alpha}$ is cofinal by Theorem \ref{superlemma} and hence, by $\F_{\K}$ being a $\K$-sheaf, condition 2. implies $\F(K)$ is a limit of the diagram $\F|_{\Nerve(\K_{\alpha})^{op}}$ for every $\alpha \in P$.
-
+    Observe also that the inclusion $(K_1 \hookleftarrow K_1 \cap K_2 \hookrightarrow K_2 ) \hookrightarrow \K_{\alpha}$ is left cofinal by Theorem \ref{superlemma} and hence, by $\F_{\K}$ being a $\K$-sheaf, condition 2. implies $\F(K)$ is a limit of the diagram $\F|_{\Nerve(\K_{\alpha})^{op}}$ for every $\alpha \in P$.
+    \TODO{Finish this.}
 \end{proof}
 \end{document}

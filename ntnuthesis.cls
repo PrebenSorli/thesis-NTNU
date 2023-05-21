@@ -188,6 +188,7 @@
     minbibnames=3,
     maxcitenames=2,
     mincitenames=1,
+    %mincrossrefs=99,
     %citestyle=numeric-comp,
     sorting=none,
     %dashed=false
@@ -219,7 +220,7 @@
 % Page geometry and spacing (same for even and odd pages)
 % Page geometry and spacing (same for even and odd pages)
 \geometry{left=2.5cm, right=2.5cm, top=4cm, bottom=4.5cm}
-\frenchspacing
+%\frenchspacing
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1em}
 

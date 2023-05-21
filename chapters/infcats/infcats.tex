@@ -216,10 +216,10 @@ Before we can make this precise, we must define what we mean by homotopy.
             &&& Y \\
             X && Y
             \arrow[Rightarrow, dashed, no head, from=3-3, to=2-4]
-            \arrow["\hspace{0.5em}"{description, pos=0.6}, dashed, from=3-1, to=2-4]
+            \arrow["g", dashed, from=3-1, to=2-4]
             \arrow["f", from=3-1, to=1-2]
             \arrow[Rightarrow, no head, from=1-2, to=2-4]
-            \arrow["g"'{pos=0.6}, Rightarrow, no head, from=1-2, to=3-3]
+            \arrow[Rightarrow, no head, crossing over, from=1-2, to=3-3]
             \arrow["h"', dashed, from=3-1, to=3-3]
         \end{tikzcd}\]
     where the dashed lines represent the boundary of the ``missing'' face.
@@ -245,7 +245,7 @@ Before we can make this precise, we must define what we mean by homotopy.
             \arrow["\id_X", dashed, from=3-1, to=1-3]
             \arrow["f", dashed,from=1-3, to=2-5]
             \arrow["\id_Y"', from=3-4, to=2-5]
-            \arrow["f", from=1-3, to=3-4]
+            \arrow["f", crossing over,from=1-3, to=3-4]
             \arrow["g"', from=3-1, to=3-4]
         \end{tikzcd}\]
     where once again the dashed lines represent the boundary of the ``missing'' face from $\Lambda_2^3$.
@@ -317,7 +317,7 @@ Analogously to the construction of the fundamental groupoid $\pi_{\leq 1}(X)$ of
 \begin{proof}
     The existence of the composition law follows directly from the previous two propositions.
     To prove $1.$ we pick compositions $u = g\circ f$, $v = h\circ g$ and $w = v\circ f$.
-    Choosing $2$-cells $\sigma_0, \sigma_2, \sigma_3$ witnessing the compositions $v = g\circ h, u = g\circ f$ and $w = v \circ f$, respectively yields a map $\Lambda_1^3 \to \C$ as depicted in the following diagram:
+    Choosing $2$-cells $\sigma_0, \sigma_2, \sigma_3$ witnessing the compositions $v = g\circ h, u = g\circ f$ and $w = v \circ f$, respectively, yields a map $\Lambda_1^3 \to \C$ as depicted in the following diagram:
     \[\begin{tikzcd}
             && X \\
             &&&& Z \\
@@ -326,7 +326,7 @@ Analogously to the construction of the fundamental groupoid $\pi_{\leq 1}(X)$ of
             \arrow["f", from=3-1, to=1-3]
             \arrow["v",from=1-3, to=2-5]
             \arrow["h"', dashed, from=3-4, to=2-5]
-            \arrow["g", from=1-3, to=3-4]
+            \arrow["g", crossing over, from=1-3, to=3-4]
             \arrow["u"', dashed, from=3-1, to=3-4]
         \end{tikzcd}\]
     where the dashed lines represent the ``missing'' $2$-cell.
@@ -346,7 +346,7 @@ Analogously to the construction of the fundamental groupoid $\pi_{\leq 1}(X)$ of
             \arrow[shift right=1, no head, from=1-6, to=3-7]
             \arrow["{\id_X}"', no head, from=3-7, to=1-6]
         \end{tikzcd}\]
-    witnesses the compositions $g \circ \id_X = g$ and $\id_X \circ f = f$.
+    witness the compositions $g \circ \id_X = g$ and $\id_X \circ f = f$.
 \end{proof}
 We can now define the homotopy category $\h\C$ of an $\infty$-category $\C$.
 \begin{definition}
@@ -478,7 +478,7 @@ This allows us to define an equivalence between $\infty$-categories:
             \arrow[from=1-1, to=3-1]
             \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=3-3]
         \end{tikzcd}\]
-    which we will see is an actual space.
+    which, in fact, is an actual space.
 \end{definition}
 For a proof that this is always a space/$\infty$-groupoid/Kan complex, see \cite{Rezk}[Proposition 45.2].
 \begin{definition}

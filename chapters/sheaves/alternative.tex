@@ -20,7 +20,7 @@ We will split the theorem into a few lemmas for readability and keep the notatio
     \]
     is a colimit diagram in $\C$.
     The assumption that $\F_{\K}$ is a $\K$-sheaf means that for each $K\in \K(X)$, $\F_{\K}(K)$ is a colimit of $\F|\Nerve(\K_{K\Subset}(X))^{op}$.
-    We will "transfer" this colimit to the colimit we want by cofinal maps
+    We will "transfer" this colimit to the colimit we want by right cofinal maps
     \[
         \Nerve((\Open(X)^{op})_{/K}) \xrightarrow{p} \Nerve((\Open(X)\cup \K(X))_{/K}^{op}) \xleftarrow{p'}\Nerve(\K_{K\Subset}(X))^{op}.
     \]
@@ -28,8 +28,8 @@ We will split the theorem into a few lemmas for readability and keep the notatio
     For $p$ we must check $\Nerve((\Open(X))^{op}_{/K}) \times_{\Nerve((\Open(X)\cup \K(X))_{/K}^{op})} \Nerve((\Open(X)\cup \K(X))_{/K}^{op})_{K'/}$ is weakly contractible for every $K' \in \Nerve((\Open(X)\cup \K(X))_{/K}^{op})$.
     This is the simplicial set obtained by taking the nerve of the partially ordered set $\{U \in \Open(X) | K\subseteq U \subseteq K'\}$.
     By \ref{5.3.1.20} filtered $\infty$-categories are weakly contractible, and our partially ordered set is filtered as it is nonempty and stable under finite unions, and taking nerves preserve the property of being filtered by \ref{NerveFilter}.
-    The simplicial set $\Nerve(\{K'' \in \K(X) | K \Subset K'' \subseteq K'\})$\footnote{\TODO{This should probably be strict inclusion. Double check that.}} is weakly contractible by exactly the same argument, and hence $p$ and $p'$ are cofinal maps.
-    By cofinality of $p$ and $p'$, the diagram
+    The simplicial set $\Nerve(\{K'' \in \K(X) | K \Subset K'' \subseteq K'\})$ is weakly contractible by exactly the same argument, and hence $p$ and $p'$ are right cofinal maps.
+    By right cofinality of $p$ and $p'$, the diagram
     \[
         \Nerve((\Open(X))^{op}_{/K})^{\triangleright} \hookrightarrow \Nerve((\Open(X)\cup \K(X))_{/K}^{op})^{\triangleright} \xrightarrow{c}\Nerve(\Open(X) \cup \K(X))^{op}\xrightarrow{\F}\C
     \]
@@ -52,14 +52,15 @@ We will split the theorem into a few lemmas for readability and keep the notatio
         \Nerve(\W)^{op,\triangleleft} \hookrightarrow \Nerve(\Open(X)_{/U})^{op,\triangleleft} \rightarrow \Nerve(\Open(X))^{op}\xrightarrow{\F}\C
     \]
     is a limit diagram.
+    Let $\K_{\W}(X)$ is the set $\{K\in \K(X) | (\exists W \in \W)[K \subseteq W] \}$.
     We will once again use cofinality by observing that \ref{superlemma} implies cofinality of the inclusion
     \[
         \Nerve(\W) \subseteq \Nerve(\W \cup \K_{\W}(X))
     \]
-    where $\K_{\W}(X)$ is the set $\{K\in \K(X) | (\exists W \in \W)[K \subseteq W] \}$, so it is enough to show the limit starting from $ \Nerve(\W \cup \K_{\W}(X))^{op}$.
-    \TODO{Write out the details of why this is contractible and the inclusion is cofinal.}
-    Recall that this is equivalent to showing that $\F|_{\Nerve(\W \cup \K_{\W}(X))^{op,\triangleleft}}$ is right Kan extended from $\F|_{\Nerve(\W \cup \K_{\W}(X))^{op}}$.
-    \TODO{Write out the result in the Kan chapter.}
+    if and only if, for any $Y \in \Nerve(\W \cup \K_{\W}(X))$ the simplicial set $\Nerve(\W)\times_{\Nerve(\W \cup \K_{\W}(X))}\Nerve(\W \cup \K_{\W}(X))_{Y/}$ is weakly contractible.
+    This fiber product is equivalent to the nerve of the partially ordered set $\{W' \in \W | [\exists W \in \W][K \subseteq W \subseteq Y]\}$ and this is filtered, and hence, the fiber product is weakly contractible by \ref{5.3.1.20} and \ref{NerveFilter}.\footnote{\TODO{Check this calculation is correct with Tallak or Rune.}}
+    Therefore it is enough to show the limit starting from $ \Nerve(\W \cup \K_{\W}(X))^{op}$.
+    By example \ref{KanCone} this is equivalent to showing $\F|_{\Nerve(\W \cup \K_{\W}(X))^{op,\triangleleft}}$ is right Kan extended from $\F|_{\Nerve(\W \cup \K_{\W}(X))^{op}}$.
     By the assumption that $\F$ is a right Kan extension of $\F_{\K}$ and the observation that
     \[
         \F(U) = \lim_{K\in \K(X)^{op}_{U/}}\F(K) = \lim_{K\in \K_{\W}(X)^{op}_{U/}}\F(K) %Do we need the following?= K_*^{\prime}\F(U)
@@ -144,7 +145,7 @@ We will split the theorem into a few lemmas for readability and keep the notatio
     \]
     Observe that for every $U'' \in \Open(X)_{/(K\cap K')}$, the set
     $P_{U''} = \{(U,U') \in P | U\cap U' \subseteq U''\}$ is nonempty and stable under finite intersections, which implies it is filtered and hence its nerve is contractible.
-    By \ref{superlemma} this implies $\Nerve(P^{op}) \to \Nerve((\Open(X)_{/(K\cap K')})^{op})$ is cofinal and we get a colimit diagram
+    By \ref{superlemma} this implies $\Nerve(P^{op}) \to \Nerve((\Open(X)_{/(K\cap K')})^{op})$ is right cofinal and we get a colimit diagram
     \[
         \Nerve(P^{op})^{\triangleright} \to\Nerve((\Open(X)_{/(K\cap K')})^{op})^{\triangleright} \hookrightarrow \Nerve((\Open(X) \cup \K(X))_{/(K\cap K')}^{op})^{\triangleright} \xrightarrow{c} \Nerve(\Open(X) \cup \K(X))^{op} \xrightarrow{\F}\C.
     \]
@@ -168,10 +169,10 @@ We will split the theorem into a few lemmas for readability and keep the notatio
     \[
         \Nerve(\K(X) \cup \Open(X))^{op,\triangleright}_{/K} \to \Nerve(\K(X) \cup \Open(X))^{op} \xrightarrow{\F} \C
     \]
-    is a colimit diagram, and the statement is reduced to showing that $\Nerve(\K_{K\Subset}(X)) \subseteq \Nerve(\K(X) \cup \Open(X))_{/K}^{op}$ is cofinal.
+    is a colimit diagram, and the statement is reduced to showing that $\Nerve(\K_{K\Subset}(X)) \subseteq \Nerve(\K(X) \cup \Open(X))_{/K}^{op}$ is right cofinal.
     Let $Y\in \Nerve(\K(X) \cup \Open(X))_{/K}$ and let $R$ be the partially ordered set $\{K' \in \K(X) | K \Subset K ' \subseteq Y\}$.
     Since $R$ is nonempty and stable under intersections, $R^{op}$ is filtered and hence $\Nerve(R)$ is weakly contractible.
-    By \ref{superlemma} the inclusion is cofinal and we have shown that $\F_\K$ is a $\K$-sheaf.
+    By \ref{superlemma} the inclusion is right cofinal and we have shown that $\F_\K$ is a $\K$-sheaf.
 \end{proof}
 \begin{lemma}
     If $\F_{\Open}$ is a sheaf, then $\F$ is a right Kan extension of $\F_{\K}$.
@@ -187,7 +188,7 @@ We will split the theorem into a few lemmas for readability and keep the notatio
     \[
         \Nerve(\K(X)_{U/}^{op}) \xrightarrow{f}\Nerve(\Open(X) \cup \K(X))_{U/}^{op} \xleftarrow{f'} \Nerve(\K(X)_{/U})^{op}.
     \]
-    By Theorem \ref{superlemma} $f$ and $f'$ are cofinal inclusions if for any $Y\in (\Open(X) \cup \K(X))_{U/}$ the partially ordered sets
+    By Theorem \ref{superlemma} $f$ and $f'$ are right cofinal inclusions if for any $Y\in (\Open(X) \cup \K(X))_{U/}$ the partially ordered sets
     \[
         \{ V \in \Open(X) |Y \subseteq V \Subset U \}
     \]
@@ -210,6 +211,6 @@ We will split the theorem into a few lemmas for readability and keep the notatio
     \[
         \Shv(X;\C) \leftarrow \Shv_{\K\Open}(X;C) \to \KShv(X;C),
     \]
-    and these are equivalences of $\infty$-categories because inclusions of full subcategories are fully faithful and Kan extensions along fully faithful functors give isomorphisms by Lemma \ref{KanFullyFaith}.
+    and these are equivalences of $\infty$-categories because inclusions of full subcategories are fully faithful and Kan extensions along fully faithful functors give isomorphisms by Proposition \ref{KanFullyFaithInfty}.
 \end{proof}
 \end{document}

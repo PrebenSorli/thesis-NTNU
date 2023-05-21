@@ -107,6 +107,12 @@ Before we extend the theory Kan extensions from ordinary categories to the world
     Since the identity on $c$ is terminal in $\C_{/c}$ the colimit reduces to evaluation at the terminal object $K(c)\xrightarrow{id}K(c)$ in $K_{/Kc}$, so $\eta_c : F(c) \cong K_!F(K(c))$ is an isomorphism.
     The proof for pointwise right Kan extensions is completely dual.
 \end{proof}
+\begin{example}\label{KanCone}
+    Let $ p : J \to \C$ be a functor and $i$ the inclusion $J \hookrightarrow J^{\triangleleft}$.
+    The right Kan extension of $p$ along $i$ has to be equal to $p(x)$ for any $x \in J$, so the only interesting part is the Kan extension at the cone point.
+    However, as we discussed in the introduction of this subsection, Kan extending along the projection to a point is just the limit of $p$.
+    This means that we have $p_*(x) = \lim_J p$ and $p_!(x) = \colim_J p $.
+\end{example}
 \begin{example}[Yoneda extension]
     Let $\C$ be small, $\E$ locally small and cocomplete.
     By the corollary above, any functor $F: \C \to \E$ admits a left Kan extension $y_!F$ along the Yoneda embedding $y$ and since $y$ is fully faithful the unit $F \cong y_!F\circ y$ is an identity natural transformation.
@@ -189,7 +195,7 @@ In the previous subsection we defined Kan extensions as functors together with n
 While there is a similar notion of a universal property for the $\infty$-categorical Kan extensions, there are some details we have suppressed.
 Let $F : \C \to \D$ be a functor of $\infty$-categories, let $F_0$ be the restriction to some full subcategory $C^{0}$ of $\C$ and $i$ be the inclusion $\C^{0} \hookrightarrow \C$.
 Then, if $F$ is left Kan extended from $F_0$ there certainly is a natural transformation $F_0 \to F \circ i$ ``belonging'' to this Kan extension like we defined for $1$-categories, but we have chosen to omit it because it is an isomorphism in this case where we Kan extend along the inclusion of a full subcategory.
-For Kan extensions along general functors, this natural transformation is no longer necessarily an isomorphism so it has to be part of the specified data.
+For Kan extensions along general functors, however, this natural transformation is no longer necessarily an isomorphism so it has to be part of the specified data.
 Following Lurie's Kerodon, we define the left Kan extension along a general functor of $\infty$-categories:
 \begin{definition}[{\cite[\href{https://kerodon.net/tag/02YC}{Variant 02YC}]{kerodon}}]
     Let $F : \C \to \D$ be a functor of $\infty$-categories.
@@ -213,7 +219,7 @@ Following Lurie's Kerodon, we define the left Kan extension along a general func
     This characterizes $F(X)$ up to isomorphism and, in fact; for functors $\delta$ and $F_0$ as in the definition, a left Kan extension is uniquely determined up to isomorphism as an object of $\Fun(\C, \D)$.
 \end{remark}
 \begin{remark}
-    This definition is compatible with the definition for Kan extensions along inclusions; just use the identity natural transformation as $\beta$.
+    This definition is compatible with the definition for Kan extensions along inclusions; just use the identity natural transformation for $\beta$.
 \end{remark}
 As promised, we have universal properties also for $\infty$-categorical Kan extensions:
 \begin{proposition}[{\cite[\href{https://kerodon.net/tag/0309}{Proposition 0309}]{kerodon}}]
@@ -234,4 +240,15 @@ The description of Kan extensions as adjoints to the restriction functor is now 
     has a left adjoint carrying any functor $F_0 : K \to \D$ to a left Kan extension of $F_0$ along $\delta$.
 \end{corollary}
 The theory of right Kan extensions is dual, so we can of course realize right Kan extensions as right adjoints to restriction.
+
+
+Finally, we note that Lemma \ref{KanFullyFaith} also holds for $\infty$-categories:
+\begin{proposition}[{\cite[\href{https://kerodon.net/tag/02YN}{Corollary 02YN}]{kerodon}}]\label{KanFullyFaithInfty}
+    Let $G : \C^{0} \to \C$, $F_0: \C^{0} \to \D$ and $F: \C \to \D$ be functors of $\infty$-categories where $G$ is fully faithful.
+    Then:
+    \begin{itemize}
+        \item If $\alpha : F \circ G \to F_0$ is a natural transformation exhibiting $F$ as a right Kan extension of $F_0$ along $G$, then $\alpha$ is an isomorphism in the $\infty$-category $\Fun(\C^{0}, \D)$.
+        \item If $\beta : F_0 \to F \circ G$ is a natural transformation exhibiting $F$ as a left Kan extension of $F_0$ along $G$, then $\beta$ is an isomorphism in the $\infty$-category $\Fun(\C^{0}, \D)$.
+    \end{itemize}
+\end{proposition}
 \end{document}
