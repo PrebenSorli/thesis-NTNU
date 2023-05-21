@@ -1,6 +1,80 @@
 \documentclass[../../thesis.tex]{subfiles}
 \begin{document}
+The goal of this chapter is to prove the following theorem:
+\begin{theorem}[Verdier Duality {\cite[][Theorem 5.5.5.1]{HA}}]\label{VerdierDuality}
+    Let $X$ be a locally compact Hausdorff space and $\C$ be a stable $\infty$-category with small limits and colimits.
+    Then we have an equivalence of $\infty$-categories
+    \[
+        \mathbb{D} : \Shv(X;\C)^{op} \simeq \Shv(X;\C^{op}).
+    \]
+\end{theorem}
 \section{Classical Verdier Duality}
+Classical Verdier Duality can be seen as a generalization of Poincaré duality, replacing the pairing on cohomology with a pairing in the derived category.
+It was introduced in 1965 by Jean Louis Verdier \cite{Verdier95}.
+Grothendieck had, a few years earlier\footnote{Citation needed? think SGA4 or something according to wikipedia...}, introduced a Poincaré duality in étale cohomology for schemes in algebraic geometry and Verdier duality serves as an analog of this duality for the theory of locally compact topological spaces.
+Verdier duality applies to morphisms of locally compact spaces and reduces to classical Poincaré duality when considering the projection of a manifold to the point.
+Recall that for a map $X \to Y$ between topological spaces and a sheaf $\F$ on $X$ we can define a so-called direct image sheaf $f_*\F$ on $Y$ by considering preimages of $f$:
+\[
+    f_*\F(U) : = \F(f^{-1}(U)) \text{ for any }  U \in \Open(Y)
+\]
+Furthermore, viewing $f_*$ as a functor $\Shv(X;\C) \to \Shv(Y; \C)$, there is a right adjoint $f^*$ taking a sheaf $\G$ on $Y$ to the so-called inverse image sheaf on $X$.
+Explicitly, this sheaf is given by the formula
+\[
+    f^*\G (U) = \colim_{f(V) \subseteq U}\G(U) ,
+\]
+where the colimit is taken over all open neighborhoods of $f(V)$.
+Observe that considering the case when $Y$ is just the point, the projection map $f$ induces a functor $f_* : \Shv(X;\C) \to \Shv(*; \C) \simeq \C$; the global sections functor $\Gamma(X; \blank)$.
+As sheaf cohomology is defined as the right derived functor of the global sections functor, we can write
+\[
+    R^i f_* (\F) \cong R^i\Gamma(X;\blank)(\F) = H^i(X; \F)
+\]
+and this motivates the perspective of seeing the derived direct image as a kind of relative version of cohomology.
+Next, one constructs a so-called proper (or exceptional) direct image functor $f_!$ by considering the compactly supported subfunctor of $f_*$:
+\[
+    \Gamma(U; f_!\F) : = \{ s \in \Gamma(U; f_*\F) | s \text{ has compact support}\}.
+\]
+If we once again considers the special case where $Y = *$, one recovers compactly supported cohomology:
+\[
+    R^i f_! (\F) \cong H_c^i(X; \F)
+\]
+The natural follow-up question to seeing this construction is what about proper inverse image?
+In general $Rf_!$ does not need to admit a right adjoint, but for locally compact Hausdorff spaces it exists and we denote it $f^!$.
+Together with the tensor product and the internal hom, the four functors $f_*,f^*,f_!$ and $f^!$ produces a six functor formalism.
+It is this final adjunction we call Verdier Duality:
+\begin{theorem}
+    Let $f : X \to Y$ be a continuous map of locally compact Hausdorff spaces such that $f_!$ has finite cohomological dimension\footnote{This means that there is some bound $d$ for which all cohomology groups $H^r_c(f^{-1}(y);\mathrm{A})$ above $d$ vanish for all $y\in Y$. This holds for instance if all the fibres $f^{-1}(y)$ are at most $d$-dimensional CW-complexes.}.
+    Then the derived functor of the proper direct image has a right adjoint $f^!$ in the derived category of sheaves:
+    \[
+        R\Hom_{D(\Shv(Y;\C))}(Rf_!\F,\G) \cong R\Hom_{D(\Shv(X;\C))}(\F,f^!\G),\footnote{Here we are really meaning complexes of sheaves.}
+    \]
+    where $\F$ and $\G$ are sheaves of for instance $\mathrm{A}$-modules.
+\end{theorem}
+Again, taking $f$ to be the projection $X \to *$ yields fruitful special cases.
+We consider the simpler case when $X$ is a compact and orientable $n$-dimensional manifold and consider the constant sheaf $k_X$ on $X$ for some field $k$.
+Verdier Duality now gives an equivalence
+\[
+    \Hom(Rf_!(k_X) , k) \cong \Hom(k_X , f^!k).
+\]
+Using the fact that we can find an injective resolution $I^{\bullet}$ of $k_X$ and some homological algebra, one can show that maps $\Hom(Rf_!(k_X) , k)$ are further equivalent to the zeroth cohomology group
+\[
+    H^0(\Hom^{\bullet}(\Gamma_c(X;I^{\bullet}), k)) = H_c^0(X;k_X)^{\vee},
+\]
+where $\vee$ denotes the dual vector space.
+Additionally, it can be shown that $f^!k = k_X[n]$ which is something called the dualizing complex for a manifold, which means that studying $\Hom(k_X ,f^!k)$ reduces to studying $\Hom(k_X , k_X[n])$ which is isomorphic to the $n$-th cohomology of $\Hom^{\bullet}(x_k, x_k)$, so we have an isomorphism
+\[
+    H^0_c(X; k_X)^{\vee} \cong H^n(X;k_X).
+\]
+Now, shifting the complexes $i$ degrees and repeating the above arguments recovers classical Poincaré duality:
+\[
+    H^i_c(X; k_X)^{\vee} \cong H^{n-i}(X;k_X).
+\]
+For a more detailed and precise account of the above arguments, see Iversen's book \cite{Iversen} which serves as a good introduction to sheaves and sheaf cohomology as a whole and for a slightly more amateurish account, see \cite{BACH}.
+% \begin{theorem}
+%     Let $f : X \to Y$ be a proper map between manifolds.
+%     Then the derived functor $\mathbf{R}f_* : \mathbf{D}^+(X,k) \to \mathbf{D}^+(Y,k)$ admits a right adjoint $f^!:\mathbf{D}^+(Y,k) \to \mathbf{D}^+(X,k)$.
+% \end{theorem}
+
+\section{Verdier Duality in stable $\infty$-categories}
 Let $k$ be a field and $\mathrm{Ch}_k$ the category of chain complexes of $k$-vector spaces.
 The nerve construction $\Nerve(\mathrm{Ch}_k)$ is now euqivalent to the derived $\infty$-category of the category of $k$-vector spaces.
 Vector space duality gives a limit preserving functor $\Nerve(\mathrm{Ch}_k^{op}) \to \Nerve(\mathrm{Ch}_k)$ which induces a functor
@@ -8,29 +82,13 @@ Vector space duality gives a limit preserving functor $\Nerve(\mathrm{Ch}_k^{op}
     \Shv(X;\Nerve(\mathrm{Ch}_k)^{op}) \to \Shv(X;\Nerve(\mathrm{Ch}_k))
 \]
 for any locally compact Hausdorff space.
-Composing with the equivalence below yields a functor
+Composing with the equivalence of Theorem \ref{VerdierDuality} yields a contravariant functor from $\Shv(X;\Nerve(\mathrm{Ch}_k))$ to itself:
 \[
     \mathbb{D}': \Shv(X;\Nerve(\mathrm{Ch}_k))^{op} \to \Shv(X;\Nerve(\mathrm{Ch}_k))
 \]
-and it is this functor that is usually called Verdier Duality. This is not necessarily an equivalence of $\infty$-categories unless certain finiteness conditions are imposed.
+and it is this functor that is usually called Verdier Duality. As we have composed the equivalence $\mathbb{D}$ with vector space duality, $\mathbb{D}'$ is not necessarily an equivalence of $\infty$-categories unless certain finiteness conditions are imposed.
 
 
-Classical Verdier Duality can be seen as a generalization of Poincaré duality, replacing the pairing on cohomology with a pairing in the derived category.
-
-\begin{theorem}
-    Let $f : X \to Y$ be a proper map between manifolds.
-    Then the derived functor $\mathbf{R}f_* : \mathbf{D}^+(X,k) \to \mathbf{D}^+(Y,k)$ admits a right adjoint $f^!:\mathbf{D}^+(Y,k) \to \mathbf{D}^+(X,k)$.
-\end{theorem}
-
-\section{Verdier Duality in stable $\infty$-categories}
-This chapter is all about proving the following theorem:
-\begin{theorem}[{\cite[][Theorem 5.5.5.1]{HA}}]\label{VerdierDuality}
-    Let $X$ be a locally compact Hausdorff space and $\C$ be a stable $\infty$-category with small limits and colimits.
-    Then we have an equivalence of $\infty$-categories
-    \[
-        \mathbb{D} : \Shv(X;\C)^{op} \simeq \Shv(X;\C^{op}).
-    \]
-\end{theorem}
 We will be using the theory of $\K$-sheaves set up in the previous chapter to prove the theorem.
 By corollary \ref{7.3.4.10} we can rewrite theorem \ref{VerdierDuality} in terms of $\K$-sheaves instead:
 \begin{theorem}\label{KVerdierDuality}
@@ -40,7 +98,6 @@ By corollary \ref{7.3.4.10} we can rewrite theorem \ref{VerdierDuality} in terms
         \mathbb{D}_{\K} : \KShv(X;\C)^{op} \simeq \KShv(X;\C^{op}).
     \]
 \end{theorem}
-\TODO{Something about connecting this new notion of Verdier duality to the classical notion of exchanging cohomology with cohomology with compact support.}
 \begin{definition}[{\cite[Definition 5.5.5.9]{HA}}]
     Let $X$ be a locally compact Hausdorff space and $\C$ a pointed $\infty$-category with small limits and colimits.
     For a sheaf $\F \in \Shv(X;\C)$ and $K$ compact we denote by $\Gamma_K(X;\F)$ the fiber product $\F(X)\times_{\F(X-K)}0$.
@@ -420,8 +477,7 @@ We can now prove Verdier Duality (Theorem \ref{VerdierDuality}):
     \[
         \mathbb{D} : \Shv(X;\C)^{op} \simeq \Shv(X;\C^{op}).
     \]
-    given in Theorem \ref{VerdierDuality} is given by $\mathbb{D}(\F)(U) = \Gamma_c(U;\F)$, and this is the infinity-categorical generalization of the classical fact that conjugation by Verdier Duality exchanges cohomology and cohomology with compact support.
-    \TODO{Maybe worth trying to make the bridge between this statement and the classical fact even more concrete.}
+    given in Theorem \ref{VerdierDuality} is given by $\mathbb{D}(\F)(U) = \Gamma_c(U;\F)$.
 \end{proposition}
 \begin{proof}
     It follows from the proof of Theorem \ref{7.3.4.9} that the equivalence
@@ -429,8 +485,8 @@ We can now prove Verdier Duality (Theorem \ref{VerdierDuality}):
         \theta: \Shv(X;\C^{op})^{op} \simeq \Shv_{\K}(X;\C^{op})^{op}
     \]
     is given by the formula $\theta(\F)(U) = \colim_{K\subseteq U}\F(K)$.
-    \prepp{Make sure this colimit is taken in the correct category. It should probably just be a limit in $\C$.}
-    \prepp{Should consider writing out theta more explicitly in the proof of \ref{7.3.4.9}.}
+    \TODO{Make sure this colimit is taken in the correct category. It should maybe just be a limit in $\C$?}
+    \prepp{Should I write out theta more explicitly in the proof of \ref{7.3.4.9}. Not a lot of time.}
     Let $\psi: \Shv(X;\C) \to \Shv_{\K}(X;\C)$ be the equivalence of Corollary \ref{7.3.4.10} and $\psi'$ the equivalence $\Shv_{\K}(X;\C) \to \Shv_{\K}(X;\C^{op})^{op}$ of Theorem \ref{KVerdierDuality}.
     Composing, we get a string of equivalences
     \[
@@ -454,4 +510,23 @@ We can now prove Verdier Duality (Theorem \ref{VerdierDuality}):
         (\theta \circ \psi' \circ \psi)(\F)(U) = \colim_{K\subseteq U}(\Gamma_K(X;F)) = \colim_{K\subseteq U}(\Gamma_K(U;F)) = \Gamma_c(U;\F).
     \]
 \end{proof}
+\begin{remark}
+    This is the infinity-categorical generalization of the classical fact that conjugation by Verdier duality exchanges cohomology and cohomology with compact support.
+    The construction $\Gamma_c(U;\F)$ really is analogous to the construction
+    \[
+        \Gamma_c(X ; \F) := \{ s \in \Gamma(X; \F) | s\text{ has compact support}\}
+    \]
+    from classical sheaf theory in $1$-categories.
+    Also, recall that in the introductio of this chapter we defined direct image with proper support as the functor
+    \[
+        \Gamma(U; f_!\F) : = \{ s \in \Gamma(U; f_*\F) | s \text{ has compact support}\}.
+    \]
+    and said Verdier duality is the existence of a right adjoint $f^!$.
+
+
+    In \cite{Volpe}, Marco Volpe shows that one can extend the classical six functor formalism for sheaves on locally compact Hausdorff spaces to sheaves with values in any closed symmetric monoidal $\infty$-category which is stable and bicomplete, and Lurie's Verdier duality (Theorem \ref{VerdierDuality}) is central in proving the $\infty$-categorical adjunction.
+\end{remark}
+\begin{remark}
+    As we saw in the introduction to this chapter, classical Verdier duality can be used to give a proof of Poincaré duality and in \cite{HA}[Section 5.5.6] Jacob Lurie uses his version of Verdier duality to prove a version of what he calls non-abelian Poincaré duality.
+\end{remark}
 \end{document}

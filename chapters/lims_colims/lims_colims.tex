@@ -1,6 +1,9 @@
 \documentclass[../../thesis.tex]{subfiles}
 \begin{document}
-\TODO{Write some general stuff.}
+This chapter aims to give $\infty$-categorical versions of limits and colimits.
+To accomplish this, some machinery is required, and we define most of the important notions necessary as well as stating without proofs the central results of the theory.
+Perhaps most importantly, we conclude the chapter with an introduction to Kan extensions, both $1$-categorical and $\infty$-categorical.
+While these technically serve as generalizations of limits and colimits, we will only consider pointwise Kan extensions and consider them special kinds of limits and colimits.
 \section{Joins and slices}
 In this section we will introduce the join and slice constructions.
 We will start with a recollection of what these constructions are in the case of ordinary $1$-categories before defining the appropriate $\infty$-categorical notions.
@@ -230,7 +233,6 @@ Lurie \cite{HTT} refers to the object $\colim f \in \C_{f/}$ as a colimit of $f$
 We will probably be lazy and not care about this distinction.
 It follows immediately that limits and colimits are unique in the same sense that initial and terminal objects are: the full subcategory spanned by the (co)limits is either empty or contractible.
 When saying something is unique in $\infty$-category theory it is usually this notion we mean; it is unique up to a contractible space.
-\TODO{Be sure to mention in the intro somewhere that ``space'' refers to $\infty$-groupoids or equivalently Kan complexes.}
 \begin{remark}
     As the slice and join constructions commute with the nerve construction so does initial and terminal objects and hence also limits and colimits.
 \end{remark}

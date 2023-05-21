@@ -1,14 +1,10 @@
 \contentsline {todo}{\textbf {Preben:} Writing about the fundamental gruopoid could be smart.}{7}{section*.3}%
-\contentsline {todo}{\textbf {TODO:} Be a bit more precise: you need a pullback over $\EuScript {C}\to \mathrm {h}\EuScript {C}$ (or say ``all simplices s.t. ...'')}{9}{section*.4}%
+\contentsline {todo}{\textbf {TODO:} (?) Be a bit more precise: you need a pullback over $\EuScript {C}\to \mathrm {h}\EuScript {C}$ (or say ``all simplices s.t. ...'')}{9}{section*.4}%
 \contentsline {todo}{\textbf {Preben:} Rezk mentions $\pi _0(\EuScript {C}^{\mathrm {core}})$. Do we care?}{9}{section*.5}%
-\contentsline {todo}{\textbf {TODO:} Write some general stuff.}{13}{section*.6}%
-\contentsline {todo}{\textbf {TODO:} Be sure to mention in the intro somewhere that ``space'' refers to $\infty $-groupoids or equivalently Kan complexes.}{17}{section*.7}%
-\contentsline {todo}{\textbf {Preben:} Lurie calls this an informal way of stating definition \blx@tocontentsinit {0}\cite [\href {https://kerodon.net/tag/02YC}{Variant 02YC}]{kerodon}, but his actual definition seems too technical so ok to just do this?}{25}{section*.8}%
-\contentsline {todo}{\textbf {TODO:} Mention the ``normal definitions using covers and Cech nerves and briefly discuss relation to classical definition of sheaves in a $1$-category.}{32}{section*.9}%
-\contentsline {todo}{\textbf {TODO:} Finish this.}{33}{section*.10}%
-\contentsline {todo}{\textbf {TODO:} Check this calculation is correct with Tallak or Rune.}{35}{section*.11}%
-\contentsline {todo}{\textbf {TODO:} Something about connecting this new notion of Verdier duality to the classical notion of exchanging cohomology with cohomology with compact support.}{40}{section*.12}%
-\contentsline {todo}{\textbf {Preben:} Is this good enough? Should probably say why we can safely swap.}{41}{section*.13}%
-\contentsline {todo}{\textbf {TODO:} Maybe worth trying to make the bridge between this statement and the classical fact even more concrete.}{47}{section*.14}%
-\contentsline {todo}{\textbf {Preben:} Make sure this colimit is taken in the correct category. It should probably just be a limit in $\EuScript {C}$.}{48}{section*.15}%
-\contentsline {todo}{\textbf {Preben:} Should consider writing out theta more explicitly in the proof of \ref {7.3.4.9}.}{48}{section*.16}%
+\contentsline {todo}{\textbf {Preben:} Lurie calls this an informal way of stating definition \blx@tocontentsinit {0}\cite [\href {https://kerodon.net/tag/02YC}{Variant 02YC}]{kerodon}, but his actual definition seems too technical so ok to just do this?}{25}{section*.6}%
+\contentsline {todo}{\textbf {TODO:} Mention the ``normal definitions using covers and Cech nerves and briefly discuss relation to classical definition of sheaves in a $1$-category.}{32}{section*.7}%
+\contentsline {todo}{\textbf {Help:} Honestly I did not understand how we applied 4.2.3.4 or your explanation of how we get a cocartesian fibration or even how a cocartesian fibration helps.}{34}{section*.8}%
+\contentsline {todo}{\textbf {TODO:} Check this calculation is correct with Tallak or Rune.}{35}{section*.9}%
+\contentsline {todo}{\textbf {Preben:} Is this good enough? Should probably say why we can safely swap.}{42}{section*.10}%
+\contentsline {todo}{\textbf {TODO:} Make sure this colimit is taken in the correct category. It should maybe just be a limit in $\EuScript {C}$?}{49}{section*.11}%
+\contentsline {todo}{\textbf {Preben:} Should I write out theta more explicitly in the proof of \ref {7.3.4.9}. Not a lot of time.}{49}{section*.12}%

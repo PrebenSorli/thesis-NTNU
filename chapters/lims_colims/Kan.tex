@@ -3,17 +3,17 @@
 \begin{document}
 \section{Kan Extensions}\label{KanSection}
 We will start with a detour into the world of ordinary $1$-categories.
-In the  classic \cite{MacLane} Saunders MacLane writes ``The notion of Kan Extensions subsumes all the other fundamental concepts of category theory''.
-In her introduction to category theory \cite{CatContext} Emily Riehl devotes a whole chapter to the slogan ``All concepts are Kan extensions''.
-Ubiquitous in the toolbox of any category theorist, Kan extensions are central for most everything we do in this thesis.
+In the classic \cite{MacLane}, Saunders MacLane writes, ``The notion of Kan Extensions subsumes all the other fundamental concepts of category theory''.
+In her introduction to category theory \cite{CatContext}, Emily Riehl devotes a whole chapter to the slogan ``All concepts are Kan extensions''.
+Ubiquitous in the toolbox of any category theorist, Kan extensions are central to almost everything we do in this thesis.
 As we have seen, a lot of $\infty$-categorical concepts can be thought of as if we are working with ordinary $1$-categories, and we will therefore start by defining Kan extensions in ordinary categories.
 
 \subsection{Kan extensions in $1$-categories}
 Let $\C$ be an ordinary $1$-category and $i : I \to J$ a functor of $1$-categories.
 Composing with $i$ now yields a ``pullback'' functor $ i^* : \Fun(J, \C) \to \Fun(I, \C)$ and whenever $\C$ is a category with nice properties, like having small limits and colimits, we can find left and right adjoints to $i^*$ which will become what we call left and right Kan extensions along $i$.
-A nice special case of this construction, which hints at the slogan ``all concepts are Kan extensions'', arises when considering $J = *$, the category with one object.
-Now, the pullback $i^*$ is just the diagonal functor, and it is well known that colimits and limits can be described as left and right adjoints to the diagonal functor, so Kan extensions are in some sense generalizations of the notions of limits and colimits.
-In the final part of this thesis we will mostly consider the opposite special case in which $i$ is not the projection to a point, but rather the inclusion of a full subcategory.
+A nice special case of this construction, which hints at the slogan ``all concepts are Kan extensions,'' arises when considering $J = *$, the category with one object.
+Now, the pullback $i^*$ is just the diagonal functor, and it is well known that colimits and limits can be described as left and right adjoints to the diagonal functor, so Kan extensions are, in some sense, generalizations of the notions of limits and colimits.
+In this thesis's final part, we will mostly consider the opposite special case in which $i$ is not the projection to a point but rather the inclusion of a full subcategory.
 \begin{definition}[{\cite[Definition 6.1.1.]{CatContext}}]
     Given functors $F$ and $K$ as in the following diagram
     \[\begin{tikzcd}
@@ -47,7 +47,7 @@ The following result justifies the choice to denote left and right Kan extension
     Let $K$ be a functor $\C \to \D$ and $\E$ some category.
     If the left and right Kan extensions of any functor $F$ along $K$ exists, these define left and right adjoints to the pre-composition functor $K^* : \Fun(\D, \E) \to \Fun(\C, \E)$ and by uniqueness of adjoints, any left or right adjoint to the pre-composition functor yields left or right Kan extensions.
 \end{proposition}
-While the description of Kan extensions as certain adjoints are useful, there's usually another description available to us that turns out to be even more useful.
+While the description of Kan extensions as certain adjoints is useful, there is usually another description available to us that turns out to be even more useful.
 Whenever $\C$ and $\D$ are respectively small and locally small, potential Kan extensions along $K: \C \to \D$ are what we call pointwise Kan extensions.
 More precisely, the existence of left or right Kan extensions along such functors coincides with the existence of certain colimits or limits, respectively.
 For a functor $K:\C \to \D$, \cite{MacLane} denotes by $d \downarrow K$ the category $\C \times_{\C}\D_{d/}$ and we will choose to denote it by $K_{d/}$.
@@ -70,12 +70,12 @@ The following theorem gives a formula for calculating certain left and right Kan
 \begin{proof}
     Proofs can be found in \cite[Theorem 6.2.1.]{CatContext} and \cite[Theorem X.3.1.]{MacLane}
 \end{proof}
-When $\D$ and $\E$ are locally small we call Kan extensions that can be caluclated by the colimit and limit formulae above pointwise Kan extensions.
+When $\D$ and $\E$ are locally small, we call Kan extensions that can be calculated by the colimit and limit formulae above pointwise Kan extensions.
 In \cite{CatContext}, Riehl says the consensus among category theorists is that the important Kan extensions are the pointwise Kan extensions and quotes \cite[§4]{Kelly}:
 ``Our present choice of nomenclature is based on our failure to find a single instance where a weak Kan extension plays any mathematical role whatsoever.''
-This thesis is no different, and we will only care about pointwise Kan extensions from here on out.
+This thesis is no different; we will only care about pointwise Kan extensions from here on out.
 We will see that there are analogous limit formulae for Kan extensions in $\infty$-categories which are central to most of the proofs in this thesis.
-Before we extend the theory Kan extensions from ordinary categories to the world of $\infty$-categories, we will consider some important examples, but first observe that Theorem \ref{ptwiseKan} gives the following immmediate consequence:
+Before we extend the theory Kan extensions from ordinary categories to the world of $\infty$-categories, we will consider some important examples, but first observe that Theorem \ref{ptwiseKan} gives the following immediate consequence:
 \begin{corollary}
     If $\C$ is small and $\D$ is locally small, then for a functor $K:\C \to \D$ we have:
     \begin{enumerate}
@@ -191,11 +191,11 @@ A very useful result about Kan extensions of full subcategories is their transit
 \begin{proposition}[Transitivity of Kan extensions {\cite[Proposition 4.3.2.8]{HTT}}]\label{4.3.2.8}
     For a functor $F: \A\to\C$ of $\infty$-categories where $\A^0 \subseteq \A^1$ are full subcategories of $\A$, if $F|_{\A^1}$ is left Kan extended from $\A^0$, then $F$ is left Kan extended from $\A^1$ if and only if it is left Kan extended from $\A^0$.
 \end{proposition}
-In the previous subsection we defined Kan extensions as functors together with natural transformations satisfying certain universal properties.
+In the previous subsection, we defined Kan extensions as functors together with natural transformations satisfying certain universal properties.
 While there is a similar notion of a universal property for the $\infty$-categorical Kan extensions, there are some details we have suppressed.
 Let $F : \C \to \D$ be a functor of $\infty$-categories, let $F_0$ be the restriction to some full subcategory $C^{0}$ of $\C$ and $i$ be the inclusion $\C^{0} \hookrightarrow \C$.
-Then, if $F$ is left Kan extended from $F_0$ there certainly is a natural transformation $F_0 \to F \circ i$ ``belonging'' to this Kan extension like we defined for $1$-categories, but we have chosen to omit it because it is an isomorphism in this case where we Kan extend along the inclusion of a full subcategory.
-For Kan extensions along general functors, however, this natural transformation is no longer necessarily an isomorphism so it has to be part of the specified data.
+Then, if $F$ is left Kan extended from $F_0$ there certainly is a natural transformation $F_0 \to F \circ i$ ``belonging'' to this Kan extension as we defined for $1$-categories. However, we have chosen to omit it because it is an isomorphism in this case where we Kan extend along the inclusion of a full subcategory.
+For Kan extensions along general functors, however, this natural transformation is no longer necessarily an isomorphism, so it has to be part of the specified data.
 Following Lurie's Kerodon, we define the left Kan extension along a general functor of $\infty$-categories:
 \begin{definition}[{\cite[\href{https://kerodon.net/tag/02YC}{Variant 02YC}]{kerodon}}]
     Let $F : \C \to \D$ be a functor of $\infty$-categories.
