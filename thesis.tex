@@ -20,21 +20,25 @@
 \begin{document}
 
 \tableofcontents
-\listoftodos
+%\listoftodos
 %\printglossaries
 %{Verdier Duality for stable $\infty$-categories}
-\subfile{chapters/introduction.tex}
-\chapter{$\infty$-categories}
+\subfile{chapters/abstract.tex}
+\chapter*{Acknowledgements}
+\chapter*{Introduction}
+\subfile{chapters/introduction/intro.tex}
+\chapter{$\infty$-categories}\label{infcatchap}
 \subfile{chapters/infcats/infcats.tex}
-\chapter{Limits and Colimits}
+\chapter{Limits and Colimits}\label{limscolims}
 \subfile{chapters/lims_colims/lims_colims.tex}
 \subfile{chapters/lims_colims/cofinality.tex}
-\subfile{chapters/lims_colims/Kan.tex}
 \subfile{chapters/lims_colims/stable.tex}
-\chapter{Sheaves and K-sheaves}
+\chapter{Kan Extensions}\label{kanchap}
+\subfile{chapters/lims_colims/Kan.tex}
+\chapter{Sheaves and K-sheaves}\label{sheavescap}
 \subfile{chapters/sheaves/K-sheaves.tex}
 \subfile{chapters/sheaves/alternative.tex}
-\chapter{Verdier Duality}
+\chapter{Verdier Duality}\label{verdiercap}
 \subfile{chapters/verdier/verdier.tex}
 \chapter*{Bibliography}
 \printbibliography[heading=none]
