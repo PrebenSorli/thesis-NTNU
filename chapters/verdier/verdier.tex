@@ -146,11 +146,11 @@ By corollary \ref{7.3.4.10} we can rewrite theorem \ref{VerdierDuality} in terms
 We will prove Theorem \ref{KVerdierDuality} as a simple corollary of the following proposition.
 \begin{proposition}[{\cite[Proposition 5.5.5.7]{HA}}]\label{5.5.5.7}
     Let $X$ be a locally compact Hausdorff space, $\C$ be a stable $\infty$-category with small limits and colimits and $M$ be as in \ref{5.5.5.5}.
-    Let $F \colon \Nerve(M) \to \C$ be a functor.
+    Let $F \colon M \to \C$ be a functor.
     Then the following conditions are equivalent:
     \begin{enumerate}
-        \item The restriction $(F|\Nerve(M_0))^{op}$ determines a $\K$-sheaf $\Nerve(\K(X))^{op} \to \C^{op}$, the restriction $F|\Nerve(M_1)$ is zero, and $F$ is left Kan extended from $\Nerve(M_0 \cup M_1)$.
-        \item The restriction $F|\Nerve(M_2)$ determines a $\K$-sheaf $\Nerve(\K(X))^{op} \to \C$, the restriction $F|\Nerve(M_1)$ is zero, and $F$ is right Kan extended from $\Nerve(M_1 \cup M_2)$.
+        \item The restriction $F|_{M_0}^{op}$ determines a $\K$-sheaf $\K(X)^{op} \to \C^{op}$, the restriction $F|_{M_1}$ is zero, and $F$ is left Kan extended from $M_0 \cup M_1$.
+        \item The restriction $F|_{M_2}$ determines a $\K$-sheaf $\K(X)^{op} \to \C$, the restriction $F|_{M_1}$ is zero, and $F$ is right Kan extended from $M_1 \cup M_2$.
     \end{enumerate}
 \end{proposition}
 The proof of this is a bit long, so we will split the theorem into a few lemmas keeping the notation of the theorem statement.
@@ -163,14 +163,14 @@ The proof of this is a bit long, so we will split the theorem into a few lemmas 
     \prepp{Is this good enough? Should probably say why we can safely swap.}
 \end{proof}
 \begin{lemma}
-    Let $\D$ denote the full subcategory of $\Fun(\Nerve(M'), \C)$ spanned by those functors $F$ that satisfy the following conditions:
+    Let $\D$ denote the full subcategory of $\Fun(M', \C)$ spanned by those functors $F$ that satisfy the following conditions:
     \begin{enumerate}
-        \item $F|\Nerve(M_2)$ is a $\K$-sheaf on $X$.
-        \item $F|\Nerve(M'_2)$ is a right Kan extension of $F|\Nerve(M_2)$.
-        \item $F|\Nerve(M'_1)$ is zero.
-        \item $F|\Nerve(M')$ is a right Kan extension of $F|\Nerve(M'_1 \cup M'_2)$.
+        \item $F|_{M_2}$ is a $\K$-sheaf on $X$.
+        \item $F|_{M'_2}$ is a right Kan extension of $F|_{M_2}$.
+        \item $F|_{M'_1}$ is zero.
+        \item $F|_{M'}$ is a right Kan extension of $F|_{M'_1 \cup M'_2}$.
     \end{enumerate}
-    Then any $F'\in \D$ can be restricted to a sheaf $\F \in \Shv(X;\C)$ and is given by the fiber $\Gamma_K(X;\F)$ when restricted to $\Nerve(M_0)$.
+    Then any $F'\in \D$ can be restricted to a sheaf $\F \in \Shv(X;\C)$ and is given by the fiber $\Gamma_K(X;\F)$ when restricted to $M_0$.
 \end{lemma}
 \begin{proof}
     Observe that we have a bijection between $\Open(X)^{op}$ and the partially ordered set of closed subsets of $X$ by sending $\Open(X) \ni U \mapsto (X - U)$ and we have a natural inclusion $\Open(X)^{op} \hookrightarrow M_2'$.
@@ -197,11 +197,11 @@ The proof of this is a bit long, so we will split the theorem into a few lemmas 
             \arrow[from=1-3, to=3-3]
             \arrow[from=2-4, to=2-7]
         \end{tikzcd}\]
-    Here we have abused notation to write the fiber product $\Nerve(M')_{(0, K) /} \times_{\Nerve(M')}\Nerve\left(M_1^{\prime} \cup M_2^{\prime}\right)$ as $ \Nerve(M_1'\cup M_2')_{(0,K)/}$. By \ref{superlemma} $i$ is left cofinal if and only if for every $(m,A) \in \Nerve(M_1'\cup M_2')_{(0,K)/}$ the fiber product
+    Here we have abused notation to write the fiber product $M'_{(0, K) /} \times_{M'}M_1^{\prime} \cup M_2^{\prime}$ as $ (M_1'\cup M_2')_{(0,K)/}$. By \ref{superlemma} $i$ is limit-cofinal if and only if for every $(m,A) \in (M_1'\cup M_2')_{(0,K)/}$ the fiber product
     \[\begin{tikzcd}
-            {\mathrm{PB}} && {\left(\Nerve(M_1' \cup M_2')_{(0,K)/}\right)_{/(m,A)}} \\
+            {\mathrm{PB}} && {\left((M_1'\cup M_2')_{(0,K)/}\right)_{/(m,A)}} \\
             \\
-            {\Lambda_2^2} && {\Nerve(M_1'\cup M_2')_{(0,K)/}}
+            {\Lambda_2^2} && {(M_1'\cup M_2')_{(0,K)/}}
             \arrow[from=1-1, to=1-3]
             \arrow["j", hook',from=1-3, to=3-3]
             \arrow["i", hook,from=3-1, to=3-3]
@@ -214,7 +214,7 @@ The proof of this is a bit long, so we will split the theorem into a few lemmas 
     %   Corollary 3.4 here might be needed.}
     %\TODO{Make above remark precise.} the pullback is exactly the subset of $\Lambda_2^2 \times \left(\Nerve(M_1' \cup M_2')_{(0,K)/}\right)_{/(m,A)}$ containing those $(t, (r, B))$ such that $i(t)=j(r,B)$.
     %Objects in $\left(\Nerve(M_1' \cup M_2')_{(0,K)/}\right)_{A/}$ are of the form $(n, B) \leq (m, A)$.
-    $j$ is just the inclusion given by sending objects $((0,K) \leq (r, B) \leq (m,A))$ in $\left(\Nerve(M_1' \cup M_2')_{(0,K)/}\right)_{/(m,A)}$ to objects $((0,K) \leq (r,B))$ in ${\Nerve(M_1'\cup M_2')_{(0,K)/}}$.
+    $j$ is just the inclusion given by sending objects $((0,K) \leq (r, B) \leq (m,A))$ in $\left((M_1' \cup M_2')_{(0,K)/}\right)_{/(m,A)}$ to objects $((0,K) \leq (r,B))$ in ${(M_1'\cup M_2')_{(0,K)/}}$.
     Since $i(a)=(2,\emptyset), i(b)=(1,K)$ and $i(c)=(2,K)$ and the pullback of a mono is mono, $\mathrm{PB}$ has to be a subcategory of
     \[\begin{tikzcd}
             && {(b,(1,K))} \\
@@ -227,18 +227,18 @@ The proof of this is a bit long, so we will split the theorem into a few lemmas 
     If $r=1$ we know $(1,K) \leq (1,B)$ and have no arrows from $(2,\emptyset)$ or $(2,K)$ to $(1,B)$.
     If $r=2$ we must have $(2,\emptyset) \leq (2,K) \leq (2,B)$, so the pullback is always weakly contractible.
     %Observe that by condition $4.$ we can write $F'(t, T)$ as $\lim_{(s, S) \in (t, Y)}F'|_{\Nerve(M_1'\cup M_2')}(s,S)$.
-    By condition $4.$, $F'|_{\Nerve(M')}$ is right Kan extended from $F'|_{\Nerve(M_1' \cup M_2')}$, which by definition \ref{KanDef} means
+    By condition $4.$, $F'|_{M'}$ is right Kan extended from $F'|_{M_1' \cup M_2'}$, which by definition \ref{KanDef} means
     \[
         (M_1' \cup M_2')^{\triangleleft}_{(0,K)/} \hookrightarrow M'^{\triangleleft}_{(0,K)/}\rightarrow M' \xrightarrow{F'} \C
     \]
     is a limit diagram.
     In other words, we have
     \[
-        \lim_{\Nerve(M_1' \cup M_2')_{(0,K)/}}F' = F'(0,K)
+        \lim_{(M_1' \cup M_2')_{(0,K)/}}F' = F'(0,K)
     \]
-    and by the left cofinality of $i$ we get
+    and by the limi-cofinality of $i$ we get
     \[
-        F'(0,K) = \lim_{\Nerve(M_1' \cup M_2')_{(0,K)/}}F' = \lim_{\Lambda_2^2}(F'\circ i) = \lim F'((2,\emptyset) \rightarrow (2,K) \leftarrow (1,K))
+        F'(0,K) = \lim_{(M_1' \cup M_2')_{(0,K)/}}F' = \lim_{\Lambda_2^2}(F'\circ i) = \lim F'((2,\emptyset) \rightarrow (2,K) \leftarrow (1,K))
     \]
 
     which means condition $4.$ is equivalent to requiring that $F'$ composed with $\varphi(0,K)$ yields another pullback diagram
@@ -261,21 +261,21 @@ The proof of this is a bit long, so we will split the theorem into a few lemmas 
     \[
         F'(0,K)=F(0,K)\simeq \fib(F'(2,\emptyset) \to F'(2,K)) \simeq \fib(\F(X) \to \F(X-K)) = \Gamma_K(X;\F)
     \]
-    which completes the proof that $F'|_{\Nerve(M_0)}(K)$ is given by $\Gamma_K(X;\F)$.
+    which completes the proof that $F'|_{M_0}(K)$ is given by $\Gamma_K(X;\F)$.
 \end{proof}
 \begin{corollary}
-    In particular, $F\colon\Nerve(M) \to \C$ satisfying condition $2.$ in \ref{5.5.5.7} is given by $\Gamma_K(X;\F)$ when restricted to $\Nerve(M_0)$.
+    In particular, $F\colon M \to \C$ satisfying condition $2.$ in \ref{5.5.5.7} is given by $\Gamma_K(X;\F)$ when restricted to $M_0$.
 \end{corollary}
 \begin{proof}
-    Observe first that $M$ is a full subcategory of $M'$ and then that $\MAP(\Nerve(M) \to \C)$ is a full subcategory of $\D$.
+    Observe first that $M$ is a full subcategory of $M'$ and then that $\MAP(M \to \C)$ is a full subcategory of $\D$.
     By the fact that the inclusion of full subcategories is fully faithful and Kan extending along fully faithful functors give actual on the nose extensions by Proposition \ref{KanFullyFaithInfty}, we can extend $F$ to $\D$.
 \end{proof}
 \begin{lemma}
-    Let $F|_{\Nerve(M_0)} = \G$.
-    Then $\G^{op}\colon \Nerve(M_0)^{op} \to \C^{op}$ is a $\K$-sheaf valued in $\C^{op}$.
+    Let $F|_{M_0} = \G$.
+    Then $\G^{op}\colon M_0^{op} \to \C^{op}$ is a $\K$-sheaf valued in $\C^{op}$.
 \end{lemma}
 \begin{proof}
-    Here $\G^{op}$ does the same on objects as $\G$ but we think of it as a functor $\Nerve(M_0)^{op}\to \C^{op}$.
+    Here $\G^{op}$ does the same on objects as $\G$ but we think of it as a functor $M_0^{op}\to \C^{op}$.
     We must show that it satisfies the following three properties:
     \begin{enumerate}
         \item $\G(\emptyset)$ is a zero object, because $\G(\emptyset)=\fib(\F(X)\to \F(X-\emptyset))=0$.
@@ -326,30 +326,30 @@ The proof of this is a bit long, so we will split the theorem into a few lemmas 
                   \end{tikzcd}\]
               Since the partially ordered set $\{K'\in \K(X) | K\Subset K'\}$ is filtered it is weakly contractible and hence $\theta'$ is an equivalence.
               Since $\F$ is a sheaf and the set $\{X-K' | K \Subset K'\}$ is a covering sieve on $X-K'$, $\theta''$ is also an equivalence.
-              As we have shown that $\theta'$ and $\theta''$ are equivalences, $\theta$ must also be an equivalence, and we have shown that $\G^{op}$ determines a $\K$-sheaf $\Nerve(\K(X)^{op} \to \C^{op})$.
+              As we have shown that $\theta'$ and $\theta''$ are equivalences, $\theta$ must also be an equivalence, and we have shown that $\G^{op}$ determines a $\K$-sheaf $(\K(X)^{op} \to \C^{op})$.
     \end{enumerate}
 \end{proof}
 To complete the proof of Proposition \ref{5.5.5.7}, we must show the following lemma:
 \begin{lemma}
-    $F$ is left Kan extended from $F|_{\Nerve(M_0\cup M_1)}$.
+    $F$ is left Kan extended from $F|_{M_0\cup M_1}$.
 \end{lemma}
 \begin{proof}
-    $F$ is left Kan extended from $F|_{\Nerve(M_0\cup M_1)}$.
+    $F$ is left Kan extended from $F|_{M_0\cup M_1}$.
     Let $M''=\{(i,S) \in M_0 \cup M_1 | (i,S)\in \K(X)\}$.
-    We can observe that $F|_{\Nerve(M_0 \cup M_1)}$ is left Kan extended from $F|_{\Nerve(M'')}$ ($F$ is zero on $M_1$).
-    By Proposition \ref{4.3.2.8} it is enough to show that $F$ is a left Kan extension of $F|_{\Nerve(M'')}$, and this is enough to check at every $(2,S) \in M_2$.
-    We will instead show that $F'|_{\Nerve(M'' \cup M_2')}$ is a left Kan extension of $F|_{\Nerve(M'')}$ and for this we define
+    We can observe that $F|_{M_0 \cup M_1}$ is left Kan extended from $F|_{M''}$ ($F$ is zero on $M_1$).
+    By Proposition \ref{4.3.2.8} it is enough to show that $F$ is a left Kan extension of $F|_{M''}$, and this is enough to check at every $(2,S) \in M_2$.
+    We will instead show that $F'|_{M'' \cup M_2'}$ is a left Kan extension of $F|_{M''}$ and for this we define
     \[B:=\{(2, X- U) \subseteq M_2' \mid U \in \Open(X) | \overline{U} \in \K(X)\} .\]
     By Proposition \ref{4.3.2.8} it is enough to show that
     \begin{enumerate}[label=(\alph*)]
-        \item $F'|_{\Nerve(M'' \cup M_2')}$ is a left Kan extension of $F'|_{\Nerve(M'' \cup B)}$.
+        \item $F'|_{M'' \cup M_2'}$ is a left Kan extension of $F'|_{M'' \cup B}$.
 
 
               First observe that $M''$ and $M_2'$ are disjoint so it is enough to check that for every
 
               $(2,X-K)\in M_2' - B$, the following
               \[
-                  \Nerve(M'' \cup B)^{\triangleright}_{/(2,X-K)} \hookrightarrow  \Nerve(M'' \cup M_2')^{\triangleright}_{/(2,X-K)} \to \Nerve(M''\cup M_2') \to \C
+                  (M'' \cup B)^{\triangleright}_{/(2,X-K)} \hookrightarrow  (M'' \cup M_2')^{\triangleright}_{/(2,X-K)} \to (M''\cup M_2') \to \C
               \]
               is a colimit diagram.
               According to Theorem \ref{superlemma} we can restrict the colimit from
@@ -366,11 +366,11 @@ To complete the proof of Proposition \ref{5.5.5.7}, we must show the following l
                   \end{tikzcd}\]
               is weakly contractible.
               As this is just the partially ordered set $\{(2,X-U)\in B | (i,S) \leq (2,X-U) \leq (2,X-K)\}$ it is weakly contractible by the usual argument (it is nonempty and stable under finite unions hence filtered).
-              This means that it is enough to show that $F'|_{\Nerve(M_2')}$ is left Kan extended from $B$.
-              Assumption $2.$ says that $F|_{\Nerve(M_2)}$ determines a $\K$-sheaf, $F|_{\Nerve(M_1)}=0$ and that $F$ is a right Kan extension from $\Nerve(M_1 \cup M_2)$.
+              This means that it is enough to show that $F'|_{M_2'}$ is left Kan extended from $B$.
+              Assumption $2.$ says that $F|_{M_2}$ determines a $\K$-sheaf, $F|_{M_1}=0$ and that $F$ is a right Kan extension from $M_1 \cup M_2$.
               Identifying $M_2 = \{(2, S) | (X-S) \in \K(X)\}$ with $\K(X)^{op}$ we see that we are in the situation of Theorem \ref{7.3.4.9}.
-              As $M_2' = \{(2,S) | (X-S) | \in \Open(X) \cup \K(X)\}$ we can identify it with $(\Open(X) \cup \K(X))^{op}$ and by Theorem \ref{7.3.4.9} we get that $F'|_{\Nerve(M_2')}$ is a left Kan extension of $F'|_{\Nerve(\Open(X)^{op})}$.
-              By observing that for a $K \in \K(X)$ the collection of open neighborhoods of $K$ with compact closure is right cofinal in the collection of all open neighborhoods of $K$ in $X$ we get that $F'|_{\Nerve(M_2')}$ is furthermore left Kan extended from $B$, which was what we wanted to show.
+              As $M_2' = \{(2,S) | (X-S) | \in \Open(X) \cup \K(X)\}$ we can identify it with $(\Open(X) \cup \K(X))^{op}$ and by Theorem \ref{7.3.4.9} we get that $F'|_{M_2'}$ is a left Kan extension of $F'|_{\Open(X)^{op}}$.
+              By observing that for a $K \in \K(X)$ the collection of open neighborhoods of $K$ with compact closure is colimit-cofinal in the collection of all open neighborhoods of $K$ in $X$ we get that $F'|_{M_2'}$ is furthermore left Kan extended from $B$, which was what we wanted to show.
               \[\begin{tikzcd}
                       B && {\Open(X)^{op}} && \C \\
                       \\
@@ -380,14 +380,14 @@ To complete the proof of Proposition \ref{5.5.5.7}, we must show the following l
                       \arrow[from=3-4, to=1-5]
                       \arrow["i", hook, from=1-1, to=1-3]
                   \end{tikzcd}\]
-              Here we have used that we calculate Kan extensions as colimits, so $i$ being right cofinal over some fixed $K$ means restricting the colimit from $\Open(X)^{op}$ back to $B$ is an equivalence.
-        \item $F'|_{\Nerve(M'' \cup B)}$ is a left Kan extension of $F|_{\Nerve(M'')}$
+              Here we have used that we calculate Kan extensions as colimits, so $i$ being colimit-cofinal over some fixed $K$ means restricting the colimit from $\Open(X)^{op}$ back to $B$ is an equivalence.
+        \item $F'|_{M'' \cup B}$ is a left Kan extension of $F|_{M''}$
               % When using 4.2.3 we are probably using 4.2.3.9 and 4.2.3.10.
-              Fix $U \in \Open(X)$ such that $\overline{U} \in \K(X)$. By \ref{KanDef} we want to show that $F'(2, X-U)$ is a colimit of the diagram $F'|_{\Nerve(M'')/(2,X-U)}$.
+              Fix $U \in \Open(X)$ such that $\overline{U} \in \K(X)$. By \ref{KanDef} we want to show that $F'(2, X-U)$ is a colimit of the diagram $F'|_{M''/(2,X-U)}$.
               For $K \in \K(X)$ denote by $M_K''$ the subset of $M''$ consisting of pairs $(i,S)$ such that $(0,K)\leq (i,S) \leq (2,X-U)$.
-              Now, observe that $\Nerve(M'')_{/(2,X-U)}$ is a filtered colimit of $\{\Nerve(M_K'')\}_{K\in \K(X)_{U/}}$.
-              By \cite[4.2.3]{HTT} we can identify $\colim(F'|_{\Nerve(M'')})_{/(2,X-U)}$ with the filtered colimit of the diagram $\{\colim(F'|_{\Nerve(M_K'')})\}_K$.
-              This means that we are reduced to showing that for every $K \in \K(X)_{U/}$, $F'$ exhibits $F'(2,X-U)$ as a colimit of $F'|_{\Nerve(M_K'')}$.
+              Now, observe that $M''_{/(2,X-U)}$ is a filtered colimit of $\{M_K''\}_{K\in \K(X)_{U/}}$.
+              By \cite[4.2.3]{HTT} we can identify $\colim(F'|_{M''})_{/(2,X-U)}$ with the filtered colimit of the diagram $\{\colim(F'|_{M_K''})\}_K$.
+              This means that we are reduced to showing that for every $K \in \K(X)_{U/}$, $F'$ exhibits $F'(2,X-U)$ as a colimit of $F'|_{M_K''}$.
               By Theorem \ref{superlemma} the diagram
               \[\begin{tikzcd}
                       {(0,K-U)} && {(1,K-U)} \\
@@ -396,7 +396,7 @@ To complete the proof of Proposition \ref{5.5.5.7}, we must show the following l
                       \arrow[from=1-1, to=1-3]
                       \arrow[from=1-1, to=3-1]
                   \end{tikzcd}\]
-              is left cofinal in $\Nerve(M_K'')$ and hence it is enough to show that
+              is limit-cofinal in $\Nerve(M_K'')$ and hence it is enough to show that
               \[\begin{tikzcd}
                       {F'(0,K-U)} && {F'(1,K-U)} \\
                       \\
@@ -462,7 +462,7 @@ To complete the proof of Proposition \ref{5.5.5.7}, we must show the following l
 \end{proof}
 We can now prove Verdier Duality (Theorem \ref{VerdierDuality}):
 \begin{proof}
-    Let $\mathcal{E}(\C) \subseteq \Fun(\Nerve(M))$ be the full subcategory spanned by those functors satisfying the conditions of Proposition \ref{5.5.5.7} and observe that the inclusions $M_0 \hookrightarrow M \hookleftarrow M_2$ give restrictions
+    Let $\mathcal{E}(\C) \subseteq \Fun(M)$ be the full subcategory spanned by those functors satisfying the conditions of Proposition \ref{5.5.5.7} and observe that the inclusions $M_0 \hookrightarrow M \hookleftarrow M_2$ give restrictions
     \[
         \Shv_{\K}(X;\C^{op}) \xleftarrow{\theta} \mathcal{E}(\C)^{op} \xrightarrow{\theta'} \Shv_{\K}(X;\C)^{op}.
     \]
@@ -502,9 +502,9 @@ We can now prove Verdier Duality (Theorem \ref{VerdierDuality}):
     % 	\arrow["\theta"', from=3-3, to=1-3]
     % \end{tikzcd}\]
     Let $\D$ be as in the proof of Lemma \ref{5.5.5.7}.
-    By Theorem \ref{7.3.4.9} the restriction $\D\to \Fun(\Nerve(\Open(X))^{op}, \C)$ is a categorical equivalence onto $\Shv(X;\C)$, since we Kan extend along the fully faithful inclusion of $\Shv(X;\C)$ (it is a full subcategory of $\Fun(\Nerve(\Open(X))^{op}, \C)$.)
+    By Theorem \ref{7.3.4.9} the restriction $\D\to \Fun(\Open(X)^{op}, \C)$ is a categorical equivalence onto $\Shv(X;\C)$, since we Kan extend along the fully faithful inclusion of $\Shv(X;\C)$ (it is a full subcategory of $\Fun(\Open(X)^{op}, \C)$.)
     \newline
-    In the other direction we restrict $\D \to \Fun(\Nerve(M_0), \C) \simeq \Fun(\K(X), \C) \simeq \Fun(\K(X)^{op}, \C^{op})^{op}$ and $\psi' \circ \psi$ is given by the composition $\Shv(X;C) \to \D \to \Fun(\K(X)^{op}, \C^{op})^{op}$ and as we saw in the proof of Lemma \ref{5.5.5.7}, restriction from $\D$ to functors from $\Nerve(M_0)$ is given by $\Gamma_K(X;\F)$.
+    In the other direction we restrict $\D \to \Fun(M_0, \C) \simeq \Fun(\K(X), \C) \simeq \Fun(\K(X)^{op}, \C^{op})^{op}$ and $\psi' \circ \psi$ is given by the composition $\Shv(X;C) \to \D \to \Fun(\K(X)^{op}, \C^{op})^{op}$ and as we saw in the proof of Lemma \ref{5.5.5.7}, restriction from $\D$ to functors from $M_0$ is given by $\Gamma_K(X;\F)$.
     This means that $\psi' \circ \psi \colon \F \mapsto \left( K \mapsto \Gamma_K(X;\F) \right)$ so by Remark \ref{GammaKXisGammaKU} we have
     \[
         (\theta \circ \psi' \circ \psi)(\F)(U) = \colim_{K\subseteq U}(\Gamma_K(X;F)) = \colim_{K\subseteq U}(\Gamma_K(U;F)) = \Gamma_c(U;\F).

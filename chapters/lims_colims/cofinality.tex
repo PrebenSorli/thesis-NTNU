@@ -21,7 +21,7 @@ We start this section with defining the notion of cofinal maps in an $\infty$-ca
     We say a simplicial set is weakly contractible if it is weakly homotopy equivalent to $\Delta^0$.
 \end{definition}
 \begin{definition}{\cite[\href{https://kerodon.net/tag/02N1}{Definition 02N1}]{kerodon}}
-    Let \(p\colon S\to Y \in \sset \). We say $p$ is right/left cofinal if, for any right/left fibration $X\to Y$, precomposition with $p$ induces a homotopy equivalence
+    Let \(p\colon S\to Y \in \sset \). We say $p$ is colimit-cofinal/limit-cofinal if, for any right/left fibration $X\to Y$, precomposition with $p$ induces a homotopy equivalence
     \[
         \MAP_{/Y}(Y,X) \xrightarrow{\simeq} \MAP_{/Y}(S,X).
     \]
@@ -30,7 +30,7 @@ We start this section with defining the notion of cofinal maps in an $\infty$-ca
     Let $f\colon X \to Y$ be a map of simplicial sets.
     Then the following conditions are equivalent:
     \begin{enumerate}
-        \item The map $f$ is right cofinal.
+        \item The map $f$ is colimit-cofinal.
         \item For any $\infty$-category $\C$ and functor $p\colon Y \to \C$ the induced map $\C_{f/} \to \C_{(p \circ f)/}$ is a categorical equivalence.
         \item For any $\infty$-category $\C$ and colimit $\overline{p}\colon Y^{\triangleright} \to \C$, the induced map $\overline{(p \circ f)}\colon X^{\triangleright}\to \C$ is a colimit.
     \end{enumerate}
@@ -39,12 +39,12 @@ We start this section with defining the notion of cofinal maps in an $\infty$-ca
     Let $F \colon \C \to \D$ be a functor between $\infty$-categories.
     Then the following conditions are equivalent:
     \begin{enumerate}
-        \item $F$ is right cofinal,
+        \item $F$ is colimit-cofinal,
         \item for any $\infty$-category $\E$ and functor $G\colon\D\to\E$, the colimit $\colim_{\D}G$ exists if and only if the colimit $\colim_{\C}GF$ exists, and when they exist they are equivalent in $\E$;
     \end{enumerate}
     and the following conditions are equivalent:
     \begin{enumerate}
-        \item $F$ is left cofinal,
+        \item $F$ is limit-cofinal,
         \item for any $\infty$-category $\E$ and functor $G\colon\D\to\E$, the limit $\lim_{\D}G$ exists if and only if the limit $\lim_{\C}GF$ exists, and when they exist they are equivalent in $\E$.
     \end{enumerate}
 \end{corollary}
@@ -55,12 +55,12 @@ The following theorem due to Joyal remedies this by giving a very convenient way
     Let \(f\colon \C \to \D\) be a map of simplicial sets, where $\D$ is an $\infty$-category.
     Then the following conditions are equivalent:
     \begin{enumerate}
-        \item The functor $f$ is right cofinal,
+        \item The functor $f$ is colimit-cofinal,
         \item for every $D\in \D$, the simplicial set $\C\times_\D \D_{D/}$ is weakly contractible;
     \end{enumerate}
     and the following conditions are equivalent:
     \begin{enumerate}
-        \item The functor $f$ is left cofinal,
+        \item The functor $f$ is limit-cofinal,
         \item for every $D\in \D$, the simplicial set $\C\times_\D \D_{/D}$ is weakly contractible.
     \end{enumerate}
 \end{theorem}
