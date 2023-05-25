@@ -71,13 +71,13 @@ We follow Lurie's \cite{HTT} and skip right to defining Grothendieck topologies 
     \begin{enumerate}
         \item For an object $X\in \C$, the sieve $\C_{/X} \subseteq \C_{/X}$ is a covering sieve.
         \item For a morphism $f \in \Hom_{\C}(X,Y)$ and covering sieve $\C^{(0)}_{/X}$ on $Y$, $f^*\C^{(0)}_{/X}$ is a covering sieve on $X$.
-        \item For an object $X \in \C$, a covering sieve $\C^{(0)}_{/X}$ on $X$, and an arbitrary  $\C^{(1)}_{/X}$ sieve on $X$, if the pullback $f^*\C^{(1)}_{/X}$ is a covering sieve on $Y$ for any $f: X \to Y$, then $\C^{(1)}_{/X}$ is a covering sieve on $X$.
+        \item For an object $X \in \C$, a covering sieve $\C^{(0)}_{/X}$ on $X$, and an arbitrary  $\C^{(1)}_{/X}$ sieve on $X$, if the pullback $f^*\C^{(1)}_{/X}$ is a covering sieve on $Y$ for any $f\colon X \to Y$, then $\C^{(1)}_{/X}$ is a covering sieve on $X$.
     \end{enumerate}
 \end{definition}
 For a topological space $X$ we can equip the poset $\Open(X)$ of opens with a Grothendieck topology in which the covering sieves on $U$ are those sieves $U_{\alpha} \subseteq U$ such that $U = \bigcup_{\alpha}U_{\alpha}$.
 \begin{definition}[{\cite[Definition 7.3.3.1]{HTT}}]\label{sheaf_on_top}
     Let $X \in \mathrm{Top}$ and $\C$ an $\infty$-category.
-    We define a $\C$-valued sheaf on $X$ to be a presheaf $\F: \Open(X)^{op} \to \C$ such that for every $U\in \Open(X)$ and every covering sieve $\mathscr{W} \subseteq \Open(X)_{/U}$, the diagram
+    We define a $\C$-valued sheaf on $X$ to be a presheaf $\F\colon \Open(X)^{op} \to \C$ such that for every $U\in \Open(X)$ and every covering sieve $\mathscr{W} \subseteq \Open(X)_{/U}$, the diagram
     \[
         \Nerve(\mathscr{W})^{\triangleright} \hookrightarrow \Nerve(\Open(X)_{/U})^{\triangleright} \rightarrow \Nerve(\Open(X))\xrightarrow{\F}\C^{op}
     \]
@@ -89,7 +89,7 @@ For a topological space $X$ we can equip the poset $\Open(X)$ of opens with a Gr
         \Nerve((\mathscr{W})^{op})^{\triangleleft} \hookrightarrow \Nerve((\Open(X)_{/U})^{op})^{\triangleleft} \rightarrow \Nerve(\Open(X))^{op}\xrightarrow{\F}\C
     \]
 \end{remark}
-Equivalently one can define sheaves as the presheaves $\F : \Open(X)^{op} \to \C$ such that for any open cover $\{U_{\alpha}\}$ of an open set $U \in \Open(X)$, the map
+Equivalently one can define sheaves as the presheaves $\F \colon \Open(X)^{op} \to \C$ such that for any open cover $\{U_{\alpha}\}$ of an open set $U \in \Open(X)$, the map
 \[
     \F(U) \to \lim_V \F(V)
 \]
@@ -140,14 +140,14 @@ These are sheaves defined on the collection of compact subsets instead of the op
 \end{lemma}
 \begin{proof}
     We begin by saying that an open covering $\W$ of $X$ is good if a $\K$-sheaf $\F$ is right Kan extended from the restriction to $\K_{\W}(X)^{op}$.
-    Furthermore, we observe that a covering $\W$ is good if the open sets $\{K \cap W | W \in \W\}$ form a good covering for every $K\in \K(X)$.
+    Furthermore, we observe that a covering $\W$ is good if the open sets $\{K \cap W \mid W \in \W\}$ form a good covering for every $K\in \K(X)$.
     This means that proving any covering of $X$ is good, reduces to showing any covering of a compact topological space $X$ is good, and hence we can assume the covering has a finite subcovering.
     \newline
     We will use induction on $n \geq 0$.
     We want to show that if $\W$ is a collection of open subsets of $X$ such that there exists $W_1, \cdots ,W_n \in \W$ with $\bigcup_{1 \leq i \leq n}W_i = X$, then $\W$ is a good covering of $X$.
     For $n=0$, we must only show $\F(\emptyset)$ is terminal, but this is given by definition of $\F$ being a $\K$-sheaf.
     \newline
-    By transitivity of Kan extensions (Proposition \ref{4.3.2.8}), if $\W \subseteq \W'$ are two coverings of $X$ such that for every $W' \in \W'$ the covering $\{ W \cap W' | W \in \W\}$ is a good covering of $\W'$, then $\W'$ is a good covering of $X$ if and only if $\W$ also is.
+    By transitivity of Kan extensions (Proposition \ref{4.3.2.8}), if $\W \subseteq \W'$ are two coverings of $X$ such that for every $W' \in \W'$ the covering $\{ W \cap W' \mid W \in \W\}$ is a good covering of $\W'$, then $\W'$ is a good covering of $X$ if and only if $\W$ also is.
     \newline
     This means that for $n>0$ it suffices to show that $\W' = \W \cup V$ is a good covering of $X$, where $V = \bigcup_{2 \leq i \leq n}W_i$.
     Observe now that $\W'$ contains $W_1$ and $V$ which together cover $X$ and using transitivity of Kan extensions once more further reduces the proof to $n = 2$ and showing that $\W = \{W_1, W_2\}$ is a good covering.
@@ -155,19 +155,72 @@ These are sheaves defined on the collection of compact subsets instead of the op
     By definition of right Kan extensions along inclusions we must show that $\F(K)$ is the limit of $\F|_{\Nerve(\K_{\W}(X))^{op}}$ for any compact set $K \in \K(X)$.
     For a compact set $K\in \K(X)$ we define
     \[
-        P = \{(K_1, K_2) \in \K(X)\times \K(X) | K_1 \subseteq W_1, K_2 \subseteq W_2 \text{ and } K_1 \cup K_2 = K\}
+        P = \{(K_1, K_2) \in \K(X)\times \K(X) \mid K_1 \subseteq W_1, K_2 \subseteq W_2 \text{ and } K_1 \cup K_2 = K\}
     \]
     and observe that this set is filtered as a poset ordered by inclusion in the sense of \ref{filteredposet} so it is furthermore weakly contractible by Proposition \ref{5.3.1.20}.
     Denoting an element $\alpha = (K_1, K_2)$ in $P$, we define $\K_{\alpha}$ as the set of compacts belonging to either $K_1$ or $K_2$ and note that a set $K' \subseteq K$ belongs to $\K_{\W}(X)$ if and only if it belongs to some $\K_{\alpha}$.
     Observe also that the inclusion $(K_1 \hookleftarrow K_1 \cap K_2 \hookrightarrow K_2 ) \hookrightarrow \K_{\alpha}$ is left cofinal by Theorem \ref{superlemma} and hence, by $\F_{\K}$ being a $\K$-sheaf, condition 2. implies $\F(K)$ is a limit of the diagram $\F|_{\Nerve(\K_{\alpha})^{op}}$ for every $\alpha \in P$.
-    Now, we observe that we can use Proposition \cite[4.2.3.4.]{HTT} to calculate the limit from $\Nerve(K_{\W}(X))^{op}$ as a limit of limits:
+    Now, we observe that we can use the theory of cocartesian fibrations to calculate the limit from $\Nerve(K_{\W}(X))^{op}$ as a limit of limits.
+
+
+    Let $p \colon E \to P$ be a cocartesian fibration associated to the functor $P \to \mathrm{Cat}_{\infty}$ which sends $\alpha \in P$ to the $\infty$-category $\Nerve(\K_{\alpha})$.
+    Then it is known that for a functor $\varphi\colon E \to \C$ we can calculate the colimit of $\varphi$ over $E$ as the colimit of $ p_!\varphi$ over $P$ where $p_!\varphi$ is the left Kan extension of $\varphi$ along $p$.
+    Moreover, for a cocartesian fibration, we know the map $E_{\alpha} \to E_{/\alpha}$ is right cofinal.
+    To see how we obtain this map, we identify the fiber $E_{\alpha}$ of $p$ with $\K_{\alpha}$ and consider the following diagram:
+    % https://q.uiver.app/#q=WzAsOCxbMywwLCJFIl0sWzYsMCwiXFxDIl0sWzQsMSwiXFxLX3tcXFd9KFgpIl0sWzMsMywiUCJdLFswLDMsIlxcYWxwaGEiXSxbMCwwLCJLX3tcXGFscGhhfSJdLFsxLDEsIkVfey9cXGFscGhhfSJdLFsxLDIsIlBfey9cXGFscGhhfSJdLFswLDEsIlxcdmFycGhpIl0sWzAsMl0sWzAsMywicCIsMl0sWzMsMSwicF8hXFx2YXJwaGkiLDIseyJjdXJ2ZSI6Mn1dLFsyLDFdLFs0LDMsIiIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzUsMF0sWzUsNF0sWzUsNiwiIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsN10sWzcsM10sWzYsN10sWzYsMF0sWzYsMywiIiwxLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lciJ9fV1d
+    \[\begin{tikzcd}
+            {K_{\alpha}} &&& E &&& \C \\
+            & {E_{/\alpha}} &&& {\K_{\W}(X)} \\
+            & {P_{/\alpha}} \\
+            \alpha &&& P
+            \arrow["\varphi", from=1-4, to=1-7]
+            \arrow[from=1-4, to=2-5]
+            \arrow["p"', from=1-4, to=4-4]
+            \arrow["{p_!\varphi}"', curve={height=12pt}, from=4-4, to=1-7]
+            \arrow[from=2-5, to=1-7]
+            \arrow[hook, from=4-1, to=4-4]
+            \arrow[from=1-1, to=1-4]
+            \arrow[from=1-1, to=4-1]
+            \arrow["{\exists!}",dashed, from=1-1, to=2-2]
+            \arrow[from=4-1, to=3-2]
+            \arrow[from=3-2, to=4-4]
+            \arrow[from=2-2, to=3-2]
+            \arrow[from=2-2, to=1-4]
+            \arrow["\lrcorner"{anchor=center, pos=0.01}, draw=none, from=2-2, to=4-4]
+        \end{tikzcd}\]
+    The map $g\colon K_{\alpha} \to E_{/\alpha}$ is now the obvious map between the two pullback squares.
+    By our definition of left Kan extensions, we calculate $p_!\varphi$ as the following colimit:
     \[
-        \lim_{K\in \K(X)^{op}}\F|_{\Nerve(\K_{\W}(X)^{op})}(K) = \lim_{\alpha \in P^{op}}(\lim_{K' \in \K_{\alpha}}\F(K)) = \lim_{\alpha \in P^{op}}\F(K)
+        (p_!\varphi)(\alpha) = \colim\left( E_{/\alpha} \to E \xrightarrow{\varphi} \C \right)
     \]
-    but we already argued that $P$ is filtered so the map $\Nerve(P) \to \Delta^0$ is cofinal and, hence,
+    and by right cofinality of $g$ we get
     \[
-        \lim_{K\in \K(X)^{op}}\F|_{\Nerve(\K_{\W}(X)^{op})}(K) =  \lim_{\alpha \in P^{op}}\F(K) = \F(K).
+        \colim_{\alpha \in P}p_!\varphi \simeq \colim_{\alpha \in P}\colim_{\K_{\alpha}} \F = \colim_{\alpha \in P}\F(K),
     \]
-    \help{Honestly I did not understand how we applied 4.2.3.4 or your explanation of how we get a cocartesian fibration or even how a cocartesian fibration helps.}
+    but we have already argued that $P$ is weakly contractible, so the map $P \to \Delta^1$ is right cofinal and we conclude that this colimit is also evaluated as $\F(K)$.
+    % https://q.uiver.app/#q=WzAsOCxbMCwwLCJcXEtfe1xcYWxwaGF9Il0sWzEsMSwiRV97L1xcYWxwaGF9Il0sWzEsMywiUF97L1xcYWxwaGF9Il0sWzMsMywiUCJdLFszLDEsIkUiXSxbMCw0LCJcXGFscGhhIl0sWzYsMiwiXFxDIl0sWzQsMiwiXFxLX3tcXFd9KFgpIl0sWzQsMywicCJdLFsxLDRdLFsyLDNdLFsxLDJdLFs1LDNdLFs1LDJdLFswLDVdLFswLDEsIlxcZXhpc3RzISIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxLDMsIiIsMSx7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dLFswLDRdLFs0LDZdLFszLDYsInBfIVxcdmFycGhpIiwyXSxbNCw3XSxbNyw2XSxbMyw3XV0=
+    % \[\begin{tikzcd}
+    %         {\K_{\alpha}} \\
+    %         & {E_{/\alpha}} && E \\
+    %         &&&& {\K_{\W}(X)} && \C \\
+    %         & {P_{/\alpha}} && P \\
+    %         \alpha
+    %         \arrow["p", from=2-4, to=4-4]
+    %         \arrow[from=2-2, to=2-4]
+    %         \arrow[from=4-2, to=4-4]
+    %         \arrow[from=2-2, to=4-2]
+    %         \arrow[from=5-1, to=4-4]
+    %         \arrow[from=5-1, to=4-2]
+    %         \arrow[from=1-1, to=5-1]
+    %         \arrow["{\exists!}"', dashed, from=1-1, to=2-2]
+    %         \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=2-2, to=4-4]
+    %         \arrow[from=1-1, to=2-4]
+    %         \arrow[from=2-4, to=3-7]
+    %         \arrow["{p_!\varphi}"', from=4-4, to=3-7]
+    %         \arrow[from=2-4, to=3-5]
+    %         \arrow[from=3-5, to=3-7]
+    %         \arrow[from=4-4, to=3-5]
+    %     \end{tikzcd}\]
+
 \end{proof}
 \end{document}

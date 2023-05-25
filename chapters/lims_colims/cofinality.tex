@@ -6,7 +6,7 @@ A major part of the proofs in this thesis will revolve around calculating certai
 Following Lurie we will very often do these calculations by using cofinality of certain maps to replace our diagrams with simpler diagrams without changing the (co)limit.
 We start this section with defining the notion of cofinal maps in an $\infty$-category and state some results that will turn out to be very important in proving our main theorems.
 \begin{definition}
-    A map $f: X \to Y$ in an $\infty$-category $\C$ is a right fibration if the following extension problem can be solved for any $0<i\leq n$ and a left fibration if it can be solved for any $0\leq i <n$:
+    A map $f\colon X \to Y$ in an $\infty$-category $\C$ is a right fibration if the following extension problem can be solved for any $0<i\leq n$ and a left fibration if it can be solved for any $0\leq i <n$:
     \[\begin{tikzcd}
             {\Lambda_i^n} & X \\
             {\Delta^n} & Y
@@ -21,38 +21,38 @@ We start this section with defining the notion of cofinal maps in an $\infty$-ca
     We say a simplicial set is weakly contractible if it is weakly homotopy equivalent to $\Delta^0$.
 \end{definition}
 \begin{definition}{\cite[\href{https://kerodon.net/tag/02N1}{Definition 02N1}]{kerodon}}
-    Let \(p:S\to Y \in \sset \). We say $p$ is right/left cofinal if, for any right/left fibration $X\to Y$, precomposition with $p$ induces a homotopy equivalence
+    Let \(p\colon S\to Y \in \sset \). We say $p$ is right/left cofinal if, for any right/left fibration $X\to Y$, precomposition with $p$ induces a homotopy equivalence
     \[
         \MAP_{/Y}(Y,X) \xrightarrow{\simeq} \MAP_{/Y}(S,X).
     \]
 \end{definition}
-\begin{proposition}[{\cite{HTT}[Proposition 4.1.1.8.]}]
-    Let $f: X \to Y$ be a map of simplicial sets.
+\begin{proposition}[{\cite[Proposition 4.1.1.8.]{HTT}}]
+    Let $f\colon X \to Y$ be a map of simplicial sets.
     Then the following conditions are equivalent:
     \begin{enumerate}
         \item The map $f$ is right cofinal.
-        \item For any $\infty$-category $\C$ and functor $p: Y \to \C$ the induced map $\C_{f/} \to \C_{(p \circ f)/}$ is a categorical equivalence.
-        \item For any $\infty$-category $\C$ and colimit $\overline{p}: Y^{\triangleright} \to \C$, the induced map $\overline{(p \circ f)}: X^{\triangleright}\to \C$ is a colimit.
+        \item For any $\infty$-category $\C$ and functor $p\colon Y \to \C$ the induced map $\C_{f/} \to \C_{(p \circ f)/}$ is a categorical equivalence.
+        \item For any $\infty$-category $\C$ and colimit $\overline{p}\colon Y^{\triangleright} \to \C$, the induced map $\overline{(p \circ f)}\colon X^{\triangleright}\to \C$ is a colimit.
     \end{enumerate}
 \end{proposition}
 \begin{corollary}
-    Let $F : \C \to \D$ be a functor between $\infty$-categories.
+    Let $F \colon \C \to \D$ be a functor between $\infty$-categories.
     Then the following conditions are equivalent:
     \begin{enumerate}
         \item $F$ is right cofinal,
-        \item for any $\infty$-category $\E$ and functor $G:\D\to\E$, the colimit $\colim_{\D}G$ exists if and only if the colimit $\colim_{\C}GF$ exists, and when they exist they are equivalent in $\E$;
+        \item for any $\infty$-category $\E$ and functor $G\colon\D\to\E$, the colimit $\colim_{\D}G$ exists if and only if the colimit $\colim_{\C}GF$ exists, and when they exist they are equivalent in $\E$;
     \end{enumerate}
     and the following conditions are equivalent:
     \begin{enumerate}
         \item $F$ is left cofinal,
-        \item for any $\infty$-category $\E$ and functor $G:\D\to\E$, the limit $\lim_{\D}G$ exists if and only if the limit $\lim_{\C}GF$ exists, and when they exist they are equivalent in $\E$.
+        \item for any $\infty$-category $\E$ and functor $G\colon\D\to\E$, the limit $\lim_{\D}G$ exists if and only if the limit $\lim_{\C}GF$ exists, and when they exist they are equivalent in $\E$.
     \end{enumerate}
 \end{corollary}
 
 This corollary makes it clear that cofinal maps are very useful for calculating (co)limits, but the definition is not the easiest to work with when determining wether a map is cofinal or not.
 The following theorem due to Joyal remedies this by giving a very convenient way of checking cofinality.
 \begin{theorem}{\cite[\href{https://kerodon.net/tag/02NY}{Theorem 02NY}]{kerodon}\label{superlemma}}
-    Let \(f: \C \to \D\) be a map of simplicial sets, where $\D$ is an $\infty$-category.
+    Let \(f\colon \C \to \D\) be a map of simplicial sets, where $\D$ is an $\infty$-category.
     Then the following conditions are equivalent:
     \begin{enumerate}
         \item The functor $f$ is right cofinal,
@@ -66,16 +66,16 @@ The following theorem due to Joyal remedies this by giving a very convenient way
 \end{theorem}
 This means that checking cofinality of functors reduces to checking cofinality of certain simplicial sets.
 In the next part of this thesis we will mostly consider functors from certain poset categories and this means that we can use the theory of filtered $\infty$-categories to simplifiy the process of checking contractibility.
-While much can be said about filtered $\infty$-categories we only state the definition and the results we need and refer the reader to \cite[\href{https://kerodon.net/tag/02P8}{Subsection 02P8}]{kerodon} and \cite{HTT}[Section 5.3.1] for more details and proofs.
+While much can be said about filtered $\infty$-categories we only state the definition and the results we need and refer the reader to \cite[\href{https://kerodon.net/tag/02P8}{Subsection 02P8}]{kerodon} and \cite[Section 5.3.1]{HTT} for more details and proofs.
 \begin{definition}[{\cite[\href{https://kerodon.net/tag/02P9}{Definition 02P9}]{kerodon}}]
     We say that a non-empty $1$-category $\C$ is filtered if it satisfies the following conditions:
     \begin{enumerate}
-        \item For any pair of objects $X$ and $Y$ in $\C$, there exists an object $Z \in \C$ and a pair of morphisms $f : X\to Z$ and $g : Y\to Z$.
-        \item For any pair of objects $X$ and $Y$ in $\C$ and parallel pair of morphisms $X \xbigtoto[f_0]{f_1} Y$, there exists a morphism $g : Y \to Z$ such that $g \circ f_0 = g \circ f_1$.
+        \item For any pair of objects $X$ and $Y$ in $\C$, there exists an object $Z \in \C$ and a pair of morphisms $f \colon X\to Z$ and $g \colon Y\to Z$.
+        \item For any pair of objects $X$ and $Y$ in $\C$ and parallel pair of morphisms $X \xbigtoto[f_0]{f_1} Y$, there exists a morphism $g \colon Y \to Z$ such that $g \circ f_0 = g \circ f_1$.
     \end{enumerate}
 \end{definition}
 \begin{definition}
-    We say that an $\infty$-category $\C$ is filtered if, for any finite $K\in \sset$ any $f:K\to \C$ can be extended to $K^{\triangleright} \to \C$.
+    We say that an $\infty$-category $\C$ is filtered if, for any finite $K\in \sset$ any $f\colon K\to \C$ can be extended to $K^{\triangleright} \to \C$.
     Dually, we say it is cofiltered if $\C^{op}$ is filtered (we can extend to $K^{\triangleleft} \to \C$).
 \end{definition}
 \begin{proposition}[{\cite[\href{https://kerodon.net/tag/02PH}{Proposition 02PH}]{kerodon}}]\label{5.3.1.20}

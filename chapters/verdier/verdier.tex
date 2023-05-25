@@ -1,17 +1,17 @@
 \documentclass[../../thesis.tex]{subfiles}
 \begin{document}
 The goal of this chapter is to prove the following theorem:
-\begin{theorem}[Verdier Duality {\cite[][Theorem 5.5.5.1]{HA}}]\label{VerdierDuality}
+\begin{theorem}[Verdier Duality {\cite[Theorem 5.5.5.1]{HA}}]\label{VerdierDuality}
     Let $X$ be a locally compact Hausdorff space and $\C$ be a stable $\infty$-category with small limits and colimits.
     Then we have an equivalence of $\infty$-categories
     \[
-        \mathbb{D} : \Shv(X;\C)^{op} \simeq \Shv(X;\C^{op}).
+        \mathbb{D} \colon \Shv(X;\C)^{op} \simeq \Shv(X;\C^{op}).
     \]
 \end{theorem}
 \section{Classical Verdier Duality}
 Classical Verdier Duality can be seen as a generalization of Poincaré duality, replacing the pairing on cohomology with a pairing in the derived category.
 It was introduced in 1965 by Jean Louis Verdier \cite{Verdier95}.
-Grothendieck had, a few years earlier\footnote{Citation needed? think SGA4 or something according to wikipedia...}, introduced a Poincaré duality in étale cohomology for schemes in algebraic geometry and Verdier duality serves as an analog of this duality for the theory of locally compact topological spaces.
+Grothendieck had, a few years earlier, introduced a Poincaré duality in étale cohomology for schemes in algebraic geometry and Verdier duality serves as an analog of this duality for the theory of locally compact topological spaces.
 Verdier duality applies to morphisms of locally compact spaces and reduces to classical Poincaré duality when considering the projection of a manifold to the point.
 Recall that for a map $X \to Y$ between topological spaces and a sheaf $\F$ on $X$ we can define a so-called direct image sheaf $f_*\F$ on $Y$ by considering preimages of $f$:
 \[
@@ -23,7 +23,7 @@ Explicitly, this sheaf is given by the formula
     f^*\G (U) = \colim_{f(V) \subseteq U}\G(U) ,
 \]
 where the colimit is taken over all open neighborhoods of $f(V)$.
-Observe that considering the case when $Y$ is just the point, the projection map $f$ induces a functor $f_* : \Shv(X;\C) \to \Shv(*; \C) \simeq \C$; the global sections functor $\Gamma(X; \blank)$.
+Observe that considering the case when $Y$ is just the point, the projection map $f$ induces a functor $f_* \colon \Shv(X;\C) \to \Shv(*; \C) \simeq \C$; the global sections functor $\Gamma(X; \blank)$.
 As sheaf cohomology is defined as the right derived functor of the global sections functor, we can write
 \[
     R^i f_* (\F) \cong R^i\Gamma(X;\blank)(\F) = H^i(X; \F)
@@ -42,7 +42,7 @@ In general $Rf_!$ does not need to admit a right adjoint, but for locally compac
 Together with the tensor product and the internal hom, the four functors $f_*,f^*,f_!$ and $f^!$ produces a six functor formalism.
 It is this final adjunction we call Verdier Duality:
 \begin{theorem}
-    Let $f : X \to Y$ be a continuous map of locally compact Hausdorff spaces such that $f_!$ has finite cohomological dimension\footnote{This means that there is some bound $d$ for which all cohomology groups $H^r_c(f^{-1}(y);\mathrm{A})$ above $d$ vanish for all $y\in Y$. This holds for instance if all the fibres $f^{-1}(y)$ are at most $d$-dimensional CW-complexes.}.
+    Let $f \colon X \to Y$ be a continuous map of locally compact Hausdorff spaces such that $f_!$ has finite cohomological dimension\footnote{This means that there is some bound $d$ for which all cohomology groups $H^r_c(f^{-1}(y);\mathrm{A})$ above $d$ vanish for all $y\in Y$. This holds for instance if all the fibres $f^{-1}(y)$ are at most $d$-dimensional CW-complexes.}.
     Then the derived functor of the proper direct image has a right adjoint $f^!$ in the derived category of sheaves:
     \[
         R\Hom_{D(\Shv(Y;\C))}(Rf_!\F,\G) \cong R\Hom_{D(\Shv(X;\C))}(\F,f^!\G),\footnote{Here we are really meaning complexes of sheaves.}
@@ -84,7 +84,7 @@ Vector space duality gives a limit preserving functor $\Nerve(\mathrm{Ch}_k^{op}
 for any locally compact Hausdorff space.
 Composing with the equivalence of Theorem \ref{VerdierDuality} yields a contravariant functor from $\Shv(X;\Nerve(\mathrm{Ch}_k))$ to itself:
 \[
-    \mathbb{D}': \Shv(X;\Nerve(\mathrm{Ch}_k))^{op} \to \Shv(X;\Nerve(\mathrm{Ch}_k))
+    \mathbb{D}'\colon \Shv(X;\Nerve(\mathrm{Ch}_k))^{op} \to \Shv(X;\Nerve(\mathrm{Ch}_k))
 \]
 and it is this functor that is usually called Verdier Duality. As we have composed the equivalence $\mathbb{D}$ with vector space duality, $\mathbb{D}'$ is not necessarily an equivalence of $\infty$-categories unless certain finiteness conditions are imposed.
 
@@ -95,7 +95,7 @@ By corollary \ref{7.3.4.10} we can rewrite theorem \ref{VerdierDuality} in terms
     Let $X$ be a locally compact Hausdorff space and $\C$ be a stable $\infty$-category with small limits and colimits.
     Then we have an equivalence of $\infty$-categories:
     \[
-        \mathbb{D}_{\K} : \KShv(X;\C)^{op} \simeq \KShv(X;\C^{op}).
+        \mathbb{D}_{\K} \colon \KShv(X;\C)^{op} \simeq \KShv(X;\C^{op}).
     \]
 \end{theorem}
 \begin{definition}[{\cite[Definition 5.5.5.9]{HA}}]
@@ -104,7 +104,7 @@ By corollary \ref{7.3.4.10} we can rewrite theorem \ref{VerdierDuality} in terms
     For $U$ open, we denote by $\Gamma_c(U;\F)$ the filtered colimit $\colim_{K \in\K(X)_{/U}}\Gamma_K(X;\F)$ where $K$ ranges over all compact subsets of $U$.
     The construction $U \mapsto \Gamma_c(U;\F)$ determines a functor
     \[
-        \Gamma_c(\blank ;\F) : \Nerve(\Open(X)) \to \C .
+        \Gamma_c(\blank ;\F) \colon \Nerve(\Open(X)) \to \C .
     \]
 \end{definition}
 \begin{remark}\label{GammaKXisGammaKU}
@@ -146,7 +146,7 @@ By corollary \ref{7.3.4.10} we can rewrite theorem \ref{VerdierDuality} in terms
 We will prove Theorem \ref{KVerdierDuality} as a simple corollary of the following proposition.
 \begin{proposition}[{\cite[Proposition 5.5.5.7]{HA}}]\label{5.5.5.7}
     Let $X$ be a locally compact Hausdorff space, $\C$ be a stable $\infty$-category with small limits and colimits and $M$ be as in \ref{5.5.5.5}.
-    Let $F : \Nerve(M) \to \C$ be a functor.
+    Let $F \colon \Nerve(M) \to \C$ be a functor.
     Then the following conditions are equivalent:
     \begin{enumerate}
         \item The restriction $(F|\Nerve(M_0))^{op}$ determines a $\K$-sheaf $\Nerve(\K(X))^{op} \to \C^{op}$, the restriction $F|\Nerve(M_1)$ is zero, and $F$ is left Kan extended from $\Nerve(M_0 \cup M_1)$.
@@ -176,7 +176,7 @@ The proof of this is a bit long, so we will split the theorem into a few lemmas 
     Observe that we have a bijection between $\Open(X)^{op}$ and the partially ordered set of closed subsets of $X$ by sending $\Open(X) \ni U \mapsto (X - U)$ and we have a natural inclusion $\Open(X)^{op} \hookrightarrow M_2'$.
     By Theorem \ref{7.3.4.9} we can restrict $\Fun(\Open(X)^{op}, \C)$ to $\Shv(X;\C)$, so we can also restrict $M_2'$ and even $\D$ to $\Shv(X;\C)$.
     Let $\F$ be the sheaf obtained by restricting $F'$.
-    Define $\varphi:\Nerve(M_0) \to \Fun(\Delta^1\times \Delta^1, \Nerve(M'))$ by sending an object $(0,K) \in M_0$ to the diagram
+    Define $\varphi\colon\Nerve(M_0) \to \Fun(\Delta^1\times \Delta^1, \Nerve(M'))$ by sending an object $(0,K) \in M_0$ to the diagram
     \[\begin{tikzcd}
             {(0,K)} && {(1,K)} \\
             \\
@@ -264,7 +264,7 @@ The proof of this is a bit long, so we will split the theorem into a few lemmas 
     which completes the proof that $F'|_{\Nerve(M_0)}(K)$ is given by $\Gamma_K(X;\F)$.
 \end{proof}
 \begin{corollary}
-    In particular, $F:\Nerve(M) \to \C$ satisfying condition $2.$ in \ref{5.5.5.7} is given by $\Gamma_K(X;\F)$ when restricted to $\Nerve(M_0)$.
+    In particular, $F\colon\Nerve(M) \to \C$ satisfying condition $2.$ in \ref{5.5.5.7} is given by $\Gamma_K(X;\F)$ when restricted to $\Nerve(M_0)$.
 \end{corollary}
 \begin{proof}
     Observe first that $M$ is a full subcategory of $M'$ and then that $\MAP(\Nerve(M) \to \C)$ is a full subcategory of $\D$.
@@ -272,7 +272,7 @@ The proof of this is a bit long, so we will split the theorem into a few lemmas 
 \end{proof}
 \begin{lemma}
     Let $F|_{\Nerve(M_0)} = \G$.
-    Then $\G^{op}: \Nerve(M_0)^{op} \to \C^{op}$ is a $\K$-sheaf valued in $\C^{op}$.
+    Then $\G^{op}\colon \Nerve(M_0)^{op} \to \C^{op}$ is a $\K$-sheaf valued in $\C^{op}$.
 \end{lemma}
 \begin{proof}
     Here $\G^{op}$ does the same on objects as $\G$ but we think of it as a functor $\Nerve(M_0)^{op}\to \C^{op}$.
@@ -308,7 +308,7 @@ The proof of this is a bit long, so we will split the theorem into a few lemmas 
                       \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=3-3]
                   \end{tikzcd}\]
               As $\F$ is a sheaf, this is a map between pullbacks, so our diagram is also a pullback.
-        \item For any compact subset $K$ of $X$ we must show that the map $\theta: \G(K)\to \lim_{K\Subset K'}\G(K')$ is an equivalence in $\C$.
+        \item For any compact subset $K$ of $X$ we must show that the map $\theta\colon \G(K)\to \lim_{K\Subset K'}\G(K')$ is an equivalence in $\C$.
               Observe now that $\theta$ gives us a map between two fiber sequences
               \[\begin{tikzcd}
                       {\G(K)} && {\lim_{K\Subset K'}\G(K')} \\
@@ -339,7 +339,7 @@ To complete the proof of Proposition \ref{5.5.5.7}, we must show the following l
     We can observe that $F|_{\Nerve(M_0 \cup M_1)}$ is left Kan extended from $F|_{\Nerve(M'')}$ ($F$ is zero on $M_1$).
     By Proposition \ref{4.3.2.8} it is enough to show that $F$ is a left Kan extension of $F|_{\Nerve(M'')}$, and this is enough to check at every $(2,S) \in M_2$.
     We will instead show that $F'|_{\Nerve(M'' \cup M_2')}$ is a left Kan extension of $F|_{\Nerve(M'')}$ and for this we define
-    \[B:=\{(2, X- U) \subseteq M_2' | U \in \Open(X) | \overline{U} \in \K(X)\} .\]
+    \[B:=\{(2, X- U) \subseteq M_2' \mid U \in \Open(X) | \overline{U} \in \K(X)\} .\]
     By Proposition \ref{4.3.2.8} it is enough to show that
     \begin{enumerate}[label=(\alph*)]
         \item $F'|_{\Nerve(M'' \cup M_2')}$ is a left Kan extension of $F'|_{\Nerve(M'' \cup B)}$.
@@ -386,7 +386,7 @@ To complete the proof of Proposition \ref{5.5.5.7}, we must show the following l
               Fix $U \in \Open(X)$ such that $\overline{U} \in \K(X)$. By \ref{KanDef} we want to show that $F'(2, X-U)$ is a colimit of the diagram $F'|_{\Nerve(M'')/(2,X-U)}$.
               For $K \in \K(X)$ denote by $M_K''$ the subset of $M''$ consisting of pairs $(i,S)$ such that $(0,K)\leq (i,S) \leq (2,X-U)$.
               Now, observe that $\Nerve(M'')_{/(2,X-U)}$ is a filtered colimit of $\{\Nerve(M_K'')\}_{K\in \K(X)_{U/}}$.
-              By \cite{HTT}[4.2.3] we can identify $\colim(F'|_{\Nerve(M'')})_{/(2,X-U)}$ with the filtered colimit of the diagram $\{\colim(F'|_{\Nerve(M_K'')})\}_K$.
+              By \cite[4.2.3]{HTT} we can identify $\colim(F'|_{\Nerve(M'')})_{/(2,X-U)}$ with the filtered colimit of the diagram $\{\colim(F'|_{\Nerve(M_K'')})\}_K$.
               This means that we are reduced to showing that for every $K \in \K(X)_{U/}$, $F'$ exhibits $F'(2,X-U)$ as a colimit of $F'|_{\Nerve(M_K'')}$.
               By Theorem \ref{superlemma} the diagram
               \[\begin{tikzcd}
@@ -475,22 +475,22 @@ We can now prove Verdier Duality (Theorem \ref{VerdierDuality}):
     Let $X$ be a locally compact Hausdorff space and $\C$ a pointed and stable $\infty$-category with small limits and colimits.
     Then the equivalence of $\infty$-categories
     \[
-        \mathbb{D} : \Shv(X;\C)^{op} \simeq \Shv(X;\C^{op}).
+        \mathbb{D} \colon \Shv(X;\C)^{op} \simeq \Shv(X;\C^{op}).
     \]
     given in Theorem \ref{VerdierDuality} is given by $\mathbb{D}(\F)(U) = \Gamma_c(U;\F)$.
 \end{proposition}
 \begin{proof}
     It follows from the proof of Theorem \ref{7.3.4.9} that the equivalence
     \[
-        \theta: \Shv(X;\C^{op})^{op} \simeq \Shv_{\K}(X;\C^{op})^{op}
+        \theta\colon \Shv(X;\C^{op})^{op} \simeq \Shv_{\K}(X;\C^{op})^{op}
     \]
     is given by the formula $\theta(\F)(U) = \colim_{K\subseteq U}\F(K)$.
     \TODO{Make sure this colimit is taken in the correct category. It should maybe just be a limit in $\C$?}
     \prepp{Should I write out theta more explicitly in the proof of \ref{7.3.4.9}. Not a lot of time.}
-    Let $\psi: \Shv(X;\C) \to \Shv_{\K}(X;\C)$ be the equivalence of Corollary \ref{7.3.4.10} and $\psi'$ the equivalence $\Shv_{\K}(X;\C) \to \Shv_{\K}(X;\C^{op})^{op}$ of Theorem \ref{KVerdierDuality}.
+    Let $\psi\colon \Shv(X;\C) \to \Shv_{\K}(X;\C)$ be the equivalence of Corollary \ref{7.3.4.10} and $\psi'$ the equivalence $\Shv_{\K}(X;\C) \to \Shv_{\K}(X;\C^{op})^{op}$ of Theorem \ref{KVerdierDuality}.
     Composing, we get a string of equivalences
     \[
-        \mathbb{D}^{op} : \Shv(X;\C) \xrightarrow{\psi} \Shv_{\K}(X;\C) \xrightarrow{\psi'} \Shv_{\K}(X;\C^{op})^{op} \xrightarrow{\theta} \Shv(X;\C^{op})^{op}.
+        \mathbb{D}^{op} \colon \Shv(X;\C) \xrightarrow{\psi} \Shv_{\K}(X;\C) \xrightarrow{\psi'} \Shv_{\K}(X;\C^{op})^{op} \xrightarrow{\theta} \Shv(X;\C^{op})^{op}.
     \]
     % \[\begin{tikzcd}
     % 	{\Shv(X;\C)} && {\Shv(X;\C^{op})^{op}} \\
@@ -505,7 +505,7 @@ We can now prove Verdier Duality (Theorem \ref{VerdierDuality}):
     By Theorem \ref{7.3.4.9} the restriction $\D\to \Fun(\Nerve(\Open(X))^{op}, \C)$ is a categorical equivalence onto $\Shv(X;\C)$, since we Kan extend along the fully faithful inclusion of $\Shv(X;\C)$ (it is a full subcategory of $\Fun(\Nerve(\Open(X))^{op}, \C)$.)
     \newline
     In the other direction we restrict $\D \to \Fun(\Nerve(M_0), \C) \simeq \Fun(\K(X), \C) \simeq \Fun(\K(X)^{op}, \C^{op})^{op}$ and $\psi' \circ \psi$ is given by the composition $\Shv(X;C) \to \D \to \Fun(\K(X)^{op}, \C^{op})^{op}$ and as we saw in the proof of Lemma \ref{5.5.5.7}, restriction from $\D$ to functors from $\Nerve(M_0)$ is given by $\Gamma_K(X;\F)$.
-    This means that $\psi' \circ \psi : \F \mapsto \left( K \mapsto \Gamma_K(X;\F) \right)$ so by Remark \ref{GammaKXisGammaKU} we have
+    This means that $\psi' \circ \psi \colon \F \mapsto \left( K \mapsto \Gamma_K(X;\F) \right)$ so by Remark \ref{GammaKXisGammaKU} we have
     \[
         (\theta \circ \psi' \circ \psi)(\F)(U) = \colim_{K\subseteq U}(\Gamma_K(X;F)) = \colim_{K\subseteq U}(\Gamma_K(U;F)) = \Gamma_c(U;\F).
     \]
@@ -514,12 +514,12 @@ We can now prove Verdier Duality (Theorem \ref{VerdierDuality}):
     This is the infinity-categorical generalization of the classical fact that conjugation by Verdier duality exchanges cohomology and cohomology with compact support.
     The construction $\Gamma_c(U;\F)$ really is analogous to the construction
     \[
-        \Gamma_c(X ; \F) := \{ s \in \Gamma(X; \F) | s\text{ has compact support}\}
+        \Gamma_c(X ; \F) := \{ s \in \Gamma(X; \F) \mid s\text{ has compact support}\}
     \]
     from classical sheaf theory in $1$-categories.
     Also, recall that in the introductio of this chapter we defined direct image with proper support as the functor
     \[
-        \Gamma(U; f_!\F) : = \{ s \in \Gamma(U; f_*\F) | s \text{ has compact support}\}.
+        \Gamma(U; f_!\F) : = \{ s \in \Gamma(U; f_*\F) \mid s \text{ has compact support}\}.
     \]
     and said Verdier duality is the existence of a right adjoint $f^!$.
 
@@ -527,6 +527,6 @@ We can now prove Verdier Duality (Theorem \ref{VerdierDuality}):
     In \cite{Volpe}, Marco Volpe shows that one can extend the classical six functor formalism for sheaves on locally compact Hausdorff spaces to sheaves with values in any closed symmetric monoidal $\infty$-category which is stable and bicomplete, and Lurie's Verdier duality (Theorem \ref{VerdierDuality}) is central in proving the $\infty$-categorical adjunction.
 \end{remark}
 \begin{remark}
-    As we saw in the introduction to this chapter, classical Verdier duality can be used to give a proof of Poincaré duality and in \cite{HA}[Section 5.5.6] Jacob Lurie uses his version of Verdier duality to prove a version of what he calls non-abelian Poincaré duality.
+    As we saw in the introduction to this chapter, classical Verdier duality can be used to give a proof of Poincaré duality and in \cite[Section 5.5.6]{HA} Jacob Lurie uses his version of Verdier duality to prove a version of what he calls non-abelian Poincaré duality.
 \end{remark}
 \end{document}

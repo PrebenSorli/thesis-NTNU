@@ -190,7 +190,7 @@
     mincitenames=1,
     %mincrossrefs=99,
     %citestyle=numeric-comp,
-    sorting=none,
+    sorting=anyt,
     %dashed=false
 ]{biblatex}                                 % for bibliography
 \RequirePackage{booktabs}                   % better formatting of tables

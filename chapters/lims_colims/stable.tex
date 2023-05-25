@@ -11,7 +11,7 @@ For the purpose of this thesis (proving Verider Duality), we really don't need m
 \begin{remark}
     An object $0\in \C$ is a zero-object if $\map_{\C}(X,0)$ and $\map_{\C}(0,X)$ are contractible for every object $X\in \C$ and such an object is determined up to equivalence (we saw that initial and terminal objects are unique up to a contractible space).
 \end{remark}
-\begin{remark}[{\cite{HA}[Remark 1.1.1.3.]}]
+\begin{remark}[{\cite[Remark 1.1.1.3.]{HA}}]
     Let $\C$ be a pointed $\infty$-category.
     For any $X,Y \in \C$, the natural morphism
     \[
@@ -19,7 +19,7 @@ For the purpose of this thesis (proving Verider Duality), we really don't need m
     \]
     has contractible domain, which means that we have a well-defined zero-morphism $X\to Y$ in $\h\C$.
 \end{remark}
-\begin{definition}[{\cite{HA}[Definition 1.1.1.4.]}]
+\begin{definition}[{\cite[Definition 1.1.1.4.]{HA}}]
     Let $\C$ be a pointed $\infty$-category.
     We define a triangle in $\C$ to be a diagram $\Delta^1 \times \Delta^1 \to \C$, depicted as
     \begin{equation}\label{triangle}\begin{tikzcd}
@@ -35,17 +35,17 @@ For the purpose of this thesis (proving Verider Duality), we really don't need m
 \begin{definition}
     We say that a triangle is a fiber sequence if it is a pullback square and a cofiber sequence if it is a pushout square.
 \end{definition}
-\begin{definition}[{\cite{HA}[Definition 1.1.1.6.]}]
-    For a morphism $g: Y \to Z$ in a pointed $\infty$-category $\C$, we say that a fiber of $g$ is a fiber seqeunce as depicted in \ref{triangle}.
-    For a morphism $f: X \to Y$ in a pointed $\infty$-category $\C$, we say that a cofiber of $f$ is a cofiber seqeunce as depicted in \ref{triangle}.
+\begin{definition}[{\cite[Definition 1.1.1.6.]{HA}}]
+    For a morphism $g\colon Y \to Z$ in a pointed $\infty$-category $\C$, we say that a fiber of $g$ is a fiber seqeunce as depicted in \ref{triangle}.
+    For a morphism $f\colon X \to Y$ in a pointed $\infty$-category $\C$, we say that a cofiber of $f$ is a cofiber seqeunce as depicted in \ref{triangle}.
     We will abuse terminology by writing $X = \fib(g)$ and $Z=\cofib(f)$.
 \end{definition}
-\begin{remark}[{\cite{HA}[Remark 1.1.1.8.]}]
-    The functor $\cofib: \Fun(\Delta^1, \C)\to \C$ can be identified with a left adjoint to the left Kan extension functor $\C \simeq \Fun(\{1\}, \C) \to \Fun(\Delta^1, \C)$ which associates a zero morphism $0 \to X$ to each object $X \in \C$.
+\begin{remark}[{\cite[Remark 1.1.1.8.]{HA}}]
+    The functor $\cofib\colon \Fun(\Delta^1, \C)\to \C$ can be identified with a left adjoint to the left Kan extension functor $\C \simeq \Fun(\{1\}, \C) \to \Fun(\Delta^1, \C)$ which associates a zero morphism $0 \to X$ to each object $X \in \C$.
     This means that $\cofib$ preserves all colimits in $\Fun(\Delta^1, \C)$.
 \end{remark}
 We now define stable $\infty$-categories:
-\begin{definition}[{\cite{HA}[Definition 1.1.1.9.]}]
+\begin{definition}[{\cite[Definition 1.1.1.9.]{HA}}]
     We say that an $\infty$-category is stable if it satisfies the following conditions:
     \begin{enumerate}
         \item It is pointed.
@@ -58,7 +58,7 @@ We now define stable $\infty$-categories:
 \end{proposition}
 \begin{proof}
     Let $\C$ be a stable $\infty$-category.
-    By \cite{HTT}[Corollary 4.4.2.4.] it is enough to show that $\C$ has pushouts and pullbacks.
+    By \cite[Corollary 4.4.2.4.]{HTT} it is enough to show that $\C$ has pushouts and pullbacks.
     Consider the following diagram in $\C$:
     \[\begin{tikzcd}
             {\fib(g)} & X & Z \\
@@ -72,10 +72,10 @@ We now define stable $\infty$-categories:
             \arrow[from=1-3, to=2-3]
         \end{tikzcd}\]
     By stability of $\C$, both the left and outer squares are both pushouts and pullbacks.
-    Lemma \cite{HTT}[4.4.2.1.] says that if the left square is a pushout, then the right square is also a pushout if and only the outer square is a pushout, so we are done.
+    Lemma \cite[4.4.2.1.]{HTT} says that if the left square is a pushout, then the right square is also a pushout if and only the outer square is a pushout, so we are done.
 \end{proof}
 In fact, an even stronger statement can be made:
-\begin{proposition}[{\cite{HTT}[Proposition 1.1.3.4.]}]
+\begin{proposition}[{\cite[Proposition 1.1.3.4.]{HTT}}]
     Let $\C$ be a pointed $\infty$-category.
     Then $\C$ is stable if and only if the following conditions are satisfied:
     \begin{enumerate}
@@ -90,14 +90,14 @@ We see that, like for additive $1$-categories, stability is a property of $\inft
 While, additive categories are often presented as categories equipped with an abelian group structure on $\Hom$-sets, this structure is determined by the underlying category.
 A similar structure can be found in stable $\infty$-categories, they are weakly enriched over what is known as the $\infty$-category $\Spec$ of spectra.
 We will not go into the details of this comment, but we will at least define $\Spec$ as it is maybe the most important example of a stable $\infty$-category.
-\begin{example}[{\cite{HA}[Example 1.1.1.11.]}]
+\begin{example}[{\cite[Example 1.1.1.11.]{HA}}]
     We say that a spectrum consists of an infinite sequence $\{X_i\}_{i \geq 0}$ of pointed topological spaces, together with homeomorphisms $X_i \simeq \Omega X_{i+1}$, where $\Omega$ is the loop space functor $\Omega(X) : = \fib(0 \to X)$.
     The collection of such spectra can be organized into a stable $\infty$-category $\mathrm{Sp}$ and this category is in some sense the universal example of a stable $\infty$-category.
 \end{example}
-\begin{example}[{\cite{HA}[Example 1.1.1.12.]}]
+\begin{example}[{\cite[Example 1.1.1.12.]{HA}}]
     For an abelian category $\A$ one can construct a stable $\infty$-category $\D(\A)$ such that its homotopy category $\h\D(\A)$ can be identified with the classical notion of the derived category of $\A$ from homological algebra.
 \end{example}
-\begin{theorem}[{\cite{HA}[Theorem 1.1.2.14.]}]
+\begin{theorem}[{\cite[Theorem 1.1.2.14.]{HA}}]
     Let $\C$ be a stable $\infty$-category.
     Then $\h\C$ is a triangulated category.
 \end{theorem}

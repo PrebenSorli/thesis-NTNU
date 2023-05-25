@@ -31,13 +31,13 @@ These two constructions will ultimately give us a way to talk about the right no
             \arrow["\lrcorner"{anchor=center, pos=0.125, rotate=-90}, draw=none, from=1-5, to=3-3]
             \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=3-3]
         \end{tikzcd}\]
-    where $\mathrm{ev}_0:\Fun([1],\C) \to \Fun(\{0\}, \C) \simeq \C$ and $\mathrm{ev}_1:\Fun([1],\C) \to \Fun(\{1\}, \C) \simeq \C$.
+    where $\mathrm{ev}_0 \colon \Fun([1],\C) \to \Fun(\{0\}, \C) \simeq \C$ and $\mathrm{ev}_1 \colon \Fun([1],\C) \to \Fun(\{1\}, \C) \simeq \C$.
 \end{remark}
 The above remark says that we can identify the slice and coslice categories with fibers of the evaluation functors $\mathrm{ev}_0$ and $\mathrm{ev}_1$ and we will use this idea to define the notion of slicing over (and under) diagrams.
 \begin{definition}\label{slicefun}
     Let $\C$ and $\D$ be $1$-categories.
-    For each $C\in \C$, we let $\underline{C} : \D \to \C$ denote the constant functor sending each $D\in \D$ to $C$ and each morphism to $\id_C$.
-    For each functor $F:\D\to\C$ we denote by $\C_{/F}$ the fiber product
+    For each $C\in \C$, we let $\underline{C} \colon \D \to \C$ denote the constant functor sending each $D\in \D$ to $C$ and each morphism to $\id_C$.
+    For each functor $F\colon\D\to\C$ we denote by $\C_{/F}$ the fiber product
     \[\begin{tikzcd}
             {\C_{/F}} && {\Fun(\D,\C)_{/F}} \\
             \\
@@ -106,8 +106,8 @@ One can show that the nerve of a $1$-category commute with joins in the sense th
     \Nerve(\C^{\triangleright}) \cong \Nerve(\C)^{\triangleright}\quad \text{and} \quad\Nerve(\C^{\triangleleft}) \cong \Nerve(\C)^{\triangleleft}.
 \]
 Furthermore, it can be shown that the join of $\infty$-categories is again an $\infty$-category.
-See for example \cite[\href{https://kerodon.net/tag/02QV}{Corollary 02QV}]{kerodon} or \cite{Rezk}[Proposition 28.17.].
-To define limits and colimits for $\infty$-categories we will need $\infty$-categorical versions of the slice functors introduced above and we do this by finding right adjoints to the functors $X\star \blank : \sset \to \sset_{X/}$ and $\blank \star X: \sset \to \sset_{X/}$.
+See for example \cite[\href{https://kerodon.net/tag/02QV}{Corollary 02QV}]{kerodon} or \cite[Proposition 28.17.]{Rezk}.
+To define limits and colimits for $\infty$-categories we will need $\infty$-categorical versions of the slice functors introduced above and we do this by finding right adjoints to the functors $X\star \blank \colon \sset \to \sset_{X/}$ and $\blank \star X\colon \sset \to \sset_{X/}$.
 \begin{proposition}
     For $X\in \sset$, the functors $X\star \blank$ and $\blank \star X$ preserve colimits.
 \end{proposition}
@@ -119,7 +119,7 @@ To define limits and colimits for $\infty$-categories we will need $\infty$-cate
     which means that cell-wise we have a functor to $\SET_{X_n/}$ and here colimits and products commute.
 \end{proof}
 Consequently, we can find right adjoints going from $\sset_{X/}$ to $\sset$ which we call slice functors.
-For a map $f:X\to Y$ and simplicial set $K$, we have bijections
+For a map $f\colon X\to Y$ and simplicial set $K$, we have bijections
 \[
     \Hom\left(K, Y_{f /}\right) \cong \Hom_{X /}(X \star K, Y)
 \]
@@ -131,23 +131,23 @@ These universal properties will serve as our definitions, but we can define slic
 \[
     (Y_{f/})_n \cong \Hom_{\sset_{X/}}(X\star \Delta^n, X) \quad \text{and} \quad    (Y_{/f})_n \cong \Hom_{\sset_{X/}}(\Delta^n\star X, Y).
 \]
-Important examples arise when considering the map $y: \Delta^0\to Y$ giving descriptions of the slices $Y_{y/}$ and $Y_{/y}$:
+Important examples arise when considering the map $y\colon \Delta^0\to Y$ giving descriptions of the slices $Y_{y/}$ and $Y_{/y}$:
 \begin{align*}
-    (Y_{y/})_n & = \{ \sigma : \Delta^{n+1} \to Y | \sigma(0) = y\},   \\
-    (Y_{/y})_n & = \{ \sigma : \Delta^{n+1} \to Y | \sigma(n+1) = y\}.
+    (Y_{y/})_n & = \{ \sigma \colon \Delta^{n+1} \to Y | \sigma(0) = y\},   \\
+    (Y_{/y})_n & = \{ \sigma \colon \Delta^{n+1} \to Y | \sigma(n+1) = y\}.
 \end{align*}
 As one might expect, the nerve of a $1$-category commute with taking slices as it does for joins, i.e. for a functor $F: \C \to \D$ between $1$-categories, we have
 \[
     \Nerve(\D_{F/}) \cong \Nerve(\D)_{\Nerve(F)/}\quad \text{and} \quad \Nerve(\D_{/F}) \cong \Nerve(\D)_{/\Nerve(F)}.
 \]
-Furthermore, as one might expect -- or at least desire -- the slice of an $\infty$-category is again an $\infty$-category; see for example \cite{Rezk}[Proposition 30.2.] for a proof.
+Furthermore, as one might expect -- or at least desire -- the slice of an $\infty$-category is again an $\infty$-category; see for example \cite[Proposition 30.2.]{Rezk} for a proof.
 \section{Initial and terminal objects}
 We now have what we need to define initial and terminal objects of $\infty$-categories.
 %\prepp{Problem is we have not defined trivial fibrations. Can go straight for categorical equivalences through Rezk's fundamental theorem and then define initial and terminal objects by saying the relevant projections are categorical equivalences instead of trivial fibrations.}
 \begin{definition}
     Let $\C$ be an $\infty$-category.
-    An object $c \in \C$ is initial if for all $n \geq 1$ every $f : \partial \Delta^n \to \C$ such that $f|_{\{0\}} = c$ can be extended to a map $f':\Delta^n\to \C$.
-    Dually, a terminal object is an object $c'$ such that for all $n \geq 1$ every $f : \partial \Delta^n \to \C$ such that $f|_{\{n\}} = c'$ can be extended to a map $f':\Delta^n\to \C$.
+    An object $c \in \C$ is initial if for all $n \geq 1$ every $f \colon \partial \Delta^n \to \C$ such that $f|_{\{0\}} = c$ can be extended to a map $f'\colon\Delta^n\to \C$.
+    Dually, a terminal object is an object $c'$ such that for all $n \geq 1$ every $f \colon \partial \Delta^n \to \C$ such that $f|_{\{n\}} = c'$ can be extended to a map $f'\colon\Delta^n\to \C$.
     Equivalently initial and terminal objects are objects such that we can always solve the respective extension problems:
     \[\begin{tikzcd}
             {\{0\}} & {\partial\Delta^n} & \C & {\{n\}} & {\partial\Delta^n} & \C \\
@@ -168,7 +168,7 @@ We now have what we need to define initial and terminal objects of $\infty$-cate
     It can be shown that initial and terminal objects are invariant under isomorphisms.
 \end{remark}
 In his notes, Rezk shows that the slice categories give alternate definitions of initial and terminal objects:
-\begin{proposition}[{\cite{Rezk}[Proposition 31.3.]\footnote{Rezk shows that the maps are trivial fibrations rather than categorical equivalences but instead of introducing fibrations we remedy this by referring to \cite{Rezk}[40.8.] which states that isofibrations that are also categorical equivalences are trivial fibrations and claim the projections in question are isofibrations. This is essentially \cite{Rezk}[Remark 31.4.].}}]
+\begin{proposition}[{\cite[Proposition 31.3.]{Rezk}\footnote{Rezk shows that the maps are trivial fibrations rather than categorical equivalences but instead of introducing fibrations we remedy this by referring to \cite[40.8.]{Rezk} which states that isofibrations that are also categorical equivalences are trivial fibrations and claim the projections in question are isofibrations. This is essentially \cite[Remark 31.4.]{Rezk}.}}]
     Let $\C$ be an $\infty$-category and $X$ an object in $\C$.
     \begin{enumerate}
         \item Then $X$ is initial if and only if the projection $\C_{X/} \to \C$ is a categorical equivalence.
@@ -180,7 +180,7 @@ In ordinary category theory we define initial and terminal objects by contractib
     We say an $\infty$-category is contractible if it is categorically equivalent to $\Delta^0$.
 \end{definition}
 This definition leads us to the desired result:
-\begin{proposition}[{\cite{Rezk}[Proposition 63.7.]}]
+\begin{proposition}[{\cite[Proposition 63.7.]{Rezk}}]
     Let $\C$ be an $\infty$-category and $X$ an object in $\C$.
     \begin{enumerate}
         \item Then $X$ is initial if and only if $\map_{\C}(X,Y)$ is contractible for any object $Y\in \C$.
@@ -192,10 +192,10 @@ Furthermore, any object isomorphic to an initial (terminal) object is itself ini
 \section{Limits and colimits}
 Now we can finally define limits and colimits.
 \begin{definition}
-    Let $\C$ be an $\infty$-category and $f: K \to \C$ a map of simplicial sets.
+    Let $\C$ be an $\infty$-category and $f \colon K \to \C$ a map of simplicial sets.
     A colimit of $f$ is an initial object in $\C_{f/}$, and a limit of $f$ is a terminal object in $\C_{/f}$.
 \end{definition}
-This means that a colimit of $f : K \to \C$ is a map $\bar{f}$ such that we can always solve the following extension problem
+This means that a colimit of $f \colon K \to \C$ is a map $\bar{f}$ such that we can always solve the following extension problem
 \[\begin{tikzcd}
         {{\{0\}}} & {\partial\Delta^n} & {\C_{f/}} \\
         & {\Delta^n}
@@ -207,7 +207,7 @@ This means that a colimit of $f : K \to \C$ is a map $\bar{f}$ such that we can 
         \arrow["\exists"', dashed, from=2-2, to=1-3]
     \end{tikzcd}\]
 Recalling that we defined the slice of a simplicial set as right adjoint to the join, we know that maps ${\{0\}}\to \C_{f/}$ is in bijection with maps $K\star {\Delta^0} = K^{\triangleright} \to \C$.
-In summary the adjunction tells us that a colimit of $f$ is a map $\bar{f}: K^{\triangleright} \to \C$ extending $f$ such that we can always solve the following extension problem
+In summary the adjunction tells us that a colimit of $f$ is a map $\bar{f}\colon K^{\triangleright} \to \C$ extending $f$ such that we can always solve the following extension problem
 \[\begin{tikzcd}
         {K\star \{0\}} & {K\star\partial\Delta^n} & \C \\
         & {K\star\Delta^n}
@@ -218,7 +218,7 @@ In summary the adjunction tells us that a colimit of $f$ is a map $\bar{f}: K^{\
         \arrow[from=1-1, to=2-2]
         \arrow["\exists"', dashed, from=2-2, to=1-3]
     \end{tikzcd}\]
-Dually, a limit of $f$ is a map $\bar{f} : K^{\triangleleft} \to \C$ such that we can always solve the following extension problem
+Dually, a limit of $f$ is a map $\bar{f} \colon K^{\triangleleft} \to \C$ such that we can always solve the following extension problem
 \[\begin{tikzcd}
         {\{n\} \star K} & {\partial\Delta^n \star K} & \C \\
         & {\Delta^n \star K}
@@ -229,7 +229,7 @@ Dually, a limit of $f$ is a map $\bar{f} : K^{\triangleleft} \to \C$ such that w
         \arrow[from=1-1, to=2-2]
         \arrow["\exists"', dashed, from=2-2, to=1-3]
     \end{tikzcd}\]
-Lurie \cite{HTT} refers to the object $\colim f \in \C_{f/}$ as a colimit of $f$ and the map $\bar{f}: K^{\triangleright} \to \C$ as a colimit diagram.
+Lurie \cite{HTT} refers to the object $\colim f \in \C_{f/}$ as a colimit of $f$ and the map $\bar{f}\colon K^{\triangleright} \to \C$ as a colimit diagram.
 We will probably be lazy and not care about this distinction.
 It follows immediately that limits and colimits are unique in the same sense that initial and terminal objects are: the full subcategory spanned by the (co)limits is either empty or contractible.
 When saying something is unique in $\infty$-category theory it is usually this notion we mean; it is unique up to a contractible space.
