@@ -3,19 +3,19 @@
 \begin{document}
 \section{Stable $\infty$-categories}
 Quoting Lurie \cite{HA}, ``The theory of stable $\infty$-categories can be regarded as an axiomatization of the essential features of stable homotopy theory: most notably, that fiber sequences and cofiber sequences are the same.''
-For the purpose of this thesis (proving Verider Duality), we really don't need much more of the theory than the fact that pullbacks squares are always also pushout squares, but nevertheless we think it useful to state the basic theory and examples of the categories we care about.
+For the purpose of this thesis (proving Verdier Duality), we really don't need much more of the theory than the fact that pullbacks squares are always also pushout squares, but nevertheless we think it useful to state the basic theory and examples of the categories we care about.
 \begin{definition}[{\cite[Definition 1.1.1.1.]{HA}}]
     A zero-object, usually denoted $0$, in an $\infty$-category is an object that is both initial and terminal.
     A pointed $\infty$-category is an $\infty$-category containing a zero-object.
 \end{definition}
 \begin{remark}
-    An object $0\in \C$ is a zero-object if $\map_{\C}(X,0)$ and $\map_{\C}(0,X)$ are contractible for every object $X\in \C$ and such an object is determined up to equivalence (we saw that initial and terminal objects are unique up to a contractible space).
+    An object $0\in \C$ is a zero-object if $\map_{\C}(X,0)$ and $\map_{\C}(0,X)$ are contractible for every object $X\in \C$, and such an object is determined up to equivalence (since we saw that initial and terminal objects are unique up to a contractible space).
 \end{remark}
 \begin{remark}[{\cite[Remark 1.1.1.3.]{HA}}]
     Let $\C$ be a pointed $\infty$-category.
     For any $X,Y \in \C$, the natural morphism
     \[
-        \map_{\C}(X, 0) \to \map_{\C}(0, Y) \to \map_{\C}(X,Y)
+        \map_{\C}(X, 0) \times \map_{\C}(0, Y) \xrightarrow{0} \map_{\C}(X,Y)
     \]
     has contractible domain, which means that we have a well-defined zero-morphism $X\to Y$ in $\h\C$.
 \end{remark}
@@ -36,12 +36,12 @@ For the purpose of this thesis (proving Verider Duality), we really don't need m
     We say that a triangle is a fiber sequence if it is a pullback square and a cofiber sequence if it is a pushout square.
 \end{definition}
 \begin{definition}[{\cite[Definition 1.1.1.6.]{HA}}]
-    For a morphism $g\colon Y \to Z$ in a pointed $\infty$-category $\C$, we say that a fiber of $g$ is a fiber seqeunce as depicted in \ref{triangle}.
-    For a morphism $f\colon X \to Y$ in a pointed $\infty$-category $\C$, we say that a cofiber of $f$ is a cofiber seqeunce as depicted in \ref{triangle}.
+    For a morphism $g\colon Y \to Z$ in a pointed $\infty$-category $\C$, we say that a fiber of $g$ is a fiber sequence as depicted in \ref{triangle}.
+    For a morphism $f\colon X \to Y$ in a pointed $\infty$-category $\C$, we say that a cofiber of $f$ is a cofiber sequence as depicted in \ref{triangle}.
     We will abuse terminology by writing $X = \fib(g)$ and $Z=\cofib(f)$.
 \end{definition}
 \begin{remark}[{\cite[Remark 1.1.1.8.]{HA}}]
-    The functor $\cofib\colon \Fun(\Delta^1, \C)\to \C$ can be identified with a left adjoint to the left Kan extension functor $\C \simeq \Fun(\{1\}, \C) \to \Fun(\Delta^1, \C)$ which associates a zero morphism $0 \to X$ to each object $X \in \C$.
+    The functor $\cofib\colon \Fun(\Delta^1, \C)\to \C$ can be identified with a left adjoint to the left Kan extension \footnote{We define Kan extensions in chapter \ref{kanchap}.} functor $\C \simeq \Fun(\{1\}, \C) \to \Fun(\Delta^1, \C)$ which associates a zero morphism $0 \to X$ to each object $X \in \C$.
     This means that $\cofib$ preserves all colimits in $\Fun(\Delta^1, \C)$.
 \end{remark}
 We now define stable $\infty$-categories:
@@ -54,11 +54,12 @@ We now define stable $\infty$-categories:
     \end{enumerate}
 \end{definition}
 \begin{proposition}
-    Stable $\infty$-categories has finite limits and colimits.
+    Stable $\infty$-categories have finite limits and colimits.
 \end{proposition}
 \begin{proof}
     Let $\C$ be a stable $\infty$-category.
     By \cite[Corollary 4.4.2.4.]{HTT} it is enough to show that $\C$ has pushouts and pullbacks.
+    We will only consider pushouts, but the argument is the same.
     Consider the following diagram in $\C$:
     \[\begin{tikzcd}
             {\fib(g)} & X & Z \\
@@ -80,15 +81,15 @@ In fact, an even stronger statement can be made:
     Then $\C$ is stable if and only if the following conditions are satisfied:
     \begin{enumerate}
         \item $\C$ admits finite limits and colimits.
-        \item A square is a pushout if and only if it is a pullback.
+        \item A square is a pushout if and only if it is a pullback.\qed
     \end{enumerate}
 \end{proposition}
 The fact that pushouts are also pullbacks in stable $\infty$-categories will be helpful later when proving Verdier Duality.
 
 
 We see that, like for additive $1$-categories, stability is a property of $\infty$-categories rather than additional data \cite{HA}[Remark 1.1.1.14.].
-While, additive categories are often presented as categories equipped with an abelian group structure on $\Hom$-sets, this structure is determined by the underlying category.
-A similar structure can be found in stable $\infty$-categories, they are weakly enriched over what is known as the $\infty$-category $\Spec$ of spectra.
+While additive categories are often presented as categories equipped with an abelian group structure on $\Hom$-sets, this structure is determined by the underlying category.
+A similar structure can be found in stable $\infty$-categories: they are weakly enriched over what is known as the $\infty$-category $\Spec$ of spectra.
 We will not go into the details of this comment, but we will at least define $\Spec$ as it is maybe the most important example of a stable $\infty$-category.
 \begin{example}[{\cite[Example 1.1.1.11.]{HA}}]
     We say that a spectrum consists of an infinite sequence $\{X_i\}_{i \geq 0}$ of pointed topological spaces, together with homeomorphisms $X_i \simeq \Omega X_{i+1}$, where $\Omega$ is the loop space functor $\Omega(X) : = \fib(0 \to X)$.
@@ -99,6 +100,6 @@ We will not go into the details of this comment, but we will at least define $\S
 \end{example}
 \begin{theorem}[{\cite[Theorem 1.1.2.14.]{HA}}]
     Let $\C$ be a stable $\infty$-category.
-    Then $\h\C$ is a triangulated category.
+    Then $\h\C$ is a triangulated category.\qed
 \end{theorem}
 \end{document}

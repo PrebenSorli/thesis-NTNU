@@ -2,8 +2,6 @@
 \begin{document}
 This chapter aims to give $\infty$-categorical versions of limits and colimits.
 To accomplish this, some machinery is required, and we define most of the important notions necessary as well as stating without proofs the central results of the theory.
-Perhaps most importantly, we conclude the chapter with an introduction to Kan extensions, both $1$-categorical and $\infty$-categorical.
-While these technically serve as generalizations of limits and colimits, we will only consider pointwise Kan extensions and consider them special kinds of limits and colimits.
 \section{Joins and slices}
 In this section we will introduce the join and slice constructions.
 We will start with a recollection of what these constructions are in the case of ordinary $1$-categories before defining the appropriate $\infty$-categorical notions.
@@ -11,8 +9,8 @@ For most people, at least for me, the slice construction is very familiar while 
 These two constructions will ultimately give us a way to talk about the right notions of limits and colimits in the world of $\infty$-categories.
 \begin{definition}\label{sliceobj}
     Let $\C$ be a $1$-category and $C\in \C$.
-    The slice category, or over category, $\C_{/C}$ is the category with arrows $C'\to C$ in $\C$ as objects and commutative triangles in $\C$ as its morphisms.
-    The coslice category, or under category, $\C_{C/}$ is the category with arrows $C\to C'$ in $\C$ as objects and commutative triangles in $\C$ as its morphisms.
+    The slice category, or over-category, $\C_{/C}$ is the category with arrows $C'\to C$ in $\C$ as objects and commutative triangles in $\C$ as its morphisms.
+    The coslice category, or under-category, $\C_{C/}$ is the category with arrows $C\to C'$ in $\C$ as objects and commutative triangles in $\C$ as its morphisms.
 \end{definition}
 \begin{remark}
     We have pullbacks
@@ -23,15 +21,15 @@ These two constructions will ultimately give us a way to talk about the right no
             \arrow[from=3-1, to=3-3]
             \arrow[from=1-1, to=3-1]
             \arrow[from=1-1, to=1-3]
-            \arrow["{\mathrm{ev}_0}"', from=1-3, to=3-3]
+            \arrow[shift right=1,"{\mathrm{ev}_0}"', from=1-3, to=3-3]
             \arrow[from=1-5, to=1-3]
             \arrow[from=1-5, to=3-5]
             \arrow[from=3-5, to=3-3]
-            \arrow["{\mathrm{ev}_1}", from=1-3, to=3-3]
+            \arrow[shift left=1,"{\mathrm{ev}_1}", from=1-3, to=3-3]
             \arrow["\lrcorner"{anchor=center, pos=0.125, rotate=-90}, draw=none, from=1-5, to=3-3]
             \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=3-3]
         \end{tikzcd}\]
-    where $\mathrm{ev}_0 \colon \Fun([1],\C) \to \Fun(\{0\}, \C) \simeq \C$ and $\mathrm{ev}_1 \colon \Fun([1],\C) \to \Fun(\{1\}, \C) \simeq \C$.
+    where $\mathrm{ev}_0 \colon \Fun([1],\C) \to \Fun(\{0\}, \C) \simeq \C$ is evaluation at $0$ and $\mathrm{ev}_1 \colon \Fun([1],\C) \to \Fun(\{1\}, \C) \simeq \C$ is evaluation at $1$.
 \end{remark}
 The above remark says that we can identify the slice and coslice categories with fibers of the evaluation functors $\mathrm{ev}_0$ and $\mathrm{ev}_1$ and we will use this idea to define the notion of slicing over (and under) diagrams.
 \begin{definition}\label{slicefun}
@@ -54,7 +52,7 @@ The above remark says that we can identify the slice and coslice categories with
 \end{definition}
 \begin{definition}
     Let $\C$ and $\D$ be $1$-categories.
-    We define the join $\C \star \D$ of $\C$ and $\D$ as the category with $\C \coprod \D$ as its object and for objects $X, Y$ morphisms given by:
+    We define the join $\C \star \D$ of $\C$ and $\D$ as the category with $\mathrm{ob}\C \coprod \mathrm{ob}\D$ as its objects and for objects $X, Y$ morphisms given by:
     \[
         \Hom_{\C \star \D}(X,Y) : =
         \begin{cases}
@@ -71,12 +69,13 @@ The above remark says that we can identify the slice and coslice categories with
     It is usual to abuse notation a bit and identify $\C$ and $\D$ with these subcategories.
 \end{remark}
 \begin{remark}
-    Joins and slices are adjoints to eachother.
+    The functor $\blank \star \D \colon \mathrm{Cat} \to \mathrm{Cat}_{/\D}$ is left adjoint to the slice functor that takes a functor $f \colon \D \to \C$ to $\C_{/f}$.
+    Dually, the functor $\C \star \blank \colon \mathrm{Cat} \to \mathrm{Cat}_{\C/}$ is left adjoint to the slice functor that takes a functor $g \colon \C \to \D$ to $\D_{f/}$.
 \end{remark}
 \begin{example}
     Maybe the most important examples of joins, at least in this text, are the left and right cone of a category.
-    Letting $[0]$ denote the category with one object and one morphism, we denote by $\C^{\triangleleft}: = [0] \star \C$ the right cone of a $1$-category $\C$ and $\C^{\triangleright}:=\C \star [0]$ the left cone of $\C$.
-    In practice, the right cone of $\C$ is the category obtained by adjoining an additional object $X_0$ to $\C$ and for every $C \in \C^{\triangleright}$ a unique morphism $X_0 \to C$ so that $X_0$ becomes terminal in $\C^{\triangleright}$.
+    Letting $[0]$ denote the category with one object and one morphism, we denote by $\C^{\triangleleft}: = [0] \star \C$ the left cone of a $1$-category $\C$ and $\C^{\triangleright}:=\C \star [0]$ the right cone of $\C$.
+    In practice, the right cone of $\C$ is the category obtained by adjoining an additional object $X_0$ to $\C$ and for every $C \in \C^{\triangleright}$ a unique morphism $C \to X_0$ so that $X_0$ becomes terminal in $\C^{\triangleright}$.
     Dually, the left cone is obtained by adjoining an additional object which becomes initial in $\C^{\triangleleft}$.
 \end{example}
 The usefulness of cones materializes when considering limits and colimits.
@@ -86,22 +85,23 @@ Lurie denotes the category of functors extending $F$ to the cones by $\Fun_F(\C^
 
 We now define the join of two simplicial sets.
 \begin{definition}\label{joinsimpsets}
-    Let $X, Y \in \sset$.
+    Let $X, Y \in \sset$ and let $\Delta^+$ be the full subcategory of ordered sets obtained by adding the empty set $[-1]:=\emptyset$ to $\Delta$.
     We define the join $X\star Y$ on $n$-cells:
     \[
-        (X\star Y)_n : = \coprod_{[n] = [n_1] \sqcup [n_2]} X_{n_1} \times X_{n_2},
+        (X\star Y)_n : = \coprod_{[n] = [n_1] \sqcup [n_2]} X_{n_1} \times Y_{n_2},
     \]
-    where $[n_1], [n_2] \in \Delta \cup [-1] = \emptyset : = \Delta_+$ and $\sqcup: \Delta_+ \times \Delta_+ \to \Delta_+$ is the ordered disjoint union.
+    where $[n_1], [n_2] \in \Delta_+$ and $\sqcup: \Delta_+ \times \Delta_+ \to \Delta_+$ is the ordered disjoint union.
     That is, $[p] \sqcup [q] = [p+1+q]$.
     We allow $[n_1]$ and $[n_2]$ to be $-1$ with $[-1]=\emptyset$ and $X_{-1} = * = Y_{-1}$.
 \end{definition}
 \begin{remark}
     This is the left Kan extension of the product $X \times Y$ along the ordered disjoint union.
+    \TODO{See Rune's comment.}
 \end{remark}
 \begin{example}
     We denote by $X^{\triangleleft}$ the left cone $\Delta^0 \star X$ and by $X^{\triangleright}$ the right cone $X\star \Delta^0$.
 \end{example}
-One can show that the nerve of a $1$-category commute with joins in the sense that $\Nerve(\C \star \D) = \Nerve(\C) \star \Nerve(\D)$ which in particular means that the nerve commutes with the cone constructions:
+One can show that the nerve of $1$-categories commutes with joins in the sense that $\Nerve(\C \star \D) = \Nerve(\C) \star \Nerve(\D)$, which in particular means that the nerve commutes with the cone constructions:
 \[
     \Nerve(\C^{\triangleright}) \cong \Nerve(\C)^{\triangleright}\quad \text{and} \quad\Nerve(\C^{\triangleleft}) \cong \Nerve(\C)^{\triangleleft}.
 \]
@@ -119,7 +119,7 @@ To define limits and colimits for $\infty$-categories we will need $\infty$-cate
     which means that cell-wise we have a functor to $\SET_{X_n/}$ and here colimits and products commute.
 \end{proof}
 Consequently, we can find right adjoints going from $\sset_{X/}$ to $\sset$ which we call slice functors.
-For a map $f\colon X\to Y$ and simplicial set $K$, we have bijections
+For a map $f\colon X\to Y$ and a simplicial set $K$, we have bijections
 \[
     \Hom\left(K, Y_{f /}\right) \cong \Hom_{X /}(X \star K, Y)
 \]
@@ -136,18 +136,18 @@ Important examples arise when considering the map $y\colon \Delta^0\to Y$ giving
     (Y_{y/})_n & = \{ \sigma \colon \Delta^{n+1} \to Y | \sigma(0) = y\},   \\
     (Y_{/y})_n & = \{ \sigma \colon \Delta^{n+1} \to Y | \sigma(n+1) = y\}.
 \end{align*}
-As one might expect, the nerve of a $1$-category commute with taking slices as it does for joins, i.e. for a functor $F: \C \to \D$ between $1$-categories, we have
+As one might expect, the nerve of $1$-categories commutes with taking slices as it does for joins, i.e. for a functor $F: \C \to \D$ between $1$-categories, we have
 \[
     \Nerve(\D_{F/}) \cong \Nerve(\D)_{\Nerve(F)/}\quad \text{and} \quad \Nerve(\D_{/F}) \cong \Nerve(\D)_{/\Nerve(F)}.
 \]
-Furthermore, as one might expect -- or at least desire -- the slice of an $\infty$-category is again an $\infty$-category; see for example \cite[Proposition 30.2.]{Rezk} for a proof.
+Furthermore, as one might expect --- or at least desire --- the slices of an $\infty$-category are again $\infty$-categories; see for example \cite[Proposition 30.2.]{Rezk} for a proof.
 \section{Initial and terminal objects}
 We now have what we need to define initial and terminal objects of $\infty$-categories.
 %\prepp{Problem is we have not defined trivial fibrations. Can go straight for categorical equivalences through Rezk's fundamental theorem and then define initial and terminal objects by saying the relevant projections are categorical equivalences instead of trivial fibrations.}
 \begin{definition}
     Let $\C$ be an $\infty$-category.
-    An object $c \in \C$ is initial if for all $n \geq 1$ every $f \colon \partial \Delta^n \to \C$ such that $f|_{\{0\}} = c$ can be extended to a map $f'\colon\Delta^n\to \C$.
-    Dually, a terminal object is an object $c'$ such that for all $n \geq 1$ every $f \colon \partial \Delta^n \to \C$ such that $f|_{\{n\}} = c'$ can be extended to a map $f'\colon\Delta^n\to \C$.
+    An object $c \in \C$ is initial if for all $n \geq 1$, every $f \colon \partial \Delta^n \to \C$ such that $f|_{\{0\}} = c$ can be extended to a map $f'\colon\Delta^n\to \C$.
+    Dually, a terminal object is an object $c'$ such that for all $n \geq 1$, every $f \colon \partial \Delta^n \to \C$ such that $f|_{\{n\}} = c'$ can be extended to a map $f'\colon\Delta^n\to \C$.
     Equivalently initial and terminal objects are objects such that we can always solve the respective extension problems:
     \[\begin{tikzcd}
             {\{0\}} & {\partial\Delta^n} & \C & {\{n\}} & {\partial\Delta^n} & \C \\
@@ -170,21 +170,23 @@ We now have what we need to define initial and terminal objects of $\infty$-cate
 In his notes, Rezk shows that the slice categories give alternate definitions of initial and terminal objects:
 \begin{proposition}[{\cite[Proposition 31.3.]{Rezk}\footnote{Rezk shows that the maps are trivial fibrations rather than categorical equivalences but instead of introducing fibrations we remedy this by referring to \cite[40.8.]{Rezk} which states that isofibrations that are also categorical equivalences are trivial fibrations and claim the projections in question are isofibrations. This is essentially \cite[Remark 31.4.]{Rezk}.}}]
     Let $\C$ be an $\infty$-category and $X$ an object in $\C$.
+    Then
     \begin{enumerate}
-        \item Then $X$ is initial if and only if the projection $\C_{X/} \to \C$ is a categorical equivalence.
-        \item Then $X$ is terminal if and only if the projection $\C_{/X} \to \C$ is a categorical equivalence.
+        \item $X$ is initial if and only if the projection $\C_{X/} \to \C$ is a categorical equivalence.
+        \item $X$ is terminal if and only if the projection $\C_{/X} \to \C$ is a categorical equivalence. \qed
     \end{enumerate}
 \end{proposition}
-In ordinary category theory we define initial and terminal objects by contractibility of $\Hom$-sets and after defining the mapping space between two $\infty$-categories one would hope for a $\infty$-categorical analogy of this classification.
+In ordinary category theory we define initial and terminal objects by contractibility of $\Hom$-sets and after defining the mapping space between two $\infty$-categories one would hope for a $\infty$-categorical analogue of this classification.
 \begin{definition}
     We say an $\infty$-category is contractible if it is categorically equivalent to $\Delta^0$.
 \end{definition}
 This definition leads us to the desired result:
 \begin{proposition}[{\cite[Proposition 63.7.]{Rezk}}]
     Let $\C$ be an $\infty$-category and $X$ an object in $\C$.
+    Then
     \begin{enumerate}
-        \item Then $X$ is initial if and only if $\map_{\C}(X,Y)$ is contractible for any object $Y\in \C$.
-        \item Then $X$ is terminal if and only if $\map_{\C}(Y,X)$ is contractible for any object $Y\in \C$.
+        \item $X$ is initial if and only if $\map_{\C}(X,Y)$ is contractible for any object $Y\in \C$.
+        \item $X$ is terminal if and only if $\map_{\C}(Y,X)$ is contractible for any object $Y\in \C$. \qed
     \end{enumerate}
 \end{proposition}
 While initial and terminal objects in $1$-categories are unique up to unique isomorphism, initial and terminal objects in $\infty$-categories are unique up to equivalence in the sense that the full subcategories spanned by the initial and terminal objects are either empty or contractible.
@@ -206,8 +208,8 @@ This means that a colimit of $f \colon K \to \C$ is a map $\bar{f}$ such that we
         \arrow[from=1-1, to=2-2]
         \arrow["\exists"', dashed, from=2-2, to=1-3]
     \end{tikzcd}\]
-Recalling that we defined the slice of a simplicial set as right adjoint to the join, we know that maps ${\{0\}}\to \C_{f/}$ is in bijection with maps $K\star {\Delta^0} = K^{\triangleright} \to \C$.
-In summary the adjunction tells us that a colimit of $f$ is a map $\bar{f}\colon K^{\triangleright} \to \C$ extending $f$ such that we can always solve the following extension problem
+Recalling that we defined the slice of a simplicial set as right adjoint to the join, we know that maps ${\{0\}}\to \C_{f/}$ are in bijection with maps $K\star {\Delta^0} = K^{\triangleright} \to \C$.
+In summary, the adjunction tells us that a colimit of $f$ is a map $\bar{f}\colon K^{\triangleright} \to \C$ extending $f$ such that we can always solve the following extension problem
 \[\begin{tikzcd}
         {K\star \{0\}} & {K\star\partial\Delta^n} & \C \\
         & {K\star\Delta^n}
@@ -232,8 +234,8 @@ Dually, a limit of $f$ is a map $\bar{f} \colon K^{\triangleleft} \to \C$ such t
 Lurie \cite{HTT} refers to the object $\colim f \in \C_{f/}$ as a colimit of $f$ and the map $\bar{f}\colon K^{\triangleright} \to \C$ as a colimit diagram.
 We will probably be lazy and not care about this distinction.
 It follows immediately that limits and colimits are unique in the same sense that initial and terminal objects are: the full subcategory spanned by the (co)limits is either empty or contractible.
-When saying something is unique in $\infty$-category theory it is usually this notion we mean; it is unique up to a contractible space.
+When saying something is unique in $\infty$-category theory it is usually this notion we mean; it is unique up to a contractible space of choices.
 \begin{remark}
-    As the slice and join constructions commute with the nerve construction so does initial and terminal objects and hence also limits and colimits.
+    As the slice and join constructions commute with the nerve construction, so do initial and terminal objects and hence also limits and colimits.
 \end{remark}
 \end{document}

@@ -289,8 +289,8 @@ Furthermore, compositions respect homotopy in the following sense:
     The nerve construction preserves compositions in the sense that for a $1$-category $\C$ with morphisms $f,g$ as above, there is a unique morphism $h\colon X\to Z$ in $\Nerve(\C)$ which is given by $f\circ g$ in $\C$.
 \end{remark}
 One can show that the nerve construction $\mathrm{Cat} \xrightarrow{\Nerve} \sset$ admits a left adjoint $\h$ and moreover that the counit of this adjunction is an isomorphism which in turn means that the nerve is fully faithful.
-This can be shown directly and the interested reader can see for example \cite[Proposition 4.10.]{Rezk} or \cite[\href{https://kerodon.net/tag/002Y}{Subsection 002Y}]{kerodon} for proofs, but we will instead delay the proof to chapter \ref{kanchap} to illustrate the usefulness of Kan extensions.
-We now construct this left adjoint directly, but delay the proof of the adjunction.
+This can be shown directly and the interested reader can see for example \cite[Proposition 4.10.]{Rezk} or \cite[\href{https://kerodon.net/tag/002Y}{Subsection 002Y}]{kerodon} for proofs.
+We now construct $\h$ directly, but only on $\infty$-categories, but we will delay the proof of the adjunction to chapter \ref{kanchap} to illustrate the usefulness of Kan extensions.
 \TODO{Look at Rune's comment.}
 Analogously to the construction of the fundamental groupoid $\pi_{\leq 1}(X)$ of a topological space $X$, we can construct the homotopy category $\h\C$ of an $\infty$-category $\C$.
 \prepp{Writing about the fundamental gruopoid could be smart.}
@@ -449,7 +449,7 @@ This allows us to define an equivalence between $\infty$-categories:
     Let $f \in \MAP(\C,\D)$ be a functor of $\infty$-categories.
     Then $f$ is a categorical equivalence if there exists a functor $g\in\MAP(\D,\C)$ and natural equivalences between $gf$ and $\id_{\C}$ and between $\id_{\D}$ and $fg$.
 \end{definition}
-\begin{proposition}[{\cite{[Exercise 15.8.]{Rezk}}}]
+\begin{proposition}[{\cite[Exercise 15.8.]{Rezk}}]
     Let $\C$ and $\D$ be ordinary $1$-categories.
     Then $\Nerve(\Fun(\C, \D)) \simeq \MAP(\Nerve(\C), \Nerve(\D))$.
 \end{proposition}
@@ -462,13 +462,10 @@ This allows us to define an equivalence between $\infty$-categories:
                                         & = \Hom_{\sset}(\Nerve([n]\times \C), \Nerve(D))
     \end{align}
     Finally, we use fully-faithfulness of the nerve to get
-    \[
-        \Hom_{\sset}(\Fun([-], [n]\times \C) , \Fun([-], \D)) = \Fun([n]\times \C, \D).
-    \]
-    Now, we use closure of $\Fun$ to get
     \begin{align}
-        \Nerve(\Fun(\C, \D))_n: & = \Fun([n], \Fun(\C, \D)) \\
-                                & = \Fun([n]\times \C, \D)
+        \Hom_{\sset}(\Nerve([n]\times \C), \Nerve(\D)) & \cong \Hom_{\mathrm{Cat}}([n] \times \C, \D) \\
+                                                       & \cong \Hom_{\mathrm{Cat}}([n], \Fun(\C, \D)) \\
+                                                       & = (\Nerve(\Fun(\C, \D)))_n.
     \end{align}
 \end{proof}
 \begin{definition}
@@ -484,14 +481,15 @@ This allows us to define an equivalence between $\infty$-categories:
             \arrow[from=1-1, to=3-1]
             \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=3-3]
         \end{tikzcd}\]
-    which, in fact, is an actual space.
+    which, in fact, is an actual Kan complex\footnote{It is named mapping space because of the convention among many authors to call Kan complexes and $\infty$-groupoids spaces.}.
 \end{definition}
-For a proof that this is always a space/$\infty$-groupoid/Kan complex, see \cite[Proposition 45.2]{Rezk}.
+For a proof that this is always a Kan complex, see \cite[Proposition 45.2]{Rezk}.
+It is worth mentioning that we only define the mapping space up to homotopy so there are other useful ways to model it that we are not mentioning here.
 \begin{definition}
     We say a functor $f \in \MAP(\C,\D)$ of $\infty$-categories is essentially surjective if the functor ${\h f \in \Fun(\h\C, \h\D)}$ is essentially surjective.
 \end{definition}
 \begin{definition}
-    We say a functor $f \in \MAP(\C,\D)$ of $\infty$-categories is fully faithful if the functor ${\map_{\C}(X,Y) \to \map_{\C}(f(X),f(Y))}$ is an equivalence.
+    We say a functor $f \in \MAP(\C,\D)$ of $\infty$-categories is fully faithful if the functor ${\map_{\C}(X,Y) \to \map_{\D}(f(X),f(Y))}$ is an equivalence for all $X,Y \in \C$.
 \end{definition}
 Charles Rezk names the following the ``fundamental theorem'' of $\infty$-categories (and he names the corresponding result for $1$-categories the ``fundamental theorem of category theory'' though he mentions Yoneda's lemma might be more deserving of that name).
 \begin{theorem}[{\cite[Theorem 48.2.]{Rezk}}]
@@ -505,7 +503,7 @@ We can also define a weaker notion of equivalence between simplicial sets.
     \]
     is a categorical equivalence.
 \end{definition}
-An immmediate observation is that any categorical equivalence is also a weak homotopy equivalence.
+An immmediate observation is that any categorical equivalence between $\infty$-categories $X$ and $Y$ is also a weak homotopy equivalence, but the converse is not necessarily true:
 \begin{example}
     $\Delta^0 \hookrightarrow \Delta^1$ is a weak homotopy equivalence but not a categorical equivalence.
 \end{example}
@@ -521,7 +519,7 @@ We give an $\infty$-categorical definition of adjoint functors.
               \]
         \item The identity isomorphism $\id_G \colon G \to G$ is a composition of natural transformations:
               \[
-                  G = \id_{\D} \circ G \xrightarrow{\eta \circ \id_G} G \circ F \circ G \xrightarrow{\id_G \circ \varepsilon} G \circ \id_{\D}G.
+                  G = \id_{\D} \circ G \xrightarrow{\eta \circ \id_G} G \circ F \circ G \xrightarrow{\id_G \circ \varepsilon} G \circ \id_{\D} = G.
               \]
     \end{enumerate}
 \end{definition}

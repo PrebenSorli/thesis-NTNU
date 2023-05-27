@@ -4,9 +4,9 @@
 \section{Cofinality}
 A major part of the proofs in this thesis will revolve around calculating certain (co)limits and in particular certain Kan extensions.
 Following Lurie we will very often do these calculations by using cofinality of certain maps to replace our diagrams with simpler diagrams without changing the (co)limit.
-We start this section with defining the notion of cofinal maps in an $\infty$-category and state some results that will turn out to be very important in proving our main theorems.
+We start this section by defining the notion of cofinal maps between $\infty$-category and state some results that will turn out to be very important in proving our main theorems.
 \begin{definition}
-    A map $f\colon X \to Y$ in an $\infty$-category $\C$ is a right fibration if the following extension problem can be solved for any $0<i\leq n$ and a left fibration if it can be solved for any $0\leq i <n$:
+    A map $f\colon X \to Y$ of simplicial sets is a right fibration if the following extension problem can be solved for any $0<i\leq n$, and a left fibration if it can be solved for any $0\leq i <n$:
     \[\begin{tikzcd}
             {\Lambda_i^n} & X \\
             {\Delta^n} & Y
@@ -21,7 +21,9 @@ We start this section with defining the notion of cofinal maps in an $\infty$-ca
     We say a simplicial set is weakly contractible if it is weakly homotopy equivalent to $\Delta^0$.
 \end{definition}
 \begin{definition}{\cite[\href{https://kerodon.net/tag/02N1}{Definition 02N1}]{kerodon}}
-    Let \(p\colon S\to Y \in \sset \). We say $p$ is colimit-cofinal/limit-cofinal if, for any right/left fibration $X\to Y$, precomposition with $p$ induces a homotopy equivalence
+    Let \(p\colon S\to Y \in \sset \). We say $p$ is colimit-cofinal/limit-cofinal
+    \footnote{The naming conventions here are highly confusing and different author's have adopted similar but different conventions. Lurie himself use left cofinal in \cite{HA} for colimit-cofinal but changed it to right cofinal in \cite{kerodon}. We take the approach of for instance }
+    if, for any right/left fibration $X\to Y$, precomposition with $p$ induces a homotopy equivalence
     \[
         \MAP_{/Y}(Y,X) \xrightarrow{\simeq} \MAP_{/Y}(S,X).
     \]
@@ -32,7 +34,7 @@ We start this section with defining the notion of cofinal maps in an $\infty$-ca
     \begin{enumerate}
         \item The map $f$ is colimit-cofinal.
         \item For any $\infty$-category $\C$ and functor $p\colon Y \to \C$ the induced map $\C_{f/} \to \C_{(p \circ f)/}$ is a categorical equivalence.
-        \item For any $\infty$-category $\C$ and colimit $\overline{p}\colon Y^{\triangleright} \to \C$, the induced map $\overline{(p \circ f)}\colon X^{\triangleright}\to \C$ is a colimit.
+        \item For any $\infty$-category $\C$ and colimit $\overline{p}\colon Y^{\triangleright} \to \C$, the induced map $\overline{(p \circ f)}\colon X^{\triangleright}\to \C$ is a colimit.\qed
     \end{enumerate}
 \end{proposition}
 \begin{corollary}
@@ -45,11 +47,11 @@ We start this section with defining the notion of cofinal maps in an $\infty$-ca
     and the following conditions are equivalent:
     \begin{enumerate}
         \item $F$ is limit-cofinal,
-        \item for any $\infty$-category $\E$ and functor $G\colon\D\to\E$, the limit $\lim_{\D}G$ exists if and only if the limit $\lim_{\C}GF$ exists, and when they exist they are equivalent in $\E$.
+        \item for any $\infty$-category $\E$ and functor $G\colon\D\to\E$, the limit $\lim_{\D}G$ exists if and only if the limit $\lim_{\C}GF$ exists, and when they exist they are equivalent in $\E$.\qed
     \end{enumerate}
 \end{corollary}
 
-This corollary makes it clear that cofinal maps are very useful for calculating (co)limits, but the definition is not the easiest to work with when determining wether a map is cofinal or not.
+This corollary makes it clear that cofinal maps are very useful for calculating (co)limits, but the definition is not the easiest to work with when determining whether a map is cofinal or not.
 The following theorem due to Joyal remedies this by giving a very convenient way of checking cofinality.
 \begin{theorem}{\cite[\href{https://kerodon.net/tag/02NY}{Theorem 02NY}]{kerodon}\label{superlemma}}
     Let \(f\colon \C \to \D\) be a map of simplicial sets, where $\D$ is an $\infty$-category.
@@ -61,11 +63,11 @@ The following theorem due to Joyal remedies this by giving a very convenient way
     and the following conditions are equivalent:
     \begin{enumerate}
         \item The functor $f$ is limit-cofinal,
-        \item for every $D\in \D$, the simplicial set $\C\times_\D \D_{/D}$ is weakly contractible.
+        \item for every $D\in \D$, the simplicial set $\C\times_\D \D_{/D}$ is weakly contractible.\qed
     \end{enumerate}
 \end{theorem}
 This means that checking cofinality of functors reduces to checking cofinality of certain simplicial sets.
-In the next part of this thesis we will mostly consider functors from certain poset categories and this means that we can use the theory of filtered $\infty$-categories to simplifiy the process of checking contractibility.
+In the next part of this thesis we will mostly consider functors from certain poset categories and this means that we can use the theory of filtered $\infty$-categories to simplify the process of checking contractibility.
 While much can be said about filtered $\infty$-categories we only state the definition and the results we need and refer the reader to \cite[\href{https://kerodon.net/tag/02P8}{Subsection 02P8}]{kerodon} and \cite[Section 5.3.1]{HTT} for more details and proofs.
 \begin{definition}[{\cite[\href{https://kerodon.net/tag/02P9}{Definition 02P9}]{kerodon}}]
     We say that a non-empty $1$-category $\C$ is filtered if it satisfies the following conditions:
@@ -79,10 +81,10 @@ While much can be said about filtered $\infty$-categories we only state the defi
     Dually, we say it is cofiltered if $\C^{op}$ is filtered (we can extend to $K^{\triangleleft} \to \C$).
 \end{definition}
 \begin{proposition}[{\cite[\href{https://kerodon.net/tag/02PH}{Proposition 02PH}]{kerodon}}]\label{5.3.1.20}
-    Filtered $\infty$-categories are weakly contractible.
+    Filtered $\infty$-categories are weakly contractible.\qed
 \end{proposition}
 \begin{proposition}[{\cite[\href{https://kerodon.net/tag/02PV}{Corollary 02PV}]{kerodon}}]\label{NerveFilter}
-    A $1$-category $\C$ is filtered if and only if its nerve $\Nerve(\C)$ is filtered.
+    A $1$-category $\C$ is filtered if and only if its nerve $\Nerve(\C)$ is filtered.\qed
 \end{proposition}
 \begin{remark}\label{filteredposet}
     In the case of partially ordered sets there are no parallel arrows, so a partially ordered set is filtered if and only if it is directed, that is; every finite subset has an upper bound.
