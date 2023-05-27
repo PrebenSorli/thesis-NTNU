@@ -221,15 +221,14 @@ Following Lurie's Kerodon, we define the left Kan extension along a general func
     This characterizes $F(X)$ up to isomorphism and, in fact; for functors $\delta$ and $F_0$ as in the definition, a left Kan extension is uniquely determined up to isomorphism as an object of $\Fun(\C, \D)$.
 \end{remark}
 \begin{remark}
-    This definition is compatible with the definition for Kan extensions along inclusions; just use the identity natural transformation for $\beta$.
+    This definition is compatible with the definition for Kan extensions along inclusions: just use the identity natural transformation for $\beta$.
 \end{remark}
 As promised, we have universal properties also for $\infty$-categorical Kan extensions:
 \begin{proposition}[{\cite[\href{https://kerodon.net/tag/0309}{Proposition 0309}]{kerodon}}]
     Let $F \colon\C \to \D$ be a functor of $\infty$-categories, let $\delta \colon K\to \C$ and $F_0 \colon K \to D$ be functors of simplicial sets and let $\beta \colon F_0 \to F \circ \delta$ be natural transformation exhibiting $F$ as a left Kan extension of $F_0$ along $\delta$.
     Then for any $G \in \Fun(\C, \D)$ the following composition is an equivalence of Kan complexes:
     \[
-        \map_{\Fun(\C,\D)}(F,G) \to \map_{\Fun(K,\D)}(F \circ \delta , G \circ \delta) \xrightarrow{\circ [\beta]} \map_{\Fun(K,\D)}(F_0, G\circ \delta).
-    \]
+        \map_{\Fun(\C,\D)}(F,G) \to \map_{\Fun(K,\D)}(F \circ \delta , G \circ \delta) \xrightarrow{\circ [\beta]} \map_{\Fun(K,\D)}(F_0, G\circ \delta).\equationQED        \]
 \end{proposition}
 The description of Kan extensions as adjoints to the restriction functor is now a direct consequence of Proposition \ref{adjUnivProp}:
 \begin{corollary}[{\cite[\href{https://kerodon.net/tag/030B}{Corollary 030B}]{kerodon}}]
@@ -239,7 +238,7 @@ The description of Kan extensions as adjoints to the restriction functor is now 
     \[
         \Fun(\C, \D) \xrightarrow{\circ \delta} \Fun(K, \D)
     \]
-    has a left adjoint carrying any functor $F_0 : K \to \D$ to a left Kan extension of $F_0$ along $\delta$.
+    has a left adjoint carrying any functor $F_0 : K \to \D$ to a left Kan extension of $F_0$ along $\delta$.\qed
 \end{corollary}
 The theory of right Kan extensions is dual, so we can of course realize right Kan extensions as right adjoints to restriction.
 

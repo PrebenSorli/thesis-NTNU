@@ -20,7 +20,7 @@ We will split the theorem into a few lemmas for readability and keep the notatio
     \]
     is a colimit diagram in $\C$.
     The assumption that $\F_{\K}$ is a $\K$-sheaf means that for each $K\in \K(X)$, $\F_{\K}(K)$ is a colimit of $\F|\Nerve(\K_{K\Subset}(X))^{op}$.
-    We will "transfer" this colimit to the colimit we want by colimit-cofinal maps
+    We will ``transfer'' this colimit to the colimit we want by colimit-cofinal maps
     \[
         (\Open(X)^{op})_{/K} \xrightarrow{p} ((\Open(X)\cup \K(X))_{/K}^{op}) \xleftarrow{p'}\K_{K\Subset}(X)^{op}.
     \]
@@ -57,27 +57,41 @@ We will split the theorem into a few lemmas for readability and keep the notatio
     \[
         \W \subseteq \W \cup \K_{\W}(X)
     \]
-    if and only if, for any $Y \in \W \cup \K_{\W}(X)$ the simplicial set $\W\times_{\W \cup \K_{\W}(X)}\W \cup \K_{\W}(X)_{Y/}$ is weakly contractible.
-    This fiber product is equivalent to the nerve of the partially ordered set $\{W' \in \W \mid [\exists W \in \W][K \subseteq W \subseteq Y]\}$ and this is filtered, and hence, the fiber product is weakly contractible by \ref{5.3.1.20} and \ref{NerveFilter}.\footnote{\TODO{Check this calculation is correct with Tallak or Rune.}}
+    if and only if, for any $Y \in \W \cup \K_{\W}(X)$ the simplicial set $\W\times_{\W \cup \K_{\W}(X)}(\W \cup \K_{\W}(X))_{Y/}$ is weakly contractible.
+    We can separate the calculation of this pullback in two cases based on $Y$.
+    Firstly, if $Y\in \W$, this is just the slice $\Nerve(\W)_{Y/}$ which is non-empty by assumption, and finite unions of sieves containing $Y$ are certainly also containing $Y$, so it is filtered and hence weakly contractible by \ref{5.3.1.20} and \ref{NerveFilter}.
+    Secondly, we might have that $Y \in \K_{\W}(X)$ which means there exists $W'\in \W$ such that $Y \subseteq W'$.
+    Then the fiber product is also equivalent to the nerve of the partially ordered set $\{W \in \W \mid W \subseteq Y\}$, which is again non-empty by assumption and therefore also weakly contractible.
     Therefore it is enough to show the limit starting from $ \W \cup \K_{\W}(X)^{op}$.
-    By example \ref{KanCone} this is equivalent to showing $\F|_{(\W \cup \K_{\W}(X))^{op,\triangleleft}}$ is right Kan extended from $\F|_{(\W \cup \K_{\W}(X))^{op}}$.
-    By the assumption that $\F$ is a right Kan extension of $\F_{\K}$ and the observation that
+    By example \ref{KanCone} this is equivalent to showing that $\F|_{(\W \cup \K_{\W}(X))^{op,\triangleleft}}$ is right Kan extended from $\F|_{(\W \cup \K_{\W}(X))^{op}}$.
+    By the assumption that $\F$ is a right Kan extension of $\F_{\K}$ we know that
     \[
-        \F(U) = \lim_{K\in \K(X)^{op}_{U/}}\F(K) = \lim_{K\in \K_{\W}(X)^{op}_{U/}}\F(K) %Do we need the following?= K_*^{\prime}\F(U)
+        \F(V)  \simeq \lim_{K\in \K(X)_{V/}^{op}} \F(K)
     \]
-    we see that $\F|_{(\W \cup \K_{\W})^{op}}$ is a right Kan extension of $\F|_{(K_{\W}(X))^{op}}$.
+    for any $V \in \Open(X) \cup \K(X)$.
+    If we restrict to the case where $V \in \W \cup \K_{\W}(X)$ and observe that for $V\in \W \cup \K_{\W}(X)$ the slices $ \K(X)_{V/}$ and $ \K_{\W}(X)_{V/}$ are equivalent, we get
+    \[
+        \F(V) \simeq \lim_{K\in \K(X)_{V/}^{op}} \F(K) \simeq \lim_{K\in \K_{\W}(X)_{V/}^{op}} \F(K).
+    \]
+    This means that $\F|_{(\W \cup \K_{\W})^{op}}$ is a right Kan extension of $\F|_{(\K_{\W}(X))^{op}}$.
+    % By the assumption that $\F$ is a right Kan extension of $\F_{\K}$ and the observation that
+    % \[
+    %     \F(U) \simeq \lim_{K\in \K(X)^{op}_{U/}}\F(K) \simeq \lim_{K\in \K_{\W}(X)^{op}_{U/}}\F(K) %Do we need the following?= K_*^{\prime}\F(U)
+    % \]
+    % we see that $\F|_{(\W \cup \K_{\W})^{op}}$ is a right Kan extension of $\F|_{(\K_{\W}(X))^{op}}$.
     Hence, it suffices to prove that $\F|_{(\W \cup \K_{\W}(X)\cup \{U\})^{op}}$ is right Kan extended from $\K_{\W}(X)^{op}$.
     Outside of $U$ this is clear from the fact that $F|_{(\W \cup \K_{\W}^{op})}$ is right Kan extended from $\K_{\W}(X)^{op}$.
     This means we only need to prove $\F|_{(\K_{\W}(X)\cup \{U\})^{op}}$ is a right Kan extension of $\F|_{\K_{\W}(X)^{op}}$.
     %\prepp{I'm honestly not entirely sure why we suddenly drop the $\cup W$ part.}
     %\prepp{$(\W \cup \K_{\W}(X) \cup \{U\})^{op} = (\W \cup \K_{\W}(X))^{op, \triangleleft}$}
+
     Observe that by assumption
     \[
-        \F(U)  = \lim_{K\in \K(X)_{/U}^{op}} \F(K) = \lim_{K\in (\K(X)_{/U} \cup \{U\})^{op}} \F(K)
+        \F(U)  \simeq \lim_{K\in (\K(X)_{/U})^{op}} \F(K) \simeq \lim_{K\in (\K(X)_{/U} \cup \{U\})^{op}} \F(K)
     \]
     so $\F|_{(\K(X)_{/U} \cup \{U\})^{op}}$ is right Kan extended from $\K(X)_{/U}^{op}$.
     Lemma \ref{7.3.4.8} tells us that $\F|_{(\K(X)_{/U})^{op}}$ is a right Kan extension of $\F|_{\K_{\W}(X)^{op}}$.
-    We have ${\K_{\W}(X)^{op} \subseteq\Nerve(\K(X)_{/U})^{op} \subseteq (\K(X)_{/U} \cup \{U\})^{op}}$, with Kan extensions as in proposition \ref{4.3.2.8}, so we get that ${\F|_{(\K(X)_{/U} \cup \{U\})^{op}}}$ is right Kan extended from ${(\K_{\W}(X))^{op}}$.
+    We have ${\K_{\W}(X)^{op} \subseteq\Nerve(\K(X)_{/U})^{op} \subseteq (\K(X)_{/U} \cup \{U\})^{op}}$, with Kan extensions as in Proposition \ref{4.3.2.8}, so we get that ${\F|_{(\K(X)_{/U} \cup \{U\})^{op}}}$ is right Kan extended from ${(\K_{\W}(X))^{op}}$.
     To summarize, we have the following square of inclusions
     \[\begin{tikzcd}
             {\K_{\W}(X)^{op}} && {(\K_{\W}(X)\cup \{U\})^{op}} \\
@@ -135,7 +149,7 @@ We will split the theorem into a few lemmas for readability and keep the notatio
             \arrow[from=1-1, to=1-3]
         \end{tikzcd}
     \]
-    and the cone point is sent to $\sigma$. This is a pullback by the fact that $\F_{U}$ is a sheaf.
+    and the cone point is sent to $\sigma$. This is a pullback by the assumption that $\F_{U}$ is a sheaf.
     Evaluating $\sigma_P$ in each of the four vertices of $\Delta^1 \times \Delta^1$ we get four maps $\Nerve(P^{op})^{\triangleright} \to \C$.
     We now check that evaluating in the final vertex yields a colimit diagram.
     %Let $Q = \{ U\in \Open(X) | K\cap K' \subseteq U \}$, and observe that this is the fiber product $\Open(X)_{/(K\cap K')}$.
@@ -144,14 +158,14 @@ We will split the theorem into a few lemmas for readability and keep the notatio
         (\Open(X)_{/(K\cap K')})^{op,\triangleright} \hookrightarrow ((\Open(X) \cup \K(X))_{/(K\cap K')})^{op,\triangleright} \xrightarrow{c} (\Open(X) \cup \K(X))^{op} \xrightarrow{\F}\C
     \]
     Observe that for every $U'' \in \Open(X)_{/(K\cap K')}$, the set
-    $P_{U''} = \{(U,U') \in P \mid U\cap U' \subseteq U''\}$ is nonempty and stable under finite intersections, which implies it is filtered and hence its nerve is contractible.
-    By \ref{superlemma} this implies $P^{op} \to (\Open(X)_{/(K\cap K')})^{op}$ is colimit-cofinal and we get a colimit diagram
+    $P_{U''} = \{(U,U') \in P \mid U\cap U' \subseteq U''\}$ is nonempty and stable under finite intersections, which implies that it is filtered, and hence its nerve is contractible.
+    By \ref{superlemma} this implies $P^{op} \to (\Open(X)_{/(K\cap K')})^{op}$ is colimit-cofinal, and we get a colimit diagram
     \[
         P^{op,\triangleright} \to(\Open(X)_{/(K\cap K')})^{op,\triangleright} \hookrightarrow (\Open(X) \cup \K(X))_{/(K\cap K')}^{op,\triangleright} \xrightarrow{c} (\Open(X) \cup \K(X))^{op} \xrightarrow{\F}\C.
     \]
-    We can show that evaluating the three other vertices also yields colimit diagrams by similar arguments.
+    We can show that evaluating at the three other vertices also yields colimit diagrams by similar arguments.
     Since $\sigma_P$ yields a colimit diagram when evaluated in each of the four vertices of $\Delta^1 \times \Delta^1$, we conclude that $\sigma_P$ is itself a colimit diagram by \cite[Proposition 5.1.2.2]{HTT}.
-    Observe now that $\sigma_P$ is a filtered colimit in $\C$ and hence it is left exact.
+    Observe now that $\sigma_P$ is a filtered colimit in $\C$ and hence it is left exact by assumption.
     This concludes the argument that \ref{K-sheaf-PB} is a pullback.
     Finally, we need to show that for each $K \in \K(X)$, $\F_{\K}$ is a colimit of $\F_{\K}|_{\K_{K\Subset}(X)^{op}}$.
     We do this by showing
@@ -161,24 +175,29 @@ We will split the theorem into a few lemmas for readability and keep the notatio
     is a colimit diagram.
     We use Proposition \ref{4.3.2.8} to show that
     $\F|_{(\Open(X) \cup \K_{K\Subset}(X))^{op}}$ and ${\F|_{(\Open(X) \cup \K_{K\Subset}(X))^{op} \cup \{K\}}}$ are left Kan extensions of $\F|_{\Open(X)^{op}}$ which again implies $\F|_{(\Open(X) \cup \K_{K\Subset}(X))^{op} \cup \{K\}}$ is a left Kan extension of $\F|_{(\Open(X) \cup \K_{K\Subset}(X))^{op}}$.
+    Therefore
+    \[
+        (\K_{K\Subset}(X) \cup \Open(X)_{K/})^{op,\triangleright} \to (\K(X) \cup \Open(X))^{op} \xrightarrow{\F} \C
+    \]
+    is a colimit diagram.
     Now observe that
     \[
-        (\K(X) \cup \Open(X))^{op,\triangleright}_{/K} = (\K_{K\Subset}(X) \cup \Open(X)_{/K})^{op,\triangleright},
+        (\K_{K\Subset}(X) \cup \Open(X)_{K/})^{op,\triangleright} = (\K(X) \cup \Open(X))^{op,\triangleright}_{/K},
     \]
-    so in particular
+    so
     \[
         (\K(X) \cup \Open(X))^{op,\triangleright}_{/K} \to (\K(X) \cup \Open(X))^{op} \xrightarrow{\F} \C
     \]
     is a colimit diagram, and the statement is reduced to showing that $\K_{K\Subset}(X) \subseteq (\K(X) \cup \Open(X))_{/K}^{op}$ is colimit-cofinal.
     Let $Y\in (\K(X) \cup \Open(X))_{/K}$ and let $R$ be the partially ordered set $\{K' \in \K(X) \mid K \Subset K ' \subseteq Y\}$.
     Since $R$ is nonempty and stable under intersections, $R^{op}$ is filtered and hence $\Nerve(R)$ is weakly contractible.
-    By \ref{superlemma} the inclusion is colimit-cofinal and we have shown that $\F_\K$ is a $\K$-sheaf.
+    By \ref{superlemma} the inclusion $\K_{K\Subset}(X) \subseteq (\K(X) \cup \Open(X))_{/K}^{op}$ is colimit-cofinal and we have shown that $\F_\K$ is a $\K$-sheaf.
 \end{proof}
 \begin{lemma}
     If $\F_{\Open}$ is a sheaf, then $\F$ is a right Kan extension of $\F_{\K}$.
 \end{lemma}
 \begin{proof}
-    We will show $\F$ is a right Kan extension of $\F_\K$ in a similar manner to how we showed $\F$ is a left Kan extension of $\F_{\Open}$ in the start of the proof, but we will consider the partial order on $\Open(X)$ given by writing $V\Subset U$ whenever $V\in \Open(X)$ and its closure $\overline{V}$ is compact and contained in $U$.
+    We will show $\F$ is a right Kan extension of $\F_\K$ in a similar manner to how we showed $\F$ is a left Kan extension of $\F_{\Open}$ at the start of the proof, but we will consider the partial order on $\Open(X)$ given by writing $V\Subset U$ whenever $V\in \Open(X)$ and its closure $\overline{V}$ is compact and contained in $U$.
     Writing $\Open(X)_{U/}$ for the set $\{V\in \Open(X) \mid V\Subset U\}$, we need to show that
     \[
         \K(X)_{U/}^{op,\triangleleft} \hookrightarrow (\Open(X) \cup \K(X))_{U/}^{op} \xrightarrow{c}(\Open(X) \cup \K(X))^{op} \xrightarrow{\F} \C
