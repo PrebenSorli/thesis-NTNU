@@ -291,9 +291,7 @@ Furthermore, compositions respect homotopy in the following sense:
 One can show that the nerve construction $\mathrm{Cat} \xrightarrow{\Nerve} \sset$ admits a left adjoint $\h$ and moreover that the counit of this adjunction is an isomorphism which in turn means that the nerve is fully faithful.
 This can be shown directly and the interested reader can see for example \cite[Proposition 4.10.]{Rezk} or \cite[\href{https://kerodon.net/tag/002Y}{Subsection 002Y}]{kerodon} for proofs.
 We now construct $\h$ directly, but only on $\infty$-categories, but we will delay the proof of the adjunction to chapter \ref{kanchap} to illustrate the usefulness of Kan extensions.
-\TODO{Look at Rune's comment.}
 Analogously to the construction of the fundamental groupoid $\pi_{\leq 1}(X)$ of a topological space $X$, we can construct the homotopy category $\h\C$ of an $\infty$-category $\C$.
-\prepp{Writing about the fundamental gruopoid could be smart.}
 \begin{definition}\label{homhtpycat}
     Let $\C$ be an $\infty$-category.
     We denote by $\Hom_{\h\C}(X,Y)$ homotopy classes of morphisms $X\to Y \in \C$ and for a morphism $f \colon X \to Y$ in $\C$, we denote by $[f]$ its equivalence class in $\Hom_{\h\C}(X,Y)$.
@@ -314,10 +312,10 @@ Analogously to the construction of the fundamental groupoid $\pi_{\leq 1}(X)$ of
               In other words, for every $W\xrightarrow{f}X$ and every $X\xrightarrow{g}Y$ in $\C$, we have $[id_X] \circ [f] = [f]$ and $[g]\circ [id_X] = [g]$.
     \end{enumerate}
 \end{proposition}
-\TODO{Place the following in the correct place: This means that $([h]\circ [g])\circ [f] = [w]$ and $[h] \circ ([g]\circ [f]) = [h]\circ [u]$, so it remains to show that $[w] = [h] \circ [u]$.}
 \begin{proof}
     The existence of the composition law follows directly from the previous two propositions.
     To prove $1.$ we pick compositions $u = g\circ f$, $v = h\circ g$ and $w = v\circ f$.
+    This means that $([h]\circ [g])\circ [f] = [w]$ and $[h] \circ ([g]\circ [f]) = [h]\circ [u]$, so it remains to show that $w = h \circ u$.
     Choosing $2$-cells $\sigma_0, \sigma_2, \sigma_3$ witnessing the compositions $v = g\circ h, u = g\circ f$ and $w = v \circ f$, respectively, yields a map $\Lambda_1^3 \to \C$ as depicted in the following diagram:
     \[\begin{tikzcd}
             && X \\
@@ -396,8 +394,20 @@ Inspired by \cite[Corollary 14.2.18.]{Groth} we can write the following commutat
         \arrow["\Nerve", from=1-3, to=3-5]
     \end{tikzcd}\]
 \begin{definition}
-    \TODO{The subcategory of a $\infty$-category}
+    Let $\C$ be an $\infty$-category and let $D$ be a subcategory of $\h\C$, then we define the subcategory of $\C$ determined by $D$ as the pullback
+    \[\begin{tikzcd}
+            \D & \C \\
+            {\Nerve(D)} & \h\C
+            \arrow[from=1-1, to=1-2]
+            \arrow[from=1-1, to=2-1]
+            \arrow[from=2-1, to=2-2]
+            \arrow[from=1-2, to=2-2]
+            \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+        \end{tikzcd}\]
 \end{definition}
+\begin{proposition}
+    The subcategory $\D$ of an $\infty$-category $\C$ determined by a subcategory $D$ of $\h\C$ is an $\infty$-category.\qed
+\end{proposition}
 \begin{definition}
     The core of a $1$-category is the subcategory consisting of only the isomorphisms.
 \end{definition}
@@ -406,7 +416,8 @@ Inspired by \cite[Corollary 14.2.18.]{Groth} we can write the following commutat
 \end{definition}
 We will say two objects in an $\infty$-category are isomorphic whenever there exists an isomorphism between them.
 Furthermore being isomorphic is an equivalence relation on the objects of an $\infty$-category which means we can sensibly speak of isomorphism classes.
-\prepp{Rezk mentions $\pi_0(\C^{\mathrm{core}})$. Do we care?}
+
+
 In addition to having a notion of isomorphism or equivalence of objects in an $\infty$-category we would like a notion of natural isomorphism or equivalence of $\infty$-categories, but first we define the $\infty$-category $\MAP(\C, \D)$ of functors between $\infty$-categories.
 \subsection{Mapping spaces}
 For ordinary $1$-categories $\C$ and $\D$ we can create the category $\Fun(\C, \D)$ with functors its objects and natural transformations as its morphisms.
