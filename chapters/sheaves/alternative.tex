@@ -198,14 +198,14 @@ We will split the theorem into a few lemmas for readability and keep the notatio
 \end{lemma}
 \begin{proof}
     We will show $\F$ is a right Kan extension of $\F_\K$ in a similar manner to how we showed $\F$ is a left Kan extension of $\F_{\Open}$ at the start of the proof, but we will consider the partial order on $\Open(X)$ given by writing $V\Subset U$ whenever $V\in \Open(X)$ and its closure $\overline{V}$ is compact and contained in $U$.
-    Writing $\Open(X)_{U/}$ for the set $\{V\in \Open(X) \mid V\Subset U\}$, we need to show that
+    Writing $\Open(X)_{\Subset U}$ for the set $\{V\in \Open(X) \mid V\Subset U\}$, we need to show that
     \[
-        \K(X)_{U/}^{op,\triangleleft} \hookrightarrow (\Open(X) \cup \K(X))_{U/}^{op} \xrightarrow{c}(\Open(X) \cup \K(X))^{op} \xrightarrow{\F} \C
+        (\K(X)_{U/})^{op,\triangleleft} \hookrightarrow (\Open(X)_{\Subset U} \cup \K(X)_{U/})^{op} \xrightarrow{c}(\Open(X) \cup \K(X))^{op} \xrightarrow{\F} \C
     \]
     is a colimit diagram.
-    As earlier we do this by finding cofinal inclusions
+    As earlier we do this by finding colimit-cofinal inclusions
     \[
-        \K(X)_{U/}^{op} \xrightarrow{f}\Nerve(\Open(X) \cup \K(X))_{U/}^{op} \xleftarrow{f'} \K(X)_{/U}^{op}.
+        \K(X)_{U/}^{op} \xrightarrow{f}\Nerve(\Open(X)_{\Subset U} \cup \K(X))_{U/}^{op} \xleftarrow{f'} \K(X)_{/U}^{op}.
     \]
     By Theorem \ref{superlemma} $f$ and $f'$ are colimit-cofinal inclusions if for any $Y\in (\Open(X) \cup \K(X))_{U/}$ the partially ordered sets
     \[
@@ -216,12 +216,14 @@ We will split the theorem into a few lemmas for readability and keep the notatio
         \{ K \in \K(X) |Y \subseteq K \subseteq U \}
     \]
     have weakly contractible nerves, which they have by the usual argument; they are nonempty and stable under unions, hence filtered.
-    Since $\Open(X)_{U/}$ is a sieve covering $U$ and $\F_{\Open}$ is a sheaf,
+    As $U\in \Open(X)$ is an open subset of a locally compact Hausdorff space, it is itself locally compact, which means that for any point $x \in U$ we can find a relatively compact neighborhood $U_x \Subset U$.
+    Clearly we have $\bigcup_x U_x = U$, so $\Open(X)_{\Subset U}$ is a sieve covering $U$, and since $\F_{\Open}$ is a sheaf,
     \[
-        \Open(X)_{U/}^{op} \to \Open(X)_{U/}^{op, \triangleleft} \to \C
+        \Open(X)_{\Subset U}^{op} \to \Open(X)_{\Subset U}^{op, \triangleleft} \to \C
     \]
     is a colimit diagram and this completes the proof that $\F$ is a right Kan extension of $\F_\K$.
 \end{proof}
+This completes the proof of Theorem \ref{7.3.4.9}.
 \begin{corollary}\label{7.3.4.10}
     Let $X$ be a locally compact Hausdorff space and $\C$ an $\infty$-category with left exact filtered colimits and small limits, then $\Shv(X;\C) \simeq \KShv(X;\C)$ is an equivalence of $\infty$-categories.
 \end{corollary}
@@ -230,6 +232,6 @@ We will split the theorem into a few lemmas for readability and keep the notatio
     \[
         \Shv(X;\C) \leftarrow \Shv_{\K\Open}(X;C) \to \KShv(X;C),
     \]
-    and these are equivalences of $\infty$-categories because inclusions of full subcategories are fully faithful and Kan extensions along fully faithful functors give isomorphisms by Proposition \ref{KanFullyFaithInfty}.
+    and these are equivalences of $\infty$-categories because Kan extensions along fully faithful functors give isomorphisms by Proposition \ref{KanFullyFaithInfty}.
 \end{proof}
 \end{document}
