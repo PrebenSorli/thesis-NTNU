@@ -250,7 +250,7 @@ The proof of this is a bit long, so we will split the theorem into a few lemmas,
     which completes the proof that $F|_{M_0}(K)$ is given by $\Gamma_K(X;\F)$.
 \end{proof}
 \begin{corollary}
-    In particular this mean any $F\colon M \to \C$ satisfying condition $2.$ in \ref{5.5.5.7} can be restricted to a sheaf $\F\in\Shv(X;\C)$ which is given by $\Gamma_K(X;\F)$ when restricted to $K \in M_0$.
+    In particular this means that any $F\colon M \to \C$ satisfying condition $2.$ in \ref{5.5.5.7} can be restricted to a sheaf $\F\in\Shv(X;\C)$ which is given by $\Gamma_K(X;\F)$ when restricted to $K \in M_0$.
 \end{corollary}
 \begin{proof}
     Observe first that $M$ is a full subcategory of $M'$ which means we can extend $F$ to a functor $F'\in\MAP(M',\C)$ by fully faithful Kan extension\ref{KanFullyFaithInfty}.
@@ -258,7 +258,8 @@ The proof of this is a bit long, so we will split the theorem into a few lemmas,
     \begin{enumerate}
         \item We have $F'|_{M_2} \in \Shv_{\K}(X;\C)$ by assumption.
         \item We must show $F'|_{M_2}=F|_{M_2}$ is a right Kan extension of $F'|_{M_2'}$.
-              As we defined $F'$ to be a right Kan extension of $F$ to $M'$ and $M$ is equal to $M'$ everywhere but on $M_2'$, we have that $F'|_{M_2}$ is a right Kan extension of $F'|_{M_2'}$.
+              As we defined $F'$ to be a right Kan extension of $F$ to $M'$ and $M$ is equal to $M'$ everywhere but on $M_2'$, it is enough to show that the Kan extension only depends on $M_2$.
+              In other words, we must show that for any $x \in M_2'$ the map $(M_2)_{x/} \to M_{x/}$ is limit-cofinal, but observing that we can have no maps from $x$ to something in $M - M_2$ we see that this is actually an isomorphism.
         \item We have $F'|_{M_1'}=0$ by assumption.
         \item We must show $F'|_{M'}$ is a right Kan extension of $F'|_{M'_1 \cup M'_2}$.
               Observing that the second condition is equivalent to $F'|_{M'_1 \cup M'_2}$ being a right Kan extension of $F'|_{M_1 \cup M_2}$, we can use transitivity of Kan extensions (\ref{4.3.2.8}) to see that $F'|_{M'}$ is a right Kan extension of $F'|_{M'_1 \cup M'_2}$ if and only if $F'|_{M}$ is a right Kan extension of $F'|_{M_1 \cup M_2}$ which is true by assumption.
