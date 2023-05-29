@@ -283,7 +283,7 @@ Furthermore, compositions respect homotopy in the following sense:
 \begin{proposition}[{\cite[\href{https://kerodon.net/tag/0048}{Proposition 0048}]{kerodon}}]
     Let $\C$ be an $\infty$-category with homotopic morphisms $f \sim f'\colon X \to Y$ and $g \sim g' \colon Y \to Z$.
     Let $h=g\circ f$ and $h' = g' \circ f'$.
-    Then $h$ is homotopic to $h'$.
+    Then $h$ is homotopic to $h'$.\qed
 \end{proposition}
 \begin{remark}
     The nerve construction preserves compositions in the sense that for a $1$-category $\C$ with morphisms $f,g$ as above, there is a unique morphism $h\colon X\to Z$ in $\Nerve(\C)$ which is given by $f\circ g$ in $\C$.
@@ -451,7 +451,7 @@ Furthermore, we can extend the bijection to any simplicial set:
 This proposition yields a natural isomorphism of simplicial sets $\MAP(X\times Y, Z) \cong \MAP(X, \MAP(Y,Z))$.
 
 
-It can be shown that applying the same construction to $\infty$-categories $\C$ and $\D$ yields a new $\infty$-category $\MAP(\C, \D)$ with maps of simplicial sets as objects ($0$-cells) and natural transformations as morphisms ($1$-cells)\TODO{mention that these are maps $\C \times \Delta^1 \to \D$}.
+It can be shown that applying the same construction to $\infty$-categories $\C$ and $\D$ yields a new $\infty$-category $\MAP(\C, \D)$ with maps of simplicial sets as objects ($0$-cells) and natural transformations as morphisms ($1$-cells).\TODO{mention that these are maps $\C \times \Delta^1 \to \D$}.
 Proving this is indeed an $\infty$-category uses machinery due to Joyal that I will not introduce in this text.
 See for example \cite[Theorem 22.4.]{Rezk} or the proof of \cite[1.2.7.3]{HTT} on p.$94$.
 This allows us to define an equivalence between $\infty$-categories:

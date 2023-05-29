@@ -59,10 +59,15 @@ We will split the theorem into a few lemmas for readability and keep the notatio
     \]
     if and only if, for any $Y \in \W \cup \K_{\W}(X)$ the simplicial set $\W\times_{\W \cup \K_{\W}(X)}(\W \cup \K_{\W}(X))_{Y/}$ is weakly contractible.
     We can separate the calculation of this pullback in two cases based on $Y$.
-    Firstly, if $Y\in \W$, this is just the slice $\Nerve(\W)_{Y/}$ which is non-empty by assumption, and finite unions of sieves containing $Y$ are certainly also containing $Y$, so it is filtered and hence weakly contractible by \ref{5.3.1.20} and \ref{NerveFilter}.
+    Firstly, if $Y\in \W$, the fiber product is equivalent to the nerve of the partially ordered set $\W_{Y/}=\{W \in \W \mid Y \subseteq W\}$ which is non-empty by assumption, and weakly contractible because $Y$ is an initial object.
     Secondly, we might have that $Y \in \K_{\W}(X)$ which means there exists $W'\in \W$ such that $Y \subseteq W'$.
-    Then the fiber product is also equivalent to the nerve of the partially ordered set $\{W \in \W \mid W \subseteq Y\}$, which is again non-empty by assumption and therefore also weakly contractible.
-    Therefore it is enough to show the limit starting from $ \W \cup \K_{\W}(X)^{op}$.
+    Then the fiber product is also equivalent to the slice $\W_{Y/}$ and non-empty by assumption.
+    Since finite unions of sieves containing $Y$ certainly also contain $Y$, it is filtered and hence weakly contractible by \ref{5.3.1.20} and \ref{NerveFilter}.
+    Therefore it is enough to show that
+    \[
+        (\W \cup \K_{\W}(X))^{op,\triangleleft} \hookrightarrow \Open(X)_{/U}^{op,\triangleleft} \rightarrow \Open(X)^{op}\xrightarrow{\F}\C
+    \]
+    is a limit diagram.
     By example \ref{KanCone} this is equivalent to showing that $\F|_{(\W \cup \K_{\W}(X))^{op,\triangleleft}}$ is right Kan extended from $\F|_{(\W \cup \K_{\W}(X))^{op}}$.
     By the assumption that $\F$ is a right Kan extension of $\F_{\K}$ we know that
     \[
