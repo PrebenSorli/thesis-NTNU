@@ -235,8 +235,18 @@ This completes the proof of Theorem \ref{7.3.4.9}.
 \begin{proof}
     Let $\Shv_{\K\Open}(X;C)$ be the full subcategory of $\Fun((\K(X)\cup \Open(X))^{op},\C)$ spanned by those presheaves satisfying the equivalent conditions of theorem \ref{7.3.4.9}. We get restrictions
     \[
-        \Shv(X;\C) \leftarrow \Shv_{\K\Open}(X;C) \to \KShv(X;C),
+        \Shv(X;\C) \leftarrow \Shv_{\K\Open}(X;C) \rightarrow \KShv(X;C),
     \]
     and these are equivalences of $\infty$-categories because Kan extensions along fully faithful functors give isomorphisms by Proposition \ref{KanFullyFaithInfty}.
 \end{proof}
+\begin{remark}
+    The equivalence $\Shv(X;\C)\xrightarrow{\psi}\Shv_{\K}(X;\C)$ is given by the formula
+    \[
+        \psi(\F)(K) = \colim_{K\subseteq U}\F(U),
+    \]
+    and the inverse equivalence is given by
+    \[
+        \psi^{-1}(\G)(U) = \lim_{K\subseteq U}\G(K).
+    \]
+\end{remark}
 \end{document}

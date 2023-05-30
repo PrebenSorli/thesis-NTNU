@@ -1,6 +1,9 @@
 \documentclass[../../thesis.tex]{subfiles}
 \begin{document}
-\TODO{Say something vague about what Verdier duality is and what we will do here.}
+In this chapter we will prove an $\infty$-categorical analog of the classical Verdier duality theorem.
+While classical Verdier duality is usually phrased in the form of an adjunction, we will prove an equivalence of $\infty$-categories instead.
+More precisely we will show that for a locally compact Hausdorff topological space $X$ and stable $\infty$-category $\C$ there is an equivalence between the $\infty$-category of $\C$-valued sheaves on $X$ and the $\infty$-category of $\C$-valued cosheaves on $X$.
+The main result of the last chapter (Theorem \ref{7.3.4.9}) will be crucial as it let's us show the equivalence on the level of $\K$-sheaves instead.
 \section{Classical Verdier Duality}
 Classical Verdier duality can be seen as a generalization of Poincaré duality, replacing the pairing on cohomology with a pairing in the derived category.
 It was introduced in 1965 by Jean Louis Verdier \cite{Verdier95}.
@@ -78,15 +81,15 @@ The goal of this chapter is to prove the following theorem:
     \]
 \end{theorem}
 Let $k$ be a field and $\mathrm{Ch}_k$ the category of chain complexes of $k$-vector spaces.
-The nerve construction $\Nerve(\mathrm{Ch}_k)$ is now equivalent to the derived $\infty$-category of the category of $k$-vector spaces.
-Vector space duality gives a limit preserving functor $\Nerve(\mathrm{Ch}_k^{op}) \to \Nerve(\mathrm{Ch}_k)$ which induces a functor
+We can define the derived $\infty$-category $D(\mathrm{Ch}_k)$ for $k$ by inverting all quasi-isomorphisms in $\mathrm{Ch}_k$.
+Vector space duality gives a limit preserving functor $D(\mathrm{Ch}_k^{op}) \to D(\mathrm{Ch}_k)$ which induces a functor
 \[
-    \Shv(X;\Nerve(\mathrm{Ch}_k)^{op}) \to \Shv(X;\Nerve(\mathrm{Ch}_k))
+    \Shv(X;D(\mathrm{Ch}_k)^{op}) \to \Shv(X;D(\mathrm{Ch}_k))
 \]
 for any locally compact Hausdorff space.
-Composing with the equivalence of Theorem \ref{VerdierDuality} yields a contravariant functor from $\Shv(X;\Nerve(\mathrm{Ch}_k))$ to itself:
+Composing with the equivalence of Theorem \ref{VerdierDuality} yields a contravariant functor from $\Shv(X;D(\mathrm{Ch}_k))$ to itself:
 \[
-    \mathbb{D}'\colon \Shv(X;\Nerve(\mathrm{Ch}_k))^{op} \to \Shv(X;\Nerve(\mathrm{Ch}_k))
+    \mathbb{D}'\colon \Shv(X;D(\mathrm{Ch}_k))^{op} \to \Shv(X;D(\mathrm{Ch}_k))
 \]
 and it is this functor that is usually called Verdier Duality. As we have composed the equivalence $\mathbb{D}$ with vector space duality, $\mathbb{D}'$ is not necessarily an equivalence of $\infty$-categories unless certain finiteness conditions are imposed.
 
@@ -496,7 +499,7 @@ We can now prove Verdier Duality (Theorem \ref{VerdierDuality}):
 \begin{proof}
     It follows from the proof of Theorem \ref{7.3.4.9} that the equivalence
     \[
-        \theta\colon \Shv(X;\C^{op})^{op} \simeq \Shv_{\K}(X;\C^{op})^{op}
+        \theta\colon \Shv_{\K}(X;\C^{op})^{op} \simeq \Shv(X;\C^{op})^{op}
     \]
     is given by the formula $\theta(\F)(U) = \colim_{K\subseteq U}\F(K)$, where the colimit is taken in $\C$.
     \prepp{Should I write out theta more explicitly in the proof of \ref{7.3.4.9}. Not a lot of time.}
@@ -539,6 +542,9 @@ We can now prove Verdier Duality (Theorem \ref{VerdierDuality}):
 
     In \cite{Volpe}, Marco Volpe shows that one can extend the classical six functor formalism for sheaves on locally compact Hausdorff spaces to sheaves with values in any closed symmetric monoidal $\infty$-category which is stable and bicomplete, and Lurie's Verdier duality (Theorem \ref{VerdierDuality}) is central in proving the $\infty$-categorical adjunction.
     Volpe uses the functors $f_*$ and $f^*$ on $\C^{op}$, which takes cosheaves to cosheaves, to obtain the functors $f_!$ and $f^!$ and uses Theorem \ref{VerdierDuality} to transfer the adjunction to the level of sheaves.
+    More precisely, he shows an equivalence $\operatorname{CoShv}(X ; \mathrm{Sp}) \otimes \C \simeq \operatorname{CoShv}(X ; \C)$ and uses Verdier duality to obtain an equivalence $\Shv(X;\mathrm{Sp})\otimes \C \simeq \Shv(X;\C)$.
+    With this equivalence, finding $f^*$ is rephrased in terms of sheaves with presentable coefficients, and these are easier to work with due to the existence of sheafification.
+    In particular, it is known that for a proper map $f\colon X\to Y$ of locally compact Hausdorff spaces, the functor $f_*^{\mathrm{Sp}}:\Shv(X;\mathrm{Sp})\to \Shv(Y;\mathrm{Sp})$ admits a left adjoint $f_{\mathrm{Sp}}^*$ and one then obtains the desired adjunction by observing that the equivalence $\Shv(X;\mathrm{Sp})\otimes \C \simeq \Shv(X;\C)$ allows us to identity $f_*^{\mathrm{Sp}}\otimes \C$ with $f_*\colon \Shv(X;\C) \to \Shv(Y;\C)$ and $f_{\mathrm{Sp}}^* \otimes \C$ with $f^*$.
 \end{remark}
 \begin{remark}
     As we saw in the introduction to this chapter, classical Verdier duality can be used to give a proof of Poincaré duality, and in \cite[Section 5.5.6]{HA} Jacob Lurie uses his version of Verdier duality to prove a version of what he calls non-abelian Poincaré duality.

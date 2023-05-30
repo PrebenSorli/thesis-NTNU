@@ -740,6 +740,8 @@ INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueus.fd
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/euler/eusm10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/euler/eusm10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/euler/eusm7.tfm
+INPUT ./chapters/introduction/acknowledgements.tex
+INPUT ./chapters/introduction/acknowledgements.tex
 INPUT ./thesis.toc
 INPUT ./thesis.toc
 OUTPUT thesis.toc
@@ -760,8 +762,10 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/stmaryrd/stmary7.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/stmaryrd/stmary5.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr7.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr5.tfm
-INPUT ./chapters/introduction/intro.tex
-INPUT ./chapters/introduction/intro.tex
+INPUT ./chapters/introduction/introduction.tex
+INPUT ./chapters/introduction/introduction.tex
+INPUT ./chapters/introduction/outline.tex
+INPUT ./chapters/introduction/outline.tex
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
