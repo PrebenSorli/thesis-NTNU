@@ -452,7 +452,7 @@ Furthermore, we can extend the bijection to any simplicial set:
 This proposition yields a natural isomorphism of simplicial sets $\MAP(X\times Y, Z) \cong \MAP(X, \MAP(Y,Z))$.
 
 
-It can be shown that applying the same construction to $\infty$-categories $\C$ and $\D$ yields a new $\infty$-category $\MAP(\C, \D)$ with maps of simplicial sets as objects ($0$-cells) and natural transformations as morphisms ($1$-cells).\TODO{mention that these are maps $\C \times \Delta^1 \to \D$}.
+It can be shown that applying the same construction to $\infty$-categories $\C$ and $\D$ yields a new $\infty$-category $\MAP(\C, \D)$ with maps of simplicial sets as objects ($0$-cells) and natural transformations (maps $\C \times \Delta^1 \to \D$) as morphisms ($1$-cells).
 Proving this is indeed an $\infty$-category uses machinery due to Joyal that I will not introduce in this text.
 See for example \cite[Theorem 22.4.]{Rezk} or the proof of \cite[1.2.7.3]{HTT} on p.$94$.
 This allows us to define an equivalence between $\infty$-categories:
@@ -466,15 +466,18 @@ This allows us to define an equivalence between $\infty$-categories:
 \end{definition}
 \begin{proposition}[{\cite[Exercise 15.8.]{Rezk}}]
     Let $\C$ and $\D$ be ordinary $1$-categories.
-    Then $\Nerve(\Fun(\C, \D)) \simeq \MAP(\Nerve(\C), \Nerve(\D))$.
+    Then
+    \[
+        \Nerve(\Fun(\C, \D)) \simeq \MAP(\Nerve(\C), \Nerve(\D)).
+    \]
 \end{proposition}
 \begin{proof}
     We will show they are the same on the level of $n$-cells for all $n$.
     First use $\Delta^n = \Nerve([n])$ and that the nerve preserves finite products to observe the following:
     \begin{align}
-        \MAP(\Nerve(\C), \Nerve(\D))_n: & = \Hom_{\sset}(\Delta^n \times \Nerve(\C), \Nerve(\D))  \\
-                                        & = \Hom_{\sset}(\Nerve([n])\times \Nerve(\C), \Nerve(D)) \\
-                                        & = \Hom_{\sset}(\Nerve([n]\times \C), \Nerve(D))
+        \MAP(\Nerve(\C), \Nerve(\D))_n: & = \Hom_{\sset}(\Delta^n \times \Nerve(\C), \Nerve(\D))   \\
+                                        & = \Hom_{\sset}(\Nerve([n])\times \Nerve(\C), \Nerve(\D)) \\
+                                        & = \Hom_{\sset}(\Nerve([n]\times \C), \Nerve(\D))
     \end{align}
     Finally, we use fully-faithfulness of the nerve to get
     \begin{align}
@@ -482,6 +485,7 @@ This allows us to define an equivalence between $\infty$-categories:
                                                        & \cong \Hom_{\mathrm{Cat}}([n], \Fun(\C, \D)) \\
                                                        & = (\Nerve(\Fun(\C, \D)))_n.
     \end{align}
+    To complete the proof, we note that these isomorphisms are all natural in $n$.
 \end{proof}
 \begin{definition}
     Let $\C$ be an $\infty$-category with objects $X$ and $Y$.

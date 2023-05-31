@@ -62,7 +62,7 @@ A Grothendieck topology is a structure put on a category in the form of a set of
 We follow Lurie's \cite{HTT} and skip right to defining Grothendieck topologies on $\infty$-categories while noting that the definition is perfectly analogous for $1$-categories.\footnote{In fact, the $\infty$-categorical definition is equivalent whenever we are considering nerves of $1$-categories and in general a Grothendieck topology on an $\infty$-category is the same as a Grothendieck topology on its homotopy category.}
 \begin{definition}[{\cite[Definition 6.2.2.1.]{HTT}}]
     Let $\C$ be an $\infty$-category.
-    We define a sieve on $\C$ to be a full subcategory $\C^{(0)} \subseteq \C$ such that for any morphism $f \in \map_{\C}(X,Y)$ where $Y\in C^{(0)}$, $X$ must also belong to $C^{(0)}$.
+    We define a sieve on $\C$ to be a full subcategory $\C^{(0)} \subseteq \C$ such that for any morphism $f \in \map_{\C}(X,Y)$ where $Y\in \C^{(0)}$, $X$ must also belong to $\C^{(0)}$.
     Furthermore, for an object $X \in \C$, we define a sieve on $X$ to be a sieve on $\C_{/X}$ in the above sense.
 \end{definition}
 \begin{definition}[{\cite[Definition 6.2.2.1.]{HTT}}]
@@ -94,7 +94,7 @@ Equivalently one can define sheaves as the presheaves $\F \colon \Open(X)^{op} \
     \F(U) \to \lim_V \F(V)
 \]
 is an equivalence in $\C$, where the limit is taken over all open subsets $V\subseteq U$ contained in some $U_{\alpha}$.
-\TODO{Mention the ``normal definitions using covers and Cech nerves and briefly discuss relation to classical definition of sheaves in a $1$-category.}
+%\TODO{Mention the ``normal definitions using covers and Cech nerves and briefly discuss relation to classical definition of sheaves in a $1$-category.}
 We write $\Presh(X, \C)$ for the $\infty$-category $\mathrm{Fun}(\Open(X)^{op}, \C)$ of $\C$-valued presheaves on $X$ and $\Shv(X;\C)$ for the full subcategory of $\Presh(X;\C)$ spanned by the $\C$-valued sheaves on $X$.
 \section{Sheaves on locally compact spaces}
 In this section we will show that for locally compact Hausdorff spaces there is an equivalence of $\infty$-categories between $\Shv(X;\C)$ and $\KShv(X;\C)$ where the latter denotes so-called $\K$-sheaves, and $\C$ is a cocomplete $\infty$-category with left exact filtered colimits.
@@ -107,10 +107,10 @@ From here on out we generally omit the notation for the nerve construction and a
     If $K, K' \subseteq X$, we write $K \Subset K'$ if there exists an open subset $U\subseteq X$ between $K$ and $K'$, i.e. $K \subseteq U \subseteq K'$.
 \end{definition}
 \begin{definition}
-    If $K\subseteq X$ is compact, we write $\K_{K\Subset}(X)$ for the set $\{ K'\in \K(X) | K \Subset K' \}$ which gives a poset category $\K_{K\Subset}(X)$ ordered by $\Subset$.
+    If $K\subseteq X$ is compact, we write $\K_{K\Subset}(X)$ for the set $\{ K'\in \K(X) \mid K \Subset K' \}$ which gives a poset category $\K_{K\Subset}(X)$ ordered by $\Subset$.
 \end{definition}
 \begin{definition}
-    A presheaf $\F:\K(X)^{op}\to \C$ is a $\K$-sheaf if it satisfies the following:
+    A presheaf $\F\colon\K(X)^{op}\to \C$ is a $\K$-sheaf if it satisfies the following:
     \begin{enumerate}
         \item $\F(\emptyset)$ is terminal.
         \item For every pair $K,K'\in \K(X)$, the diagram
@@ -161,14 +161,23 @@ From here on out we generally omit the notation for the nerve construction and a
     and observe that this set is filtered as a poset ordered by inclusion in the sense of \ref{filteredposet}, so it is furthermore weakly contractible by Proposition \ref{5.3.1.20}.
     Denoting an element $\alpha = (K_1, K_2)$ in $P$, we define $\K_{\alpha}$ as the set of compacts belonging to either $K_1$ or $K_2$ and note that a set $K' \subseteq K$ belongs to $\K_{\W}(X)$ if and only if it belongs to some $\K_{\alpha}$.
     Observe also that the inclusion $(K_1 \hookleftarrow K_1 \cap K_2 \hookrightarrow K_2 ) \hookrightarrow \K_{\alpha}$ is limit-cofinal by Theorem \ref{superlemma} and hence, by $\F_{\K}$ being a $\K$-sheaf, condition 2. implies $\F(K)$ is a limit of the diagram $\F|_{\K_{\alpha}^{op}}$ for every $\alpha \in P$.
-    Now, we observe that we can use the theory of cocartesian fibrations to calculate the limit from $K_{\W}(X)^{op}$ as a limit of limits.
+    By \cite[Corollary 4.2.3.10.]{HTT}, $\F(K)$, we can calculate the limit of $\F|_{\K_{\W}(X)^{op}}$ as a limit of limits:
+    \[
+        \lim_{K \in \K(X)^{op}}\F|_{\K_{\W}(X)^{op}} \simeq \lim_{\alpha \in P^{op}}\lim_{K'\in \K_{\alpha}^{op}}\F(K)\simeq \lim_{\alpha \in P^{op}}\F(K).
+    \]
+    Since we have already argued that $P$ is weakly contractible, the map $P \to \Delta^0$ is colimit-cofinal and we conclude that
+    \[
+        \lim_{\alpha \in P^{op}}\F(K) \simeq \F(K).\qedhere
+    \]
+    % Now, we observe that we can use the theory of cocartesian fibrations to calculate the limit from $K_{\W}(X)^{op}$ as a limit of limits.
 
-    \TODO{Insert reference or write about (co)cartesian fibrations.}
-    %Let $p \colon E \to P$ be a cocartesian fibration associated to the functor $P \to \mathrm{Cat}_{\infty}$ which sends $\alpha \in P$ to the $\infty$-category $\K_{\alpha}$.
-    %Then it is known that for a functor $\varphi\colon E \to \C$ we can calculate the colimit of $\varphi$ over $E$ as the colimit of $ p_!\varphi$ over $P$ where $p_!\varphi$ is the left Kan extension of $\varphi$ along $p$.
-    %Moreover, for a cocartesian fibration, we know the map $E_{\alpha} \to E_{/\alpha}$ is colimit-cofinal.
-    %To see how we obtain this map, we identify the fiber $E_{\alpha}$ of $p$ with $\K_{\alpha}$ and consider the following diagram:
-    % https://q.uiver.app/#q=WzAsOCxbMywwLCJFIl0sWzYsMCwiXFxDIl0sWzQsMSwiXFxLX3tcXFd9KFgpIl0sWzMsMywiUCJdLFswLDMsIlxcYWxwaGEiXSxbMCwwLCJLX3tcXGFscGhhfSJdLFsxLDEsIkVfey9cXGFscGhhfSJdLFsxLDIsIlBfey9cXGFscGhhfSJdLFswLDEsIlxcdmFycGhpIl0sWzAsMl0sWzAsMywicCIsMl0sWzMsMSwicF8hXFx2YXJwaGkiLDIseyJjdXJ2ZSI6Mn1dLFsyLDFdLFs0LDMsIiIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzUsMF0sWzUsNF0sWzUsNiwiIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsN10sWzcsM10sWzYsN10sWzYsMF0sWzYsMywiIiwxLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lciJ9fV1d
+    % \TODO{Insert reference or write about (co)cartesian fibrations.}
+    % Let $p \colon E \to P$ be a cocartesian fibration associated to the functor $P \to \mathrm{Cat}_{\infty}$ which sends $\alpha \in P$ to the $\infty$-category $\K_{\alpha}$.
+    % Then it is known that for a functor $\varphi\colon E \to \C$ we can calculate the colimit of $\varphi$ over $E$ as the colimit of $ p_!\varphi$ over $P$ where $p_!\varphi$ is the left Kan extension of $\varphi$ along $p$.
+    % It is also known that this fibration comes with a colimit-cofinal map $E \to \K_{\W}(X)$.
+    % Moreover, for a cocartesian fibration, we know the map $E_{\alpha} \to E_{/\alpha}$ is colimit-cofinal.
+    % To see how we obtain this map, we identify the fiber $E_{\alpha}$ of $p$ with $\K_{\alpha}$ and consider the following diagram:
+    % %https://q.uiver.app/#q=WzAsOCxbMywwLCJFIl0sWzYsMCwiXFxDIl0sWzQsMSwiXFxLX3tcXFd9KFgpIl0sWzMsMywiUCJdLFswLDMsIlxcYWxwaGEiXSxbMCwwLCJLX3tcXGFscGhhfSJdLFsxLDEsIkVfey9cXGFscGhhfSJdLFsxLDIsIlBfey9cXGFscGhhfSJdLFswLDEsIlxcdmFycGhpIl0sWzAsMl0sWzAsMywicCIsMl0sWzMsMSwicF8hXFx2YXJwaGkiLDIseyJjdXJ2ZSI6Mn1dLFsyLDFdLFs0LDMsIiIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzUsMF0sWzUsNF0sWzUsNiwiIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsN10sWzcsM10sWzYsN10sWzYsMF0sWzYsMywiIiwxLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lciJ9fV1d
     % \[\begin{tikzcd}
     %         {K_{\alpha}} &&& E &&& \C \\
     %         & {E_{/\alpha}} &&& {\K_{\W}(X)} \\
@@ -189,16 +198,16 @@ From here on out we generally omit the notation for the nerve construction and a
     %         \arrow[from=2-2, to=1-4]
     %         \arrow["\lrcorner"{anchor=center, pos=0.01}, draw=none, from=2-2, to=4-4]
     %     \end{tikzcd}\]
-    %The map $g\colon K_{\alpha} \to E_{/\alpha}$ is now the obvious map between the two pullback squares.
-    %By our definition of left Kan extensions, we calculate $p_!\varphi$ as the following colimit:
-    %\[
-    %   (p_!\varphi)(\alpha) = \colim\left( E_{/\alpha} \to E \xrightarrow{\varphi} \C \right)
-    %\]
-    %and by colimit-cofinality of $g$ we get
-    %\[
-    %   \colim_{\alpha \in P}p_!\varphi \simeq \colim_{\alpha \in P}\colim_{\K_{\alpha}} \F = \colim_{\alpha \in P}\F(K),
-    %\]
-    but we have already argued that $P$ is weakly contractible, so the map $P \to \Delta^1$ is colimit-cofinal and we conclude that this colimit is also evaluated as $\F(K)$.
+    % The map $g\colon K_{\alpha} \to E_{/\alpha}$ is now the obvious map between the two pullback squares.
+    % By our definition of left Kan extensions, we calculate $p_!\varphi$ as the following colimit:
+    % \[
+    %     (p_!\varphi)(\alpha) = \colim\left( E_{/\alpha} \to E \xrightarrow{\varphi} \C \right)
+    % \]
+    % and by colimit-cofinality of $g$ we get
+    % \[
+    %     \colim_{\alpha \in P}p_!\varphi \simeq \colim_{\alpha \in P}\colim_{\K_{\alpha}} \F = \colim_{\alpha \in P}\F(K),
+    % \]
+    % but we have already argued that $P$ is weakly contractible, so the map $P \to \Delta^1$ is colimit-cofinal and we conclude that this colimit is also evaluated as $\F(K)$.
     % https://q.uiver.app/#q=WzAsOCxbMCwwLCJcXEtfe1xcYWxwaGF9Il0sWzEsMSwiRV97L1xcYWxwaGF9Il0sWzEsMywiUF97L1xcYWxwaGF9Il0sWzMsMywiUCJdLFszLDEsIkUiXSxbMCw0LCJcXGFscGhhIl0sWzYsMiwiXFxDIl0sWzQsMiwiXFxLX3tcXFd9KFgpIl0sWzQsMywicCJdLFsxLDRdLFsyLDNdLFsxLDJdLFs1LDNdLFs1LDJdLFswLDVdLFswLDEsIlxcZXhpc3RzISIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxLDMsIiIsMSx7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dLFswLDRdLFs0LDZdLFszLDYsInBfIVxcdmFycGhpIiwyXSxbNCw3XSxbNyw2XSxbMyw3XV0=
     % \[\begin{tikzcd}
     %         {\K_{\alpha}} \\
