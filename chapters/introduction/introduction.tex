@@ -1,10 +1,35 @@
 \documentclass[../../thesis.tex]{subfiles}
 \begin{document}
-In 1965, Jean-Louis Verdier introduced Verdier duality for locally compact topological spaces, thus generalizing the classical theory of Poincaré duality for manifolds.
-Verdier duality is a cohomological duality that allows exchanging cohomology for cohomology with compact support.
-More precisely it states that the derived functor of the compactly supported direct image functor has a right adjoint in the derived category of sheaves.
-By using sheaf cohomology one can derive the classical Poincaré duality as a special case.
-In his book ``Higher Algebra'' Jacob Lurie extends the theory to the $\infty$-categorical setting by showing there is an equivalence between sheaves and cosheaves valued in stable $\infty$-categories.
-This thesis follows this proof closely, expanding and adding details where necesarry.
+In 1965, Jean-Louis Verdier introduced Verdier duality for locally compact topological spaces \cite{Verdier95}, thus generalizing the classical theory of Poincaré duality for manifolds.
+A few years earlier, Grothendieck had introduced a version in algebraic geometry by proving a duality in étale cohomology for schemes.
+Classical Verdier duality was introduced as a topological analog of this duality.
+It is a cohomological duality that allows exchanging cohomology for cohomology with compact support.
+More precisely, it states that the derived functor of the compactly supported direct image functor has a right adjoint in the derived category of sheaves.
+By using sheaf cohomology, one can derive the classical Poincaré duality as a special case.
+In his book ``Higher Algebra'' \cite{HA}, Jacob Lurie extends the theory to the $\infty$-categorical setting by showing there is an equivalence between sheaves and cosheaves valued in stable $\infty$-categories.
+The main goal of the thesis is therefore to prove the following theorem:
+\begin{theorem*}[\ref{VerdierDuality}]
+    Let $X$ be a locally compact Hausdorff space and $\C$ be a stable $\infty$-category with small limits and colimits.
+    Then we have an equivalence of $\infty$-categories
+    \[
+        \mathbb{D} \colon \Shv(X;\C) \simeq \mathrm{CoShv}(X;\C).
+    \]
+\end{theorem*}
+Instead of introducing a separate theory of cosheaves, we will simply make use of the idenfication $\mathrm{CoShv}(X;\C)\simeq \Shv(X;\C^{op})^{op}$ and more or less take that as our definition of the category of cosheaves.
+As is the case for classical Verdier duality, Lurie's theorem has multiple interesting consequences.
+Lurie himself uses it to prove a non-abelian version of Poincaré duality in \cite{HA}.
+Additionally, Volpe shows in \cite{Volpe} that Verdier duality can be used to construct a six functor formalism for sheaves with values in symmetric monoidal $\infty$-categories which are stable and bicomplete.
+
+
+Following Lurie, we prove the equivalence on the level of $\K$-sheaves.
+Lurie introduced $\K$-sheaves in his book ``Higher Topos Theory'' \cite{HTT} and used it to show the second big theorem in this thesis:
+\begin{theorem*}[\ref{7.3.4.9}]
+    There is an equivalence of $\infty$-categories
+    \[
+        \Shv(X;\C) \simeq \Shv_{\K}(X;\C).
+    \]
+\end{theorem*}
+We will follow Lurie's proof of these two theorems closely, filling in details and calculations where we deem necessary.
 To introduce the relevant background on sheaves and $\K$-sheaves valued in stable $\infty$-categories we introduce and utilize Kan extensions, a ubiquitous concept in category theory, as well as giving an expository account of the basic theory of $\infty$-categories.
+This expository account can safely be skipped for the reader to whom $\infty$-categories are well-known.
 \end{document}
