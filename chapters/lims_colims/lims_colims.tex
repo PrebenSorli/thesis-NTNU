@@ -54,7 +54,7 @@ The above remark says that we can identify the slice and coslice categories with
     Let $\C$ and $\D$ be $1$-categories.
     We define the join $\C \star \D$ of $\C$ and $\D$ as the category with $\mathrm{ob}\C \coprod \mathrm{ob}\D$ as its objects and for objects $X, Y$ morphisms given by:
     \[
-        \Hom_{\C \star \D}(X,Y) : =
+        \Hom_{\C \star \D}(X,Y) \coloneqq
         \begin{cases}
             \Hom_{\C}(X,Y) & \text{ if } X,Y \in \C,         \\
             \Hom_{\D}(X,Y) & \text{ if } X,Y \in \D,         \\
@@ -74,23 +74,23 @@ The above remark says that we can identify the slice and coslice categories with
 \end{remark}
 \begin{example}
     Maybe the most important examples of joins, at least in this text, are the left and right cone of a category.
-    Letting $[0]$ denote the category with one object and one morphism, we denote by $\C^{\triangleleft}: = [0] \star \C$ the left cone of a $1$-category $\C$ and $\C^{\triangleright}:=\C \star [0]$ the right cone of $\C$.
+    Letting $[0]$ denote the category with one object and one morphism, we denote by $\C^{\triangleleft}\coloneqq [0] \star \C$ the left cone of a $1$-category $\C$ and $\C^{\triangleright}\coloneqq\C \star [0]$ the right cone of $\C$.
     In practice, the right cone of $\C$ is the category obtained by adjoining an additional object $X_0$ to $\C$ and for every $C \in \C^{\triangleright}$ a unique morphism $C \to X_0$ so that $X_0$ becomes terminal in $\C^{\triangleright}$.
     Dually, the left cone is obtained by adjoining an additional object which becomes initial in $\C^{\triangleleft}$.
 \end{example}
 The usefulness of cones materializes when considering limits and colimits.
 %For a functor $F: \C \to \D$, a colimit of $F$ is a functor $\hat{F}$ initial among functors extending $F$ to $\C^{\triangleright}$ and a limit of $F$ is a functor terminal among functors 
-Lurie denotes the category of functors extending $F$ to the cones by $\Fun_F(\C^{\triangleright}, \D) : = \{G \in \Fun(\C^{\triangleright}, \D) | G|_{\C} = F\}$ and $\Fun_F(\C^{\triangleleft}, \D): = \{G \in \Fun(\C^{\triangleleft}, \D) | G|_{\C} = F\}$ and colimits and limits of $F$ can be identified with initial and terminal objects in $\Fun_F(\C^{\triangleright}, \D)$ and $\Fun_F(\C^{\triangleleft}, \D)$ respectively.
+Lurie denotes the category of functors extending $F$ to the cones by $\Fun_F(\C^{\triangleright}, \D) \coloneqq \{G \in \Fun(\C^{\triangleright}, \D) | G|_{\C} = F\}$ and $\Fun_F(\C^{\triangleleft}, \D)\coloneqq \{G \in \Fun(\C^{\triangleleft}, \D) | G|_{\C} = F\}$ and colimits and limits of $F$ can be identified with initial and terminal objects in $\Fun_F(\C^{\triangleright}, \D)$ and $\Fun_F(\C^{\triangleleft}, \D)$ respectively.
 
 
 We now define the join of two simplicial sets.
 \begin{definition}\label{joinsimpsets}
-    Let $X, Y \in \sset$ and let $\Delta^+$ be the full subcategory of ordered sets obtained by adding the empty set $[-1]:=\emptyset$ to $\Delta$.
+    Let $X, Y \in \sset$ and let $\Delta^+$ be the full subcategory of ordered sets obtained by adding the empty set $[-1]\coloneqq\emptyset$ to $\Delta$.
     We define the join $X\star Y$ on $n$-cells:
     \[
-        (X\star Y)_n : = \coprod_{[n] = [n_1] \sqcup [n_2]} X_{n_1} \times Y_{n_2},
+        (X\star Y)_n \coloneqq \coprod_{[n] = [n_1] \sqcup [n_2]} X_{n_1} \times Y_{n_2},
     \]
-    where $[n_1], [n_2] \in \Delta_+$ and $\sqcup: \Delta_+ \times \Delta_+ \to \Delta_+$ is the ordered disjoint union.
+    where $[n_1], [n_2] \in \Delta_+$ and $\sqcup \colon \Delta_+ \times \Delta_+ \to \Delta_+$ is the ordered disjoint union.
     That is, $[p] \sqcup [q] = [p+1+q]$.
     We allow $[n_1]$ and $[n_2]$ to be $-1$ with $[-1]=\emptyset$ and $X_{-1} = * = Y_{-1}$.
 \end{definition}
@@ -233,7 +233,7 @@ Dually, a limit of $f$ is a map $\bar{f} \colon K^{\triangleleft} \to \C$ such t
 Lurie \cite{HTT} refers to the object $\colim f \in \C_{f/}$ as a colimit of $f$ and the map $\bar{f}\colon K^{\triangleright} \to \C$ as a colimit diagram.
 We will probably be lazy and not care about this distinction.
 It follows immediately that limits and colimits are unique in the same sense that initial and terminal objects are: the full subcategory spanned by the (co)limits is either empty or contractible.
-When saying something is unique in $\infty$-category theory it is usually this notion we mean; it is unique up to a contractible space of choices.
+When saying something is unique in $\infty$-category theory it is usually this notion we mean: it is unique up to a contractible space of choices.
 \begin{remark}
     As the slice and join constructions commute with the nerve construction, so do initial and terminal objects and hence also limits and colimits.
 \end{remark}
