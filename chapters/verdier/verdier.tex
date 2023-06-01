@@ -7,7 +7,7 @@ The main result of the last chapter (Theorem \ref{7.3.4.9}) will be crucial as i
 \section{Classical Verdier Duality}
 Classical Verdier duality can be seen as a generalization of Poincaré duality, replacing the pairing on cohomology with a pairing in the derived category.
 It was introduced in 1965 by Jean Louis Verdier \cite{Verdier95}.
-Grothendieck had, a few years earlier, introduced a Poincaré duality in étale cohomology for schemes in algebraic geometry and Verdier duality serves as an analog of this duality for the theory of locally compact topological spaces.
+Grothendieck had, a few years earlier, introduced a Poincaré duality in étale cohomology for schemes in algebraic geometry and Verdier duality serves as an analogue of this duality for the theory of locally compact topological spaces.
 Verdier duality applies to morphisms of locally compact spaces and reduces to classical Poincaré duality when considering the projection of a manifold to the point.
 Recall that for a map $X \to Y$ between topological spaces and a sheaf $\F$ on $X$ we can define a so-called direct image sheaf $f_*\F$ on $Y$ by considering preimages of $f$:
 \[
@@ -19,7 +19,7 @@ Explicitly, this sheaf is given by the sheafification of the presheaf given by t
     V \mapsto \colim_{U \supseteq f(V)}\G(U),
 \]
 where $V$ is any open subset of $X$ and the colimit is taken over all open subsets $U$ of $Y$ containing $f(V)$.
-Observe that considering the case when $Y$ is just the point, the projection map $f$ induces a functor $f_* \colon \Shv(X;\C) \to \Shv(*; \C) \simeq \C$; this is the global sections functor $\Gamma(X; \blank)$.
+Observe that considering the case where $Y$ is just the point, the projection map $f$ induces a functor $f_* \colon \Shv(X;\C) \to \Shv(*; \C) \simeq \C$; this is the global sections functor $\Gamma(X; \blank)$.
 As sheaf cohomology is defined as the right derived functor of the global sections functor, we can write
 \[
     R^i f_* (\F) \cong R^i\Gamma(X;\blank)(\F) = H^i(X; \F)
@@ -57,7 +57,7 @@ Using the fact that we can find an injective resolution $I^{\bullet}$ of $k_X$ a
 \]
 where $\vee$ denotes the dual vector space.
 Additionally, it can be shown that $f^!k = k_X[n]$, which is something called the dualizing complex for a manifold.
-This means that studying $\Hom^{\bullet}(k_X ,f^!k)$ reduces to studying $\Hom(k_X , k_X[n])$ which is isomorphic to the $n$-th cohomology of $\Hom^{\bullet}(k_x, k_x)$, so we have an isomorphism
+This means that studying $\Hom(k_X ,f^!k)$ reduces to studying $\Hom^{\bullet}(k_X , k_X[n])$ which is isomorphic to the $n$-th cohomology of $\Hom^{\bullet}(k_X, k_X)$, so we have an isomorphism
 \[
     H^0_c(X; k_X)^{\vee} \cong H^n(X;k_X).
 \]
@@ -91,7 +91,7 @@ Composing with the equivalence of Theorem \ref{VerdierDuality} yields a contrava
 \[
     \mathbb{D}'\colon \Shv(X;D(\mathrm{Ch}_k))^{op} \to \Shv(X;D(\mathrm{Ch}_k))
 \]
-and it is this functor that is usually called Verdier Duality. As we have composed the equivalence $\mathbb{D}$ with vector space duality, $\mathbb{D}'$ is not necessarily an equivalence of $\infty$-categories unless certain finiteness conditions are imposed.
+and it is this functor that is usually called Verdier duality. As we have composed the equivalence $\mathbb{D}$ with vector space duality, $\mathbb{D}'$ is not necessarily an equivalence of $\infty$-categories unless certain finiteness conditions are imposed.
 
 
 We will be using the theory of $\K$-sheaves set up in the previous chapter to prove the theorem.
@@ -123,6 +123,7 @@ By corollary \ref{7.3.4.10} we can rewrite theorem \ref{VerdierDuality} in terms
 \end{definition}
 \begin{remark}
     Observe that we have identifications $M_0'=M_0\cong \K(X)$, $M_2' \cong \Open(X)^{op} \cup \K(X)^{op}$ and $M_1'=M_1$ is the powerset poset of $X$.
+    Here we have used the bijection between $\Open(X)^{op}$ and the partially ordered set of closed subsets of $X$ given by complements.
 \end{remark}
 We will prove Theorem \ref{KVerdierDuality} as a simple corollary of the following proposition.
 \begin{proposition}[{\cite[Proposition 5.5.5.7]{HA}}]\label{5.5.5.7}
@@ -130,8 +131,8 @@ We will prove Theorem \ref{KVerdierDuality} as a simple corollary of the followi
     Let $F \colon M \to \C$ be a functor.
     Then the following conditions are equivalent:
     \begin{enumerate}
-        \item The restriction $F|_{M_0}^{op}$ determines a $\K$-sheaf $\K(X)^{op} \to \C^{op}$, the restriction $F|_{M_1}$ is zero, and $F$ is left Kan extended from $M_0 \cup M_1$.
-        \item The restriction $F|_{M_2}$ determines a $\K$-sheaf $\K(X)^{op} \to \C$, the restriction $F|_{M_1}$ is zero, and $F$ is right Kan extended from $M_1 \cup M_2$.
+        \item The restriction $(F|_{M_0})^{op}$ determines a $\K$-sheaf \hspace{0.25em}$\K(X)^{op} \to \C^{op}$, the restriction $F|_{M_1}$ is zero, and $F$ is left Kan extended from $M_0 \cup M_1$.
+        \item The restriction $F|_{M_2}$ determines a $\K$-sheaf \hspace{0.25em}$\K(X)^{op} \to \C$, the restriction $F|_{M_1}$ is zero, and $F$ is right Kan extended from $M_1 \cup M_2$.
     \end{enumerate}
 \end{proposition}
 The proof of this is a bit long, so we will split the theorem into a few lemmas, keeping the notation of the theorem statement.
@@ -159,11 +160,11 @@ The proof of this is a bit long, so we will split the theorem into a few lemmas,
         \item $F|_{M'_1}$ is zero.
         \item $F|_{M'}$ is a right Kan extension of $F|_{M'_1 \cup M'_2}$.
     \end{enumerate}
-    Then any $F\in \D$ can be restricted to a sheaf $\F \in \Shv(X;\C)$ and is given by the fiber $\Gamma_K(X;\F)$ when restricted to $K\in M_0$.
+    Then any $F\in \D$ restricts to a sheaf $\F \in \Shv(X;\C)$ and is given by the fiber $\Gamma_K(X;\F)$ when restricted to $K\in M_0$.
 \end{lemma}
 \begin{proof}
     Observe that we have a bijection between $\Open(X)^{op}$ and the partially ordered set of closed subsets of $X$ by sending $\Open(X) \ni U \mapsto (X - U)$, and we have a natural inclusion $\Open(X)^{op} \hookrightarrow M_2'$.
-    By Theorem \ref{7.3.4.9} we can restrict functors in $\Fun(\Open(X)^{op}, \C)$ to $\Shv(X;\C)$, so we can also restrict functors $M_2'\to \C$ and even functors in $\D$ to sheaves on $\Open(X)^{op}$.
+    By Theorem \ref{7.3.4.9} (observe that condition 1. and 2. are exactly the conditions of Lemma \ref{lemmaFuSheaf}) the restriction of any object in $\D$ to $\Fun(\Open(X)^{op}; \C)$ is a sheaf.
     Let $\F$ be the sheaf obtained by restricting $F$.
     Define $\varphi\colon\Nerve(M_0) \to \Fun(\Delta^1\times \Delta^1, \Nerve(M'))$ by sending an object $(0,K) \in M_0$ to the diagram
     \[\begin{tikzcd}
@@ -252,8 +253,8 @@ The proof of this is a bit long, so we will split the theorem into a few lemmas,
     \]
     which completes the proof that $F|_{M_0}(K)$ is given by $\Gamma_K(X;\F)$.
 \end{proof}
-\begin{corollary}
-    In particular this means that any $F\colon M \to \C$ satisfying condition $2.$ in \ref{5.5.5.7} can be restricted to a sheaf $\F\in\Shv(X;\C)$ which is given by $\Gamma_K(X;\F)$ when restricted to $K \in M_0$.
+\begin{corollary}\label{restrictFcorollary}
+    In particular this means that any $F\colon M \to \C$ satisfying condition $2.$ in \ref{5.5.5.7} can be restricted to a sheaf \hspace{0.25em}$\F\in\Shv(X;\C)$ which is given by $\Gamma_K(X;\F)$ when restricted to $K \in M_0$.
 \end{corollary}
 \begin{proof}
     Observe first that $M$ is a full subcategory of $M'$ which means we can extend $F$ to a functor $F'\in\MAP(M',\C)$ by fully faithful Kan extension\ref{KanFullyFaithInfty}.
@@ -337,14 +338,14 @@ To complete the proof of Proposition \ref{5.5.5.7}, we must show the following l
     We can observe that $F|_{M_0 \cup M_1}$ is left Kan extended from $F|_{M''}$ ($F$ is zero on $M_1$).
     By Proposition \ref{4.3.2.8} it is enough to show that $F$ is a left Kan extension of $F|_{M''}$, and for this it is enough to check at every $(2,S) \in M_2$.
     We will instead show that $F|_{M'' \cup M_2'}$ is a left Kan extension of $F|_{M''}$, and for this we define
-    \[B:=\{(2, X- U) \subseteq M_2' \mid U \in \Open(X) | \overline{U} \in \K(X)\} .\]
+    \[B\coloneqq \{(2, X- U) \subseteq M_2' \mid U \in \Open(X) , \overline{U} \in \K(X)\} .\]
     By transitivity of Kan extensions (Proposition \ref{4.3.2.8}) it is enough to show that
     \begin{enumerate}[label=(\alph*)]
         \item $F'|_{M'' \cup M_2'}$ is a left Kan extension of $F|_{M'' \cup B}$ and
         \item $F|_{M'' \cup B}$ is a left Kan extension of $F|_{M''}$.
     \end{enumerate}
     We first show (a):
-    First observe that $M''$ and $M_2'$ are disjoint so it is enough to check that for every
+    First observe that $M''$ and $M_2'$ are disjoint, so it is enough to check that for every
 
     $(2,X-K)\in M_2' - B$, the composite
     \[
@@ -362,11 +363,11 @@ To complete the proof of Proposition \ref{5.5.5.7}, we must show the following l
             \arrow[from=1-1, to=3-1]
         \end{tikzcd}\]
     is weakly contractible for all $(2,X-U) \in (M''\cup B)$.
-    As this is just the partially ordered set $\{(i,S)\in B \mid (i,S) \leq (2,X-U) \leq (2,X-K)\}$ it is weakly contractible by the usual argument (it is nonempty and stable under finite unions, hence filtered).
+    As this is just the partially ordered set $\{(i,S)\in B \mid (i,S) \leq (2,X-U) \leq (2,X-K)\}$, it is weakly contractible by the usual argument (it is nonempty and stable under finite unions, hence filtered).
     This means that it is enough to show that $F'|_{M_2'}$ is left Kan extended from $B$.
     Assumption $2.$ says that $F|_{M_2}$ determines a $\K$-sheaf, $F|_{M_1}=0$ and that $F$ is a right Kan extension from $M_1 \cup M_2$.
-    Identifying $M_2 = \{(2, S) | (X-S) \in \K(X)\}$ with $\K(X)^{op}$ we see that we are in the situation of Theorem \ref{7.3.4.9}.
-    As $M_2' = \{(2,S) | (X-S) | \in \Open(X) \cup \K(X)\}$ we can identify it with $(\Open(X) \cup \K(X))^{op}$ and by Theorem \ref{7.3.4.9} we get that $F|_{M_2'}$ is a left Kan extension of $F|_{\Open(X)^{op}}$.
+    Identifying $M_2 = \{(2, S) \mid (X-S) \in \K(X)\}$ with $\K(X)^{op}$ we see that we are in the situation of Theorem \ref{7.3.4.9}.
+    As $M_2' = \{(2,S) \mid (X-S) \in \Open(X) \cup \K(X)\}$ we can identify it with $(\Open(X) \cup \K(X))^{op}$ and by Theorem \ref{7.3.4.9} we get that $F|_{M_2'}$ is a left Kan extension of $F|_{\Open(X)^{op}}$.
     By observing that for a $K \in \K(X)$ the collection of open neighborhoods of $K$ with compact closure is colimit-cofinal in the collection of all open neighborhoods of $K$ in $X$ we get that $F|_{M_2'}$ is furthermore left Kan extended from $B$, which was what we wanted to show.
     \[\begin{tikzcd}
             B && {\Open(X)^{op}} && \C \\
@@ -385,7 +386,7 @@ To complete the proof of Proposition \ref{5.5.5.7}, we must show the following l
     Fix $U \in \Open(X)$ such that $\overline{U} \in \K(X)$. By \ref{KanDef} we want to show that $F(2, X-U)$ is a colimit of the diagram $F|_{M''_{/(2,X-U)}}$.
     For $K \in \K(X)$ denote by $M_K''$ the subset of $M''$ consisting of pairs $(i,S)$ such that $(0,K)\leq (i,S) \leq (2,X-U)$.
     Now observe that $M''_{/(2,X-U)}$ is a filtered colimit of the simplicial sets $M''_K$ over ${K\in \K(X)_{U/}}$.
-    By \cite[Remark 4.2.3.9.]{HTT} and \cite[Corollary 4.2.3.10.]{HTT} we can identify $\colim(F|_{M''})_{/(2,X-U)}$ with the filtered colimit of the diagram $\{\colim(F|_{M_K''})\}_K$.
+    By \cite[Remark 4.2.3.9.]{HTT} and \cite[Corollary 4.2.3.10.]{HTT} we can identify $\colim((F|_{M''})_{/(2,X-U)})$ with the filtered colimit of the diagram $\{\colim(F|_{M_K''})\}_K$.
     This means that we are reduced to showing that for every $K \in \K(X)_{U/}$, $F$ exhibits $F(2,X-U)$ as a colimit of $F|_{M_K''}$.
     By Theorem \ref{superlemma} the diagram
     \[\begin{tikzcd}
@@ -434,8 +435,8 @@ To complete the proof of Proposition \ref{5.5.5.7}, we must show the following l
     As we have shown $F(0,K-U) = \fib(F(2,\emptyset) \to F(2,K-U))$ the left vertical composite rectangle is also a pullback, so the upper left must be as well.
 
 
-    Finally, we use that $\C$ is stable by noting that the upper left square is also a pushout which means that we are done if we can show that $Z$ is equivalent to $F(2,X-U)$.
-    By the corollary, the bijection between $\Open(X)^{op}$ and the poset of closed subsets of $X$ induces a restriction of $F$ to a sheaf $\F$.
+    Finally, we need to use that $\C$ is a stable $\infty$-category by noting that the upper left square is also a pushout which means that we are done if we can show that $Z$ is equivalent to $F(2,X-U)$.
+    By Corollary \ref{restrictFcorollary}, the bijection between $\Open(X)^{op}$ and the poset of closed subsets of $X$ induces a restriction of $F$ to a sheaf $\F$.
     As $F(1,K)=0$ and $F(2,X)=\F(\emptyset)=0$ we have an equivalence $F(1,K)\to F(2,K) \to F(2,X)$ which means that if we can show the composite square
     \[\begin{tikzcd}
             Z && {F(1,K)=0} \\
@@ -446,7 +447,7 @@ To complete the proof of Proposition \ref{5.5.5.7}, we must show the following l
             \arrow[from=3-1, to=3-3]
             \arrow[from=1-1, to=3-1]
         \end{tikzcd}\]
-    is a pullback, we have shown the desired equivalence $Z \to F(2,X-U)$ using the fact that pullback along an equivalence is again an equivalence.
+    is a pullback, we have shown the desired equivalence $Z \to F(2,X-U)$ using the fact that the pullback along an equivalence is again an equivalence.
 
     To complete the proof it is therefore enough to show that the lower right square is a pullback.
     Replacing $F$ by $\F$ we get
@@ -461,9 +462,9 @@ To complete the proof of Proposition \ref{5.5.5.7}, we must show the following l
         \end{tikzcd}\]
     which is a pullback because $\F$ is a sheaf ($U$ and $X-K$ are disjoint).\qedhere
 \end{proof}
-We can now prove Verdier Duality (Theorem \ref{VerdierDuality}):
-\begin{proof}
-    Let $\mathcal{E}(\C) \subseteq \Fun(M)$ be the full subcategory spanned by those functors satisfying the conditions of Proposition \ref{5.5.5.7} and observe that the inclusions $M_0 \hookrightarrow M \hookleftarrow M_2$ give restrictions
+We can now prove Verdier duality (Theorem \ref{VerdierDuality}):
+\begin{proof}[Proof of Theorem \ref{KVerdierDuality} and \ref{VerdierDuality}]
+    Let $\mathcal{E}(\C) \subseteq \Fun(M,\C)$ be the full subcategory spanned by those functors satisfying the conditions of Proposition \ref{5.5.5.7}, and observe that the inclusions $M_0 \hookrightarrow M \hookleftarrow M_2$ give restrictions
     \[
         \Shv_{\K}(X;\C^{op}) \xleftarrow{\theta} \mathcal{E}(\C)^{op} \xrightarrow{\theta'} \Shv_{\K}(X;\C)^{op}.
     \]
@@ -473,7 +474,7 @@ We can now prove Verdier Duality (Theorem \ref{VerdierDuality}):
     This proves Theorem \ref{KVerdierDuality} and by Corollary \ref{7.3.4.10} we have shown Theorem \ref{VerdierDuality}.
 \end{proof}
 \begin{remark}\label{GammaKXisGammaKU}
-    Observe that for $K$ a compact subset of an open subset $U$, $\F$ is a sheaf means that we have pullbacks:
+    Observe that for $K$ a compact subset of an open subset $U$, $\F$ being a sheaf means that we have pullbacks:
     \[\begin{tikzcd}
             {\fib(f)} && {\Gamma(X;\F)} && {\Gamma(U;\F)} \\
             \\

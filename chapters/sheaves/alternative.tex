@@ -5,8 +5,8 @@
     Let $\F \colon (\Open(X) \cup \K(X))^{op} \to \C$.
     The following conditions are equivalent:
     \begin{enumerate}[]
-        \item The presheaf $\F_{\K}:= \F|_{\K(X)^{op}}$ is a $\K$-sheaf, and $\F$ is a right Kan extension of $\F_\K$.
-        \item The presheaf $\F_{\Open}:=\F|_{\Open(X)^{op}}$ is a sheaf, and $\F$ is a left Kan extension of $\F_{\Open}$.
+        \item The presheaf $\F_{\K}\coloneqq \F|_{\K(X)^{op}}$ is a $\K$-sheaf, and $\F$ is a right Kan extension of $\F_\K$.
+        \item The presheaf $\F_{\Open}\coloneqq\F|_{\Open(X)^{op}}$ is a sheaf, and $\F$ is a left Kan extension of $\F_{\Open}$.
     \end{enumerate}
 \end{theorem}
 We will split the theorem into a few lemmas for readability and keep the notation in the theorem statement through the rest of the section.
@@ -19,7 +19,7 @@ We will split the theorem into a few lemmas for readability and keep the notatio
         (\Open(X)_{/K}^{op})^{\triangleright} \hookrightarrow ((\Open(X)\cup \K(X))_{/K}^{op})^{\triangleright} \xrightarrow{c}(\Open(X) \cup \K(X))^{op}\xrightarrow{\F}\C
     \]
     is a colimit diagram in $\C$.
-    The assumption that $\F_{\K}$ is a $\K$-sheaf means that for each $K\in \K(X)$, $\F_{\K}(K)$ is a colimit of $\F|\Nerve(\K_{K\Subset}(X))^{op}$.
+    The assumption that $\F_{\K}$ is a $\K$-sheaf means that for each $K\in \K(X)$, $\F_{\K}(K)$ is a colimit of $\F|_{(\K_{K\Subset}(X))^{op}}$.
     We will ``transfer'' this colimit to the colimit we want by colimit-cofinal maps
     \[
         (\Open(X)^{op})_{/K} \xrightarrow{p} ((\Open(X)\cup \K(X))_{/K}^{op}) \xleftarrow{p'}\K_{K\Subset}(X)^{op}.
@@ -39,8 +39,8 @@ We will split the theorem into a few lemmas for readability and keep the notatio
     \]
     is a colimit diagram, which it is by the assumption that $\F_{\K}$ is a $\K$-sheaf.
 \end{proof}
-\begin{lemma}
-    If $\F_\K$ is a $\K$-sheaf, and $\F$ is a right Kan extension of $\F_\K$, then $\F_{\Open}$ is a sheaf.
+\begin{lemma}\label{lemmaFuSheaf}
+    If $\F_\K$ is a $\K$-sheaf and $\F$ is a right Kan extension of $\F_\K$, then $\F_{\Open}$ is a sheaf.
 \end{lemma}
 \begin{proof}
     By definition \ref{sheaf_on_top} we must show that for every $U\in \Open(X)$ and every covering sieve $\mathscr{W}$ covering $U$,
@@ -52,7 +52,7 @@ We will split the theorem into a few lemmas for readability and keep the notatio
         \W^{op,\triangleleft} \hookrightarrow \Open(X)_{/U}^{op,\triangleleft} \rightarrow \Open(X)^{op}\xrightarrow{\F}\C
     \]
     is a limit diagram.
-    Let $\K_{\W}(X)$ be the set $\{K\in \K(X) \mid (\exists W \in \W) \text{ with }K \subseteq W \}$.
+    Let $\K_{\W}(X)$ be the set $\{K\in \K(X) \mid \exists W \in \W \text{ with }K \subseteq W \}$.
     We will once again use cofinality by observing that \ref{superlemma} implies  limit-cofinality of the inclusion
     \[
         \W \subseteq \W \cup \K_{\W}(X)
@@ -112,13 +112,13 @@ We will split the theorem into a few lemmas for readability and keep the notatio
     where $\F|_{(\K(X)_{/U} \cup \{ U \})^{op}} \simeq b_*(\F|_{(\K_{\W} \cup \{U\})^{op}})$ and $\F|_{(\K(X)_{/U} \cup \{U\})^{op}} \simeq (j\circ a)_*(\F|_{\K_{\W}(X)^{op}})$.
     We want to show $\F|_{(\K_{\W}(X) \cup \{U\})^{op}} \simeq i_*(\F|_{\K_{\W}(X)^{op}})$.
     Since $b$ is fully faithful (it is the inclusion of a full subcategory), we know $b^*b_* \simeq \id$, so we get
-    \begin{align}
+    \begin{align*}
         \F|_{(\K_\W(X)\cup \{U\})^{op}} & \simeq b^*b_*(\F|_{(\K_\W(X)\cup \{U\})^{op}}) \\
                                         & \simeq b^*(j\circ a)_* (\F|_{\K_\W(X)^{op}})   \\
                                         & \simeq b^*(b \circ i)_*(\F|_{\K_\W(X)^{op}})   \\
                                         & \simeq b^*b_*i_*(\F|_{\K_\W(X)^{op}})          \\
-                                        & \simeq i_*(\F|_{\K_\W(X)^{op}})
-    \end{align}
+                                        & \simeq i_*(\F|_{\K_\W(X)^{op}}) \qedhere
+    \end{align*}
 \end{proof}
 \begin{lemma}
     If $\F_{\Open}$ is a sheaf, and $\F$ is a left Kan extension of $\F_{\Open}$, then $\F_{\K}$ is a $\K$-sheaf.
@@ -194,7 +194,7 @@ We will split the theorem into a few lemmas for readability and keep the notatio
         (\K(X) \cup \Open(X))^{op,\triangleright}_{/K} \to (\K(X) \cup \Open(X))^{op} \xrightarrow{\F} \C
     \]
     is a colimit diagram, and the statement is reduced to showing that $\K_{K\Subset}(X) \subseteq (\K(X) \cup \Open(X))_{/K}^{op}$ is colimit-cofinal.
-    Let $Y\in (\K(X) \cup \Open(X))_{/K}$ and let $R$ be the partially ordered set $\{K' \in \K(X) \mid K \Subset K ' \subseteq Y\}$.
+    Let $Y\in (\K(X) \cup \Open(X))_{/K}$ and let $R$ be the partially ordered set given by $\{K' \in \K(X) \mid K \Subset K ' \subseteq Y\}$.
     Since $R$ is nonempty and stable under intersections, $R^{op}$ is filtered and hence $\Nerve(R)$ is weakly contractible.
     By \ref{superlemma} the inclusion $\K_{K\Subset}(X) \subseteq (\K(X) \cup \Open(X))_{/K}^{op}$ is colimit-cofinal and we have shown that $\F_\K$ is a $\K$-sheaf.
 \end{proof}
@@ -202,7 +202,7 @@ We will split the theorem into a few lemmas for readability and keep the notatio
     If $\F_{\Open}$ is a sheaf, then $\F$ is a right Kan extension of $\F_{\K}$.
 \end{lemma}
 \begin{proof}
-    We will show $\F$ is a right Kan extension of $\F_\K$ in a similar manner to how we showed $\F$ is a left Kan extension of $\F_{\Open}$ at the start of the proof, but we will consider the partial order on $\Open(X)$ given by writing $V\Subset U$ whenever $V\in \Open(X)$ and its closure $\overline{V}$ is compact and contained in $U$.
+    We will show that $\F$ is a right Kan extension of $\F_\K$ in a similar manner to how we showed $\F$ is a left Kan extension of $\F_{\Open}$ at the start of the proof, but we will consider the partial order on $\Open(X)$ given by writing $V\Subset U$ whenever $V\in \Open(X)$ and its closure $\overline{V}$ is compact and contained in $U$.
     Writing $\Open(X)_{\Subset U}$ for the set $\{V\in \Open(X) \mid V\Subset U\}$, we need to show that
     \[
         (\K(X)_{U/})^{op,\triangleleft} \hookrightarrow (\Open(X)_{\Subset U} \cup \K(X)_{U/})^{op} \xrightarrow{c}(\Open(X) \cup \K(X))^{op} \xrightarrow{\F} \C
@@ -210,9 +210,9 @@ We will split the theorem into a few lemmas for readability and keep the notatio
     is a colimit diagram.
     As earlier we do this by finding colimit-cofinal inclusions
     \[
-        \K(X)_{U/}^{op} \xrightarrow{f}\Nerve(\Open(X)_{\Subset U} \cup \K(X))_{U/}^{op} \xleftarrow{f'} \K(X)_{/U}^{op}.
+        (\K(X)_{U/})^{op} \xrightarrow{f}(\Open(X)_{\Subset U} \cup \K(X)_{U/})^{op} \xleftarrow{f'} \K(X)_{/U}^{op}.
     \]
-    By Theorem \ref{superlemma} $f$ and $f'$ are colimit-cofinal inclusions if for any $Y\in (\Open(X) \cup \K(X))_{U/}$ the partially ordered sets
+    By Theorem \ref{superlemma} $f$ and $f'$ are colimit-cofinal inclusions if for any $Y\in \Open(X)_{\Subset U} \cup \K(X)_{U/}$ the partially ordered sets
     \[
         \{ V \in \Open(X) |Y \subseteq V \Subset U \}
     \]
@@ -220,7 +220,7 @@ We will split the theorem into a few lemmas for readability and keep the notatio
     \[
         \{ K \in \K(X) |Y \subseteq K \subseteq U \}
     \]
-    have weakly contractible nerves, which they have by the usual argument; they are nonempty and stable under unions, hence filtered.
+    have weakly contractible nerves, which they have by the usual argument: they are nonempty and stable under unions, hence filtered.
     As $U\in \Open(X)$ is an open subset of a locally compact Hausdorff space, it is itself locally compact, which means that for any point $x \in U$ we can find a relatively compact neighborhood $U_x \Subset U$.
     Clearly we have $\bigcup_x U_x = U$, so $\Open(X)_{\Subset U}$ is a sieve covering $U$, and since $\F_{\Open}$ is a sheaf,
     \[

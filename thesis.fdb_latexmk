@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber thesis"] 1685563861 "thesis.bcf" "thesis.bbl" "thesis" 1685566747
-  "thesis.bcf" 1685566747 116357 7f7c7fef61889ec9a92eeb100090546d "lualatex"
+["biber thesis"] 1685572532 "thesis.bcf" "thesis.bbl" "thesis" 1685578166
+  "thesis.bcf" 1685578166 116357 7f7c7fef61889ec9a92eeb100090546d "lualatex"
   "thesis.bib" 1685538769 14361 d6d1da87e2ed262dad1b03c12a3e998d ""
   (generated)
   "thesis.bbl"
   "thesis.blg"
-["lualatex"] 1685566741 "/Users/prebenhastsorli/master_thesis/thesis-NTNU/thesis.tex" "thesis.pdf" "thesis" 1685566747
+["lualatex"] 1685578160 "/Users/prebenhastsorli/master_thesis/thesis-NTNU/thesis.tex" "thesis.pdf" "thesis" 1685578166
   "/Users/prebenhastsorli/Library/texlive/2022/texmf-var/luatex-cache/generic/fonts/hb/:System:Library:Fonts:Apple Color Emoji.ttc:1:nil" 1662558751 158099 4a3d0eeb6d93873c90a671aa0ef4d615 ""
   "/Users/prebenhastsorli/Library/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/linlibertine-r.luc" 1670439201 364265 05a56ef5fda9e53ad69d77547d8ab536 ""
   "/Users/prebenhastsorli/Library/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/linlibertine-rb.luc" 1670439202 317595 d9827ccf68cd0e72a863ad8f37b4d98f ""
@@ -416,22 +416,22 @@
   "chapters/introduction/acknowledgements.tex" 1685558209 3630 491fc5f307ef0a51583b7b3d9aaf0b41 ""
   "chapters/introduction/introduction.tex" 1685558658 2905 59c2b4ccde22158acd7eaa18260bf2cb ""
   "chapters/introduction/outline.tex" 1684855185 2601 c52cf45ee2894d538abb481cdf4c2533 ""
-  "chapters/lims_colims/Kan.tex" 1685308926 21432 1ed3d09f8c28132a14e46cf9ea9f0694 ""
+  "chapters/lims_colims/Kan.tex" 1685570432 21502 33066ca1803709e6dea222f793331b2b ""
   "chapters/lims_colims/cofinality.tex" 1685364830 6424 7ed518d5ce0c288d35bdb743f1b3df0b ""
   "chapters/lims_colims/lims_colims.tex" 1685566231 16708 76584fa922b943c0c53d31102bb6b113 ""
   "chapters/lims_colims/stable.tex" 1685566741 6690 2c6b7ae6786c16704fe4607df81add4a ""
-  "chapters/sheaves/K-sheaves.tex" 1685552738 22034 5417de397c48f3ce9d55f60b0785b96d ""
-  "chapters/sheaves/alternative.tex" 1685456207 17174 a7606b1adb4d9215aac5461ab96d5146 ""
-  "chapters/verdier/verdier.tex" 1685552872 37198 41eabeaa8df92e7a20c8affc97bbbeaf ""
+  "chapters/sheaves/K-sheaves.tex" 1685571358 22033 08eb798fb7c942b617a9a2e60178d954 ""
+  "chapters/sheaves/alternative.tex" 1685576479 17233 406cff2f3c03b9184800a30a58ad957d ""
+  "chapters/verdier/verdier.tex" 1685578160 37539 f0a2fb1a49d931ed73d0296c60ba47f4 ""
   "ntnuthesis.cls" 1685557197 10431 9e209702084986adecb4518b984a2fbd ""
   "preamble.tex" 1685557137 1680 2fc978fa7cda8c4718df0e3b17f6a8b6 ""
   "quiver.sty" 1679512070 1605 32d92a72ff15e3fab71eedcda667f37c ""
-  "thesis.aux" 1685566747 20148 71492a30e1aeb9f987b861f8ebacb924 "lualatex"
-  "thesis.bbl" 1685563863 45482 6c98d183a7479906cc88c70ae62a676a "biber thesis"
-  "thesis.out" 1685566747 4225 2b5ab173256b530519f0595260a06b7c "lualatex"
-  "thesis.run.xml" 1685566747 2387 08b9c140126baa4d385433434f64ac3f "lualatex"
+  "thesis.aux" 1685578166 20416 dff62daccf3eb33ecff54b129424cad6 "lualatex"
+  "thesis.bbl" 1685572534 45482 6c98d183a7479906cc88c70ae62a676a "biber thesis"
+  "thesis.out" 1685578166 4225 1be186a0966156a5081e9fbef55b3372 "lualatex"
+  "thesis.run.xml" 1685578166 2387 08b9c140126baa4d385433434f64ac3f "lualatex"
   "thesis.tex" 1685549748 1691 e90028646a103ae3c9af52b7e5c1a153 ""
-  "thesis.toc" 1685566747 2312 b331a9b453e66dba185f63fa13ff00ad "lualatex"
+  "thesis.toc" 1685578166 2312 2c104531b8e0ce8291a000e69651d5d3 "lualatex"
   (generated)
   "thesis.aux"
   "thesis.bcf"

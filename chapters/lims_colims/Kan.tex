@@ -40,7 +40,7 @@ In this thesis's final part, we will mostly consider the opposite special case i
             \arrow["\eta"',shorten <=7pt, shorten >=7pt, Rightarrow, from=4, to=2]
             \arrow["\gamma", shorten <=7pt, shorten >=7pt, Rightarrow, from=0, to=1]
         \end{tikzcd}\]
-    Dually, a right Kan extension of $F$ along $K$ is a functor $K_*F \colon \D \to \E$ with a natural transformation $\epsilon \colon K_*F \circ K \Rightarrow F$ such that any functor $G \colon \D \to E$ and any natural transformation $\delta \colon G \Rightarrow F$, $\delta$ factors uniquely through $\epsilon$.
+    Dually, a right Kan extension of $F$ along $K$ is a functor $K_*F \colon \D \to \E$ with a natural transformation $\epsilon \colon K_*F \circ K \Rightarrow F$ such that any functor $G \colon \D \to E$ and any natural transformation $\delta \colon G\circ K \Rightarrow F$, $\delta$ factors uniquely through $\epsilon$.
 \end{definition}
 The following result justifies the choice to denote left and right Kan extensions by lower shriek and star:
 \begin{proposition}[{\cite[Proposition 6.1.5.]{CatContext}}]
@@ -57,12 +57,12 @@ The following theorem gives a formula for calculating certain left and right Kan
     Let $\D \xleftarrow{K} \C \xrightarrow{F} \E$ be functors.
     If the following colimit exists for every object $d\in D$, then it defines the left Kan extension $K_!F$:
     \[
-        K_!F(d) : = \colim(K_{/d} \xrightarrow{\Pi^d}\C\xrightarrow{F}\E)
+        K_!F(d) \coloneqq \colim(K_{/d} \xrightarrow{\Pi^d}\C\xrightarrow{F}\E)
     \]
     and the unit transformation $\eta\colon F \to K_!F\circ K$ can be extracted from the colimit cone.
     Dually, if the following limit exists for every object $d\in D$, then it defines the right Kan extension $K_*F$:
     \[
-        K_*F(d) : = \lim(K_{d/} \xrightarrow{\Pi_d}\C \xrightarrow{F} \E)
+        K_*F(d) \coloneqq \lim(K_{d/} \xrightarrow{\Pi_d}\C \xrightarrow{F} \E)
     \]
     and the counit transformation $\epsilon\colon K_*F\circ K \to F$ can be extracted from the limit cone.
 \end{theorem}
@@ -104,7 +104,8 @@ Before we extend the theory of Kan extensions from ordinary categories to the wo
     \[
         K_!F(K(c)) = \colim(K_{/K(c)} \simeq \C_{/c} \xrightarrow{\Pi}\C\xrightarrow{F}\E).
     \]
-    Since the identity on $c$ is terminal in $\C_{/c}$ the colimit reduces to evaluation at the terminal object $K(c)\xrightarrow{id}K(c)$ in $K_{/Kc}$, so $\eta_c \colon F(c) \cong K_!F(K(c))$ is an isomorphism.
+    Since the identity on $c$ is terminal in $\C_{/c}$ the colimit reduces to evaluation at $K(c)\xrightarrow{\id}K(c)$, the terminal object in $K_{/Kc}$.
+    Hence, $\eta_c \colon F(c) \cong K_!F(K(c))$ is an isomorphism.
     The proof for pointwise right Kan extensions is completely dual.
 \end{proof}
 \begin{example}\label{KanCone}
@@ -117,16 +118,16 @@ Before we extend the theory of Kan extensions from ordinary categories to the wo
     By the corollary above, any functor $F\colon \C \to \E$ admits a left Kan extension $y_!F$ along the Yoneda embedding $y$ and since $y$ is fully faithful the unit $F \cong y_!F\circ y$ is an isomorphism.
     In fact, $y_!F$ has a right adjoint $R$, defined on objects by
     \[
-        R(e) \colon = \Hom_{\E}(F(\blank), e) \colon \C^{op} \to \SET.
+        R(e) \coloneqq \Hom_{\E}(F(\blank), e) \colon \C^{op} \to \SET.
     \]
     The full proof showing that this is in fact right adjoint to $y_!F$ can be found in \cite[Remark 6.5.9.]{CatContext} from which we have taken this example.
 \end{example}
 The process of left Kan extending along the Yoneda embedding is called Yoneda extension in \cite[pp.62-64]{CatsSheaves} and it provides lots of interesting examples of Kan extensions.
 We will look at a couple examples in the special case $\C = \Delta$.
 \begin{example}
-    Let $\Delta_{\mathrm{Top}} \colon \Delta \to \mathrm{Top}$ be the functor known as the standard topological $n$-simplex:
+    Let $\Delta_{\mathrm{Top}} \colon \Delta \to \mathrm{Top}$ be the functor given by the standard topological $n$-simplices:
     \[
-        [n] \mapsto \Delta^n_{\mathrm{Top}} : = \{(x_0, \dots , x_n) \in \mathbb{R}^{n+1} | \sum_{i}x_i = 1, x_i \geq 0\}  .
+        [n] \mapsto \Delta^n_{\mathrm{Top}} \coloneqq \{(x_0, \dots , x_n) \in \mathbb{R}^{n+1} | \sum_{i}x_i = 1, x_i \geq 0\}  .
     \]
     By the discussion of Yoneda extension above we have an adjoint pair $(y_!\Delta_{\mathrm{Top}}, R)$ where the right adjoint is given by
     \[
@@ -184,7 +185,7 @@ We will however see that the proof of Verdier duality mostly uses the simpler no
 \end{definition}
 \begin{example}
     The notion of Kan extensions in $\infty$-categories is compatible with the notion of Kan extensions in $1$-categories in the sense that it respects the nerve construction.
-    In other words, a functor of $1$-categories $F : \C \to \D$ is left Kan extended from a full subcategory $\C^{0}$ if and only if $\Nerve(F) \colon \Nerve(\C) \to \Nerve(\D)$ is left Kan extended from $\Nerve(\C^{0})$.
+    In other words, a functor of $1$-categories $F \colon \C \to \D$ is left Kan extended from a full subcategory $\C^{0}$ if and only if the functor $\Nerve(F) \colon \Nerve(\C) \to \Nerve(\D)$ is left Kan extended from $\Nerve(\C^{0})$.
 \end{example}
 A very useful result about Kan extensions of full subcategories is their transitive property:
 \begin{proposition}[Transitivity of Kan extensions {\cite[Proposition 4.3.2.8]{HTT}}]\label{4.3.2.8}
@@ -218,27 +219,27 @@ Following Lurie's Kerodon, we define the left Kan extension along a general func
     Lurie calls this an informal way of stating definition \cite[\href{https://kerodon.net/tag/02YC}{Variant 02YC}]{kerodon}, and we refer the reader to \cite[\href{https://kerodon.net/tag/02Y7}{Subsection 02Y7}]{kerodon} for all the details.
 \end{remark}
 \begin{remark}[{\cite[\href{https://kerodon.net/tag/030E}{Remark 030E}]{kerodon}}]
-    This characterizes $F(X)$ up to isomorphism and, in fact; for functors $\delta$ and $F_0$ as in the definition, a left Kan extension is uniquely determined up to isomorphism as an object of $\Fun(\C, \D)$.
+    This characterizes $F(X)$ up to isomorphism and, in fact for functors $\delta$ and $F_0$ as in the definition, a left Kan extension is uniquely determined up to isomorphism as an object of $\Fun(\C, \D)$.
 \end{remark}
 \begin{remark}
     This definition is compatible with the definition for Kan extensions along inclusions: just use the identity natural transformation for $\beta$.
 \end{remark}
 As promised, we have universal properties also for $\infty$-categorical Kan extensions:
 \begin{proposition}[{\cite[\href{https://kerodon.net/tag/0309}{Proposition 0309}]{kerodon}}]
-    Let $F \colon\C \to \D$ be a functor of $\infty$-categories, let $\delta \colon K\to \C$ and $F_0 \colon K \to D$ be functors of simplicial sets and let $\beta \colon F_0 \to F \circ \delta$ be natural transformation exhibiting $F$ as a left Kan extension of $F_0$ along $\delta$.
+    Let $F \colon\C \to \D$ be a functor of $\infty$-categories, let ${\delta \colon K\to \C}$ and $F_0 \colon K \to D$ be functors of simplicial sets and let $\beta \colon F_0 \to F \circ \delta$ be a natural transformation exhibiting $F$ as a left Kan extension of $F_0$ along $\delta$.
     Then for any $G \in \Fun(\C, \D)$ the following composition is an equivalence of Kan complexes:
     \[
         \map_{\Fun(\C,\D)}(F,G) \to \map_{\Fun(K,\D)}(F \circ \delta , G \circ \delta) \xrightarrow{\circ [\beta]} \map_{\Fun(K,\D)}(F_0, G\circ \delta).\equationQED        \]
 \end{proposition}
 The description of Kan extensions as adjoints to the restriction functor is now a direct consequence of Proposition \ref{adjUnivProp}:
 \begin{corollary}[{\cite[\href{https://kerodon.net/tag/030B}{Corollary 030B}]{kerodon}}]
-    Let $F \colon \C \to \D$ be a functor of $\infty$-categories and let $\delta \colon K\to \C$ be a functor of simplicial sets.
-    Suppose that any functor $F_0 : K \to \D$ has a left Kan extension along $\delta$.
+    Let $F \colon \C \to \D$ be a functor of $\infty$-categories and let ${\delta \colon K\to \C}$ be a functor of simplicial sets.
+    Suppose that any functor $F_0 \colon K \to \D$ has a left Kan extension along $\delta$.
     Then the restriction functor
     \[
         \Fun(\C, \D) \xrightarrow{\circ \delta} \Fun(K, \D)
     \]
-    has a left adjoint carrying any functor $F_0 : K \to \D$ to a left Kan extension of $F_0$ along $\delta$.\qed
+    has a left adjoint carrying any functor $F_0 \colon K \to \D$ to a left Kan extension of $F_0$ along $\delta$.\qed
 \end{corollary}
 The theory of right Kan extensions is dual, so we can of course realize right Kan extensions as right adjoints to restriction.
 

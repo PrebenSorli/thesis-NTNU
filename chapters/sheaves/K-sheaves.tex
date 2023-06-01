@@ -150,7 +150,7 @@ From here on out we generally omit the notation for the nerve construction and a
     \newline
     By transitivity of Kan extensions (Proposition \ref{4.3.2.8}), if $\W \subseteq \W'$ are two coverings of $X$ such that for every $W' \in \W'$ the covering $\{ W \cap W' \mid W \in \W\}$ is a good covering of $W'$, then $\W'$ is a good covering of $X$ if and only if $\W$ also is.
     \newline
-    This means that for $n>0$ it suffices to show that $\W' = \W \cup \{V\}$ is a good covering of $X$, where $V = \bigcup_{2 \leq i \leq n}W_i$.
+    This means that for $n>0$ it suffices to show that $\W' = \W \cup \{V\}$ is a good covering of $X$, where we have $V = \bigcup_{2 \leq i \leq n}W_i$.
     Observe now that $\W'$ contains $W_1$ and $V$ which together cover $X$ and using transitivity of Kan extensions once more further reduces the proof to $n = 2$ and showing that $\W = \{W_1, W_2\}$ is a good covering.
     \newline
     By definition of right Kan extensions along inclusions we must show that $\F(K)$ is the limit of $\F|_{\K_{\W}(X)^{op}}$ for any compact set $K \in \K(X)$.
@@ -161,7 +161,7 @@ From here on out we generally omit the notation for the nerve construction and a
     and observe that this set is filtered as a poset ordered by inclusion in the sense of \ref{filteredposet}, so it is furthermore weakly contractible by Proposition \ref{5.3.1.20}.
     Denoting an element $\alpha = (K_1, K_2)$ in $P$, we define $\K_{\alpha}$ as the set of compacts belonging to either $K_1$ or $K_2$ and note that a set $K' \subseteq K$ belongs to $\K_{\W}(X)$ if and only if it belongs to some $\K_{\alpha}$.
     Observe also that the inclusion $(K_1 \hookleftarrow K_1 \cap K_2 \hookrightarrow K_2 ) \hookrightarrow \K_{\alpha}$ is limit-cofinal by Theorem \ref{superlemma} and hence, by $\F_{\K}$ being a $\K$-sheaf, condition 2. implies $\F(K)$ is a limit of the diagram $\F|_{\K_{\alpha}^{op}}$ for every $\alpha \in P$.
-    By \cite[Corollary 4.2.3.10.]{HTT}, $\F(K)$, we can calculate the limit of $\F|_{\K_{\W}(X)^{op}}$ as a limit of limits:
+    By \cite[Corollary 4.2.3.10.]{HTT}, we can calculate the limit of $\F|_{\K_{\W}(X)^{op}}$ as a limit of limits:
     \[
         \lim_{K \in \K(X)^{op}}\F|_{\K_{\W}(X)^{op}} \simeq \lim_{\alpha \in P^{op}}\lim_{K'\in \K_{\alpha}^{op}}\F(K)\simeq \lim_{\alpha \in P^{op}}\F(K).
     \]
